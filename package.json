@@ -1,0 +1,19 @@
+{
+  "name": "rts",
+  "version": "0.0.0",
+  "description": "OSU Capstone project. VIP-style RTS",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rts",
+    "vip",
+    "phaser"
+  ],
+  "author": "Lucile Behmer, Howard Chen, Mark Ruoff",
+  "license": "MIT",
+  "dependencies": {
+    "phaser-ce": "^2.10.0"
+  }
+}
