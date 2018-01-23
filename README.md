@@ -4,7 +4,7 @@ This repo is a project by Mark Ruoff, Lucile Behmer, and Howard Chen.
 It is an VIP-style RTS for the OSU Capstone project (Winter 2018).
 
 # Installation Requirements
-node.js, 
+node.js, Typescript 2.0 compiler, 
 
 # Installation instructions
 Once this repo has been cloned to the local computer, install the required dependencies using
