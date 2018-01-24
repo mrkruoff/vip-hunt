@@ -1,5 +1,5 @@
 # Intro
-This repo is a project by Mark Ruoff, Lucile Behmer, and Howard Chen.
+This repo is a project by Mark Ruoff and Howard Chen.
 
 It is an VIP-style RTS for the OSU Capstone project (Winter 2018).
 
