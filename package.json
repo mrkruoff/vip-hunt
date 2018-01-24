@@ -7,7 +7,9 @@
     "test": "nyc mocha -r ts-node/register tests/*.spec.ts",
     "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "build": "tsc src/**/*.ts",
-    "build:watch": "watch 'npm run build' "
+    "build:watch": "watch 'npm run build' ",
+    "serve": "node dist/server.js",
+    "serve:watch": "nodemon 'npm run serve' "
   },
   "nyc": {
     "extension": [
@@ -38,6 +40,7 @@
     "inversify": "^4.9.0",
     "lodash": "^4.17.4",
     "mocha": "^5.0.0",
+    "nodemon": "^1.14.11",
     "nyc": "^11.4.1",
     "phaser-ce": "^2.10.0",
     "reflect-metadata": "^0.1.12",

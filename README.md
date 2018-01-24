@@ -26,3 +26,9 @@ Current directory
 * package.json.lock - version locking for packages
 * tests - store tests written for mocha/chai/sinon
 * src - source files for project
+
+# References
+See https://github.com/Microsoft/TypeScript-Node-Starter/blob/master/package.json
+for info on the setup of the scripts in package.json.
+
+See https://www.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/ for more info on using npm scripts as build tools instead of gulp
