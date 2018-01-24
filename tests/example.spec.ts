@@ -1,12 +1,10 @@
-
-
-import { expect } from 'chai';
-import 'mocha';
-import 'sinon';
+import { expect } from "chai";
+import "mocha";
+import "sinon";
 
 describe("Example test", () => {
     it("should run properly", () => {
-        expect(1).to.equal(1); 
+        expect(1).to.equal(1);
     });
 
 });
