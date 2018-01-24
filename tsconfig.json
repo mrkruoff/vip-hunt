@@ -5,12 +5,17 @@
         "types": ["refelct-metadata"],
         "module": "commonjs",
         "moduleResolution": "node",
+        "outDir": "dist",
         "removeComments": true,
         "noImplicitAny": true,
         "preserveConstEnums": true,
         "sourceMap": true,
         "experimentalDecorators": true,
-        "emitDecoratorMetadata": true
+        "emitDecoratorMetadata": true,
+        "baseUrl": ".",
+        "include": [
+            "src/**/*"
+        ]
         
     }
 }
