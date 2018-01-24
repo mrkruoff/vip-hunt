@@ -3,6 +3,6 @@ The 'tests' directory stores all tests for this project. Naming procedure for te
 files is {name}.spec.ts
 
 # Directory and File Structure
-example.spec.ts - example mocha/chai/sinon file.
+example.spec.ts - example of using mocha/chai/sinon in a test file.
 
 
