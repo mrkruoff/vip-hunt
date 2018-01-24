@@ -4,18 +4,21 @@
   "description": "OSU Capstone project. VIP-style RTS",
   "main": "main.js",
   "scripts": {
-    "test": "nyc mocha -r ts-node/register tests/*.spec.ts"
+    "test": "nyc mocha -r ts-node/register tests/*.spec.ts",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "build": "tsc src/**/*.ts",
+    "build:watch": "watch 'npm run build' "
   },
   "nyc": {
     "extension": [
-        ".ts",
-        ".tsx"
+      ".ts",
+      ".tsx"
     ],
     "exclude": [
-        "**/*.d.ts"
+      "**/*.d.ts"
     ],
     "reporter": [
-        "html"
+      "html"
     ],
     "all": true
   },
@@ -44,7 +47,8 @@
     "ts-node": "^4.1.0",
     "tslint": "^5.9.1",
     "tslint-eslint-rules": "^4.1.1",
-    "typescript": "^2.6.2"
+    "typescript": "^2.6.2",
+    "watch": "^1.0.2"
   },
   "repository": {
     "type": "git",
