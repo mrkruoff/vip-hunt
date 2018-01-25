@@ -29,6 +29,7 @@ Current directory
 * tests - store tests written for mocha/chai/sinon
 * src - source files for project (.ts files mostly)
 * dist - directoy for distributable files (used directly in the final game)
+* public - directory for storing visual and audio assets
 
 # References
 See https://github.com/Microsoft/TypeScript-Node-Starter/blob/master/package.json
