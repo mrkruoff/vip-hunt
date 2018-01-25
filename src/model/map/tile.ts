@@ -1,4 +1,8 @@
+import { injectable } from "inversify";
+
+
 //Tile class. Holds the state of one of the map's tiles.
+@injectable()
 class Tile {
     unitId: number;
     buildingId: number;
@@ -34,3 +38,6 @@ class Tile {
 
 
 }
+
+
+export { Tile };
