@@ -5,7 +5,7 @@
         "types": ["refelct-metadata"],
         "module": "commonjs",
         "moduleResolution": "node",
-        "outDir": "dist",
+        "outDir": "dist/js",
         "removeComments": true,
         "noImplicitAny": true,
         "preserveConstEnums": true,
