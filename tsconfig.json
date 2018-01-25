@@ -2,7 +2,7 @@
     "compilerOptions": {
         "target": "es5",
         "lib": ["es6", "dom"],
-        "types": ["refelct-metadata"],
+        "types": ["reflect-metadata"],
         "module": "commonjs",
         "moduleResolution": "node",
         "outDir": "dist/js",
@@ -12,10 +12,9 @@
         "sourceMap": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
-        "baseUrl": ".",
-        "include": [
-            "src/**/*"
-        ]
-        
-    }
+        "baseUrl": "."
+    },
+    "include": [
+        "src/**/*"
+    ]
 }

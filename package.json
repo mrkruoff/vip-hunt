@@ -5,12 +5,12 @@
   "main": "main.js",
   "scripts": {
     "test": "nyc mocha -r ts-node/register tests/*.spec.ts",
-    "lint": "tslint -c tslint.json 'src/**/*.ts'",
-    "build": "tsc src/**/*.ts",
+    "lint": "tslint src/**/*.ts",
+    "build": "npm run lint && tsc",
     "build:watch": "watch 'npm run build' ",
     "serve": "node dist/server.js",
     "serve:watch": "nodemon 'npm run serve' ",
-    "serve:test": "http-server dist/html/"
+    "serve:test": "http-server dist"
   },
   "nyc": {
     "extension": [
@@ -50,7 +50,6 @@
     "sinon": "^4.2.1",
     "source-map-support": "^0.5.2",
     "ts-node": "^4.1.0",
-    "tslint": "^5.9.1",
     "tslint-eslint-rules": "^4.1.1",
     "typescript": "^2.6.2",
     "watch": "^1.0.2"
@@ -58,5 +57,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/chenhowa/vip-hunt"
+  },
+  "devDependencies": {
+    "tslint": "^5.9.1"
   }
 }
