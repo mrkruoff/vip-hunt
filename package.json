@@ -59,12 +59,6 @@
   },
   "devDependencies": {
     "browserify": "^15.2.0",
-    "grunt": "^1.0.1",
     "tslint": "^5.9.1"
-  },
-  "browser": {
-    "p2": ".node_modules/phaser-ce/dist/p2.js",
-    "pixi": "./node_modules/phaser-ce/dist/pixi.js",
-    "phaser": "./node_modules/phaser-ce/dist/phaser.js"
   }
 }

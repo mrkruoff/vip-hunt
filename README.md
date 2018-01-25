@@ -8,8 +8,9 @@ NodeJs, Typescript 2.0 compiler, npm
 
 # Installation instructions
 Once this repo has been cloned to the local computer, install the required dependencies using
-'npm install --save'. Then use a server command like the node package 'http-server' to serve 
-'/dist/html' on a local port like localhost:8080.
+'npm install'. Then you can do the following:
+* Use 'npm run build' to build the files into the distributable files, which are located in the /dist directory.
+* Use 'npm run serve:test' to launch a test server. You'll be able to see the current state of the visual game aspects of the game.
 
 # Commands from this directory (and others, potentially)
 * npm test - project command to generate a test report that is stored in the ./coverage folder
