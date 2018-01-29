@@ -1,0 +1,11 @@
+{
+	"name":"archer",
+	"health":"50",
+	"defense":"25",
+	"attack":"50",
+	"gathering": "25",
+	"speed":"50",
+	"vision":"65",
+	"cost":"25",
+	"range":"20"
+}
