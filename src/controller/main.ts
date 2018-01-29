@@ -16,19 +16,19 @@ function preload() {
 			//load the json as text file
 
 			//units 
-			this.load.text('vipUnit', 'assets/data/units/vip_unit.json');
-			this.load.text('gatheringUnit', 'assets/data/units/gathering_unit.json');
-			this.load.text('swordsmanUnit', 'assets/data/units/swordsman_unit.json');
-			this.load.text('archerUnit', 'assets/data/units/archer_unit.json');
-			this.load.text('spearCalvaryUnit', 'assets/data/units/spear_calvary_unit.json');
-			this.load.text('archerCalvaryUnit', 'assets/data/units/archer_calvary_unit.json');
-			this.load.text('drummerBoyUnit', 'assets/data/units/drummer_boy_unit.json');
+			this.load.text('vipUnit', '/json/units/vip_unit.json');
+			this.load.text('gatheringUnit', '/json/units/gathering_unit.json');
+			this.load.text('swordsmanUnit', '/json/units/swordsman_unit.json');
+			this.load.text('archerUnit', '/json/units/archer_unit.json');
+			this.load.text('spearCalvaryUnit', '/json/units/spear_calvary_unit.json');
+			this.load.text('archerCalvaryUnit', '/json/units/archer_calvary_unit.json');
+			this.load.text('drummerBoyUnit', '/json/units/drummer_boy_unit.json');
 
 			//buildings
-			this.load.text('townhallBuilding', 'assets/data/buildings/townhall_building.json');
-			this.load.text('barracksBuilding', 'assets/data/buildings/barracks_building.json');
-			this.load.text('stableBuilding', 'assets/data/buildings/stable_building.json');
-			this.load.text('watchtowerBuilding', 'assets/data/buildings/watchtower_building.json');
+			this.load.text('townhallBuilding', '/json/buildings/townhall_building.json');
+			this.load.text('barracksBuilding', '/json/buildings/barracks_building.json');
+			this.load.text('stableBuilding', '/json/buildings/stable_building.json');
+			this.load.text('watchtowerBuilding', '/json/buildings/watchtower_building.json');
 
 
 
