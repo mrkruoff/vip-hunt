@@ -1,0 +1,5 @@
+{
+	"name":"barracks",
+	"create":["swordsman","archer"],
+	"level":"3"
+}
