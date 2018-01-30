@@ -1,4 +1,4 @@
-	interface ILocatable{
-		getCoordinate():number;
-		setCoordinate():number;
-	}
+    interface ILocatable {
+        getCoordinate(): number;
+        setCoordinate(): number;
+    }
