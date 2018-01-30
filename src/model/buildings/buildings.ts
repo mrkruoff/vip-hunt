@@ -1,7 +1,8 @@
-class Buildings implemenets IIdentifiable, ILocatable{
+
+class Buildings implements IIdentifiable, ILocatable {
 	hp: number;
 
-	takeDamage(attackPoints:number):number{
+	takeDamage(attackPoints:number):number {
 		return hp - attackPoints;
 	}
 }
