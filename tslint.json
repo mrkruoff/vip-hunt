@@ -6,6 +6,9 @@
     ],
     "jsRules": {},
     "rules": {
+        "quotemark": [true, "single", "avoid-escape"],
+        "indent": [true, "spaces", 4],
+        "comment-format": [false]
     },
     "rulesDirectory": []
 }

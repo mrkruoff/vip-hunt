@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "nyc mocha -r ts-node/register tests/*.spec.ts",
-    "lint": "tslint src/**/*.ts",
+    "lint": "tslint src/**/*.ts --fix",
     "build": "npm run lint && tsc && browserify ./dist/js/controller/main.js -o ./dist/js/bundle.js -d",
     "build:watch": "watch 'npm run build' ",
     "serve": "node dist/server.js",
