@@ -8,7 +8,12 @@
     "rules": {
         "quotemark": [true, "single", "avoid-escape"],
         "indent": [true, "spaces", 4],
-        "comment-format": [false]
+        "comment-format": [false],
+        "ordered-imports": [true, {
+            "import-sources-order": "case-insensitive",
+            "grouped-imports": false,
+            "named-imports-order": "case-insensitive"
+        }]
     },
     "rulesDirectory": []
 }

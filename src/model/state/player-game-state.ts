@@ -10,3 +10,5 @@ class PlayerGameState {
     buildings: Building[];
     //total units: number  -- not needed, as it is the length property of the this.units
 }
+
+export default PlayerGameState;

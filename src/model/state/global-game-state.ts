@@ -1,3 +1,6 @@
+import PlayerGameState from "./player-game-state";
+import Tile from "../map/tile";
+
 
 class GlobalGameState {
     map: Tile[][];
@@ -10,3 +13,5 @@ class GlobalGameState {
     }
 
 }
+
+export default GlobalGameState;

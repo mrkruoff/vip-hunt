@@ -1,7 +1,9 @@
 import IIdentifiable from "../../interfaces/identifiable";
 import ILocatable from "../../interfaces/locatable";
 
+import { Container, injectable, inject } from "inversify";
 
+@injectable()
 class Building implements IIdentifiable {
 	hp: number;
     id: number;
