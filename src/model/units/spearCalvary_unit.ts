@@ -1,3 +1,5 @@
-class SpearCalvary extends Units {
+
+import Unit from "./units";
+class SpearCalvary extends Unit {
 	method: number;
 }

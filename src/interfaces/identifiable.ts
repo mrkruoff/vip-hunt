@@ -1,3 +1,5 @@
     interface IIdentifiable {
-        getID(): number;
+        getId(): number;
     }
+
+    export default IIdentifiable;

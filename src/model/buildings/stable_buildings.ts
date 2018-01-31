@@ -1,3 +1,5 @@
-class Stable extends Buildings {
+import Building from "./buildings";
+
+class Stable extends Building {
 	method: number;
 }

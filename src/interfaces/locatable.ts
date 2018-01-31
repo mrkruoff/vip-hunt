@@ -2,3 +2,5 @@
         getCoordinate(): number;
         setCoordinate(): number;
     }
+
+    export default ILocatable;

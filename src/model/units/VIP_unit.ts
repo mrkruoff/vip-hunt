@@ -1,3 +1,5 @@
-class VIP extends Units {
+import Unit from "./units";
+
+class VIP extends Unit {
 	method: number;
 }

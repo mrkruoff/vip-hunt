@@ -1,3 +1,5 @@
-class TownHall extends Buildings {
+import Building from "./buildings";
+
+class TownHall extends Building {
 	method: number;
 }
