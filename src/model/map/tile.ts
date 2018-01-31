@@ -39,5 +39,4 @@ class Tile {
 
 }
 
-
-export { Tile };
+export default Tile;
