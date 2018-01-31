@@ -1,3 +1,0 @@
-	interface IIdentifiable{
-		getID():number;
-	}
