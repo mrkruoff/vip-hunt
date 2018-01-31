@@ -12,7 +12,8 @@
         "ordered-imports": [true, {
             "import-sources-order": "case-insensitive",
             "grouped-imports": false,
-            "named-imports-order": "case-insensitive"
+            "named-imports-order": "case-insensitive",
+            "only-arrow-functions": false
         }]
     },
     "rulesDirectory": []

@@ -7,7 +7,7 @@
     "test": "nyc mocha -r ts-node/register tests/*.spec.ts",
     "lint": "tslint src/**/*.ts --fix",
     "build": "npm run lint && tsc && browserify ./dist/js/controller/main.js -o ./dist/js/bundle.js -d",
-    "build:watch": "watch 'npm run build' ",
+    "build:watch": "watch 'tsc && browserify ./dist/js/controller/main.js -o ./dist/js/bundle.js -d' ",
     "serve": "node dist/server.js",
     "serve:watch": "nodemon 'npm run serve' ",
     "serve:test": "http-server dist -c-1"
