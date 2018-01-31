@@ -5,7 +5,7 @@ let game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload, create, update}
 //main game object
 
 function preload() {
-    game.plugins.add(new Phaser.Plugin.Isometric(game));
+//    game.plugins.add(new Phaser.Plugin.Isometric(game));
 
     game.load.image('sprite', '../public/sprites/buildings/barracks.png');
 
