@@ -7,7 +7,6 @@
         "moduleResolution": "node",
         "outDir": "dist/js",
         "removeComments": true,
-        "noImplicitAny": true,
         "preserveConstEnums": true,
         "sourceMap": true,
         "experimentalDecorators": true,
