@@ -6,6 +6,7 @@
   "scripts": {
     "test": "nyc mocha -r ts-node/register tests/*.spec.ts",
     "lint": "tslint src/**/*.ts",
+    "lint:fix": "tslint src/**/*.ts --fix",
     "live-reload": "live-reload --port 8000 dist/",
     "build": "npm run lint && tsc && browserify ./dist/js/controller/main.js -o ./dist/js/bundle.js -d",
     "build:watch": "npm run build && onchange 'src/**/*.ts' -- npm run build",
