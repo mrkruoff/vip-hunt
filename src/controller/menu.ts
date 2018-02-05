@@ -11,21 +11,26 @@ declare var TilemapCharacter: any;
 const displayWelcome = function() {
     const color = 'white';
     const alignment = 'center';
+
+    //Create the welcome text
     const welcomeText = new TextSprite('Welcome to Potayto-Potahto!', '32px Verdana', color, alignment);
     this.welcomeObject = new SceneObject(welcomeText);
     wade.addSceneObject(this.welcomeObject);
     this.welcomeObject.setPosition(0, -100);
 
+    //Create the new game text
     const newGameText = new TextSprite('New Game', '20px Verdana', color, alignment);
     this.newGameObject = new SceneObject(newGameText);
     wade.addSceneObject(this.newGameObject);
     setupNewGame.call(this);
 
+    // Create the Load Game text
     const loadGameText = new TextSprite('Load Game', '20px Verdana', color, alignment);
     this.loadGameObject = new SceneObject(loadGameText);
     wade.addSceneObject(this.loadGameObject);
     setupSaveGame.call(this);
 
+    // Create the settings text
     const settingsText = new TextSprite('Settings', '20px Verdana', color, alignment);
     this.settingsObject = new SceneObject(settingsText);
     wade.addSceneObject(this.settingsObject);
