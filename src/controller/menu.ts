@@ -70,7 +70,7 @@ function setupNewGame() {
         // load the map
         wade.loadScene('../public/grass_map.wsc', null, function() {
             //Add camera options for mouse and keyboard
-            wade.app.global.onKeyDown = function(event) {
+            wade.app.onKeyDown = function(event) {
                 if (event.keyCode === Keys.up() ) {
                     Camera.moveToTop();
                 } else if (event.keyCode === Keys.down() ) {
@@ -81,36 +81,62 @@ function setupNewGame() {
                     Camera.moveToRight();
                 }
             };
-            wade.addGlobalEventListener(wade.app.global, 'onKeyDown');
 
-            wade.app.global.onKeyUp = function(event) {
+            wade.app.onKeyUp = function(event) {
+                //Once player lets go, stop the camera from moving
                 if (event.keyCode === Keys.up() ) {
-                    //Once player lets go, stop the camera from moving
-                    wade.moveCamera(wade.getCameraPosition(), 40000);
+                    Camera.stop();
                 } else if (event.keyCode === Keys.down() ) {
-                    wade.moveCamera(wade.getCameraPosition(), 40000);
+                    Camera.stop();
                 } else if (event.keyCode === Keys.left() ) {
-                    wade.moveCamera(wade.getCameraPosition(), 40000);
+                    Camera.stop();
                 } else if (event.keyCode === Keys.right() ) {
-                    wade.moveCamera(wade.getCameraPosition(), 40000);
+                    Camera.stop();
                 }
             };
-            wade.addGlobalEventListener(wade.app.global, 'onKeyUp');
 
-            wade.app.global.onClick = function(event) {
-                console.log(event);
+            wade.app.onIsoTerrainMouseDown = function(event) {
+                console.log(event); 
             };
-            wade.addGlobalEventListener(wade.app.global, 'onClick');
+            wade.app.onClick = function(event) {
+                console.log(event); 
+            };
 
-            wade.app.global.onMouseWheel = function(event) {
-                console.log(event);
+            //Allow player to move around by mouse. Requires constant
+            // observation of mouse, though.
+            wade.app.onMouseMove = function(event) {
+                console.log(event); 
+                let rightLimit = wade.getScreenWidth() / 2;
+                let leftLimit = -1 * rightLimit;
+                let bottomLimit = wade.getScreenHeight() / 2;
+                let topLimit = -1 * bottomLimit;
+                let x = event.screenPosition.x;
+                let y = event.screenPosition.y;
+
+                //There are bugs here. What if player uses keys to move camera
+                // at same time?
+                if(Math.abs(y - topLimit) < 10) {
+                    Camera.moveToTop(); 
+                } else if (Math.abs(y - bottomLimit) < 10) {
+                    Camera.moveToBottom(); 
+                } else if (Math.abs(x - leftLimit) < 10) {
+                    Camera.moveToLeft(); 
+                } else if (Math.abs(x - rightLimit) < 10) {
+                    Camera.moveToRight(); 
+                } else if (Camera.isMoving()) {
+                    Camera.stop()
+                }
+
+            }
+
+
+            wade.app.onMouseWheel = function(event) {
                 if (event.value > 0) {
                     Camera.zoomIn();
                 } else if (event. value < 0) {
                     Camera.zoomOut();
                 }
             };
-            wade.addGlobalEventListener(wade.app.global, 'onMouseWheel');
 
         }, clearscene);
     };
