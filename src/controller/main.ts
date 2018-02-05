@@ -17,6 +17,7 @@ App = function() {
         //Create a global object for handling global events.
         this.global = new SceneObject();
         this.global.cameraSpeed = 500;
+        this.global.zoomSpeed = 0.5;
 
         //display a welcome screen with menu choices.
         Menu.displayWelcome.call(this);

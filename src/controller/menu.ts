@@ -1,5 +1,5 @@
-import Keys from './keys';
 import Camera from './camera';
+import Keys from './keys';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -71,21 +71,21 @@ function setupNewGame() {
         wade.loadScene('../public/grass_map.wsc', null, function() {
             //Add camera options for mouse and keyboard
             wade.app.global.onKeyDown = function(event) {
-                if(event.keyCode === Keys.up() ) {
+                if (event.keyCode === Keys.up() ) {
                     Camera.moveToTop();
                 } else if (event.keyCode === Keys.down() ) {
-                    Camera.moveToBottom(); 
+                    Camera.moveToBottom();
                 } else if (event.keyCode === Keys.left() ) {
-                    Camera.moveToLeft(); 
+                    Camera.moveToLeft();
                 } else if (event.keyCode === Keys.right() ) {
-                    Camera.moveToRight(); 
+                    Camera.moveToRight();
                 }
             };
             wade.addGlobalEventListener(wade.app.global, 'onKeyDown');
 
             wade.app.global.onKeyUp = function(event) {
-                if(event.keyCode === Keys.up() ) {
-                    //Once player lets go, stop the camera from moving 
+                if (event.keyCode === Keys.up() ) {
+                    //Once player lets go, stop the camera from moving
                     wade.moveCamera(wade.getCameraPosition(), 40000);
                 } else if (event.keyCode === Keys.down() ) {
                     wade.moveCamera(wade.getCameraPosition(), 40000);
@@ -94,13 +94,23 @@ function setupNewGame() {
                 } else if (event.keyCode === Keys.right() ) {
                     wade.moveCamera(wade.getCameraPosition(), 40000);
                 }
-            }
+            };
             wade.addGlobalEventListener(wade.app.global, 'onKeyUp');
 
             wade.app.global.onClick = function(event) {
-                console.log(event); 
-            }
+                console.log(event);
+            };
             wade.addGlobalEventListener(wade.app.global, 'onClick');
+
+            wade.app.global.onMouseWheel = function(event) {
+                console.log(event);
+                if (event.value > 0) {
+                    Camera.zoomIn();
+                } else if (event. value < 0) {
+                    Camera.zoomOut();
+                }
+            };
+            wade.addGlobalEventListener(wade.app.global, 'onMouseWheel');
 
         }, clearscene);
     };

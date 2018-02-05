@@ -10,56 +10,65 @@ declare var Path: any;
 declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
-var Camera = {
+const Camera = {
     moveToTop: () => {
-        let destination = wade.getCameraPosition();
+        const destination = wade.getCameraPosition();
         //Set new destiination relative to current position
         destination.y -= (wade.getScreenHeight() / 2);
         wade.moveCamera(destination, wade.app.global.cameraSpeed, Camera.moveToTop);
     },
     moveToLeft: () => {
-        let destination = wade.getCameraPosition();
+        const destination = wade.getCameraPosition();
         //Set new destiination relative to current position
         destination.x -= (wade.getScreenWidth() / 2);
         wade.moveCamera(destination, wade.app.global.cameraSpeed, Camera.moveToLeft);
     },
     moveToRight: () => {
-        let destination = wade.getCameraPosition();
+        const destination = wade.getCameraPosition();
         //Set new destiination relative to current position
         destination.x += (wade.getScreenWidth() / 2);
         wade.moveCamera(destination, wade.app.global.cameraSpeed, Camera.moveToRight);
     },
     moveToBottom: () => {
-        let destination = wade.getCameraPosition();
+        const destination = wade.getCameraPosition();
         //Set new destiination relative to current position
         destination.y += (wade.getScreenHeight() / 2);
         wade.moveCamera(destination, wade.app.global.cameraSpeed, Camera.moveToBottom);
     },
     moveToNW: () => {
-        let destination = wade.getCameraPosition(); 
+        const destination = wade.getCameraPosition();
         destination.y -= (wade.getScreenHeight() / 2);
         destination.x -= (wade.getScreenWidth() / 2);
         wade.moveCamera(destination, wade.app.global.cameraSpeed, Camera.moveToNW);
     },
     moveToNE: () => {
-        let destination = wade.getCameraPosition(); 
+        const destination = wade.getCameraPosition();
         destination.y -= (wade.getScreenHeight() / 2);
         destination.x += (wade.getScreenWidth() / 2);
         wade.moveCamera(destination, wade.app.global.cameraSpeed, Camera.moveToNE);
     },
     moveToSE: () => {
-        let destination = wade.getCameraPosition(); 
+        const destination = wade.getCameraPosition();
         destination.y += (wade.getScreenHeight() / 2);
         destination.x += (wade.getScreenWidth() / 2);
         wade.moveCamera(destination, wade.app.global.cameraSpeed, Camera.moveToSE);
     },
     moveToSW: () => {
-        let destination = wade.getCameraPosition(); 
+        const destination = wade.getCameraPosition();
         destination.y += (wade.getScreenHeight() / 2);
         destination.x -= (wade.getScreenWidth() / 2);
         wade.moveCamera(destination, wade.app.global.cameraSpeed, Camera.moveToSW);
-    }
-}
-
+    },
+    zoomIn: () => {
+        const destination = wade.getCameraPosition();
+        destination.z -= 0.5;
+        wade.moveCamera(destination, wade.app.global.zoomSpeed);
+    },
+    zoomOut: () => {
+        const destination = wade.getCameraPosition();
+        destination.z += 0.5;
+        wade.moveCamera(destination, wade.app.global.zoomSpeed);
+    },
+};
 
 export default Camera;

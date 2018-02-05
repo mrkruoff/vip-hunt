@@ -12,10 +12,10 @@ const Keys = {
     right() {
         return this.d;
     },
-    w: 87,
-    d: 68,
     a: 65,
+    d: 68,
     s: 83,
+    w: 87,
 };
 
 export default Keys;
