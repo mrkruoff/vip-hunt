@@ -1,3 +1,6 @@
+import Keys from './keys';
+import Camera from './camera';
+
 declare var wade: any;
 declare var TextSprite: any;
 declare var SceneObject: any;
@@ -62,8 +65,46 @@ function setupNewGame() {
 
     setMouseInOut(this.newGameObject);
 
-    // this.newGameObject.onClick = startGame.call(this);
-    // wade.addEventListener(this.newGameObject, 'onClick');
+    this.newGameObject.onClick = function() {
+        const clearscene = true;
+        // load the map
+        wade.loadScene('../public/grass_map.wsc', null, function() {
+            //Add camera options for mouse and keyboard
+            wade.app.global.onKeyDown = function(event) {
+                if(event.keyCode === Keys.up() ) {
+                    Camera.moveToTop();
+                } else if (event.keyCode === Keys.down() ) {
+                    Camera.moveToBottom(); 
+                } else if (event.keyCode === Keys.left() ) {
+                    Camera.moveToLeft(); 
+                } else if (event.keyCode === Keys.right() ) {
+                    Camera.moveToRight(); 
+                }
+            };
+            wade.addGlobalEventListener(wade.app.global, 'onKeyDown');
+
+            wade.app.global.onKeyUp = function(event) {
+                if(event.keyCode === Keys.up() ) {
+                    //Once player lets go, stop the camera from moving 
+                    wade.moveCamera(wade.getCameraPosition(), 40000);
+                } else if (event.keyCode === Keys.down() ) {
+                    wade.moveCamera(wade.getCameraPosition(), 40000);
+                } else if (event.keyCode === Keys.left() ) {
+                    wade.moveCamera(wade.getCameraPosition(), 40000);
+                } else if (event.keyCode === Keys.right() ) {
+                    wade.moveCamera(wade.getCameraPosition(), 40000);
+                }
+            }
+            wade.addGlobalEventListener(wade.app.global, 'onKeyUp');
+
+            wade.app.global.onClick = function(event) {
+                console.log(event); 
+            }
+            wade.addGlobalEventListener(wade.app.global, 'onClick');
+
+        }, clearscene);
+    };
+    wade.addEventListener(this.newGameObject, 'onClick');
 }
 
 // Helper function that returns a function that will change a textObject's

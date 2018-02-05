@@ -14,7 +14,11 @@ declare var TilemapCharacter: any;
 App = function() {
     // Sets up initial variables for the game
     this.init = function() {
-        //First, display a welcome screen with menu choices.
+        //Create a global object for handling global events.
+        this.global = new SceneObject();
+        this.global.cameraSpeed = 500;
+
+        //display a welcome screen with menu choices.
         Menu.displayWelcome.call(this);
 
     };
