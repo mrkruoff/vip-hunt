@@ -35,7 +35,14 @@ const Hud = {
         wade.setLayerTransform(9, 0, 0);
 
         building.onClick = function(event) {
-            console.log(event);
+            console.log("HI");
+            // Show buildings that can be built
+            const barracksSprite = new Sprite('../public/sprites/buildings/barracks_1.png', 9);
+            this.setVisible(false);
+            barracksSprite.setSize(50, 50);
+            let barracks = new SceneObject(barracksSprite);
+            barracks.setPosition((-1 * wade.getScreenWidth() / 2) + 100, (wade.getScreenHeight() / 2) - 100);
+            wade.addSceneObject(barracks);
         };
         wade.addEventListener(building, 'onClick');
     },

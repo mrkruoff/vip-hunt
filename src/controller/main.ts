@@ -28,6 +28,7 @@ App = function() {
     this.load = function() {
         wade.loadImage('../public/sprites/hud/scroll.png');
         wade.loadImage('../public/sprites/hud/building.png');
+        wade.loadImage('../public/sprites/buildings/barracks_1.png');
 
     };
 
