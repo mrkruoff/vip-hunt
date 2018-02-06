@@ -1,3 +1,4 @@
+import ImageMap from './image-map';
 import * as Menu from './menu';
 
 declare var App: any;
@@ -26,10 +27,9 @@ App = function() {
 
     // Initial loading of assets from server to client
     this.load = function() {
-        wade.loadImage('../public/sprites/hud/scroll.png');
-        wade.loadImage('../public/sprites/hud/building.png');
-        wade.loadImage('../public/sprites/buildings/barracks_1.png');
-
+        wade.loadImage(ImageMap.scroll);
+        wade.loadImage(ImageMap.buildingIcon);
+        wade.loadImage(ImageMap.barracks1);
     };
 
 };
