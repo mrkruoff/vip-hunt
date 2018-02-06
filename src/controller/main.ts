@@ -27,6 +27,8 @@ App = function() {
     // Initial loading of assets from server to client
     this.load = function() {
         wade.loadImage('../public/sprites/hud/scroll.png');
+        wade.loadImage('../public/sprites/hud/building.png');
+
     };
 
 };

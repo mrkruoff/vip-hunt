@@ -10,7 +10,7 @@ declare var Path: any;
 declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
-let Events = {
+const Events = {
     addGlobal: () => {
     //Add camera options for mouse and keyboard
         wade.app.onKeyDown = function(event) {
