@@ -105,46 +105,7 @@ function setupNewGame() {
             //Allow player to move around by mouse. Requires constant
             // observation of mouse, which is costly.
             wade.app.onMouseMove = function(event) {
-                const x = event.screenPosition.x;
-                const y = event.screenPosition.y;
-
-                const rightLimit = wade.getScreenWidth() / 2;
-                const rightDiff = Math.abs(x - rightLimit);
-
-                const leftLimit = -1 * rightLimit;
-                const leftDiff = Math.abs(x - leftLimit);
-
-                const bottomLimit = wade.getScreenHeight() / 2;
-                const bottomDiff = Math.abs(y - bottomLimit);
-
-                const topLimit = -1 * bottomLimit;
-                const topDiff = Math.abs(y - topLimit);
-
-                const edgeTol = 20;
-                const cornerTol = 40;
-
-                //There are bugs here. What if player uses keys to move camera
-                // at same time?
-                if (topDiff < cornerTol && leftDiff < cornerTol) {
-                    Camera.moveToNW();
-                } else if (topDiff < cornerTol && rightDiff < cornerTol) {
-                    Camera.moveToNE();
-                } else if (bottomDiff < cornerTol && rightDiff < cornerTol) {
-                    Camera.moveToSE();
-                } else if (bottomDiff < cornerTol && leftDiff < cornerTol) {
-                    Camera.moveToSW();
-                } else if (topDiff < edgeTol) {
-                    Camera.moveToTop();
-                } else if (bottomDiff < edgeTol) {
-                    Camera.moveToBottom();
-                } else if (leftDiff < edgeTol) {
-                    Camera.moveToLeft();
-                } else if (rightDiff < edgeTol) {
-                    Camera.moveToRight();
-                } else if (Camera.isMoving()) {
-                    Camera.stop();
-                }
-
+                Camera.mouseMove(event);
             };
 
             wade.app.onMouseWheel = function(event) {
