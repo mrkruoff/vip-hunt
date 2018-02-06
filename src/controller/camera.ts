@@ -84,8 +84,8 @@ const Camera = {
         wade.cameraIsMoving = false;
     },
     isMoving: () => {
-        return wade.cameraIsMoving; 
-    }
+        return wade.cameraIsMoving;
+    },
 };
 
 export default Camera;
