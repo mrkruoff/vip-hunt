@@ -1,5 +1,5 @@
-import Camera from './camera';
-import Keys from './keys';
+import Events from './events';
+import Hud from './hud';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -69,53 +69,9 @@ function setupNewGame() {
         const clearscene = true;
         // load the map
         wade.loadScene('../public/grass_map.wsc', null, function() {
-            //Add camera options for mouse and keyboard
-            wade.app.onKeyDown = function(event) {
-                if (event.keyCode === Keys.up() ) {
-                    Camera.moveToTop();
-                } else if (event.keyCode === Keys.down() ) {
-                    Camera.moveToBottom();
-                } else if (event.keyCode === Keys.left() ) {
-                    Camera.moveToLeft();
-                } else if (event.keyCode === Keys.right() ) {
-                    Camera.moveToRight();
-                }
-            };
-
-            wade.app.onKeyUp = function(event) {
-                //Once player lets go, stop the camera from moving
-                if (event.keyCode === Keys.up() ) {
-                    Camera.stop();
-                } else if (event.keyCode === Keys.down() ) {
-                    Camera.stop();
-                } else if (event.keyCode === Keys.left() ) {
-                    Camera.stop();
-                } else if (event.keyCode === Keys.right() ) {
-                    Camera.stop();
-                }
-            };
-
-            wade.app.onIsoTerrainMouseDown = function(event) {
-                console.log(event);
-            };
-            wade.app.onClick = function(event) {
-                console.log(event);
-            };
-
-            //Allow player to move around by mouse. Requires constant
-            // observation of mouse, which is costly.
-            wade.app.onMouseMove = function(event) {
-                Camera.mouseMove(event);
-            };
-
-            wade.app.onMouseWheel = function(event) {
-                if (event.value > 0) {
-                    Camera.zoomIn();
-                } else if (event. value < 0) {
-                    Camera.zoomOut();
-                }
-            };
-
+            Events.addGlobal();
+            Hud.initialize();
+            
         }, clearscene);
     };
     wade.addEventListener(this.newGameObject, 'onClick');
@@ -138,5 +94,6 @@ function setMouseInOut(textObject: any) {
     textObject.onMouseOut = changeColor(textObject, 'white');
     wade.addEventListener(textObject, 'onMouseOut');
 }
+
 
 export { displayWelcome };
