@@ -127,6 +127,29 @@ const Camera = {
             Camera.stop();
         }
     
+    },
+    keyDown: (event) => {
+        if (event.keyCode === Keys.up() ) {
+            Camera.moveToTop();
+        } else if (event.keyCode === Keys.down() ) {
+            Camera.moveToBottom();
+        } else if (event.keyCode === Keys.left() ) {
+            Camera.moveToLeft();
+        } else if (event.keyCode === Keys.right() ) {
+            Camera.moveToRight();
+        }
+    },
+    keyUp: (event) => {
+        //Once player lets go, stop the camera from moving
+        if (event.keyCode === Keys.up() ) {
+            Camera.stop();
+        } else if (event.keyCode === Keys.down() ) {
+            Camera.stop();
+        } else if (event.keyCode === Keys.left() ) {
+            Camera.stop();
+        } else if (event.keyCode === Keys.right() ) {
+            Camera.stop();
+        }
     }
 };
 
