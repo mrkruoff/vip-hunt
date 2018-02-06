@@ -126,7 +126,7 @@ const Camera = {
         } else if (Camera.isMoving()) {
             Camera.stop();
         }
-    
+
     },
     keyDown: (event) => {
         if (event.keyCode === Keys.up() ) {
@@ -150,7 +150,7 @@ const Camera = {
         } else if (event.keyCode === Keys.right() ) {
             Camera.stop();
         }
-    }
+    },
 };
 
 export default Camera;

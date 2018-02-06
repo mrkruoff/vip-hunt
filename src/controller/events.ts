@@ -10,7 +10,7 @@ declare var Path: any;
 declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
-var Events = {
+let Events = {
     addGlobal: () => {
     //Add camera options for mouse and keyboard
         wade.app.onKeyDown = function(event) {
@@ -41,8 +41,7 @@ var Events = {
                 Camera.zoomOut();
             }
         };
-    }
+    },
 };
-
 
 export default Events;

@@ -69,9 +69,11 @@ function setupNewGame() {
         const clearscene = true;
         // load the map
         wade.loadScene('../public/grass_map.wsc', null, function() {
+            //Limit camera movement
+            wade.setCameraBounds(-1500, 1500, -1500, 1500, 3, 10);
             Events.addGlobal();
             Hud.initialize();
-            
+
         }, clearscene);
     };
     wade.addEventListener(this.newGameObject, 'onClick');
@@ -94,6 +96,5 @@ function setMouseInOut(textObject: any) {
     textObject.onMouseOut = changeColor(textObject, 'white');
     wade.addEventListener(textObject, 'onMouseOut');
 }
-
 
 export { displayWelcome };
