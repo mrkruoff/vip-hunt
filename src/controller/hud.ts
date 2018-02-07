@@ -1,5 +1,6 @@
 import * as _ from 'lodash';
 import ImageMap from './image-map';
+import Mouse from './mouse';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -13,8 +14,6 @@ declare var TilemapCharacter: any;
 
 const Hud = {
     initialize: () => {
-        //THIS NEEDS REWORKING. For some reason the sprites won't move
-        // within the scene object!
 
         //Add scroll to background
         const scroll = Hud.displayScroll(10);
@@ -31,9 +30,36 @@ const Hud = {
 
             //Show the player new buttons for making buildings on map
             const options = Hud.displayBuildingOptions(9);
+            console.log(options);
 
-            //For each building, add an event listener that
-            //will construct the correct building
+            //Process each icon to have correct events
+            _.forEach(options, (b) => {
+                const imageName = b.getSprite(0).getImageName();
+                if (imageName === ImageMap.barracks1) {
+                    b.onClick = (e) => {
+                        if (e.button === Mouse.left) {
+                            console.log('BUILDING PRESSED');
+                            const barracksSprite = new Sprite(ImageMap.barracks1, 8);
+                            barracksSprite.setSize(600, 600);
+                            const barracks = new SceneObject(barracksSprite);
+                            wade.addSceneObject(barracks);
+
+                            //Override global terrain click to allow building construction
+                            wade.app.onIsoTerrainMouseMove = (event) => {
+                                console.log(event);
+                                const position = event.position;
+                                barracks.setPosition(position.x, position.y);
+
+                            };
+                        }
+
+                    };
+                    wade.addEventListener(b, 'onClick');
+                } else if (false) {
+                    //Add other panel options here.
+                }
+
+            });
 
         };
         wade.addEventListener(building, 'onClick');
