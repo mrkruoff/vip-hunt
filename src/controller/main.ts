@@ -1,4 +1,5 @@
 import ImageMap from './image-map';
+import JsonMap from './json-map';
 import * as Menu from './menu';
 
 declare var App: any;
@@ -29,7 +30,12 @@ App = function() {
     this.load = function() {
         wade.loadImage(ImageMap.scroll);
         wade.loadImage(ImageMap.buildingIcon);
-        wade.loadImage(ImageMap.barracks1);
+        wade.loadImage(ImageMap.barracks_1);
+        wade.loadImage(ImageMap.stables_1);
+        wade.loadImage(ImageMap.towers_1);
+        wade.loadImage(ImageMap.town_halls_1);
+
+        wade.loadJson(JsonMap.barracks_1);
     };
 
 };

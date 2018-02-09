@@ -20,11 +20,11 @@ const Events = {
         wade.app.onKeyUp = function(event) {
             Camera.keyUp(event);
         };
-/*
+
         wade.app.onIsoTerrainMouseDown = function(event) {
             console.log(event);
         };
-*/
+
         wade.app.onClick = function(event) {
             console.log(event);
         };
