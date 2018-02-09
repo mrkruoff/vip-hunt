@@ -20,7 +20,37 @@ var Construction = {
         };
         return wade.iso.createObject(objectData);
     
-    }
+    },
+    stables: (jsonFile) => {
+        const objectData = {
+            sprites: wade.getJson(jsonFile),
+            gridSize: {x: 2, z: 2},
+            collisionSize: {x: 2, z: 2}
+
+        };
+        return wade.iso.createObject(objectData);
+    
+    },
+    towers: (jsonFile) => {
+        const objectData = {
+            sprites: wade.getJson(jsonFile),
+            gridSize: {x: 2, z: 2},
+            collisionSize: {x: 2, z: 2}
+
+        };
+        return wade.iso.createObject(objectData);
+    
+    },
+    townHalls: (jsonFile) => {
+        const objectData = {
+            sprites: wade.getJson(jsonFile),
+            gridSize: {x: 2, z: 2},
+            collisionSize: {x: 2, z: 2}
+
+        };
+        return wade.iso.createObject(objectData);
+    
+    },
 
 };
 

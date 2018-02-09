@@ -36,6 +36,9 @@ App = function() {
         wade.loadImage(ImageMap.town_halls_1);
 
         wade.loadJson(JsonMap.barracks_1);
+        wade.loadJson(JsonMap.stables_1);
+        wade.loadJson(JsonMap.towers_1);
+        wade.loadJson(JsonMap.town_halls_1);
     };
 
 };

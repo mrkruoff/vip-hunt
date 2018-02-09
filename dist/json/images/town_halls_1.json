@@ -3,7 +3,7 @@
     "type": "sprite",
     "name": "town_hall_1",
     "visible": "true",
-    "image": "../js/../public/sprites/buildings/town_hall_1.png",
+    "image": "../js/../public/sprites/buildings/town_halls_1.png",
     "size": {"x": 600, "y": 600}
 
 

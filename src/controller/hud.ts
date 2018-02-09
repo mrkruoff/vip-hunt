@@ -3,6 +3,7 @@ import ImageMap from './image-map';
 import Mouse from './mouse';
 import JsonMap from './json-map';
 import Construction from './construction';
+import Names from './names';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -20,11 +21,9 @@ const Hud = {
 
         //Add scroll to background
         const scroll = Hud.displayScroll(10);
-        wade.app.scroll = scroll;
 
         //Add building button
         const building = Hud.displayBuilding(9);
-        wade.app.building = building;
 
         building.onClick = function(event) {
             //Make the clicked building disappear
@@ -32,15 +31,26 @@ const Hud = {
 
             //Show the player new buttons for making buildings on map
             const options = Hud.displayBuildingOptions(9);
+
             //Process each icon to have correct events
             _.forEach(options, (b) => {
                 const imageName = b.getSprite(0).getImageName();
+                let callback;
                 if (imageName === ImageMap.barracks_1) {
-                    b.onClick = Hud.barracksConstruction(b);
-                    wade.addEventListener(b, 'onClick');
-                } else if (false) {
-                    //Add other panel options here.
+                    callback = Hud.buildingConstruction(options,
+                        Construction.barracks, JsonMap.barracks_1);
+                } else if (imageName === ImageMap.stables_1) {
+                    callback = Hud.buildingConstruction(options,
+                        Construction.stables, JsonMap.stables_1);
+                } else if (imageName === ImageMap.towers_1) {
+                    callback = Hud.buildingConstruction(options,
+                        Construction.towers, JsonMap.towers_1);
+                } else if (imageName === ImageMap.town_halls_1) {
+                    callback = Hud.buildingConstruction(options,
+                        Construction.townHalls, JsonMap.town_halls_1);
                 }
+                b.onClick = callback;
+                wade.addEventListener(b, 'onClick');
 
             });
 
@@ -56,6 +66,7 @@ const Hud = {
         scroll.setPosition(0, 400);
         scroll.setRotation(1.5708);
         wade.addSceneObject(scroll);
+        scroll.setName(Names.hudBackground);
         wade.setLayerTransform(layer, 0, 0);
         return scroll;
     },
@@ -67,9 +78,8 @@ const Hud = {
         const building = new SceneObject(buildingSprite);
         building.setPosition((-1 * wade.getScreenWidth() / 2) + 100, (wade.getScreenHeight() / 2) - 100);
         wade.addSceneObject(building);
+        building.setName(Names.buildingIcon);
         wade.setLayerTransform(layer, 0, 0);
-
-
 
         return building;
     },
@@ -84,38 +94,42 @@ const Hud = {
         let y = (wade.getScreenHeight() / 2) - 100;
         const barracks = Button.build(ImageMap.barracks_1, buttonWidth, buttonHeight,
                 x, y, layer);
+        barracks.setName(Names.barracksIcon);
 
         x = (-1 * wade.getScreenWidth() / 2) + 200;
         y = (wade.getScreenHeight() / 2) - 100;
         const stables = Button.build(ImageMap.stables_1, buttonWidth, buttonHeight,
                 x, y, layer);
+        stables.setName(Names.stablesIcon);
 
         x = (-1 * wade.getScreenWidth() / 2) + 200;
         y = (wade.getScreenHeight() / 2) - 200;
         const towers = Button.build(ImageMap.towers_1, buttonWidth, buttonHeight,
                 x, y, layer);
+        towers.setName(Names.towersIcon);
 
         x = (-1 * wade.getScreenWidth() / 2) + 100;
         y = (wade.getScreenHeight() / 2) - 200;
         const town_halls = Button.build(ImageMap.town_halls_1, buttonWidth,
                 buttonHeight, x, y, layer);
+        town_halls.setName(Names.townHallsIcon);
 
         return [barracks, stables, towers, town_halls];
 
     },
-    barracksConstruction: (b) => {
+    buildingConstruction: (optionsPanel, constructionFn, jsonFile) => {
         return function(event) {
             if (event.button === Mouse.left) {
-                if(b.icon) {
+                if(optionsPanel.icon) {
                     //If the building has an icon,
                     //don't create another
                 } else {
-                    b.icon = Construction.barracks(JsonMap.barracks_1);
-                    Mouse.trackIsoTerrainGridMove(b.icon);
+                    optionsPanel.icon = constructionFn(jsonFile);
+                    Mouse.trackIsoTerrainGridMove(optionsPanel.icon);
 
                     wade.app.onIsoTerrainMouseDown = (e) => {
                         //Make room to construct another buildiing
-                        b.icon = null;
+                        optionsPanel.icon = null;
                         wade.app.onIsoTerrainMouseMove = null;
                     }
                 }
