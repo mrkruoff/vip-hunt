@@ -12,7 +12,8 @@
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "baseUrl": ".",
-        "noImplicitUseStrict": true
+        "noImplicitUseStrict": true,
+        "noEmitOnError": true
     },
     "include": [
         "src/**/*"
