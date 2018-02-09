@@ -1,8 +1,8 @@
 import * as _ from 'lodash';
-import ImageMap from './image-map';
-import Mouse from './mouse';
-import JsonMap from './json-map';
 import Construction from './construction';
+import ImageMap from './image-map';
+import JsonMap from './json-map';
+import Mouse from './mouse';
 import Names from './names';
 
 declare var wade: any;
@@ -17,7 +17,6 @@ declare var TilemapCharacter: any;
 
 const Hud = {
     initialize: () => {
-
 
         //Add scroll to background
         const scroll = Hud.displayScroll(10);
@@ -120,37 +119,40 @@ const Hud = {
     buildingConstruction: (optionsPanel, constructionFn, jsonFile) => {
         return function(event) {
             if (event.button === Mouse.left) {
-                if(optionsPanel.icon) {
-                    //If the building has an icon,
-                    //don't create another
-                } else {
-                    optionsPanel.icon = constructionFn(jsonFile);
-                    Mouse.trackIsoTerrainGridMove(optionsPanel.icon);
-
-                    wade.app.onIsoTerrainMouseDown = (e) => {
-                        //Make room to construct another buildiing
-                        optionsPanel.icon = null;
-                        wade.app.onIsoTerrainMouseMove = null;
-                    }
+                if (optionsPanel.icon) {
+                    //If the building has an icon, delete current one and
+                    // replace it with the other
+                    wade.iso.deleteObject(optionsPanel.icon);
+                    optionsPanel.icon = null;
                 }
+                optionsPanel.icon = constructionFn(jsonFile);
+                Mouse.trackIsoTerrainGridMove(optionsPanel.icon);
+
+                wade.app.onIsoTerrainMouseDown = (e) => {
+                    //Make room to construct another buildiing
+                    optionsPanel.icon = null;
+                    wade.app.onIsoTerrainMouseMove = null;
+                    //Remove this same event listener
+                    wade.app.onIsoTerrainMouseDown = null;
+                };
             }
-        }
-    }
+        };
+    },
 };
 
-var Button = {
+const Button = {
     build: (imgStr: string, width: number, height: number,
-                x: number, y: number, layer: number) => {
+            x: number, y: number, layer: number) => {
         const sprite = new Sprite(imgStr, layer);
         sprite.setSize(width, height);
         const sceneObj = new SceneObject(sprite);
         sceneObj.setPosition(x, y);
         wade.addSceneObject(sceneObj);
-    
-        return sceneObj;
-    
-    }
 
-}
+        return sceneObj;
+
+    },
+
+};
 
 export default Hud;

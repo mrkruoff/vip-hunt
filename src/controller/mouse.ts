@@ -17,8 +17,8 @@ const Mouse = {
         wade.app.onIsoTerrainMouseMove = (event) => {
             wade.iso.moveObjectToTile(isoSceneObject,
                 event.gridCoords.x, event.gridCoords.z);
-        }
-    }
+        };
+    },
 };
 
 export default Mouse;

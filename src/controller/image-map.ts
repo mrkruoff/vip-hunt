@@ -6,7 +6,7 @@ const ImageMap = {
     barracks_1: '../js/../public/sprites/buildings/barracks_1.png',
     stables_1: '../js/../public/sprites/buildings/stables_1.png',
     towers_1: '../js/../public/sprites/buildings/towers_1.png',
-    town_halls_1: '../js/../public/sprites/buildings/town_halls_1.png'
+    town_halls_1: '../js/../public/sprites/buildings/town_halls_1.png',
 
 };
 
