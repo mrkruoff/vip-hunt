@@ -4,7 +4,13 @@ import { Container, injectable, inject } from "inversify";
 
 @injectable()
 class TownHall extends Building {
-	method: number;
+    constructor(id: number, hp: number) {
+        super(id, hp);
+    }
+    fromJsonFile(filename: string) : Building {
+
+
+    }
 }
 
 export default TownHall;
