@@ -47,6 +47,11 @@ class Unit implements IIdentifiable {
     getId() {
         return this.id
     }
+
+    fromJsonFile(filename: string) : Unit {
+
+
+    }
 }
 
 export default Unit;
