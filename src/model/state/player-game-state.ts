@@ -12,11 +12,23 @@ class PlayerGameState {
     constructor(units, buildings, stone, wood, food) {
         this.stone = stone;
         this.wood = wood;
+        this.food = food;
         this.units = units;
         this.buildings = buildings;
     }
 
     defaultPlayerGameState() : PlayerGameState {
+        const stone = 500;
+        const wood = 400;
+        const food = 0;
+
+        const units = [ defaultVIP() ];
+
+        // Notice that this part of the game state doesn't know
+        // where the townhall or vip actually are. Is that a flaw?
+        const buildings = [ defaultTownHall() ];
+
+        return new PlayerGameState(units, buildings, stone, wood, food);
 
 
     }
