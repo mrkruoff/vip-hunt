@@ -8,7 +8,18 @@ class PlayerGameState {
     food: number;
     units: Unit[];
     buildings: Building[];
-    //total units: number  -- not needed, as it is the length property of the this.units
+
+    constructor(units, buildings, stone, wood, food) {
+        this.stone = stone;
+        this.wood = wood;
+        this.units = units;
+        this.buildings = buildings;
+    }
+
+    defaultPlayerGameState() : PlayerGameState {
+
+
+    }
 }
 
 export default PlayerGameState;
