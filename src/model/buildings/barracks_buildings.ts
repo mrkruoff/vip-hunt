@@ -12,6 +12,13 @@ class Barracks extends Building {
 
 
     }
+
+    defaultBarracks() : Barracks {
+        const id = 0;
+        const hp = 500; 
+
+        return new Barracks(id, hp);
+    }
 }
 
 export default Barracks;
