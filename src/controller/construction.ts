@@ -11,7 +11,19 @@ declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
 const Construction = {
-    barracks: (jsonFile) => {
+    barracks: (jsonFile: string) => {
+        const objectData = {
+            sprites: wade.getJson(jsonFile),
+            gridSize: {x: 2, z: 2},
+            collisionSize: {x: 2, z: 2},
+
+        };
+        let barracks = wade.iso.createObject(objectData);
+
+        return barracks;
+
+    },
+    stables: (jsonFile: string) => {
         const objectData = {
             sprites: wade.getJson(jsonFile),
             gridSize: {x: 2, z: 2},
@@ -21,7 +33,7 @@ const Construction = {
         return wade.iso.createObject(objectData);
 
     },
-    stables: (jsonFile) => {
+    towers: (jsonFile: string) => {
         const objectData = {
             sprites: wade.getJson(jsonFile),
             gridSize: {x: 2, z: 2},
@@ -31,17 +43,7 @@ const Construction = {
         return wade.iso.createObject(objectData);
 
     },
-    towers: (jsonFile) => {
-        const objectData = {
-            sprites: wade.getJson(jsonFile),
-            gridSize: {x: 2, z: 2},
-            collisionSize: {x: 2, z: 2},
-
-        };
-        return wade.iso.createObject(objectData);
-
-    },
-    townHalls: (jsonFile) => {
+    townHalls: (jsonFile: string) => {
         const objectData = {
             sprites: wade.getJson(jsonFile),
             gridSize: {x: 2, z: 2},

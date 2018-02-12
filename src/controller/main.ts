@@ -34,6 +34,7 @@ App = function() {
         wade.loadImage(ImageMap.stables_1);
         wade.loadImage(ImageMap.towers_1);
         wade.loadImage(ImageMap.town_halls_1);
+        wade.loadImage(ImageMap.swordsman_1);
 
         wade.loadJson(JsonMap.barracks_1);
         wade.loadJson(JsonMap.stables_1);

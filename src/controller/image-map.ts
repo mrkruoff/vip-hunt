@@ -7,6 +7,11 @@ const ImageMap = {
     stables_1: '../js/../public/sprites/buildings/stables_1.png',
     towers_1: '../js/../public/sprites/buildings/towers_1.png',
     town_halls_1: '../js/../public/sprites/buildings/town_halls_1.png',
+    swordsman_1: '../js/../public/tilesets/characters/swordsman/swordsman_1_Idle_iso_se.png',
+    archer_1: 'default',
+    gatherer_1: 'default',
+    spear_calvary_1: 'default',
+    archer_calvary_1: 'default',
 
 };
 
