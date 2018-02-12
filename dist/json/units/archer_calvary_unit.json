@@ -1,6 +1,6 @@
 {
 	"name":"archerCalvary",
-	"health":"25",
+	"hp":"25",
 	"defense":"50",
 	"attack":"50",
 	"gathering": "0",
