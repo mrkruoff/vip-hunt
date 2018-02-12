@@ -69,6 +69,18 @@ function setupNewGame() {
         const clearscene = true;
         // load the map
         wade.loadScene('../public/grass_map.wsc', null, function() {
+            //Create a global object for handling global events that will be saved in the
+            // scene (thank god)
+            const global = new SceneObject();
+            global.setName("global");
+            wade.addSceneObject(global);
+            global.cameraSpeed = 500;
+            global.zoomSpeed = 8;
+            global.cameraIsMoving = false;
+            
+            console.log("hi");
+            console.log(wade.getSceneObject('global'));
+
             //Limit camera movement
             wade.setCameraBounds(-1500, 1500, -1500, 1500, 3, 10);
             Events.addGlobal();

@@ -16,10 +16,8 @@ declare var TilemapCharacter: any;
 App = function() {
     // Sets up initial variables for the game
     this.init = function() {
-        //Create a global object for handling global events.
-        this.cameraSpeed = 500;
-        this.zoomSpeed = 8;
-        this.cameraIsMoving = false;
+
+
 
         //display a welcome screen with menu choices.
         Menu.displayWelcome.call(this);
@@ -28,6 +26,7 @@ App = function() {
 
     // Initial loading of assets from server to client
     this.load = function() {
+        // load images
         wade.loadImage(ImageMap.scroll);
         wade.loadImage(ImageMap.buildingIcon);
         wade.loadImage(ImageMap.barracks_1);
@@ -36,11 +35,26 @@ App = function() {
         wade.loadImage(ImageMap.town_halls_1);
         wade.loadImage(ImageMap.swordsman_1);
 
+        // load json files for sprite construction
         wade.loadJson(JsonMap.barracks_1);
         wade.loadJson(JsonMap.stables_1);
         wade.loadJson(JsonMap.towers_1);
         wade.loadJson(JsonMap.town_halls_1);
         wade.loadJson(JsonMap.swordsman_1);
+
+        //load json files for game data
+        wade.loadJson(JsonMap.barracks_data);
+        wade.loadJson(JsonMap.stables_data);
+        wade.loadJson(JsonMap.townhall_data);
+        wade.loadJson(JsonMap.tower_data);
+        wade.loadJson(JsonMap.archer_calvary_data);
+        wade.loadJson(JsonMap.archer_data);
+        wade.loadJson(JsonMap.drummer_boy_data);
+        wade.loadJson(JsonMap.gatherer_data);
+        wade.loadJson(JsonMap.spear_calvary_data);
+        wade.loadJson(JsonMap.swordsman_data);
+        wade.loadJson(JsonMap.vip_data);
+
     };
 
 };

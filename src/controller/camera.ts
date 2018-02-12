@@ -15,76 +15,76 @@ const Camera = {
         const destination = wade.getCameraPosition();
         //Set new destiination relative to current position
         destination.y -= (wade.getScreenHeight() / 2);
-        wade.moveCamera(destination, wade.app.cameraSpeed, Camera.moveToTop);
-        wade.cameraIsMoving = true;
+        wade.moveCamera(destination, wade.getSceneObject('global').cameraSpeed, Camera.moveToTop);
+        wade.getSceneObject('global').cameraIsMoving = true;
     },
     moveToLeft: () => {
         const destination = wade.getCameraPosition();
         //Set new destiination relative to current position
         destination.x -= (wade.getScreenWidth() / 2);
-        wade.moveCamera(destination, wade.app.cameraSpeed, Camera.moveToLeft);
-        wade.cameraIsMoving = true;
+        wade.moveCamera(destination, wade.getSceneObject('global').cameraSpeed, Camera.moveToLeft);
+        wade.getSceneObject('global').cameraIsMoving = true;
     },
     moveToRight: () => {
         const destination = wade.getCameraPosition();
         //Set new destiination relative to current position
         destination.x += (wade.getScreenWidth() / 2);
-        wade.moveCamera(destination, wade.app.cameraSpeed, Camera.moveToRight);
-        wade.cameraIsMoving = true;
+        wade.moveCamera(destination, wade.getSceneObject('global').cameraSpeed, Camera.moveToRight);
+        wade.getSceneObject('global').cameraIsMoving = true;
     },
     moveToBottom: () => {
         const destination = wade.getCameraPosition();
         //Set new destiination relative to current position
         destination.y += (wade.getScreenHeight() / 2);
-        wade.moveCamera(destination, wade.app.cameraSpeed, Camera.moveToBottom);
-        wade.cameraIsMoving = true;
+        wade.moveCamera(destination, wade.getSceneObject('global').cameraSpeed, Camera.moveToBottom);
+        wade.getSceneObject('global').cameraIsMoving = true;
     },
     moveToNW: () => {
         const destination = wade.getCameraPosition();
         destination.y -= (wade.getScreenHeight() / 2);
         destination.x -= (wade.getScreenWidth() / 2);
-        wade.moveCamera(destination, wade.app.cameraSpeed, Camera.moveToNW);
-        wade.cameraIsMoving = true;
+        wade.moveCamera(destination, wade.getSceneObject('global').cameraSpeed, Camera.moveToNW);
+        wade.getSceneObject('global').cameraIsMoving = true;
     },
     moveToNE: () => {
         const destination = wade.getCameraPosition();
         destination.y -= (wade.getScreenHeight() / 2);
         destination.x += (wade.getScreenWidth() / 2);
-        wade.moveCamera(destination, wade.app.cameraSpeed, Camera.moveToNE);
-        wade.cameraIsMoving = true;
+        wade.moveCamera(destination, wade.getSceneObject('global').cameraSpeed, Camera.moveToNE);
+        wade.getSceneObject('global').cameraIsMoving = true;
     },
     moveToSE: () => {
         const destination = wade.getCameraPosition();
         destination.y += (wade.getScreenHeight() / 2);
         destination.x += (wade.getScreenWidth() / 2);
-        wade.moveCamera(destination, wade.app.cameraSpeed, Camera.moveToSE);
-        wade.cameraIsMoving = true;
+        wade.moveCamera(destination, wade.getSceneObject('global').cameraSpeed, Camera.moveToSE);
+        wade.getSceneObject('global').cameraIsMoving = true;
     },
     moveToSW: () => {
         const destination = wade.getCameraPosition();
         destination.y += (wade.getScreenHeight() / 2);
         destination.x -= (wade.getScreenWidth() / 2);
-        wade.moveCamera(destination, wade.app.cameraSpeed, Camera.moveToSW);
-        wade.cameraIsMoving = true;
+        wade.moveCamera(destination, wade.getSceneObject('global').cameraSpeed, Camera.moveToSW);
+        wade.getSceneObject('global').cameraIsMoving = true;
     },
     zoomIn: () => {
         const destination = wade.getCameraPosition();
         destination.z -= 0.1;
-        wade.moveCamera(destination, wade.app.zoomSpeed);
-        wade.cameraIsMoving = true;
+        wade.moveCamera(destination, wade.getSceneObject('global').zoomSpeed);
+        wade.getSceneObject('global').cameraIsMoving = true;
     },
     zoomOut: () => {
         const destination = wade.getCameraPosition();
         destination.z += 0.1;
-        wade.moveCamera(destination, wade.app.zoomSpeed);
-        wade.cameraIsMoving = true;
+        wade.moveCamera(destination, wade.getSceneObject('global').zoomSpeed);
+        wade.getSceneObject('global').cameraIsMoving = true;
     },
     stop: () => {
         wade.moveCamera(wade.getCameraPosition(), 40000);
-        wade.cameraIsMoving = false;
+        wade.getSceneObject('global').cameraIsMoving = false;
     },
     isMoving: () => {
-        return wade.cameraIsMoving;
+        return wade.getSceneObject('global').cameraIsMoving;
     },
     mouseMove: (event) => {
         const x = event.screenPosition.x;

@@ -20,7 +20,7 @@ const JsonMap = {
     vip_data: '../js/../json/units/vip_unit.json',
 
     barracks_data: '../js/../json/buildings/barracks_building.json',
-    stable_data: '../js/../json/buildings/stable_building.json',
+    stables_data: '../js/../json/buildings/stable_building.json',
     townhall_data: '../js/../json/buildings/townhall_building.json',
     tower_data: '../js/../json/buildings/watchtower_building.json',
 
