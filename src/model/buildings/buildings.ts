@@ -28,6 +28,12 @@ class Building implements IIdentifiable {
     getId(): number {
         return this.id;
     }
+
+
+    fromJsonFile(filename: string) : Building {
+
+
+    }
 }
 
 

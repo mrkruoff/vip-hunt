@@ -3,3 +3,5 @@ dist/js/model/*
 dist/js/controller/*
 dist/js/interfaces/*
 dist/js/bundle.*
+dist/js/*
+*~
