@@ -27,7 +27,7 @@ const Hud = {
 
         building.onClick = function(event) {
             //Make the clicked building disappear
-            this.setVisible(false);
+            Hud.clearMainPanel();
 
             //Show the player new buttons for making buildings on map
             const options = Hud.displayBuildingOptions(9);
@@ -133,6 +133,9 @@ const Hud = {
                     // Add standard click events for the building
                     let building = optionsPanel.icon;
                     building.onMouseDown = (event) => {
+                        //Clear the panels and show the building.
+                        Hud.clearBuildingsPanel();
+
                         //Show the units to be constructed
                         let options = displayFn(9);
                         _.forEach(options, (unit) => {
@@ -184,6 +187,10 @@ const Hud = {
                 wade.app.onIsoTerrainMouseDown = (e) => {
                     let unit = optionsPanel.icon;
                     unit.onMouseDown = (event) => {
+                        Hud.clearUnitsPanel();
+                        Hud.clearBuildingsPanel();
+                        Hud.showMainPanel();
+
                         // Set up the callbacks for clicking on the icon once it is
                         // built, but not before then.
                         console.log("Hi, you clicked me!");
@@ -211,12 +218,38 @@ const Hud = {
         
         }
     },
+    clearBuildingsPanel: () => {
+        wade.getSceneObject(Names.barracksIcon).setVisible(false);
+        wade.getSceneObject(Names.stablesIcon).setVisible(false);
+        wade.getSceneObject(Names.towersIcon).setVisible(false);
+        wade.getSceneObject(Names.townHallsIcon).setVisible(false);
+    },
+    clearMainPanel: () => {
+        wade.getSceneObject(Names.buildingIcon).setVisible(false); 
+    },
+    clearUnitsPanel: () => {
+        wade.getSceneObject(Names.swordsmanIcon).setVisible(false); 
+    
+    },
+    showBuildingsPanel: () => {
+        wade.getSceneObject(Names.barracksIcon).setVisible(true);
+        wade.getSceneObject(Names.stablesIcon).setVisible(true);
+        wade.getSceneObject(Names.towersIcon).setVisible(true);
+        wade.getSceneObject(Names.townHallsIcon).setVisible(true);
+    },
+    showMainPanel: () => {
+        wade.getSceneObject(Names.buildingIcon).setVisible(true); 
+    },
+    showUnitsPanel: () => {
+        wade.getSceneObject(Names.swordsmanIcon).setVisible(true); 
+    }
 };
 
 let displayBarracksOptions = (layer: number) => {
     const y = (wade.getScreenHeight() / 2) - 200;
     const x = 50;
     let swordsman = Button.build(ImageMap.swordsman_1, 35, 65, x, y, layer);    
+    swordsman.setName(Names.swordsmanIcon);
 
     return [swordsman];
 };

@@ -1,4 +1,5 @@
 import Camera from './camera';
+import Mouse from './mouse';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -44,7 +45,14 @@ const Events = {
     addSelectedUnit: (selectedUnit) => {
         wade.app.selectedUnit = selectedUnit;
         wade.app.onIsoTerrainMouseDown = (event) => {
-            selectedUnit.getBehavior('IsoCharacter').setDestination(event.gridCoords);  
+            if(event.button === Mouse.left) {
+                //Cancel previous destination and send unit to new coordinates
+                selectedUnit.getBehavior('IsoCharacter').clearDestinations();
+                selectedUnit.getBehavior('IsoCharacter').setDestination(event.gridCoords);  
+            } else if (event.button === Mouse.right) {
+            
+            
+            }
         }
     
     },

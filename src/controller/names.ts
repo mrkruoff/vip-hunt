@@ -6,7 +6,7 @@ const Names = {
     stablesIcon: 'stablesIcon',
     towersIcon: 'towersIcon',
     townHallsIcon: 'townHallsIcon',
-
+    swordsmanIcon: 'swordsmanIcon',
 };
 
 export default Names;
