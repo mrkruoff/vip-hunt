@@ -12,6 +12,7 @@ const ImageMap = {
     gatherer_1: 'default',
     spear_calvary_1: 'default',
     archer_calvary_1: 'default',
+    drummer_boy_1: ' ',
 
 };
 

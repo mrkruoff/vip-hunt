@@ -4,6 +4,7 @@ import ImageMap from './image-map';
 import JsonMap from './json-map';
 import Mouse from './mouse';
 import Names from './names';
+import Events from './events';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -130,7 +131,8 @@ const Hud = {
 
                 wade.app.onIsoTerrainMouseDown = (e) => {
                     // Add standard click events for the building
-                    optionsPanel.icon.onMouseDown = (event) => {
+                    let building = optionsPanel.icon;
+                    building.onMouseDown = (event) => {
                         //Show the units to be constructed
                         let options = displayFn(9);
                         _.forEach(options, (unit) => {
@@ -150,12 +152,14 @@ const Hud = {
                             
                             } else if (imageName === ImageMap.archer_calvary_1) {
                                 callback = Hud.unitConstruction(options, Construction.archerCalvary, JsonMap.archer_calvary_1);
+                            } else if (imageName === ImageMap.drummer_boy_1) {
+                                callback = Hud.unitConstruction(options, Construction.drummerBoy, JsonMap.drummer_boy_1); 
                             }
                             unit.onClick = callback;
                             wade.addEventListener(unit, 'onClick');
                         });
                     };
-                    wade.addEventListener(optionsPanel.icon, 'onMouseDown');
+                    wade.addEventListener(building, 'onMouseDown');
                     //Make room to construct another buildiing
                     wade.app.onIsoTerrainMouseMove = null;
                     optionsPanel.icon = null;
@@ -165,24 +169,36 @@ const Hud = {
             }
         };
     },
-    unitConstruction: (optionsPanel, constructionFn, jsonFile) => {
+    unitConstruction: (optionsPanel, constructionFn, jsonFile: string) => {
         return function(event) {
             if(event.button === Mouse.left) {
                 if(optionsPanel.icon) {
-                    // If the unit has an icon already, delete the current one and 
+                    // If the panel has an icon already, delete the current one and 
                     // replace it with the other.
                     wade.iso.deleteObject(optionsPanel.icon);
                     optionsPanel.icon = null;
                 } 
                 optionsPanel.icon = constructionFn(jsonFile);
-                Mouse.trackisoTerrainGridMove(optionsPanel.icon);
+                Mouse.trackIsoTerrainGridMove(optionsPanel.icon);
 
                 wade.app.onIsoTerrainMouseDown = (e) => {
-                    optionsPanel.icon.onMouseDown = (event) => {
+                    let unit = optionsPanel.icon;
+                    unit.onMouseDown = (event) => {
                         // Set up the callbacks for clicking on the icon once it is
                         // built, but not before then.
+                        console.log("Hi, you clicked me!");
+                        if(event.button === Mouse.left) {
+                            if(Events.getSelectedUnit()) {
+                                // Get rid of current selected unit if it
+                                // exists already
+                                Events.removeSelectedUnit();
+                            }
+
+                            Events.addSelectedUnit(unit);
+                        }
                     
                     } 
+                    wade.addEventListener(unit, 'onMouseDown');
 
                     // Set up to construct another unit.
                     wade.app.onIsoTerrainMouseMove = null;
@@ -200,7 +216,7 @@ const Hud = {
 let displayBarracksOptions = (layer: number) => {
     const y = (wade.getScreenHeight() / 2) - 200;
     const x = 50;
-    let swordsman = Button.build(ImageMap.swordsman_1, 50, 50, x, y, layer);    
+    let swordsman = Button.build(ImageMap.swordsman_1, 35, 65, x, y, layer);    
 
     return [swordsman];
 };

@@ -21,14 +21,6 @@ const Events = {
             Camera.keyUp(event);
         };
 
-        wade.app.onIsoTerrainMouseDown = function(event) {
-            console.log(event);
-        };
-
-        wade.app.onClick = function(event) {
-            console.log(event);
-        };
-
         //Allow player to move around by mouse. Requires constant
         // observation of mouse, which is costly.
         wade.app.onMouseMove = function(event) {
@@ -43,6 +35,27 @@ const Events = {
             }
         };
     },
+    removeGlobal: () => {
+        wade.app.onKeyDown = null; 
+        wade.app.onKeyUp = null;
+        wade.app.onMouseMove = null;
+        wade.app.onMouseWheel = null;
+    },
+    addSelectedUnit: (selectedUnit) => {
+        wade.app.selectedUnit = selectedUnit;
+        wade.app.onIsoTerrainMouseDown = (event) => {
+            selectedUnit.getBehavior('IsoCharacter').setDestination(event.gridCoords);  
+        }
+    
+    },
+    removeSelectedUnit: () => {
+        wade.app.selectedUnit = null;
+    
+    },
+    getSelectedUnit: () => {
+        return wade.app.selectedUnit; 
+    }
+
 };
 
 export default Events;

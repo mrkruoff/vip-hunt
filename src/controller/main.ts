@@ -40,6 +40,7 @@ App = function() {
         wade.loadJson(JsonMap.stables_1);
         wade.loadJson(JsonMap.towers_1);
         wade.loadJson(JsonMap.town_halls_1);
+        wade.loadJson(JsonMap.swordsman_1);
     };
 
 };
