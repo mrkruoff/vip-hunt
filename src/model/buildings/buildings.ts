@@ -7,10 +7,12 @@ import { Container, injectable, inject } from "inversify";
 class Building implements IIdentifiable {
 	hp: number;
     id: number;
+    vision: number;
 
-    constructor(id: number, hp: number) {
+    constructor(id: number, hp: number, vision: number) {
         this.hp = hp;
         this.id = id;
+        this.vision = vision;
     }
 
     // This function applies the attack points to the instance's hp.
@@ -30,10 +32,6 @@ class Building implements IIdentifiable {
     }
 
 
-    fromJsonFile(filename: string) : Building {
-
-
-    }
 }
 
 

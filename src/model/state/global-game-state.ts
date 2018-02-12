@@ -1,5 +1,8 @@
 import PlayerGameState from "./player-game-state";
+import AiGameState from "./ai-game-state";
 import Tile from "../map/tile";
+import TYPES from "../../types";
+import bindDependencies from "../../bindDependencies";
 
 
 class GlobalGameState {
@@ -9,9 +12,8 @@ class GlobalGameState {
     
 
     //How does this construct the game state? From files from the server? From JSON?
-    constructor(mapName: string, player_state , ai_state) {
-        //Construct the correct map .wsc file.
-        // TODO: implement this.
+    constructor(map, player_state , ai_state) {
+        this.map = map;
 
         // Set up the player game state.
         this.player_state = player_state;
@@ -21,15 +23,23 @@ class GlobalGameState {
     
     }
 
-    defaultGameState() : GlobalGameState {
-        const player = defaultPlayerGameState();
-        const ai = defaultAiGameState();
-        const map = defaultMap();
+    static defaultGameState(playerFac, aiFac, tileFac) : GlobalGameState {
+        const player = playerFac();
+        const ai = aiFac();
+        const map = [];
 
+        for(let i = 0; i < 50; i++) { 
+            map[i] = [];
+            for(let j = 0; j < 50; j++) {
+                map[i][j] = tileFac(); 
+            }
+        }
         return new GlobalGameState(map, player, ai);
     }
-
-
 }
+
+GlobalGameState.defaultGameState = bindDependencies(GlobalGameState.defaultGameState,
+                            [TYPES.defaultPlayerGameState, TYPES.defaultAiGameState,
+                            TYPES.defaultTile]);
 
 export default GlobalGameState;

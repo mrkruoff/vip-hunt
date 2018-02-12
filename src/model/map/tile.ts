@@ -28,15 +28,20 @@ class Tile {
             this.walkable = false; //tile is not walkable if building is on it.
         }
 
-        
         //Enforce the idea of one unit per tile.
         if(this.unitId > 0) {
             this.walkable = false;
         }
-
     }
 
+    static defaultTile() : Tile {
+        const unit = 0;
+        const building = 0;
+        const resource = 0;
+        const walkable = true;
 
+        return new Tile(unit, building, resource, walkable);
+    }
 }
 
 export default Tile;

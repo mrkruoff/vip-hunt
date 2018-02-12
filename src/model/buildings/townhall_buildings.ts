@@ -4,18 +4,28 @@ import { Container, injectable, inject } from "inversify";
 
 @injectable()
 class TownHall extends Building {
-    constructor(id: number, hp: number) {
-        super(id, hp);
+    constructor(id: number, hp: number, vision: number) {
+        super(id, hp, vision);
     }
-    fromJsonFile(filename: string) : TownHall {
+    static fromObject(obj) : TownHall {
+        let building = TownHall.defaultTownHall();
+        if(obj.hp) {
+            building.hp = obj.hp;
+        }
+        if(obj.vision) {
+            building.vision = obj.vision ;
+        }
+
+        return building;
 
 
     }
-    defaultTownHall() : TownHall {
+    static defaultTownHall() : TownHall {
         const id = 0;
         const hp = 500; 
+        const vision = 300;
 
-        return new TownHall(id, hp);
+        return new TownHall(id, hp, vision);
     }
 }
 

@@ -18,7 +18,7 @@ const Construction = {
             collisionSize: {x: 2, z: 2},
 
         };
-        let barracks = wade.iso.createObject(objectData);
+        const barracks = wade.iso.createObject(objectData);
 
         return barracks;
 
@@ -59,7 +59,7 @@ const Construction = {
             gridSize: {x: 1, z: 1},
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
-        }; 
+        };
         return wade.iso.createObject(objectData);
     },
     archer: (jsonFile: string) => {
@@ -67,7 +67,7 @@ const Construction = {
             sprites: wade.getJson(jsonFile),
             gridSize: {x: 1, z: 1},
             collisionSize: {x: 1, z: 1},
-        }; 
+        };
         return wade.iso.createObject(objectData);
     },
     archerCalvary: (jsonFile: string) => {
@@ -75,7 +75,7 @@ const Construction = {
             sprites: wade.getJson(jsonFile),
             gridSize: {x: 1, z: 1},
             collisionSize: {x: 1, z: 1},
-        }; 
+        };
         return wade.iso.createObject(objectData);
     },
     spearCalvary: (jsonFile: string) => {
@@ -83,7 +83,7 @@ const Construction = {
             sprites: wade.getJson(jsonFile),
             gridSize: {x: 1, z: 1},
             collisionSize: {x: 1, z: 1},
-        }; 
+        };
         return wade.iso.createObject(objectData);
     },
     gatherer: (jsonFile: string) => {
@@ -91,7 +91,7 @@ const Construction = {
             sprites: wade.getJson(jsonFile),
             gridSize: {x: 1, z: 1},
             collisionSize: {x: 1, z: 1},
-        }; 
+        };
         return wade.iso.createObject(objectData);
     },
     drummerBoy: (jsonFile: string) => {
@@ -99,10 +99,9 @@ const Construction = {
             sprites: wade.getJson(jsonFile),
             gridSize: {x: 1, z: 1},
             collisionSize: {x: 1, z: 1},
-        }; 
+        };
         return wade.iso.createObject(objectData);
     },
-    
 
 };
 

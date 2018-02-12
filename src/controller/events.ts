@@ -37,7 +37,7 @@ const Events = {
         };
     },
     removeGlobal: () => {
-        wade.app.onKeyDown = null; 
+        wade.app.onKeyDown = null;
         wade.app.onKeyUp = null;
         wade.app.onMouseMove = null;
         wade.app.onMouseWheel = null;
@@ -45,24 +45,23 @@ const Events = {
     addSelectedUnit: (selectedUnit) => {
         wade.app.selectedUnit = selectedUnit;
         wade.app.onIsoTerrainMouseDown = (event) => {
-            if(event.button === Mouse.left) {
+            if (event.button === Mouse.left) {
                 //Cancel previous destination and send unit to new coordinates
                 selectedUnit.getBehavior('IsoCharacter').clearDestinations();
-                selectedUnit.getBehavior('IsoCharacter').setDestination(event.gridCoords);  
+                selectedUnit.getBehavior('IsoCharacter').setDestination(event.gridCoords);
             } else if (event.button === Mouse.right) {
-            
-            
+
             }
-        }
-    
+        };
+
     },
     removeSelectedUnit: () => {
         wade.app.selectedUnit = null;
-    
+
     },
     getSelectedUnit: () => {
-        return wade.app.selectedUnit; 
-    }
+        return wade.app.selectedUnit;
+    },
 
 };
 

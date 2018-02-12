@@ -1,10 +1,10 @@
+import bindDependencies from "../../bindDependencies";
+import TYPES from "../../types";
 import Building from "../buildings/buildings";
 import Unit from "../units/units";
-import TYPES from "../../types";
-import bindDependencies from "../../bindDependencies";
 
 //Stores player game state. Is updated by player events.
-class PlayerGameState {
+class AiGameState {
     stone: number;
     wood: number;
     food: number;
@@ -19,7 +19,7 @@ class PlayerGameState {
         this.buildings = buildings;
     }
 
-    static defaultPlayerGameState(vipFac, townhallFac) : PlayerGameState {
+    static defaultAiGameState(vipFac, townhallFac) : AiGameState {
         const stone = 500;
         const wood = 400;
         const food = 0;
@@ -30,12 +30,13 @@ class PlayerGameState {
         // where the townhall or vip actually are. Is that a flaw?
         const buildings = [ townhallFac() ];
 
-        return new PlayerGameState(units, buildings, stone, wood, food);
+        return new AiGameState(units, buildings, stone, wood, food);
+
+
     }
 }
 
-PlayerGameState.defaultPlayerGameState = bindDependencies(
-                    PlayerGameState.defaultPlayerGameState,
-                    [TYPES.defaultVIP, TYPES.defaultTownHall]);
+AiGameState.defaultAiGameState = bindDependencies(AiGameState.defaultAiGameState, 
+                                    [TYPES.defaultVIP, TYPES.defaultTownHall]);
 
-export default PlayerGameState;
+export default AiGameState;

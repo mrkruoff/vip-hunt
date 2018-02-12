@@ -5,19 +5,27 @@ import { Container, injectable, inject } from "inversify";
 @injectable()
 class Barracks extends Building {
 
-    constructor(id: number, hp: number) {
-        super(id, hp);
+    constructor(id: number, hp: number, vision: number) {
+        super(id, hp, vision);
     }
-    fromJsonFile(filename: string) : Building {
+    static fromObject(obj) : Building {
+        let building = Barracks.defaultBarracks();
+        if(obj.hp) {
+            building.hp = obj.hp;
+        }
+        if(obj.vision) {
+            building.vision = obj.vision ;
+        }
 
-
+        return building;
     }
 
-    defaultBarracks() : Barracks {
+    static defaultBarracks() : Barracks {
         const id = 0;
         const hp = 500; 
+        const vision = 20;
 
-        return new Barracks(id, hp);
+        return new Barracks(id, hp, vision);
     }
 }
 

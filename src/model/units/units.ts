@@ -10,17 +10,21 @@ class Unit implements IIdentifiable {
 	defense: number;
 	speed: number;
 	range: number;
+    vision: number;
+    gathering: number;
     id: number;
 
     constructor(
             id: number, hp: number, attack: number, defense: number,
-                speed: number, range: number) {
+                speed: number, range: number, vision: number, gathering: number) {
         this.id = id;
         this.hp = hp;
         this.attack = attack;
         this.defense = defense;
         this.speed = speed;
         this.range = range;
+        this.vision = vision;
+        this.gathering = gathering;
     }
 
     // Applies damage to the unit instance
@@ -48,10 +52,6 @@ class Unit implements IIdentifiable {
         return this.id
     }
 
-    fromJsonFile(filename: string) : Unit {
-
-
-    }
 }
 
 export default Unit;

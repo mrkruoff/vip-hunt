@@ -1,14 +1,15 @@
+
 import Building from "./buildings";
 
 import { Container, injectable, inject } from "inversify";
 
 @injectable()
-class Stables extends Building {
+class Tower extends Building {
     constructor(id: number, hp: number, vision: number) {
         super(id, hp, vision);
     }
-    static fromObject(obj) : Stables {
-        let building = Stables.defaultStables();
+    static fromObject(obj) : Tower {
+        let building = Tower.defaultTower();
         if(obj.hp) {
             building.hp = obj.hp;
         }
@@ -20,13 +21,13 @@ class Stables extends Building {
 
 
     }
-    static defaultStables() : Stables {
+    static defaultTower() : Tower {
         const id = 0;
-        const hp = 500; 
-        const vision = 300;
+        const hp = 200; 
+        const vision = 1000;
 
-        return new Stables(id, hp, vision);
+        return new Tower(id, hp, vision);
     }
 }
 
-export default Stables;
+export default Tower;
