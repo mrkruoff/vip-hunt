@@ -1,6 +1,5 @@
 import { Container, interfaces } from "inversify";
 import TYPES from "./types";
-import "reflect-metadata";
 
 import Archer from "./model/units/archer_unit";
 import ArcherCalvary from "./model/units/archerCalvary_unit";
@@ -123,4 +122,16 @@ container.bind<interfaces.Factory<Tile>>(TYPES.defaultTile).toFactory<Tile>((con
     return Tile.defaultTile;
 })
 
+
+
+
+function bindDependencies (func, dependencies) {
+    let injections = dependencies.map((dependency) => {
+        return container.get(dependency); 
+    
+    });
+    return func.bind(func, ...injections);
+}
+
 export default container; // Make all these dependencies available everywhere else
+export { container, bindDependencies };

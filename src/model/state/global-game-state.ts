@@ -2,7 +2,7 @@ import PlayerGameState from "./player-game-state";
 import AiGameState from "./ai-game-state";
 import Tile from "../map/tile";
 import TYPES from "../../types";
-import bindDependencies from "../../bindDependencies";
+import  { bindDependencies } from "../../bindDependencies";
 
 
 class GlobalGameState {

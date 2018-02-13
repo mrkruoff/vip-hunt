@@ -1,5 +1,8 @@
 import Events from './events';
 import Hud from './hud';
+import TYPES from '../types';
+import { bindDependencies } from "../inversify.config";
+import GlobalGameState from "../model/state/global-game-state";
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -60,7 +63,7 @@ function setupSaveGame() {
 
 }
 
-function setupNewGame() {
+var setupNewGame = function (stateFac) {
     this.newGameObject.setPosition(0, 0);
 
     setMouseInOut(this.newGameObject);
@@ -77,6 +80,7 @@ function setupNewGame() {
             global.cameraSpeed = 500;
             global.zoomSpeed = 8;
             global.cameraIsMoving = false;
+            global.state = stateFac();
             
             console.log("hi");
             console.log(wade.getSceneObject('global'));
@@ -90,6 +94,7 @@ function setupNewGame() {
     };
     wade.addEventListener(this.newGameObject, 'onClick');
 }
+setupNewGame = bindDependencies(setupNewGame, [TYPES.defaultGlobalGameState]);
 
 // Helper function that returns a function that will change a textObject's
 // color

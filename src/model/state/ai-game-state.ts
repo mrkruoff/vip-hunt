@@ -1,4 +1,4 @@
-import bindDependencies from "../../bindDependencies";
+import { bindDependencies } from "../../bindDependencies";
 import TYPES from "../../types";
 import Building from "../buildings/buildings";
 import Unit from "../units/units";

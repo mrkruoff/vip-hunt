@@ -1,7 +1,7 @@
 import Building from "../buildings/buildings";
 import Unit from "../units/units";
 import TYPES from "../../types";
-import bindDependencies from "../../bindDependencies";
+import { bindDependencies } from "../../bindDependencies";
 
 //Stores player game state. Is updated by player events.
 class PlayerGameState {
