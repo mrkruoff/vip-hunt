@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import { Container, interfaces } from "inversify";
 import TYPES from "./types";
 
@@ -8,11 +9,13 @@ import SpearCalvary from "./model/units/spearCalvary_unit";
 import Swordsman from "./model/units/swordsman_unit";
 import Gatherer from "./model/units/gatherer_unit";
 import DrummerBoy from "./model/units/drummerBoy_unit";
+import Unit from "./model/units/units";
 
 import Stables from "./model/buildings/stable_buildings";
 import TownHall from "./model/buildings/townhall_buildings";
 import Barracks from "./model/buildings/barracks_buildings";
 import Tower from "./model/buildings/tower_buildings";
+import Building from "./model/buildings/buildings";
 
 import Tile from "./model/map/tile";
 
@@ -25,6 +28,7 @@ var container = new Container();
 
 //Class bindings to the container
 container.bind<Tile>(Tile).toSelf(); // bind the class constructor to the container
+container.bind<Unit>(Unit).toSelf();
 container.bind<VIP>(VIP).toSelf();
 container.bind<SpearCalvary>(SpearCalvary).toSelf();
 container.bind<Archer>(Archer).toSelf();
@@ -36,8 +40,14 @@ container.bind<Stables>(Stables).toSelf();
 container.bind<Tower>(Tower).toSelf();
 container.bind<TownHall>(TownHall).toSelf();
 container.bind<Barracks>(Barracks).toSelf();
+container.bind<Building>(Building).toSelf();
 container.bind<GlobalGameState>(GlobalGameState).toSelf();
 container.bind<PlayerGameState>(PlayerGameState).toSelf();
+container.bind<AiGameState>(AiGameState).toSelf();
+
+//Class constructor bindings to container
+
+
 
 
 // from-object factory bindings to the container

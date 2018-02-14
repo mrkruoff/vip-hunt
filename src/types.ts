@@ -5,7 +5,6 @@ var TYPES = {
     fromObjectStables: Symbol("fromObjStables"),
     fromObjectTownHall: Symbol("fromObjTownHall"),
     fromObjectTower: Symbol("fromObjTower"),
-
     fromObjectSwordsman: Symbol("fromObjSwordsman"),
     fromObjectGatherer: Symbol("fromObjGatherer"),
     fromObjectDrummerBoy: Symbol("fromObjDrummerBoy"),
@@ -18,20 +17,34 @@ var TYPES = {
     defaultStables: Symbol("defStables"),
     defaultTownHall: Symbol("defTownHall"),
     defaultTower: Symbol("defTower"),
-
     defaultSwordsman: Symbol("defSwordsman"),
     defaultGatherer: Symbol("defGatherer"),
     defaultDrummerBoy: Symbol("defDrummerBoy"),
     defaultArcher: Symbol("defArcher"),
     defaultVIP: Symbol("defVIP"),
-    defaultSpearCalvary: Symbol("defSpearCalvary"),
     defaultArcherCalvary: Symbol("defArcherCalvary"),
-
+    defaultSpearCalvary: Symbol("defSpearCalvary"),
     defaultPlayerGameState: Symbol("defPlayerGameState"),
     defaultAiGameState: Symbol("defAiGameState"),
     defaultGlobalGameState: Symbol("defGlobalGameState"),
-
     defaultTile: Symbol("defTile"),
+
+    //Bindings to constructors for the classes
+    constructBarracks: Symbol("conBarracks"),
+    constructStables: Symbol("conStables"),
+    constructTownHall: Symbol("conTownHall"),
+    constructTower: Symbol("conTower"),
+    constructSwordsman: Symbol("conSwordsman"),
+    constructGatherer: Symbol("conGatherer"),
+    constructDrummerBoy: Symbol("conDrummerBoy"),
+    constructArcher: Symbol("conArcher"),
+    constructVIP: Symbol("conVIP"),
+    constructSpearCalvary: Symbol("conSpearCalvary"),
+    constructArcherCalvary: Symbol("conArcherCalvary"),
+    constructPlayerGameState: Symbol("conPlayerGameState"),
+    constructAiGameState: Symbol("conAiGameState"),
+    constructGlobalGameState: Symbol("conGlobalGameState"),
+    constructTile: Symbol("conTile"),
 }
 
 export default TYPES;

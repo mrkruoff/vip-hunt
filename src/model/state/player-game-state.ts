@@ -1,9 +1,10 @@
 import Building from "../buildings/buildings";
 import Unit from "../units/units";
 import TYPES from "../../types";
-import { bindDependencies } from "../../bindDependencies";
+import { inject, injectable } from "inversify";
 
 //Stores player game state. Is updated by player events.
+@injectable()
 class PlayerGameState {
     stone: number;
     wood: number;
@@ -18,6 +19,14 @@ class PlayerGameState {
         this.units = units;
         this.buildings = buildings;
     }
+
+    getUnits() {
+        return this.units; 
+    }
+    getBuildings() {
+        return this.buildings; 
+    }
+
 
     static defaultPlayerGameState(vipFac, townhallFac) : PlayerGameState {
         const stone = 500;
@@ -34,8 +43,5 @@ class PlayerGameState {
     }
 }
 
-PlayerGameState.defaultPlayerGameState = bindDependencies(
-                    PlayerGameState.defaultPlayerGameState,
-                    [TYPES.defaultVIP, TYPES.defaultTownHall]);
 
 export default PlayerGameState;

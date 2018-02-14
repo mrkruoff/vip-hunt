@@ -2,9 +2,9 @@ import PlayerGameState from "./player-game-state";
 import AiGameState from "./ai-game-state";
 import Tile from "../map/tile";
 import TYPES from "../../types";
-import  { bindDependencies } from "../../bindDependencies";
+import { inject, injectable } from "inversify";
 
-
+@injectable()
 class GlobalGameState {
     map: Tile[][];
     player_state: PlayerGameState;
@@ -20,7 +20,18 @@ class GlobalGameState {
 
         //Set up the AI game state.
         this.ai_state = ai_state;
-    
+    }
+
+    getPlayer() {
+        return this.player_state; 
+    }
+
+    getAi() {
+        return this.ai_state; 
+    }
+
+    getMap() {
+        return this.map; 
     }
 
     static defaultGameState(playerFac, aiFac, tileFac) : GlobalGameState {
@@ -37,9 +48,5 @@ class GlobalGameState {
         return new GlobalGameState(map, player, ai);
     }
 }
-
-GlobalGameState.defaultGameState = bindDependencies(GlobalGameState.defaultGameState,
-                            [TYPES.defaultPlayerGameState, TYPES.defaultAiGameState,
-                            TYPES.defaultTile]);
 
 export default GlobalGameState;

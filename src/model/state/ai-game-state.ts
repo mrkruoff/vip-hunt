@@ -1,9 +1,11 @@
-import { bindDependencies } from "../../bindDependencies";
-import TYPES from "../../types";
-import Building from "../buildings/buildings";
+import { Container, inject, injectable } from "inversify";
 import Unit from "../units/units";
+import Building from "../buildings/buildings";
+import container from "../../inversify.config";
+import TYPES from "../../types";
 
 //Stores player game state. Is updated by player events.
+@injectable()
 class AiGameState {
     stone: number;
     wood: number;
@@ -11,12 +13,20 @@ class AiGameState {
     units: Unit[];
     buildings: Building[];
 
-    constructor(units, buildings, stone, wood, food) {
+    constructor( units: Unit[], buildings: Building[], stone, wood, food) {
         this.stone = stone;
         this.wood = wood;
         this.food = food;
         this.units = units;
         this.buildings = buildings;
+    }
+
+    getBuildings() {
+        return this.units; 
+    }
+
+    getUnits() {
+        return this.buildings;
     }
 
     static defaultAiGameState(vipFac, townhallFac) : AiGameState {
@@ -36,7 +46,5 @@ class AiGameState {
     }
 }
 
-AiGameState.defaultAiGameState = bindDependencies(AiGameState.defaultAiGameState, 
-                                    [TYPES.defaultVIP, TYPES.defaultTownHall]);
 
 export default AiGameState;
