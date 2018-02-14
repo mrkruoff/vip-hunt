@@ -2,6 +2,7 @@ import * as _ from "lodash";
 
 import Events from './events';
 import Hud from './hud';
+import NewGame from './newgame';
 import TYPES from '../types';
 import GlobalGameState from "../model/state/global-game-state";
 import PlayerGameState from "../model/state/player-game-state";
@@ -102,7 +103,7 @@ var setupNewGame = function () {
             //Limit camera movement
             wade.setCameraBounds(-1500, 1500, -1500, 1500, 3, 10);
             Events.addGlobal();
-            Hud.initialize();
+            NewGame.initialize();
 
         }, clearscene);
     };
