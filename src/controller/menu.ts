@@ -88,11 +88,12 @@ var setupNewGame = function () {
             global.cameraSpeed = 500;
             global.zoomSpeed = 8;
             global.cameraIsMoving = false;
-            global.aiUnitId = 0;
-            global.aiBuildId = 0;
-            global.playerUnitId = 0;
-            global.playerBuildId = 0;
+            global.unitId = 0;
+            global.buildId = 0;
             global.state = defaultGlobalState();
+            global.hud = {
+                //empty object to store references to other HUD elements 
+            };
 
             addToScene(global.state);
             

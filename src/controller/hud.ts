@@ -5,6 +5,7 @@ import ImageMap from './image-map';
 import JsonMap from './json-map';
 import Mouse from './mouse';
 import Names from './names';
+import BuildHud from './build-hud';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -18,19 +19,22 @@ declare var TilemapCharacter: any;
 
 const Hud = {
     initialize: () => {
+        wade.setLayerTransform(9, 0, 0);
+        const resources = Hud.showResourcePanel();
 
         //Add scroll to background
-        const scroll = Hud.displayScroll(10);
+        const scroll = Hud.showBackground();
+        wade.setLayerTransform(10, 0, 0);
 
-        //Add building button
-        const building = Hud.displayBuilding(9);
-
+        // Add building button for building units.
+        // Set up callbacks for building a unit using the underlying menu.
+        const building = Hud.showMainPanel();
         building.onClick = function(event) {
             //Make the clicked building disappear
             Hud.clearMainPanel();
 
             //Show the player new buttons for making buildings on map
-            const options = Hud.displayBuildingOptions(9);
+            const options = Hud.showBuildingsPanel();
 
             //Process each icon to have correct events
             _.forEach(options, (b) => {
@@ -38,84 +42,22 @@ const Hud = {
                 let callback;
                 if (imageName === ImageMap.barracks_1) {
                     callback = Hud.buildingConstruction(options,
-                        Construction.barracks, JsonMap.barracks_1, displayBarracksOptions);
+                        Construction.barracks, JsonMap.barracks_1, Hud.showBarracksPanel);
                 } else if (imageName === ImageMap.stables_1) {
                     callback = Hud.buildingConstruction(options,
-                        Construction.stables, JsonMap.stables_1, displayBarracksOptions);
+                        Construction.stables, JsonMap.stables_1, Hud.showBarracksPanel);
                 } else if (imageName === ImageMap.towers_1) {
                     callback = Hud.buildingConstruction(options,
-                        Construction.towers, JsonMap.towers_1, displayBarracksOptions);
+                        Construction.towers, JsonMap.towers_1, Hud.showBarracksPanel);
                 } else if (imageName === ImageMap.town_halls_1) {
                     callback = Hud.buildingConstruction(options,
-                        Construction.townHalls, JsonMap.town_halls_1, displayBarracksOptions);
+                        Construction.townHalls, JsonMap.town_halls_1, Hud.showBarracksPanel);
                 }
                 b.onClick = callback;
                 wade.addEventListener(b, 'onClick');
-
             });
-
         };
         wade.addEventListener(building, 'onClick');
-    },
-    displayScroll: (layer: number) => {
-        const scrollSprite = new Sprite(ImageMap.scroll, layer);
-        scrollSprite.setSize(350, 5000);
-
-        //Add scroll to scene
-        const scroll = new SceneObject(scrollSprite);
-        scroll.setPosition(0, 400);
-        scroll.setRotation(1.5708);
-        wade.addSceneObject(scroll);
-        scroll.setName(Names.hudBackground);
-        wade.setLayerTransform(layer, 0, 0);
-        return scroll;
-    },
-    displayBuilding: (layer: number) => {
-        const buildingSprite = new Sprite(ImageMap.buildingIcon, layer);
-        buildingSprite.setSize(50, 50);
-
-        //Add building icon to screen.
-        const building = new SceneObject(buildingSprite);
-        building.setPosition((-1 * wade.getScreenWidth() / 2) + 100, (wade.getScreenHeight() / 2) - 100);
-        wade.addSceneObject(building);
-        building.setName(Names.buildingIcon);
-        wade.setLayerTransform(layer, 0, 0);
-
-        return building;
-    },
-
-    // Returns an array of SceneObjects, added to the
-    // scene, the show the options the player has for building.
-    displayBuildingOptions: (layer: number) => {
-        const buttonWidth = 50;
-        const buttonHeight = 50;
-
-        let x = (-1 * wade.getScreenWidth() / 2) + 100;
-        let y = (wade.getScreenHeight() / 2) - 100;
-        const barracks = Button.build(ImageMap.barracks_1, buttonWidth, buttonHeight,
-                x, y, layer);
-        barracks.setName(Names.barracksIcon);
-
-        x = (-1 * wade.getScreenWidth() / 2) + 200;
-        y = (wade.getScreenHeight() / 2) - 100;
-        const stables = Button.build(ImageMap.stables_1, buttonWidth, buttonHeight,
-                x, y, layer);
-        stables.setName(Names.stablesIcon);
-
-        x = (-1 * wade.getScreenWidth() / 2) + 200;
-        y = (wade.getScreenHeight() / 2) - 200;
-        const towers = Button.build(ImageMap.towers_1, buttonWidth, buttonHeight,
-                x, y, layer);
-        towers.setName(Names.towersIcon);
-
-        x = (-1 * wade.getScreenWidth() / 2) + 100;
-        y = (wade.getScreenHeight() / 2) - 200;
-        const town_halls = Button.build(ImageMap.town_halls_1, buttonWidth,
-                buttonHeight, x, y, layer);
-        town_halls.setName(Names.townHallsIcon);
-
-        return [barracks, stables, towers, town_halls];
-
     },
     buildingConstruction: (optionsPanel, constructionFn, jsonFile, displayFn) => {
         return function(event) {
@@ -137,7 +79,7 @@ const Hud = {
                         Hud.clearBuildingsPanel();
 
                         //Show the units to be constructed
-                        const options = displayFn(9);
+                        const options = displayFn();
                         _.forEach(options, (unit) => {
                             const imageName = unit.getSprite(0).getImageName();
                             let callback;
@@ -219,54 +161,102 @@ const Hud = {
         };
     },
     clearBuildingsPanel: () => {
-        wade.getSceneObject(Names.barracksIcon).setVisible(false);
-        wade.getSceneObject(Names.stablesIcon).setVisible(false);
-        wade.getSceneObject(Names.towersIcon).setVisible(false);
-        wade.getSceneObject(Names.townHallsIcon).setVisible(false);
+        const global = wade.getSceneObject('global');
+        if(global.hud.buildings) {
+            wade.getSceneObject(Names.barracksIcon).setVisible(false);
+            wade.getSceneObject(Names.stablesIcon).setVisible(false);
+            wade.getSceneObject(Names.towersIcon).setVisible(false);
+            wade.getSceneObject(Names.townHallsIcon).setVisible(false);
+        }
     },
     clearMainPanel: () => {
-        wade.getSceneObject(Names.buildingIcon).setVisible(false);
+        const global = wade.getSceneObject('global');
+        if(global.hud.main) {
+            wade.getSceneObject(Names.buildingIcon).setVisible(false);
+        }
     },
     clearUnitsPanel: () => {
-        wade.getSceneObject(Names.swordsmanIcon).setVisible(false);
+        const global = wade.getSceneObject('global');
+        if(global.hud.units) {
+            wade.getSceneObject(Names.swordsmanIcon).setVisible(false);
+        }
 
+    },
+    clearResourcePanel: () => {
+        const global = wade.getSceneObject('global');
+        if(global.hud.resources) {
+            //if the resources have already been constructed, just show them. 
+            wade.getSceneObject(Names.stoneIcon).setVisible(false);
+            wade.getSceneObject(Names.stoneCount).setVisible(false);
+            wade.getSceneObject(Names.woodIcon).setVisible(false);
+            wade.getSceneObject(Names.woodCount).setVisible(false);
+            wade.getSceneObject(Names.foodIcon).setVisible(false);
+            wade.getSceneObject(Names.foodCount).setVisible(false);
+        } 
+
+        //If they don't exist, do nothing
+    },
+    showBackground: () => {
+        const global = wade.getSceneObject('global'); 
+        if(global.hud.background) {
+            wade.getSceneObject(Names.hudBackground).setVisible(true); 
+        }
+        else {
+            global.hud.background = BuildHud.background(10); 
+        }
+        return global.hud.background;
     },
     showBuildingsPanel: () => {
-        wade.getSceneObject(Names.barracksIcon).setVisible(true);
-        wade.getSceneObject(Names.stablesIcon).setVisible(true);
-        wade.getSceneObject(Names.towersIcon).setVisible(true);
-        wade.getSceneObject(Names.townHallsIcon).setVisible(true);
+        const global = wade.getSceneObject('global');
+        if(global.hud.buildings) {
+            wade.getSceneObject(Names.barracksIcon).setVisible(true);
+            wade.getSceneObject(Names.stablesIcon).setVisible(true);
+            wade.getSceneObject(Names.towersIcon).setVisible(true);
+            wade.getSceneObject(Names.townHallsIcon).setVisible(true);
+        }
+        else {
+            global.hud.buildings = BuildHud.buildingsPanel(9);
+        }
+        return global.hud.buildings;
     },
     showMainPanel: () => {
-        wade.getSceneObject(Names.buildingIcon).setVisible(true);
+        const global = wade.getSceneObject('global');
+        if(global.hud.main) {
+            wade.getSceneObject(Names.buildingIcon).setVisible(true);
+        } else {
+            global.hud.main = BuildHud.mainPanel(9); 
+        }
+
+        return global.hud.main;
     },
-    showUnitsPanel: () => {
-        wade.getSceneObject(Names.swordsmanIcon).setVisible(true);
+    showBarracksPanel: () => {
+        const global = wade.getSceneObject('global');
+        if(global.hud.barracks) {
+            wade.getSceneObject(Names.swordsmanIcon).setVisible(true);
+        } else {
+            global.hud.barracks = BuildHud.barracksPanel(9); 
+        }
+
+        return global.hud.barracks;
     },
+    showResourcePanel: () => {
+        const global = wade.getSceneObject('global');
+        if(global.hud.resources) {
+            //if the resources have already been constructed, just show them. 
+            wade.getSceneObject(Names.stoneIcon).setVisible(true);
+            wade.getSceneObject(Names.stoneCount).setVisible(true);
+            wade.getSceneObject(Names.woodIcon).setVisible(true);
+            wade.getSceneObject(Names.woodCount).setVisible(true);
+            wade.getSceneObject(Names.foodIcon).setVisible(true);
+            wade.getSceneObject(Names.foodCount).setVisible(true);
+        } 
+        else {
+            global.hud.resources = BuildHud.resourcePanel(9); 
+        }
+
+        return global.hud.resources;
+    }
 };
 
-const displayBarracksOptions = (layer: number) => {
-    const y = (wade.getScreenHeight() / 2) - 200;
-    const x = 50;
-    const swordsman = Button.build(ImageMap.swordsman_1, 35, 65, x, y, layer);
-    swordsman.setName(Names.swordsmanIcon);
-
-    return [swordsman];
-};
-
-const Button = {
-    build: (imgStr: string, width: number, height: number,
-            x: number, y: number, layer: number) => {
-        const sprite = new Sprite(imgStr, layer);
-        sprite.setSize(width, height);
-        const sceneObj = new SceneObject(sprite);
-        sceneObj.setPosition(x, y);
-        wade.addSceneObject(sceneObj);
-
-        return sceneObj;
-
-    },
-
-};
 
 export default Hud;

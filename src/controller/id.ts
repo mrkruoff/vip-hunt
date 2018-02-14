@@ -13,11 +13,11 @@ var Id = {
     getUnitId: () => {
         let id;
         const global = wade.getSceneObject('global');
-        if(!global.playerUnitId) {
-            global.playerUnitId = 0; 
+        if(!global.unitId) {
+            global.unitId = 0; 
         }
-        id = global.playerUnitId;
-        global.playerUnitId += 1;
+        id = global.unitId;
+        global.unitId += 1;
 
         return id;
     
@@ -25,11 +25,11 @@ var Id = {
     getBuildId: () => {
         let id;
         const global = wade.getSceneObject('global');
-        if(!global.playerBuildId) {
-            global.playerBuildId = 0; 
+        if(!global.buildId) {
+            global.buildId = 0; 
         }
-        id = global.playerBuildId;
-        global.playerBuildId += 1;
+        id = global.buildId;
+        global.buildId += 1;
 
         return id;
     

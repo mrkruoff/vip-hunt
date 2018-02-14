@@ -75,6 +75,9 @@ function loadImages () {
     wade.loadImage(ImageMap.towers_1);
     wade.loadImage(ImageMap.town_halls_1);
     wade.loadImage(ImageMap.swordsman_1);
+    wade.loadImage(ImageMap.stoneIcon);
+    wade.loadImage(ImageMap.woodIcon);
+    wade.loadImage(ImageMap.foodIcon);
 }
 
 function loadSpriteJson() {
