@@ -8,8 +8,10 @@ class Tile {
     buildingId: number;
     resourceId: number;
     walkable: boolean;
+    x: number;
+    y: number;
 
-    constructor(unit: number, building: number, resource: number, walkable: boolean) {
+    constructor(unit: number, building: number, resource: number, walkable: boolean ) {
         this.unitId = unit;
         this.buildingId = building;
         this.resourceId = resource;
