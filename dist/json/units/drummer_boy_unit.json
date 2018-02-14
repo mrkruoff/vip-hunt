@@ -1,12 +1,12 @@
 {
 	"name":"drummerBoy",
-	"health":"25",
-	"defense":"25",
-	"attack":"0",
-	"gathering": "35",
-	"speed":"25",
-	"vision":"25",
-	"cost":"25",
-	"help":"30",
-	"range":"0"
+	"health":25,
+	"defense":25,
+	"attack":0,
+	"gathering": 35,
+	"speed":25,
+	"vision":25,
+	"cost":25,
+	"help":30,
+	"range":0
 }

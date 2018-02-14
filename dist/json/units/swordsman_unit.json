@@ -1,11 +1,11 @@
 {
 	"name":"swordsman",
-	"health":"50",
-	"defense":"50",
-	"attack":"50",
-	"gathering": "25",
-	"speed":"50",
-	"vision":"50",
-	"cost":"25",
-	"range":"0"
+	"health":50,
+	"defense":50,
+	"attack":50,
+	"gathering": 25,
+	"speed":50,
+	"vision":50,
+	"cost":25,
+	"range":0
 }
