@@ -7,6 +7,7 @@ class Barracks extends Building {
 
     constructor(id: number, hp: number, vision: number) {
         super(id, hp, vision);
+        this.name = "Barracks";
     }
     static fromObject(obj) : Building {
         let building = Barracks.defaultBarracks();

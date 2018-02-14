@@ -8,11 +8,17 @@ class Building implements IIdentifiable {
 	hp: number;
     id: number;
     vision: number;
+    name: "string";
 
     constructor(id: number, hp: number, vision: number) {
         this.hp = hp;
         this.id = id;
         this.vision = vision;
+        this.name = "Building";
+    }
+
+    getClassName() {
+        return this.name; 
     }
 
     // This function applies the attack points to the instance's hp.

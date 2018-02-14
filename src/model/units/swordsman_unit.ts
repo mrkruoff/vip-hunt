@@ -8,9 +8,9 @@ class Swordsman extends Unit {
             id: number, hp: number, attack: number, defense: number,
                 speed: number, range: number, vision: number, gathering: number) {
         super(id, hp, attack, defense, speed, range, vision, gathering);
+        this.name = "Swordsman";
 
     }
-
 
     static fromObject(obj): Swordsman {
         let unit = Swordsman.defaultSwordsman();

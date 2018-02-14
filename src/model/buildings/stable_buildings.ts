@@ -6,6 +6,7 @@ import { Container, injectable, inject } from "inversify";
 class Stables extends Building {
     constructor(id: number, hp: number, vision: number) {
         super(id, hp, vision);
+        this.name = "Stables";
     }
     static fromObject(obj) : Stables {
         let building = Stables.defaultStables();
