@@ -14,6 +14,10 @@ const ImageMap = {
     archer_calvary_1: 'default',
     drummer_boy_1: ' ',
 
+    stoneIcon: '../js/../public/sprites/resources/stone.png',
+    woodIcon: '../js/../public/sprites/resources/wood.png',
+    foodIcon: '../js/../public/sprites/resources/food.png',
+
 };
 
 export default ImageMap;

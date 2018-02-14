@@ -7,6 +7,14 @@ const Names = {
     towersIcon: 'towersIcon',
     townHallsIcon: 'townHallsIcon',
     swordsmanIcon: 'swordsmanIcon',
+
+    stoneIcon: "stoneIcon",
+    foodIcon: "foodIcon",
+    woodIcon: "woodIcon",
+    stoneCount: "stoneCount",
+    foodCount: "foodCount",
+    woodCount: "woodCount",
+
 };
 
 export default Names;
