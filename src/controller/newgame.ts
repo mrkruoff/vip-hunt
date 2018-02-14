@@ -1,10 +1,13 @@
 import * as _ from 'lodash';
 import Construction from './construction';
 import Events from './events';
+import Camera from './camera';
 import ImageMap from './image-map';
 import JsonMap from './json-map';
 import Mouse from './mouse';
-import Hud from './hud'
+import Hud from './hud';
+import Global from './global';
+import GlobalGameState from '../model/state/global-game-state';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -18,6 +21,15 @@ declare var TilemapCharacter: any;
 
 const NewGame = {
     initialize: () => {
+        //Set up global settings and sync with scene.
+        const global = Global.createGlobalSettings();
+        addToScene(global.state);
+
+        //Add basic camera settings
+        Events.addCamera();
+        Camera.setBounds();
+
+        //Show resources
         wade.setLayerTransform(9, 0, 0);
         const resources = Hud.showResourcePanel();
 
@@ -48,7 +60,7 @@ const NewGame = {
         };
         wade.addEventListener(building, 'onClick');
     },
-    buildingConstruction: (optionsPanel, constructionFn, jsonFile, displayFn) => {
+    buildingConstruction: (optionsPanel, constructionFn, jsonFile: string, dataFile: string, displayFn) => {
         return function(event) {
             if (event.button === Mouse.left) {
                 if (optionsPanel.icon) {
@@ -58,7 +70,7 @@ const NewGame = {
                     optionsPanel.icon = null;
                 }
                 //Build the indicated building and track it on the map.
-                optionsPanel.icon = constructionFn(jsonFile);
+                optionsPanel.icon = constructionFn(jsonFile, dataFile);
                 Mouse.trackIsoTerrainGridMove(optionsPanel.icon);
 
                 // When click on map, finalize the building
@@ -66,7 +78,7 @@ const NewGame = {
             }
         };
     },
-    unitConstruction: (optionsPanel, constructionFn, jsonFile: string) => {
+    unitConstruction: (optionsPanel, constructionFn, jsonFile: string, dataFile: string) => {
         return function(event) {
             if (event.button === Mouse.left) {
                 if (optionsPanel.icon) {
@@ -75,7 +87,7 @@ const NewGame = {
                     wade.iso.deleteObject(optionsPanel.icon);
                     optionsPanel.icon = null;
                 }
-                optionsPanel.icon = constructionFn(jsonFile);
+                optionsPanel.icon = constructionFn(jsonFile, dataFile);
                 Mouse.trackIsoTerrainGridMove(optionsPanel.icon);
 
                 wade.app.onIsoTerrainMouseDown = finalizeUnit(optionsPanel);
@@ -87,17 +99,17 @@ const NewGame = {
 function selectABuildingCallback(imageName: string, options) {
     let callback;
     if (imageName === ImageMap.barracks_1) {
-        callback = NewGame.buildingConstruction(options,
-            Construction.barracks, JsonMap.barracks_1, Hud.showBarracksPanel);
+        callback = NewGame.buildingConstruction(options, Construction.barracks,
+                    JsonMap.barracks_1, JsonMap.barracks_data, Hud.showBarracksPanel);
     } else if (imageName === ImageMap.stables_1) {
-        callback = NewGame.buildingConstruction(options,
-            Construction.stables, JsonMap.stables_1, Hud.showBarracksPanel);
+        callback = NewGame.buildingConstruction(options, Construction.stables,
+                    JsonMap.stables_1, JsonMap.stables_data, Hud.showBarracksPanel);
     } else if (imageName === ImageMap.towers_1) {
-        callback = NewGame.buildingConstruction(options,
-            Construction.towers, JsonMap.towers_1, Hud.showBarracksPanel);
+        callback = NewGame.buildingConstruction(options, Construction.towers,
+                    JsonMap.towers_1, JsonMap.tower_data, Hud.showBarracksPanel);
     } else if (imageName === ImageMap.town_halls_1) {
-        callback = NewGame.buildingConstruction(options,
-            Construction.townHalls, JsonMap.town_halls_1, Hud.showBarracksPanel);
+        callback = NewGame.buildingConstruction(options, Construction.townHalls,
+                    JsonMap.town_halls_1, JsonMap.townhall_data, Hud.showBarracksPanel);
     }
 
     return callback;
@@ -106,21 +118,27 @@ function selectABuildingCallback(imageName: string, options) {
 function selectAUnitCallback(imageName: string, options) {
     let callback;
     if (imageName === ImageMap.swordsman_1) {
-        callback = NewGame.unitConstruction(options, Construction.swordsman, JsonMap.swordsman_1);
+        callback = NewGame.unitConstruction(options, Construction.swordsman,
+                            JsonMap.swordsman_1, JsonMap.swordsman_data);
 
     } else if (imageName === ImageMap.archer_1) {
-        callback = NewGame.unitConstruction(options, Construction.archer, JsonMap.archer_1);
+        callback = NewGame.unitConstruction(options, Construction.archer,
+                            JsonMap.archer_1, JsonMap.archer_data);
 
     } else if (imageName === ImageMap.gatherer_1) {
-        callback = NewGame.unitConstruction(options, Construction.gatherer, JsonMap.gatherer_1);
+        callback = NewGame.unitConstruction(options, Construction.gatherer,
+                            JsonMap.gatherer_1, JsonMap.gatherer_data);
 
     } else if (imageName === ImageMap.spear_calvary_1) {
-        callback = NewGame.unitConstruction(options, Construction.spearCalvary, JsonMap.spear_calvary_1);
+        callback = NewGame.unitConstruction(options, Construction.spearCalvary,
+                            JsonMap.spear_calvary_1, JsonMap.spear_calvary_data);
 
     } else if (imageName === ImageMap.archer_calvary_1) {
-        callback = NewGame.unitConstruction(options, Construction.archerCalvary, JsonMap.archer_calvary_1);
+        callback = NewGame.unitConstruction(options, Construction.archerCalvary,
+                            JsonMap.archer_calvary_1, JsonMap.archer_calvary_data);
     } else if (imageName === ImageMap.drummer_boy_1) {
-        callback = NewGame.unitConstruction(options, Construction.drummerBoy, JsonMap.drummer_boy_1);
+        callback = NewGame.unitConstruction(options, Construction.drummerBoy,
+                            JsonMap.drummer_boy_1, JsonMap.drummer_boy_data);
     }
 
     return callback;
@@ -187,6 +205,47 @@ function finalizeUnit(optionsPanel) {
         };
         wade.addEventListener(unit, 'onMouseDown');
     }
+}
+
+function addToScene(state: GlobalGameState) {
+    _.forEach(state.map, (innerArray) => {
+        _.forEach(innerArray, (tile) => {
+            if(tile.buildingId >= 0) {
+                let building = _.find(state.getPlayer().getBuildings(), (b) => {
+                    return b.id === tile.buildingId;
+                });
+                if( !building )  {
+                    //Otherwise the building is an ai building
+                    building = _.find(state.getAi().getBuildings(), (b) => {
+                        return b.id === tile.buildingId; 
+                    });
+                }
+
+                // Once we have the building, we can paint it on the appropriate
+                // grid position with the appropriate image
+                tile.x;
+                tile.y;
+            
+            }
+            if(tile.unitId >= 0) {
+                let unit = _.find(state.getPlayer().getBuildings(), (b) => {
+                    return b.id === tile.unitId;
+                });
+                if( !unit )  {
+                    //Otherwise the unit is an ai unit
+                    unit = _.find(state.getAi().getBuildings(), (b) => {
+                        return b.id === tile.unitId; 
+                    });
+                }
+
+                // Once we have the unit, we can paint it on the appropriate
+                // grid position with the appropriate image
+                tile.x;
+                tile.y;
+            }
+        });
+    });
+
 }
 
 export default NewGame;

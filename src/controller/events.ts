@@ -12,7 +12,7 @@ declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
 const Events = {
-    addGlobal: () => {
+    addCamera: () => {
     //Add camera options for mouse and keyboard
         wade.app.onKeyDown = function(event) {
             Camera.keyDown(event);
@@ -36,7 +36,7 @@ const Events = {
             }
         };
     },
-    removeGlobal: () => {
+    removeCamera: () => {
         wade.app.onKeyDown = null;
         wade.app.onKeyUp = null;
         wade.app.onMouseMove = null;

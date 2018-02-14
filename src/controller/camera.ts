@@ -11,6 +11,9 @@ declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
 const Camera = {
+    setBounds: () => {
+        wade.setCameraBounds(-1500, 1500, -1500, 1500, 3, 10);
+    },
     moveToTop: () => {
         const destination = wade.getCameraPosition();
         //Set new destiination relative to current position
