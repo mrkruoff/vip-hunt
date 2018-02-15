@@ -22,11 +22,11 @@ class AiGameState {
     }
 
     getBuildings() {
-        return this.units; 
+        return this.buildings; 
     }
 
     getUnits() {
-        return this.buildings;
+        return this.units;
     }
 
     static defaultAiGameState(vipFac, townhallFac) : AiGameState {
