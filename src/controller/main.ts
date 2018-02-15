@@ -16,6 +16,8 @@ declare var TilemapCharacter: any;
 App = function() {
     // Sets up initial variables for the game
     this.init = function() {
+        //Allow diagonal and straight movement
+        wade.iso.init({movementDirection: 'both'});
 
 
 
@@ -78,6 +80,7 @@ function loadImages () {
     wade.loadImage(ImageMap.stoneIcon);
     wade.loadImage(ImageMap.woodIcon);
     wade.loadImage(ImageMap.foodIcon);
+    wade.loadImage(ImageMap.vip_1);
 }
 
 function loadSpriteJson() {
@@ -87,4 +90,5 @@ function loadSpriteJson() {
     wade.loadJson(JsonMap.towers_1);
     wade.loadJson(JsonMap.town_halls_1);
     wade.loadJson(JsonMap.swordsman_1);
+    wade.loadJson(JsonMap.vip_1);
 }
