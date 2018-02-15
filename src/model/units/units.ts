@@ -54,8 +54,13 @@ class Unit implements IIdentifiable {
 	}
 
     getId() {
-        return this.id
+        return this.id;
     }
+
+    getAttack() {
+        return this.attack; 
+    }
+
 
 }
 

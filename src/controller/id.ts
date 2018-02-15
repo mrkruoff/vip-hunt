@@ -1,3 +1,5 @@
+import IIdentifiable from '../interfaces/identifiable';
+import * as _ from 'lodash';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -10,31 +12,20 @@ declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
 const Id = {
-    getUnitId: () => {
+    getId: () => {
         let id;
         const global = wade.getSceneObject('global');
-        if (!global.unitId) {
-            global.unitId = 0;
+        if (!global.id) {
+            global.id = 0;
         }
-        id = global.unitId;
-        global.unitId += 1;
+        id = global.id;
+        global.id += 1;
 
         return id;
-
     },
-    getBuildId: () => {
-        let id;
-        const global = wade.getSceneObject('global');
-        if (!global.buildId) {
-            global.buildId = 0;
-        }
-        id = global.buildId;
-        global.buildId += 1;
-
-        return id;
-
+    hasId: (obj: IIdentifiable, id: number) => {
+        return _.isEqual(obj.getId(), id); 
     },
-
 };
 
 export default Id;

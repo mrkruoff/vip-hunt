@@ -144,7 +144,6 @@ function constructBuildingFromModel(building: Building) {
     } else if (building.getClassName() === 'Tower') {
         b = SceneObjectConstruction.towers(JsonMap.towers_1);
     }
-
     return b;
 }
 

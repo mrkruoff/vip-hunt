@@ -44,16 +44,16 @@ function defaultGlobalState() {
     const startingFood = 100;
 
     const playerVIP = VIP.fromObject(wade.getJson(JsonMap.vip_data));
-    playerVIP.id = Id.getUnitId();
+    playerVIP.id = Id.getId();
     const playerTownHall = TownHall.fromObject(wade.getJson(JsonMap.townhall_data));
-    playerTownHall.id = Id.getBuildId();
+    playerTownHall.id = Id.getId();
     const playerState = new PlayerGameState([playerVIP], [playerTownHall],
                         startingStone, startingWood, startingFood);
 
     const aiVIP = VIP.fromObject(wade.getJson(JsonMap.vip_data));
-    aiVIP.id = Id.getUnitId();
+    aiVIP.id = Id.getId();
     const aiTownHall = TownHall.fromObject(wade.getJson(JsonMap.townhall_data));
-    aiTownHall.id = Id.getBuildId();
+    aiTownHall.id = Id.getId();
     const aiState = new AiGameState([aiVIP], [aiTownHall],
                         startingStone, startingWood, startingFood);
 

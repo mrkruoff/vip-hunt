@@ -10,6 +10,7 @@ class Tile {
     walkable: boolean;
     x: number;
     y: number;
+    static EMPTY: -1;
 
     constructor(unit: number, building: number, resource: number, walkable: boolean ) {
         this.unitId = unit;
@@ -35,11 +36,30 @@ class Tile {
             this.walkable = false;
         }
     }
+    getUnitId() {
+        return this.unitId; 
+    }
+    getBuildingId() {
+        return this.buildingId; 
+    }
+    getResourceId() {
+        return this.resourceId; 
+    }
+
+    setUnitId(id: number) {
+        this.unitId = id;    
+    }
+    setBuildingId(id: number) {
+        this.buildingId = id;    
+    }
+    setResourceId(id: number) {
+        this.resourceId = id;    
+    }
 
     static defaultTile() : Tile {
-        const unit = 0;
-        const building = 0;
-        const resource = 0;
+        const unit = Tile.EMPTY;
+        const building = Tile.EMPTY;
+        const resource = Tile.EMPTY;
         const walkable = true;
 
         return new Tile(unit, building, resource, walkable);
