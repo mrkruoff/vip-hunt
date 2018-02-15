@@ -1,5 +1,6 @@
 import * as _ from 'lodash';
 import Construction from './construction';
+import SceneObjectConstruction from './scene-object-construction';
 import Events from './events';
 import Camera from './camera';
 import ImageMap from './image-map';
@@ -8,6 +9,8 @@ import Mouse from './mouse';
 import Hud from './hud';
 import Global from './global';
 import GlobalGameState from '../model/state/global-game-state';
+import Building from '../model/buildings/buildings';
+import Unit from '../model/units/units';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -21,6 +24,8 @@ declare var TilemapCharacter: any;
 
 const NewGame = {
     initialize: () => {
+        //Initialize isometric engine to allow diagonal movement.
+
         //Set up global settings and sync with scene.
         const global = Global.createGlobalSettings();
         addToScene(global.state);
@@ -51,7 +56,7 @@ const NewGame = {
             // to build a matching building in the game world.
             var setOnClickToBuild = (b) => {
                 const imageName = b.getSprite(0).getImageName();
-                b.onClick = selectABuildingCallback(imageName, options);
+                b.onClick = Events.selectABuildingCallback(imageName, options);
                 wade.addEventListener(b, 'onClick');
             };
 
@@ -60,152 +65,8 @@ const NewGame = {
         };
         wade.addEventListener(building, 'onClick');
     },
-    buildingConstruction: (optionsPanel, constructionFn, jsonFile: string, dataFile: string, displayFn) => {
-        return function(event) {
-            if (event.button === Mouse.left) {
-                if (optionsPanel.icon) {
-                    //If the buildings Panel is constructing already, delete current one and
-                    // replace it with the other
-                    wade.iso.deleteObject(optionsPanel.icon);
-                    optionsPanel.icon = null;
-                }
-                //Build the indicated building and track it on the map.
-                optionsPanel.icon = constructionFn(jsonFile, dataFile);
-                Mouse.trackIsoTerrainGridMove(optionsPanel.icon);
-
-                // When click on map, finalize the building
-                wade.app.onIsoTerrainMouseDown = finalizeBuilding(optionsPanel, displayFn);
-            }
-        };
-    },
-    unitConstruction: (optionsPanel, constructionFn, jsonFile: string, dataFile: string) => {
-        return function(event) {
-            if (event.button === Mouse.left) {
-                if (optionsPanel.icon) {
-                    // If the panel has an icon already, delete the current one and
-                    // replace it with the other.
-                    wade.iso.deleteObject(optionsPanel.icon);
-                    optionsPanel.icon = null;
-                }
-                optionsPanel.icon = constructionFn(jsonFile, dataFile);
-                Mouse.trackIsoTerrainGridMove(optionsPanel.icon);
-
-                wade.app.onIsoTerrainMouseDown = finalizeUnit(optionsPanel);
-            }
-        };
-    },
 };
 
-function selectABuildingCallback(imageName: string, options) {
-    let callback;
-    if (imageName === ImageMap.barracks_1) {
-        callback = NewGame.buildingConstruction(options, Construction.barracks,
-                    JsonMap.barracks_1, JsonMap.barracks_data, Hud.showBarracksPanel);
-    } else if (imageName === ImageMap.stables_1) {
-        callback = NewGame.buildingConstruction(options, Construction.stables,
-                    JsonMap.stables_1, JsonMap.stables_data, Hud.showBarracksPanel);
-    } else if (imageName === ImageMap.towers_1) {
-        callback = NewGame.buildingConstruction(options, Construction.towers,
-                    JsonMap.towers_1, JsonMap.tower_data, Hud.showBarracksPanel);
-    } else if (imageName === ImageMap.town_halls_1) {
-        callback = NewGame.buildingConstruction(options, Construction.townHalls,
-                    JsonMap.town_halls_1, JsonMap.townhall_data, Hud.showBarracksPanel);
-    }
-
-    return callback;
-}
-
-function selectAUnitCallback(imageName: string, options) {
-    let callback;
-    if (imageName === ImageMap.swordsman_1) {
-        callback = NewGame.unitConstruction(options, Construction.swordsman,
-                            JsonMap.swordsman_1, JsonMap.swordsman_data);
-
-    } else if (imageName === ImageMap.archer_1) {
-        callback = NewGame.unitConstruction(options, Construction.archer,
-                            JsonMap.archer_1, JsonMap.archer_data);
-
-    } else if (imageName === ImageMap.gatherer_1) {
-        callback = NewGame.unitConstruction(options, Construction.gatherer,
-                            JsonMap.gatherer_1, JsonMap.gatherer_data);
-
-    } else if (imageName === ImageMap.spear_calvary_1) {
-        callback = NewGame.unitConstruction(options, Construction.spearCalvary,
-                            JsonMap.spear_calvary_1, JsonMap.spear_calvary_data);
-
-    } else if (imageName === ImageMap.archer_calvary_1) {
-        callback = NewGame.unitConstruction(options, Construction.archerCalvary,
-                            JsonMap.archer_calvary_1, JsonMap.archer_calvary_data);
-    } else if (imageName === ImageMap.drummer_boy_1) {
-        callback = NewGame.unitConstruction(options, Construction.drummerBoy,
-                            JsonMap.drummer_boy_1, JsonMap.drummer_boy_data);
-    }
-
-    return callback;
-}
-
-function finalizeBuilding( optionsPanel, displayFn ) {
-    return (e) => {
-        const building = optionsPanel.icon;
-
-        //Make room to construct another buildiing through the options panel
-        wade.app.onIsoTerrainMouseMove = null;
-        optionsPanel.icon = null;
-        //Remove this very event listener
-        wade.app.onIsoTerrainMouseDown = null;
-
-        // Set the new building up for gameplay callbacks
-        building.onMouseDown = (event) => {
-            // Clear the panels and show the possible units to
-            // build.
-            Hud.clearBuildingsPanel();
-            const unitOptions = displayFn();
-
-            var setOnClickToBuild = (unit) => {
-                const imageName = unit.getSprite(0).getImageName();
-                unit.onClick = selectAUnitCallback(imageName, unitOptions);
-                wade.addEventListener(unit, 'onClick');
-            };
-
-            //Show the units to be constructed
-            _.forEach(unitOptions, setOnClickToBuild);
-        };
-        wade.addEventListener(building, 'onMouseDown');
-    };
-}
-
-function finalizeUnit(optionsPanel) {
-    return (e) => {
-        const unit = optionsPanel.icon;
-
-        // Set up to construct another unit from the options panel.
-        wade.app.onIsoTerrainMouseMove = null;
-        optionsPanel.icon = null;
-        //Remove this very event listener from the global scope
-        wade.app.onIsoTerrainMouseDown = null;
-
-        //Set up the newly constructed unit for gameplay
-        unit.onMouseDown = (event) => {
-            Hud.clearUnitsPanel();
-            Hud.clearBuildingsPanel();
-            Hud.showMainPanel();
-
-            // Set up the callbacks for clicking on the icon once it is
-            // built, but not before then.
-            console.log('Hi, you clicked me!');
-            if (event.button === Mouse.left) {
-                if (Events.getSelectedUnit()) {
-                    // Get rid of current selected unit if it
-                    // exists already
-                    Events.removeSelectedUnit();
-                }
-                Events.addSelectedUnit(unit);
-            }
-
-        };
-        wade.addEventListener(unit, 'onMouseDown');
-    }
-}
 
 function addToScene(state: GlobalGameState) {
     _.forEach(state.map, (innerArray) => {
@@ -220,32 +81,93 @@ function addToScene(state: GlobalGameState) {
                         return b.id === tile.buildingId; 
                     });
                 }
+                console.log(building);
 
                 // Once we have the building, we can paint it on the appropriate
                 // grid position with the appropriate image
-                tile.x;
-                tile.y;
+                let b = constructBuildingFromModel(building);
+                console.log(b);
+                b.data = building;
+                wade.iso.moveObjectToTile(b, tile.x, tile.y);
+
+                //Then we attach the appropriate callbacks for a constructed building
+                let displayFn;
+                let c = building.getClassName();
+                if(c === "Barracks") {
+                    displayFn = Hud.showBarracksPanel;
+                } else if (c === "Stables") {
+                    displayFn = Hud.showBarracksPanel;
+                } else if (c === "TownHall") {
+                    displayFn = Hud.showBarracksPanel;
+                } else if (c === "Tower") {
+                    displayFn = Hud.showBarracksPanel;
+                }
+                b.onMouseDown = Events.onSelectBuilding(b, displayFn);
+                wade.addEventListener(b, 'onMouseDown');
             
             }
             if(tile.unitId >= 0) {
-                let unit = _.find(state.getPlayer().getBuildings(), (b) => {
-                    return b.id === tile.unitId;
+                let unit = _.find(state.getPlayer().getUnits(), (u) => {
+                    return u.id === tile.unitId;
                 });
                 if( !unit )  {
                     //Otherwise the unit is an ai unit
-                    unit = _.find(state.getAi().getBuildings(), (b) => {
-                        return b.id === tile.unitId; 
+                    unit = _.find(state.getAi().getUnits(), (u) => {
+                        return u.id === tile.unitId; 
                     });
                 }
 
+                console.log(unit);
+
                 // Once we have the unit, we can paint it on the appropriate
                 // grid position with the appropriate image
-                tile.x;
-                tile.y;
+                let u = constructUnitFromModel(unit);
+                u.data = unit;
+                wade.iso.moveObjectToTile(u, tile.x, tile.y);
+
+                //Then we attach the appropriate callbacks for a constructed unit.
+                u.onMouseDown = Events.onSelectUnit(u);
+                wade.addEventListener(u, 'onMouseDown');
             }
         });
     });
 
+}
+
+function constructBuildingFromModel(building: Building) {
+    let b;
+    if(building.getClassName() === "Barracks") {
+        b = SceneObjectConstruction.barracks(JsonMap.barracks_1);
+    } else if (building.getClassName() === "Stables") {
+        b = SceneObjectConstruction.stables(JsonMap.stables_1);
+    } else if (building.getClassName() === "TownHall") {
+        b = SceneObjectConstruction.townHalls(JsonMap.town_halls_1);
+    } else if (building.getClassName() === "Tower") {
+        b = SceneObjectConstruction.towers(JsonMap.towers_1); 
+    }
+
+    return b;
+}
+
+
+function constructUnitFromModel(unit: Unit) {
+    let u;
+    if(unit.getClassName() === "VIP") {
+        u = SceneObjectConstruction.vip(JsonMap.vip_1);
+    } else if (unit.getClassName() === "Archer") {
+        u = SceneObjectConstruction.archer(JsonMap.archer_1);
+    } else if (unit.getClassName() === "Swordsman") {
+        u = SceneObjectConstruction.swordsman(JsonMap.swordsman_1);
+    } else if (unit.getClassName() === "Gatherer") {
+        u = SceneObjectConstruction.gatherer(JsonMap.gatherer_1);
+    } else if (unit.getClassName() === "DrummerBoy") {
+        u = SceneObjectConstruction.drummerBoy(JsonMap.drummer_boy_1);
+    } else if (unit.getClassName() === "SpearCalvary") {
+        u = SceneObjectConstruction.spearCalvary(JsonMap.spear_calvary_1);
+    } else if (unit.getClassName() === "ArcherCalvary") {
+        u = SceneObjectConstruction.archerCalvary(JsonMap.archer_calvary_1);
+    }
+    return u;
 }
 
 export default NewGame;
