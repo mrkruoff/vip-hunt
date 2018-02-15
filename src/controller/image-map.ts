@@ -13,6 +13,7 @@ const ImageMap = {
     spear_calvary_1: 'default',
     archer_calvary_1: 'default',
     drummer_boy_1: ' ',
+    vip_1: '../js/../public/sprites/units/vip_1.png',
 
     stoneIcon: '../js/../public/sprites/resources/stone.png',
     woodIcon: '../js/../public/sprites/resources/wood.png',

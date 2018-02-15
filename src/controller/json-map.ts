@@ -10,6 +10,7 @@ const JsonMap = {
     spear_calvary_1: ' ',
     gatherer_1: ' ',
     drummer_boy_1: ' ',
+    vip_1: '../js/../json/images/vip_1.json',
 
     archer_calvary_data: '../js/../json/units/archer_calvary_unit.json',
     archer_data: '../js/../json/units/archer_unit.json',
