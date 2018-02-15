@@ -1,6 +1,6 @@
 {
 	"name":"swordsman",
-	"health":50,
+	"hp":50,
 	"defense":50,
 	"attack":50,
 	"gathering": 25,

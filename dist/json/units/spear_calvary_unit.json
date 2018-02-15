@@ -1,6 +1,6 @@
 {
 	"name":"spearCalvary",
-	"health":25,
+	"hp":25,
 	"defense":75,
 	"attack":75,
 	"gathering": 0,

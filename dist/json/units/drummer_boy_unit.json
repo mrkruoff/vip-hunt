@@ -1,6 +1,6 @@
 {
 	"name":"drummerBoy",
-	"health":25,
+	"hp":25,
 	"defense":25,
 	"attack":0,
 	"gathering": 35,

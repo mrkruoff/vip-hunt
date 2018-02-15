@@ -1,8 +1,8 @@
 {
 	"name":"vip",
-	"health":100,
+	"hp":100,
 	"defense":100,
-	"attack":0,
+	"attack":1,
 	"gathering": 50,
 	"speed":50,
 	"vision":100,
