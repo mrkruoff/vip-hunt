@@ -58,21 +58,21 @@ function defaultGlobalState () {
                         startingStone, startingWood, startingFood);
 
     const map = [];
-    for(let i = 0; i < 50; i++) {
+    for(let i = 0; i < 20; i++) {
         map[i] = [];
-        for(let j = 0; j < 50; j++) {
+        for(let j = 0; j < 20; j++) {
             map[i][j] = new Tile(-1, -1, -1, true); 
             //The tile should know itself what its coordinates are
-            map[i][j].x = i;
-            map[i][j].y = j;
+            map[i][j].y = i;
+            map[i][j].x = j;
         }
     }
 
     //Put the VIP and Townhall on the map
-    map[0][0].unitId = playerVIP.id;
-    map[5][5].buildingId = playerTownHall.id;
-    map[25][25].unitId = aiVIP.id;
-    map[20][20].buildingId = aiTownHall.id;
+    map[15][15].unitId = playerVIP.id;
+    map[1][5].buildingId = playerTownHall.id;
+    map[5][15].unitId = aiVIP.id;
+    map[1][10].buildingId = aiTownHall.id;
 
     const state = new GlobalGameState(map, playerState, aiState);
     

@@ -8,6 +8,7 @@ import Swordsman from "../model/units/swordsman_unit";
 import Gatherer from "../model/units/gatherer_unit";
 import DrummerBoy from "../model/units/drummerBoy_unit";
 import Unit from "../model/units/units";
+import SceneObjectConstruction from './scene-object-construction';
 
 import Stables from "../model/buildings/stable_buildings";
 import TownHall from "../model/buildings/townhall_buildings";

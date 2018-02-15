@@ -29,9 +29,9 @@ var Hud = {
             wade.getSceneObject(Names.buildingIcon).setVisible(false);
         }
     },
-    clearUnitsPanel: () => {
+    clearBarracksPanel: () => {
         const global = wade.getSceneObject('global');
-        if(global.hud.units) {
+        if(global.hud.barracks) {
             wade.getSceneObject(Names.swordsmanIcon).setVisible(false);
         }
 
