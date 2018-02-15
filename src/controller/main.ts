@@ -1,3 +1,4 @@
+import AudioMap from './audio-map';
 import ImageMap from './image-map';
 import JsonMap from './json-map';
 import * as Menu from './menu';
@@ -19,8 +20,6 @@ App = function() {
         //Allow diagonal and straight movement
         wade.iso.init({movementDirection: 'both'});
 
-
-
         //display a welcome screen with menu choices.
         Menu.displayWelcome.call(this);
 
@@ -32,11 +31,15 @@ App = function() {
         loadSpriteJson();
         loadDataJson();
         loadCostJson();
-
+        loadAudio();
 
     };
 
 };
+
+function loadAudio() {
+    wade.loadAudio(AudioMap.menu_music);
+}
 
 function loadCostJson() {
     wade.loadJson(JsonMap.barracks_cost);
@@ -68,7 +71,7 @@ function loadDataJson() {
 
 }
 
-function loadImages () {
+function loadImages() {
     // load images
     wade.loadImage(ImageMap.scroll);
     wade.loadImage(ImageMap.buildingIcon);

@@ -1,5 +1,6 @@
-import * as _ from "lodash";
+import * as _ from 'lodash';
 
+import AudioMap from './audio-map';
 import Events from './events';
 import Hud from './hud';
 import NewGame from './newgame';
@@ -15,6 +16,7 @@ declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
 const displayWelcome = function() {
+    // wade.playAudio(AudioMap.menu_music, true);
     const color = 'white';
     const alignment = 'center';
 
@@ -63,7 +65,7 @@ function setupSaveGame() {
 
 }
 
-var setupNewGame = function () {
+const setupNewGame = function() {
     this.newGameObject.setPosition(0, 0);
 
     setMouseInOut(this.newGameObject);
@@ -76,7 +78,7 @@ var setupNewGame = function () {
         }, clearscene);
     };
     wade.addEventListener(this.newGameObject, 'onClick');
-}
+};
 
 // Helper function that returns a function that will change a textObject's
 // color
@@ -95,7 +97,5 @@ function setMouseInOut(textObject: any) {
     textObject.onMouseOut = changeColor(textObject, 'white');
     wade.addEventListener(textObject, 'onMouseOut');
 }
-
-
 
 export { displayWelcome };
