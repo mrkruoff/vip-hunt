@@ -1,10 +1,10 @@
-import Camera from './camera';
 import * as _ from 'lodash';
-import Mouse from './mouse';
-import Hud from './hud';
-import JsonMap from './json-map';
-import ImageMap from './image-map';
+import Camera from './camera';
 import Construction from './construction';
+import Hud from './hud';
+import ImageMap from './image-map';
+import JsonMap from './json-map';
+import Mouse from './mouse';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -73,7 +73,7 @@ const Events = {
             Hud.clearBarracksPanel();
             const unitOptions = displayFn();
 
-            var setOnClickToBuild = (unit) => {
+            const setOnClickToBuild = (unit) => {
                 const imageName = unit.getSprite(0).getImageName();
                 unit.onClick = Events.selectAUnitCallback(imageName, unitOptions);
                 wade.addEventListener(unit, 'onClick');
@@ -155,7 +155,7 @@ const Events = {
 
 };
 
-let buildingConstruction = (optionsPanel, constructionFn, jsonFile: string, dataFile: string, displayFn) => {
+const buildingConstruction = (optionsPanel, constructionFn, jsonFile: string, dataFile: string, displayFn) => {
     return function(event) {
         if (event.button === Mouse.left) {
             if (optionsPanel.icon) {
@@ -172,8 +172,8 @@ let buildingConstruction = (optionsPanel, constructionFn, jsonFile: string, data
             wade.app.onIsoTerrainMouseDown = finalizeBuilding(optionsPanel, displayFn);
         }
     };
-}
-let unitConstruction = (optionsPanel, constructionFn, jsonFile: string, dataFile: string) => {
+};
+const unitConstruction = (optionsPanel, constructionFn, jsonFile: string, dataFile: string) => {
     return function(event) {
         if (event.button === Mouse.left) {
             if (optionsPanel.icon) {
@@ -188,7 +188,7 @@ let unitConstruction = (optionsPanel, constructionFn, jsonFile: string, dataFile
             wade.app.onIsoTerrainMouseDown = finalizeUnit(optionsPanel);
         }
     };
-}
+};
 
 function finalizeBuilding( optionsPanel, displayFn ) {
     return (e) => {
@@ -218,7 +218,7 @@ function finalizeUnit(optionsPanel) {
         //Set up the newly constructed unit for gameplay
         unit.onMouseDown = Events.onSelectUnit(unit);
         wade.addEventListener(unit, 'onMouseDown');
-    }
+    };
 }
 
 export default Events;

@@ -9,8 +9,7 @@ declare var Path: any;
 declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
-
-var SceneObjectConstruction = {
+const SceneObjectConstruction = {
     barracks: (imageJsonFile: string) => {
         const objectData = {
             sprites: wade.getJson(imageJsonFile),
@@ -18,7 +17,7 @@ var SceneObjectConstruction = {
             collisionSize: {x: 2, z: 2},
 
         };
-        let barracks = wade.iso.createObject(objectData);
+        const barracks = wade.iso.createObject(objectData);
 
         return barracks;
 
@@ -30,7 +29,7 @@ var SceneObjectConstruction = {
             collisionSize: {x: 2, z: 2},
 
         };
-        let stables = wade.iso.createObject(objectData);
+        const stables = wade.iso.createObject(objectData);
 
         return stables;
 
@@ -42,7 +41,7 @@ var SceneObjectConstruction = {
             collisionSize: {x: 2, z: 2},
 
         };
-        let tower = wade.iso.createObject(objectData);
+        const tower = wade.iso.createObject(objectData);
 
         return tower;
 
@@ -53,11 +52,11 @@ var SceneObjectConstruction = {
             gridSize: {x: 1, z: 1},
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
-        } 
-        let VIP = wade.iso.createObject(objectData);
+        };
+        const VIP = wade.iso.createObject(objectData);
 
         return VIP;
-    
+
     },
     townHalls: (imageJsonFile: string) => {
         const objectData = {
@@ -66,7 +65,7 @@ var SceneObjectConstruction = {
             collisionSize: {x: 2, z: 2},
 
         };
-        let townHall = wade.iso.createObject(objectData);
+        const townHall = wade.iso.createObject(objectData);
 
         return townHall;
 
@@ -78,7 +77,7 @@ var SceneObjectConstruction = {
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
-        let swordsman = wade.iso.createObject(objectData);
+        const swordsman = wade.iso.createObject(objectData);
 
         return swordsman;
     },
@@ -89,7 +88,7 @@ var SceneObjectConstruction = {
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
-        let archer = wade.iso.createObject(objectData);
+        const archer = wade.iso.createObject(objectData);
 
         return archer;
     },
@@ -100,7 +99,7 @@ var SceneObjectConstruction = {
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
-        let archerCalvary = wade.iso.createObject(objectData);
+        const archerCalvary = wade.iso.createObject(objectData);
 
         return archerCalvary;
     },
@@ -111,7 +110,7 @@ var SceneObjectConstruction = {
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
-        let spearCalvary = wade.iso.createObject(objectData);
+        const spearCalvary = wade.iso.createObject(objectData);
 
         return spearCalvary;
     },
@@ -122,7 +121,7 @@ var SceneObjectConstruction = {
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
-        let gatherer = wade.iso.createObject(objectData);
+        const gatherer = wade.iso.createObject(objectData);
 
         return gatherer;
     },
@@ -133,11 +132,10 @@ var SceneObjectConstruction = {
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
-        let drummerBoy = wade.iso.createObject(objectData);
+        const drummerBoy = wade.iso.createObject(objectData);
 
         return drummerBoy;
     },
-
 
 };
 

@@ -1,11 +1,11 @@
-import JsonMap from "./json-map";
-import Id from "./id"
-import GlobalGameState from "../model/state/global-game-state";
-import PlayerGameState from "../model/state/player-game-state";
-import AiGameState from "../model/state/ai-game-state";
-import VIP from "../model/units/VIP_unit";
-import Tile from "../model/map/tile";
-import TownHall from "../model/buildings/townhall_buildings";
+import TownHall from '../model/buildings/townhall_buildings';
+import Tile from '../model/map/tile';
+import AiGameState from '../model/state/ai-game-state';
+import GlobalGameState from '../model/state/global-game-state';
+import PlayerGameState from '../model/state/player-game-state';
+import VIP from '../model/units/VIP_unit';
+import Id from './id';
+import JsonMap from './json-map';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -17,12 +17,12 @@ declare var Path: any;
 declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
-var Global = {
+const Global = {
     createGlobalSettings: () => {
         //Create a global object for handling global events that will be saved in the
         // scene (thank god)
         const global = new SceneObject();
-        global.setName("global");
+        global.setName('global');
         wade.addSceneObject(global);
         global.cameraSpeed = 500;
         global.zoomSpeed = 8;
@@ -31,37 +31,37 @@ var Global = {
         global.buildId = 0;
         global.state = defaultGlobalState();
         global.hud = {
-            //empty object to store references to other HUD elements 
+            //empty object to store references to other HUD elements
         };
 
         return global;
-    }
-}
+    },
+};
 
-function defaultGlobalState () {
+function defaultGlobalState() {
     const startingStone = 100;
     const startingWood = 100;
     const startingFood = 100;
 
-    let playerVIP = VIP.fromObject(wade.getJson(JsonMap.vip_data));
+    const playerVIP = VIP.fromObject(wade.getJson(JsonMap.vip_data));
     playerVIP.id = Id.getUnitId();
-    let playerTownHall = TownHall.fromObject(wade.getJson(JsonMap.townhall_data));
+    const playerTownHall = TownHall.fromObject(wade.getJson(JsonMap.townhall_data));
     playerTownHall.id = Id.getBuildId();
     const playerState = new PlayerGameState([playerVIP], [playerTownHall],
                         startingStone, startingWood, startingFood);
 
-    let aiVIP = VIP.fromObject(wade.getJson(JsonMap.vip_data));
+    const aiVIP = VIP.fromObject(wade.getJson(JsonMap.vip_data));
     aiVIP.id = Id.getUnitId();
-    let aiTownHall = TownHall.fromObject(wade.getJson(JsonMap.townhall_data));
+    const aiTownHall = TownHall.fromObject(wade.getJson(JsonMap.townhall_data));
     aiTownHall.id = Id.getBuildId();
     const aiState = new AiGameState([aiVIP], [aiTownHall],
                         startingStone, startingWood, startingFood);
 
     const map = [];
-    for(let i = 0; i < 20; i++) {
+    for (let i = 0; i < 20; i++) {
         map[i] = [];
-        for(let j = 0; j < 20; j++) {
-            map[i][j] = new Tile(-1, -1, -1, true); 
+        for (let j = 0; j < 20; j++) {
+            map[i][j] = new Tile(-1, -1, -1, true);
             //The tile should know itself what its coordinates are
             map[i][j].y = i;
             map[i][j].x = j;
@@ -75,7 +75,7 @@ function defaultGlobalState () {
     map[1][10].buildingId = aiTownHall.id;
 
     const state = new GlobalGameState(map, playerState, aiState);
-    
+
     return state;
 }
 

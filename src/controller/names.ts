@@ -8,12 +8,12 @@ const Names = {
     townHallsIcon: 'townHallsIcon',
     swordsmanIcon: 'swordsmanIcon',
 
-    stoneIcon: "stoneIcon",
-    foodIcon: "foodIcon",
-    woodIcon: "woodIcon",
-    stoneCount: "stoneCount",
-    foodCount: "foodCount",
-    woodCount: "woodCount",
+    stoneIcon: 'stoneIcon',
+    foodIcon: 'foodIcon',
+    woodIcon: 'woodIcon',
+    stoneCount: 'stoneCount',
+    foodCount: 'foodCount',
+    woodCount: 'woodCount',
 
 };
 

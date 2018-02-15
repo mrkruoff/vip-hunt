@@ -11,49 +11,48 @@ declare var Path: any;
 declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
-
 const BuildHud = {
     resourcePanel: (layerId: number) => {
-        let global = wade.getSceneObject('global');
-        let font = '10px Verdana';
-        let color = 'black';
-        let alignment = 'center';
+        const global = wade.getSceneObject('global');
+        const font = '10px Verdana';
+        const color = 'black';
+        const alignment = 'center';
 
-        let width = 20;
-        let height = 20;
+        const width = 20;
+        const height = 20;
 
         let y = (wade.getScreenHeight() / 2) - 210;
         let x = (wade.getScreenWidth() / 2) - 50;
-        let stone = BuildHud.buildIcon(ImageMap.stoneIcon, width, height, x, y, layerId);
-        stone.setName(Names.stoneIcon)
-        let y_2 = y;
-        let x_2 = x + 15;
-        let stoneCount = BuildHud.buildText(global.state.getPlayer().stone.toString(), 
-                                font, color, alignment, x_2, y_2, layerId);
+        const stone = BuildHud.buildIcon(ImageMap.stoneIcon, width, height, x, y, layerId);
+        stone.setName(Names.stoneIcon);
+        let y2 = y;
+        let x2 = x + 15;
+        const stoneCount = BuildHud.buildText(global.state.getPlayer().stone.toString(),
+                                font, color, alignment, x2, y2, layerId);
 
         y = y;
         x = x - 100;
-        let wood = BuildHud.buildIcon(ImageMap.woodIcon, width, height, x, y, layerId);
+        const wood = BuildHud.buildIcon(ImageMap.woodIcon, width, height, x, y, layerId);
         wood.setName(Names.woodIcon);
-        y_2 = y;
-        x_2 = x + 20;
-        let woodCount = BuildHud.buildText(global.state.getPlayer().wood.toString(), 
-                                font, color, alignment, x_2, y_2, layerId);
+        y2 = y;
+        x2 = x + 20;
+        const woodCount = BuildHud.buildText(global.state.getPlayer().wood.toString(),
+                                font, color, alignment, x2, y2, layerId);
 
         y = y;
         x = x - 100;
-        let food = BuildHud.buildIcon(ImageMap.foodIcon, width, height, x, y, layerId);
+        const food = BuildHud.buildIcon(ImageMap.foodIcon, width, height, x, y, layerId);
         food.setName(Names.foodIcon);
-        y_2 = y;
-        x_2 = x + 15;
-        let foodCount = BuildHud.buildText(global.state.getPlayer().food.toString(), 
-                                font, color, alignment, x_2, y_2, layerId);
+        y2 = y;
+        x2 = x + 15;
+        const foodCount = BuildHud.buildText(global.state.getPlayer().food.toString(),
+                                font, color, alignment, x2, y2, layerId);
 
         return [stone, wood, food, stoneCount, woodCount, foodCount];
-    
+
     },
     buildIcon: (imgStr: string, width: number, height: number,
-            x: number, y: number, layer: number) => {
+                x: number, y: number, layer: number) => {
         const sprite = new Sprite(imgStr, layer);
         sprite.setSize(width, height);
         const sceneObj = new SceneObject(sprite);
@@ -63,9 +62,9 @@ const BuildHud = {
         return sceneObj;
     },
     buildText: (text: string, font: string, color: string, alignment: string, x, y, layerId: number) => {
-        let sprite = new TextSprite(text, font, color, alignment, layerId);
+        const sprite = new TextSprite(text, font, color, alignment, layerId);
         const sceneObj = new SceneObject(sprite);
-        sceneObj.setPosition(x, y); 
+        sceneObj.setPosition(x, y);
         wade.addSceneObject(sceneObj);
         return sceneObj;
     },
@@ -105,11 +104,11 @@ const BuildHud = {
 
         x = (-1 * wade.getScreenWidth() / 2) + 100;
         y = (wade.getScreenHeight() / 2) - 200;
-        const town_halls = BuildHud.buildIcon(ImageMap.town_halls_1, buttonWidth,
+        const townHalls = BuildHud.buildIcon(ImageMap.town_halls_1, buttonWidth,
                 buttonHeight, x, y, layer);
-        town_halls.setName(Names.townHallsIcon);
+        townHalls.setName(Names.townHallsIcon);
 
-        return [barracks, stables, towers, town_halls];
+        return [barracks, stables, towers, townHalls];
     },
     barracksPanel: (layer: number) => {
         const y = (wade.getScreenHeight() / 2) - 200;
@@ -124,10 +123,9 @@ const BuildHud = {
         scroll.setRotation(1.5708);
         scroll.setName(Names.hudBackground);
         return scroll;
-    
+
     },
 
-}
-
+};
 
 export default BuildHud;
