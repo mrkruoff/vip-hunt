@@ -50,6 +50,7 @@ function defaultGlobalState() {
     const playerState = new PlayerGameState([playerVIP], [playerTownHall],
                         startingStone, startingWood, startingFood);
 
+    console.log(wade.getJson(JsonMap.vip_data));
     const aiVIP = VIP.fromObject(wade.getJson(JsonMap.vip_data));
     aiVIP.id = Id.getId();
     const aiTownHall = TownHall.fromObject(wade.getJson(JsonMap.townhall_data));
@@ -61,7 +62,7 @@ function defaultGlobalState() {
     for (let i = 0; i < 20; i++) {
         map[i] = [];
         for (let j = 0; j < 20; j++) {
-            map[i][j] = new Tile(-1, -1, -1, true);
+            map[i][j] = new Tile(Tile.EMPTY, Tile.EMPTY, Tile.EMPTY, true);
             //The tile should know itself what its coordinates are
             map[i][j].y = i;
             map[i][j].x = j;
