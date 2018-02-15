@@ -1,5 +1,5 @@
 import Building from "./buildings";
-
+import * as _ from 'lodash';
 import { Container, injectable, inject } from "inversify";
 
 @injectable()
@@ -10,10 +10,10 @@ class Stables extends Building {
     }
     static fromObject(obj) : Stables {
         let building = Stables.defaultStables();
-        if(obj.hp) {
+        if(_.has(obj, 'hp')) {
             building.hp = obj.hp;
         }
-        if(obj.vision) {
+        if(_.has(obj, 'vision')) {
             building.vision = obj.vision ;
         }
 

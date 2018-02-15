@@ -1,3 +1,4 @@
+import * as _ from 'lodash';
 import Building from "./buildings";
 
 import { Container, injectable, inject } from "inversify";
@@ -11,10 +12,10 @@ class Barracks extends Building {
     }
     static fromObject(obj) : Building {
         let building = Barracks.defaultBarracks();
-        if(obj.hp) {
+        if(_.has(obj, 'hp')) {
             building.hp = obj.hp;
         }
-        if(obj.vision) {
+        if(_.has(obj, 'vision')) {
             building.vision = obj.vision ;
         }
 

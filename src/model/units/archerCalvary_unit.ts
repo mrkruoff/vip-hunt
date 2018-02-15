@@ -1,3 +1,4 @@
+import * as _ from 'lodash';
 import Unit from "./units";
 import { Container, injectable, inject } from "inversify";
 
@@ -14,30 +15,28 @@ class ArcherCalvary extends Unit {
 
     static fromObject(obj): ArcherCalvary {
         let unit = ArcherCalvary.defaultArcherCalvary();
-        if(obj.hp) {
+        if(_.has(obj, 'hp')) {
             unit.hp = obj.hp;
         }
-        if(obj.attack) {
+        if(_.has(obj, 'attack')) {
             unit.attack = obj.attack;
         }
-        if(obj.defense) {
+        if(_.has(obj, 'defense')) {
             unit.defense = obj.defense;
         }
-        if(obj.speed) {
+        if(_.has(obj, 'speed')) {
             unit.speed = obj.speed;
         }
-        if(obj.range) {
+        if(_.has(obj, 'range')) {
             unit.range = obj.range;
         }
-        if(obj.vision) {
+        if(_.has(obj, 'vision')) {
             unit.vision = obj.vision;
         }
-        if(obj.gathering) {
-            unit.gathering = obj.gathering ;
+        if(_.has(obj, 'gathering')) {
+            unit.gathering = obj.gathering; 
         }
         return unit;
-
-
     }
     static defaultArcherCalvary() : ArcherCalvary {
         const id = 0;

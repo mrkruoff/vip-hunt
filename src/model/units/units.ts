@@ -61,7 +61,6 @@ class Unit implements IIdentifiable {
         return this.attack; 
     }
 
-
 }
 
 export default Unit;

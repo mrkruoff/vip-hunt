@@ -10,7 +10,7 @@ class Tile {
     walkable: boolean;
     x: number;
     y: number;
-    static EMPTY: -1;
+    static EMPTY: number = -1;
 
     constructor(unit: number, building: number, resource: number, walkable: boolean ) {
         this.unitId = unit;
