@@ -1,3 +1,10 @@
+/* main.ts
+ *
+ *
+ * This file contains the App function, which WADE will use to launch the game.
+ *
+ */
+
 import AudioMap from './audio-map';
 import ImageMap from './image-map';
 import JsonMap from './json-map';

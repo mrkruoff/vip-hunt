@@ -1,3 +1,9 @@
+/* build-hud.ts
+ *
+ * The BuildHud module provides various functions that utilize wade 
+ * to build HUD elements when they did not exist previously.
+ */
+
 import ImageMap from './image-map';
 import Names from './names';
 
@@ -12,6 +18,15 @@ declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
 const BuildHud = {
+    // This function builds a resource panel consisting of stone, wood, and food 
+    // icons and associated text that list the amount stored in the GLOBAL object.
+    // Currently it constructs each icon at a fixed location. To change those locations,
+    // you change the constants in this function.
+    //
+    // parameters:
+    //  @ layerId: an integer that indicates which WADE layer to draw on. Recall that 
+    //      a smaller number (down to 1) means the resourcePanel will be drawn on
+    //      TOP of other elements on layers with larger numbers.
     resourcePanel: (layerId: number) => {
         const global = wade.getSceneObject('global');
         const font = '10px Verdana';
@@ -54,6 +69,15 @@ const BuildHud = {
         return [stone, wood, food, stoneCount, woodCount, foodCount];
 
     },
+    // This function constructs a building icon for the HUD.
+    //
+    // parameters:
+    //  @ imgStr: name of image file to use.
+    //  @ width: worldspace width of resulting icon.
+    //  @ height: worldspace height of resulting icon.
+    //  @ x: worldspace x-coordinate to place icon.
+    //  @ y: worldspace y-coordinate to place icon.
+    //  @ layer: The WADE layer to put the icon on.
     buildIcon: (imgStr: string, width: number, height: number,
                 x: number, y: number, layer: number) => {
         const sprite = new Sprite(imgStr, layer);
@@ -64,13 +88,29 @@ const BuildHud = {
 
         return sceneObj;
     },
-    buildText: (text: string, font: string, color: string, alignment: string, x, y, layerId: number) => {
+    // This function builds a text icon.
+    //
+    // parameters:
+    //  @ text: the text to display
+    //  @ font: the font to use.
+    //  @ color: the color of the text to display.
+    //  @ alignment: 'left', 'center', or 'right'
+    //  @ x: the worldspace x-coordinate to place icon.
+    //  @ y: the worldspace y-coordinate to place icon.
+    //  @ layer: the WADE layer to put the icon on.
+    buildText: (text: string, font: string, color: string, alignment: string, x: number, y: number, layerId: number) => {
         const sprite = new TextSprite(text, font, color, alignment, layerId);
         const sceneObj = new SceneObject(sprite);
         sceneObj.setPosition(x, y);
         wade.addSceneObject(sceneObj);
         return sceneObj;
     },
+    // This function builds the main panel, consisting of icons for
+    // things like building building,
+    // file saving, seeing the main menu, pausing the game, etc.
+    //
+    // parameters:
+    //  @ layer: the WADE layer to draw the panel on.
     mainPanel: (layer: number) => {
         const buildingSprite = new Sprite(ImageMap.buildingIcon, layer);
         buildingSprite.setSize(50, 50);
@@ -83,6 +123,12 @@ const BuildHud = {
 
         return building;
     },
+    // This function builds the buildings Panel, consisting of the possible buildings that 
+    // the player can build in the game. Currently this consists of a barracks, stables,
+    // towers, and town hall
+    //
+    // parameters: 
+    //  @ layer: the WADE layer to draw the panel on.
     buildingsPanel: (layer: number) => {
         const buttonWidth = 50;
         const buttonHeight = 50;
@@ -113,6 +159,12 @@ const BuildHud = {
 
         return [barracks, stables, towers, townHalls];
     },
+    // This function builds the barracks panel, consisting of the possible units
+    // the player can build from the barracks. Currently this consists of a 
+    // swordsman.
+    //
+    // parameters: 
+    //  @ layer: the WADE layer on which to draw the panel.
     barracksPanel: (layer: number) => {
         const y = (wade.getScreenHeight() / 2) - 200;
         const x = 50;
@@ -121,6 +173,13 @@ const BuildHud = {
 
         return [swordsman];
     },
+
+    // This function builds the background panel, which is the background for the HUD
+    // in general. Currently this consists of a single sretched scroll image, but this
+    // could be expanded to look better.
+    //
+    // parameters:
+    //  @ layer: the WADE layer on which to draw the panel.
     background: (layer: number) => {
         const scroll = BuildHud.buildIcon(ImageMap.scroll, 350, 5000, 0, 400, layer);
         scroll.setRotation(1.5708);

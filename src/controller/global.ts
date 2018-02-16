@@ -1,3 +1,10 @@
+/* global.ts
+ *
+ * The Global module contains functions for creating, setting up, getting,
+ * and accessing the global settings stored in the 'global' SceneObject
+ *
+ */
+
 import TownHall from '../model/buildings/townhall_buildings';
 import Tile from '../model/map/tile';
 import AiGameState from '../model/state/ai-game-state';
@@ -18,17 +25,17 @@ declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
 const Global = {
+    // This function creates a SceneObject named 'global' that contains global 
+    // settings and will contain the global game state. It wll also contain 
+    // references to hud elements so the game can determine whether they've been
+    // created or not.
     createGlobalSettings: () => {
-        //Create a global object for handling global events that will be saved in the
-        // scene (thank god)
         const global = new SceneObject();
         global.setName('global');
         wade.addSceneObject(global);
         global.cameraSpeed = 500;
         global.zoomSpeed = 8;
         global.cameraIsMoving = false;
-        global.unitId = 0;
-        global.buildId = 0;
         global.state = defaultGlobalState();
         global.hud = {
             //empty object to store references to other HUD elements
@@ -38,6 +45,9 @@ const Global = {
     },
 };
 
+// This function creates a GlobalGameState object that default to containing 
+// a 20x20 map and having a single Player and AI, each with one VIP and one 
+// TownHall each.
 function defaultGlobalState() {
     const startingStone = 100;
     const startingWood = 100;

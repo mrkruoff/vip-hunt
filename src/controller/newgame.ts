@@ -1,3 +1,9 @@
+/* newgame.ts
+ *
+ * This file contains functions for setting up a New Game.
+ *
+ */
+
 import * as _ from 'lodash';
 import Building from '../model/buildings/buildings';
 import GlobalGameState from '../model/state/global-game-state';
@@ -24,6 +30,7 @@ declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
 const NewGame = {
+    // Initializes a new game
     initialize: () => {
         //Initialize isometric engine to allow diagonal movement.
 
@@ -68,6 +75,12 @@ const NewGame = {
     },
 };
 
+// This funcion takes a GlobalGameState and attempts to add every Unit, Building,
+// and Resource in its map, to the WADE Scene. This should only be used with a
+// WADE scene that has an EMPTY map, to avoid collisions.
+//
+// parameters:
+//  @ state: The Global Game State that needs to be added to the WADE map.
 function addToScene(state: GlobalGameState) {
     _.forEach(state.map, (innerArray) => {
         _.forEach(innerArray, (tile) => {
@@ -137,6 +150,8 @@ function addToScene(state: GlobalGameState) {
 
 }
 
+// This function takes a Building and returns the correct 
+// SceneObject for that Building.
 function constructBuildingFromModel(building: Building) {
     let b;
     if (building.getClassName() === 'Barracks') {
@@ -151,6 +166,8 @@ function constructBuildingFromModel(building: Building) {
     return b;
 }
 
+// This function takes a Unit and returns the correct 
+// SceneObject for that Unit
 function constructUnitFromModel(unit: Unit) {
     let u;
     if (unit.getClassName() === 'VIP') {

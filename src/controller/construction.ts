@@ -1,5 +1,11 @@
-import JsonMap from './json-map';
+/* construction.ts
+ *
+ * The Construction module contains the functions that construct 
+ * the game objects (SceneObject plus any related data ).
+ *
+ */
 
+import JsonMap from './json-map';
 import Archer from '../model/units/archer_unit';
 import ArcherCalvary from '../model/units/archerCalvary_unit';
 import DrummerBoy from '../model/units/drummerBoy_unit';
@@ -27,6 +33,14 @@ declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
 const Construction = {
+    // This function constructs a barracks SceneObject that contains 
+    // an instance of the Barracks class.
+    //
+    // parameters:
+    //  @ imageJsonFile: name of the file storing the info WADE needs 
+    //      to build the SceneObject image.
+    //  @ dataJsonFile: name of the file storing the info needed to
+    //      construct the instance of the Barracks class.
     barracks: (imageJsonFile: string, dataJsonFile: string) => {
         const objectData = {
             sprites: wade.getJson(imageJsonFile),
@@ -42,6 +56,14 @@ const Construction = {
         return barracks;
 
     },
+    // This function constructs a Stables SceneObject that contains 
+    // an instance of the Stables class.
+    //
+    // parameters:
+    //  @ imageJsonFile: name of the file storing the info WADE needs 
+    //      to build the SceneObject image.
+    //  @ dataJsonFile: name of the file storing the info needed to
+    //      construct the instance of the Stables class.
     stables: (imageJsonFile: string, dataJsonFile: string) => {
         const objectData = {
             sprites: wade.getJson(imageJsonFile),
@@ -55,6 +77,14 @@ const Construction = {
         return stables;
 
     },
+    // This function constructs a Tower SceneObject that contains 
+    // an instance of the Tower class.
+    //
+    // parameters:
+    //  @ imageJsonFile: name of the file storing the info WADE needs 
+    //      to build the SceneObject image.
+    //  @ dataJsonFile: name of the file storing the info needed to
+    //      construct the instance of the Tower class.
     towers: (imageJsonFile: string, dataJsonFile: string) => {
         const objectData = {
             sprites: wade.getJson(imageJsonFile),
@@ -68,6 +98,14 @@ const Construction = {
         return tower;
 
     },
+    // This function constructs a VIP SceneObject that contains 
+    // an instance of the VIP class.
+    //
+    // parameters:
+    //  @ imageJsonFile: name of the file storing the info WADE needs 
+    //      to build the SceneObject image.
+    //  @ dataJsonFile: name of the file storing the info needed to
+    //      construct the instance of the VIP class.
     vip: (imageJsonFile: string, dataJsonFile: string) => {
         const objectData = {
             sprites: wade.getJson(imageJsonFile),
@@ -80,6 +118,14 @@ const Construction = {
         return v;
 
     },
+    // This function constructs a TownHall SceneObject that contains 
+    // an instance of the TownHall class.
+    //
+    // parameters:
+    //  @ imageJsonFile: name of the file storing the info WADE needs 
+    //      to build the SceneObject image.
+    //  @ dataJsonFile: name of the file storing the info needed to
+    //      construct the instance of the TownHall class.
     townHalls: (imageJsonFile: string, dataJsonFile: string) => {
         const objectData = {
             sprites: wade.getJson(imageJsonFile),
@@ -93,6 +139,14 @@ const Construction = {
         return townHall;
 
     },
+    // This function constructs a Swordsman SceneObject that contains 
+    // an instance of the Swordsman class.
+    //
+    // parameters:
+    //  @ imageJsonFile: name of the file storing the info WADE needs 
+    //      to build the SceneObject image.
+    //  @ dataJsonFile: name of the file storing the info needed to
+    //      construct the instance of the Swordsman class.
     swordsman: (imageJsonFile: string, dataJsonFile: string) => {
         const objectData = {
             sprites: wade.getJson(imageJsonFile),
@@ -105,6 +159,14 @@ const Construction = {
 
         return swordsman;
     },
+    // This function constructs a Archer SceneObject that contains 
+    // an instance of the Archer class.
+    //
+    // parameters:
+    //  @ imageJsonFile: name of the file storing the info WADE needs 
+    //      to build the SceneObject image.
+    //  @ dataJsonFile: name of the file storing the info needed to
+    //      construct the instance of the Archer class.
     archer: (imageJsonFile: string, dataJsonFile: string) => {
         const objectData = {
             sprites: wade.getJson(imageJsonFile),
@@ -116,6 +178,14 @@ const Construction = {
 
         return archer;
     },
+    // This function constructs a ArcherCalvary SceneObject that contains 
+    // an instance of the ArcherCalvary class.
+    //
+    // parameters:
+    //  @ imageJsonFile: name of the file storing the info WADE needs 
+    //      to build the SceneObject image.
+    //  @ dataJsonFile: name of the file storing the info needed to
+    //      construct the instance of the ArcherCalvary class.
     archerCalvary: (imageJsonFile: string, dataJsonFile: string) => {
         const objectData = {
             sprites: wade.getJson(imageJsonFile),
@@ -127,6 +197,14 @@ const Construction = {
 
         return archerCalvary;
     },
+    // This function constructs a SpearCalvary SceneObject that contains 
+    // an instance of the SpearCalvary class.
+    //
+    // parameters:
+    //  @ imageJsonFile: name of the file storing the info WADE needs 
+    //      to build the SceneObject image.
+    //  @ dataJsonFile: name of the file storing the info needed to
+    //      construct the instance of the SpearCalvary class.
     spearCalvary: (imageJsonFile: string, dataJsonFile: string) => {
         const objectData = {
             sprites: wade.getJson(imageJsonFile),
@@ -138,6 +216,14 @@ const Construction = {
 
         return spearCalvary;
     },
+    // This function constructs a Gatherer SceneObject that contains 
+    // an instance of the Gatherer class.
+    //
+    // parameters:
+    //  @ imageJsonFile: name of the file storing the info WADE needs 
+    //      to build the SceneObject image.
+    //  @ dataJsonFile: name of the file storing the info needed to
+    //      construct the instance of the Gatherer class.
     gatherer: (imageJsonFile: string, dataJsonFile: string) => {
         const objectData = {
             sprites: wade.getJson(imageJsonFile),
@@ -149,6 +235,14 @@ const Construction = {
 
         return gatherer;
     },
+    // This function constructs a DrummerBoy SceneObject that contains 
+    // an instance of the DrummerBoy class.
+    //
+    // parameters:
+    //  @ imageJsonFile: name of the file storing the info WADE needs 
+    //      to build the SceneObject image.
+    //  @ dataJsonFile: name of the file storing the info needed to
+    //      construct the instance of the DrummerBoy class.
     drummerBoy: (imageJsonFile: string, dataJsonFile: string) => {
         const objectData = {
             sprites: wade.getJson(imageJsonFile),

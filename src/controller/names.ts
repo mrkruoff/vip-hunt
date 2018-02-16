@@ -1,3 +1,10 @@
+/* names.ts
+ *
+ * The Names enum provides a compiler-backed way of using
+ * wade's Named Scene Objects. Once a SceneObject is named, it is
+ * easy to get a reference to it using wade.getSceneObject(<name_string>).
+ *
+ */
 
 const Names = {
     hudBackground: 'hudBackground',

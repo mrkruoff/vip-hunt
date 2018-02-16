@@ -1,3 +1,10 @@
+/* image-map.ts
+ *
+ *
+ * The ImageMap module contains an enum for the filepaths of the various 
+ * image files that will be used in the game.
+ */
+
 
 // The root directory is the html folder. But because the Javascript is in the  /js folder, we must prepend ../js/ to all the image URLs.
 const ImageMap = {

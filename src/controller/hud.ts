@@ -1,3 +1,12 @@
+/* hud.ts
+ *
+ * The Hud module consists of functions for displaying and hiding 
+ * HUD elements at any given time. Most utilize the 'global' SceneObject
+ * to check whether or not a particular HUD element has been created.
+ * If it has not been created, this module relies on the BuildHud 
+ * module to construct said element.
+ *
+ */
 
 import BuildHud from './build-hud';
 import Names from './names';
@@ -13,6 +22,8 @@ declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
 const Hud = {
+    // This function clears the Buildings Panel, which contains 
+    // the possible buildings a player can build.
     clearBuildingsPanel: () => {
         const global = wade.getSceneObject('global');
         if (global.hud.buildings) {
@@ -22,12 +33,16 @@ const Hud = {
             wade.getSceneObject(Names.townHallsIcon).setVisible(false);
         }
     },
+    // This function clears the Main Panel, which contains things like 
+    // Save icon, Pause game icon, Menu icon, and Build Buildings icon.
     clearMainPanel: () => {
         const global = wade.getSceneObject('global');
         if (global.hud.main) {
             wade.getSceneObject(Names.buildingIcon).setVisible(false);
         }
     },
+    // This function clears the Barracks Panel, which cotntains 
+    // the possible units a Barracks can build.
     clearBarracksPanel: () => {
         const global = wade.getSceneObject('global');
         if (global.hud.barracks) {
@@ -35,6 +50,8 @@ const Hud = {
         }
 
     },
+    // This function clears the Resource panel, which shows the amount 
+    // of Wood, Stone, and Food a player currently has.
     clearResourcePanel: () => {
         const global = wade.getSceneObject('global');
         if (global.hud.resources) {
@@ -49,6 +66,10 @@ const Hud = {
 
         //If they don't exist, do nothing
     },
+    // This function shows and returns a reference to the Background SceneObject
+    //
+    // returns:
+    //  reference to the Background SceneObject.
     showBackground: () => {
         const global = wade.getSceneObject('global');
         if (global.hud.background) {
@@ -58,6 +79,11 @@ const Hud = {
         }
         return global.hud.background;
     },
+    // This function shows and returns a reference to the the Buildings Panel
+    // SceneObjects
+    //
+    // returns:
+    //  reference to an array containing the Panel's various ScneneObjects
     showBuildingsPanel: () => {
         const global = wade.getSceneObject('global');
         if (global.hud.buildings) {
@@ -70,6 +96,11 @@ const Hud = {
         }
         return global.hud.buildings;
     },
+    // This function shows and returns a reference to the Main Panel SceneObjects.
+    //
+    // returns:
+    //  reference to an array containing the Panel's various 
+    //      SceneObjects.
     showMainPanel: () => {
         const global = wade.getSceneObject('global');
         if (global.hud.main) {
@@ -80,6 +111,10 @@ const Hud = {
 
         return global.hud.main;
     },
+    // This function shows and returns a reference to the Barracks Panel SceneObjects.
+    //
+    // returns:
+    //  reference to an array containing the Panel's various SceneObjects
     showBarracksPanel: () => {
         const global = wade.getSceneObject('global');
         if (global.hud.barracks) {
@@ -90,6 +125,10 @@ const Hud = {
 
         return global.hud.barracks;
     },
+    // This function shows and returns a reference to the Resource Panel SceneObjects
+    //
+    // returns:
+    //  reference to an array containing the Panel's various SceneObjects
     showResourcePanel: () => {
         const global = wade.getSceneObject('global');
         if (global.hud.resources) {
@@ -106,6 +145,12 @@ const Hud = {
 
         return global.hud.resources;
     },
+    // This function updates the Resource Panel SceneObjects to reflect 
+    // the Player's amounts of stone, wood, and food.
+    //
+    // pre:
+    //  The ResourcePanel must be shown (must exist) before calling this 
+    //      function. Call Hud.showResourcePanel() to do this.
     updateResourcePanel: () => {
         const player = wade.getSceneObject('global').state.getPlayer();
         console.log(wade.getSceneObject(Names.stoneCount));
