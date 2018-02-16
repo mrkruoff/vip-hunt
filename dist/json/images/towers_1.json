@@ -1,0 +1,12 @@
+
+{
+    "type": "sprite",
+    "name": "towers_1",
+    "visible": "true",
+    "image": "../js/../public/sprites/buildings/towers_1.png",
+    "size": {"x": 600, "y": 600}
+
+
+
+
+}

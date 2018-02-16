@@ -1,5 +1,5 @@
 {
-	"name":"stable",
 	"create":["spearCalvary","archerCalvary"],
-	"level":"3"
+    "hp": 300,
+    "vision": 30
 }

@@ -10,17 +10,26 @@ class Unit implements IIdentifiable {
 	defense: number;
 	speed: number;
 	range: number;
+    vision: number;
+    gathering: number;
     id: number;
+    name: string;
 
     constructor(
             id: number, hp: number, attack: number, defense: number,
-                speed: number, range: number) {
+                speed: number, range: number, vision: number, gathering: number) {
         this.id = id;
         this.hp = hp;
         this.attack = attack;
         this.defense = defense;
         this.speed = speed;
         this.range = range;
+        this.vision = vision;
+        this.gathering = gathering;
+    }
+
+    getClassName(): string {
+        return this.name; 
     }
 
     // Applies damage to the unit instance
@@ -45,8 +54,13 @@ class Unit implements IIdentifiable {
 	}
 
     getId() {
-        return this.id
+        return this.id;
     }
+
+    getAttack() {
+        return this.attack; 
+    }
+
 }
 
 export default Unit;

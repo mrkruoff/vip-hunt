@@ -1,0 +1,9966 @@
+{
+	"tiles": [
+		{
+			"name": "clay",
+			"type": "terrain tile",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 0.0625,
+				"maxY": 0.03125
+			}
+		},
+		{
+			"name": "grass",
+			"type": "terrain tile",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0,
+				"maxX": 0.125,
+				"maxY": 0.03125
+			}
+		},
+		{
+			"name": "pavingstone",
+			"type": "terrain tile",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0,
+				"maxX": 0.1875,
+				"maxY": 0.03125
+			}
+		},
+		{
+			"name": "rock",
+			"type": "terrain tile",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0,
+				"maxX": 0.25,
+				"maxY": 0.03125
+			}
+		},
+		{
+			"name": "sand",
+			"type": "terrain tile",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0,
+				"maxX": 0.3125,
+				"maxY": 0.03125
+			},
+			"collision": false
+		},
+		{
+			"name": "stoney_path",
+			"type": "terrain tile",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0,
+				"maxX": 0.375,
+				"maxY": 0.03125
+			}
+		},
+		{
+			"name": "water",
+			"type": "terrain tile",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0,
+				"maxX": 0.4375,
+				"maxY": 0.03125
+			}
+		},
+		{
+			"name": "clay_texture_corners_four",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0,
+				"maxX": 0.5,
+				"maxY": 0.03125
+			}
+		},
+		{
+			"name": "clay_texture_corners_one",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0,
+				"maxX": 0.5625,
+				"maxY": 0.03125
+			}
+		},
+		{
+			"name": "clay_texture_corners_one_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0,
+				"maxX": 0.625,
+				"maxY": 0.03125
+			}
+		},
+		{
+			"name": "clay_texture_corners_one_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0,
+				"maxX": 0.6875,
+				"maxY": 0.03125
+			}
+		},
+		{
+			"name": "clay_texture_corners_one_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0,
+				"maxX": 0.75,
+				"maxY": 0.03125
+			}
+		},
+		{
+			"name": "clay_texture_corners_three",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0,
+				"maxX": 0.8125,
+				"maxY": 0.03125
+			}
+		},
+		{
+			"name": "clay_texture_corners_three_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0,
+				"maxX": 0.875,
+				"maxY": 0.03125
+			}
+		},
+		{
+			"name": "clay_texture_corners_three_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0,
+				"maxX": 0.9375,
+				"maxY": 0.03125
+			}
+		},
+		{
+			"name": "clay_texture_corners_three_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 0.03125
+			}
+		},
+		{
+			"name": "clay_texture_corners_two",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.03125,
+				"maxX": 0.0625,
+				"maxY": 0.0625
+			}
+		},
+		{
+			"name": "clay_texture_corners_two_diag",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.03125,
+				"maxX": 0.125,
+				"maxY": 0.0625
+			}
+		},
+		{
+			"name": "clay_texture_corners_two_diag_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.03125,
+				"maxX": 0.1875,
+				"maxY": 0.0625
+			}
+		},
+		{
+			"name": "clay_texture_corners_two_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.03125,
+				"maxX": 0.25,
+				"maxY": 0.0625
+			}
+		},
+		{
+			"name": "clay_texture_corners_two_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.03125,
+				"maxX": 0.3125,
+				"maxY": 0.0625
+			}
+		},
+		{
+			"name": "clay_texture_corners_two_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.03125,
+				"maxX": 0.375,
+				"maxY": 0.0625
+			}
+		},
+		{
+			"name": "clay_texture_corner_big",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.03125,
+				"maxX": 0.4375,
+				"maxY": 0.0625
+			}
+		},
+		{
+			"name": "clay_texture_corner_big_little",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.03125,
+				"maxX": 0.5,
+				"maxY": 0.0625
+			}
+		},
+		{
+			"name": "clay_texture_corner_big_little_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.03125,
+				"maxX": 0.5625,
+				"maxY": 0.0625
+			}
+		},
+		{
+			"name": "clay_texture_corner_big_little_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.03125,
+				"maxX": 0.625,
+				"maxY": 0.0625
+			}
+		},
+		{
+			"name": "clay_texture_corner_big_little_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.03125,
+				"maxX": 0.6875,
+				"maxY": 0.0625
+			}
+		},
+		{
+			"name": "clay_texture_corner_big_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.03125,
+				"maxX": 0.75,
+				"maxY": 0.0625
+			}
+		},
+		{
+			"name": "clay_texture_corner_big_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.03125,
+				"maxX": 0.8125,
+				"maxY": 0.0625
+			}
+		},
+		{
+			"name": "clay_texture_corner_big_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.03125,
+				"maxX": 0.875,
+				"maxY": 0.0625
+			}
+		},
+		{
+			"name": "clay_texture_dead_end",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.03125,
+				"maxX": 0.9375,
+				"maxY": 0.0625
+			}
+		},
+		{
+			"name": "clay_texture_dead_end_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.03125,
+				"maxX": 1,
+				"maxY": 0.0625
+			}
+		},
+		{
+			"name": "clay_texture_dead_end_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.0625,
+				"maxX": 0.0625,
+				"maxY": 0.09375
+			}
+		},
+		{
+			"name": "clay_texture_dead_end_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.0625,
+				"maxX": 0.125,
+				"maxY": 0.09375
+			}
+		},
+		{
+			"name": "clay_texture_long_corner_01",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.0625,
+				"maxX": 0.1875,
+				"maxY": 0.09375
+			}
+		},
+		{
+			"name": "clay_texture_long_corner_01_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.0625,
+				"maxX": 0.25,
+				"maxY": 0.09375
+			}
+		},
+		{
+			"name": "clay_texture_long_corner_01_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.0625,
+				"maxX": 0.3125,
+				"maxY": 0.09375
+			}
+		},
+		{
+			"name": "clay_texture_long_corner_01_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.0625,
+				"maxX": 0.375,
+				"maxY": 0.09375
+			}
+		},
+		{
+			"name": "clay_texture_long_corner_02",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.0625,
+				"maxX": 0.4375,
+				"maxY": 0.09375
+			}
+		},
+		{
+			"name": "clay_texture_long_corner_02_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.0625,
+				"maxX": 0.5,
+				"maxY": 0.09375
+			}
+		},
+		{
+			"name": "clay_texture_long_corner_02_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.0625,
+				"maxX": 0.5625,
+				"maxY": 0.09375
+			}
+		},
+		{
+			"name": "clay_texture_long_corner_02_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.0625,
+				"maxX": 0.625,
+				"maxY": 0.09375
+			}
+		},
+		{
+			"name": "clay_texture_middle",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.0625,
+				"maxX": 0.6875,
+				"maxY": 0.09375
+			}
+		},
+		{
+			"name": "clay_texture_ring",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.0625,
+				"maxX": 0.75,
+				"maxY": 0.09375
+			}
+		},
+		{
+			"name": "clay_texture_ring_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.0625,
+				"maxX": 0.8125,
+				"maxY": 0.09375
+			}
+		},
+		{
+			"name": "clay_texture_ring_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.0625,
+				"maxX": 0.875,
+				"maxY": 0.09375
+			}
+		},
+		{
+			"name": "clay_texture_ring_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.0625,
+				"maxX": 0.9375,
+				"maxY": 0.09375
+			}
+		},
+		{
+			"name": "clay_texture_straight_bothside",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.0625,
+				"maxX": 1,
+				"maxY": 0.09375
+			}
+		},
+		{
+			"name": "clay_texture_straight_bothside_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.09375,
+				"maxX": 0.0625,
+				"maxY": 0.125
+			}
+		},
+		{
+			"name": "clay_texture_straight_bothside_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.09375,
+				"maxX": 0.125,
+				"maxY": 0.125
+			}
+		},
+		{
+			"name": "clay_texture_straight_bothside_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.09375,
+				"maxX": 0.1875,
+				"maxY": 0.125
+			}
+		},
+		{
+			"name": "clay_texture_straight_corner_01",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.09375,
+				"maxX": 0.25,
+				"maxY": 0.125
+			}
+		},
+		{
+			"name": "clay_texture_straight_corner_01_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.09375,
+				"maxX": 0.3125,
+				"maxY": 0.125
+			}
+		},
+		{
+			"name": "clay_texture_straight_corner_01_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.09375,
+				"maxX": 0.375,
+				"maxY": 0.125
+			}
+		},
+		{
+			"name": "clay_texture_straight_corner_01_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.09375,
+				"maxX": 0.4375,
+				"maxY": 0.125
+			}
+		},
+		{
+			"name": "clay_texture_straight_corner_02",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.09375,
+				"maxX": 0.5,
+				"maxY": 0.125
+			}
+		},
+		{
+			"name": "clay_texture_straight_corner_02_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.09375,
+				"maxX": 0.5625,
+				"maxY": 0.125
+			}
+		},
+		{
+			"name": "clay_texture_straight_corner_02_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.09375,
+				"maxX": 0.625,
+				"maxY": 0.125
+			}
+		},
+		{
+			"name": "clay_texture_straight_corner_02_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.09375,
+				"maxX": 0.6875,
+				"maxY": 0.125
+			}
+		},
+		{
+			"name": "clay_texture_straight_oneside",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.09375,
+				"maxX": 0.75,
+				"maxY": 0.125
+			}
+		},
+		{
+			"name": "clay_texture_straight_oneside_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.09375,
+				"maxX": 0.8125,
+				"maxY": 0.125
+			}
+		},
+		{
+			"name": "clay_texture_straight_oneside_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.09375,
+				"maxX": 0.875,
+				"maxY": 0.125
+			}
+		},
+		{
+			"name": "clay_texture_straight_oneside_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.09375,
+				"maxX": 0.9375,
+				"maxY": 0.125
+			}
+		},
+		{
+			"name": "clay_texture_straight_two_corners",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.09375,
+				"maxX": 1,
+				"maxY": 0.125
+			}
+		},
+		{
+			"name": "clay_texture_straight_two_corners_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.125,
+				"maxX": 0.0625,
+				"maxY": 0.15625
+			}
+		},
+		{
+			"name": "clay_texture_straight_two_corners_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.125,
+				"maxX": 0.125,
+				"maxY": 0.15625
+			}
+		},
+		{
+			"name": "clay_texture_straight_two_corners_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.125,
+				"maxX": 0.1875,
+				"maxY": 0.15625
+			}
+		},
+		{
+			"name": "grass_texture_corners_four",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.125,
+				"maxX": 0.25,
+				"maxY": 0.15625
+			}
+		},
+		{
+			"name": "grass_texture_corners_one",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.125,
+				"maxX": 0.3125,
+				"maxY": 0.15625
+			}
+		},
+		{
+			"name": "grass_texture_corners_one_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.125,
+				"maxX": 0.375,
+				"maxY": 0.15625
+			}
+		},
+		{
+			"name": "grass_texture_corners_one_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.125,
+				"maxX": 0.4375,
+				"maxY": 0.15625
+			}
+		},
+		{
+			"name": "grass_texture_corners_one_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.125,
+				"maxX": 0.5,
+				"maxY": 0.15625
+			}
+		},
+		{
+			"name": "grass_texture_corners_three",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.125,
+				"maxX": 0.5625,
+				"maxY": 0.15625
+			}
+		},
+		{
+			"name": "grass_texture_corners_three_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.125,
+				"maxX": 0.625,
+				"maxY": 0.15625
+			}
+		},
+		{
+			"name": "grass_texture_corners_three_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.125,
+				"maxX": 0.6875,
+				"maxY": 0.15625
+			}
+		},
+		{
+			"name": "grass_texture_corners_three_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.125,
+				"maxX": 0.75,
+				"maxY": 0.15625
+			}
+		},
+		{
+			"name": "grass_texture_corners_two",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.125,
+				"maxX": 0.8125,
+				"maxY": 0.15625
+			}
+		},
+		{
+			"name": "grass_texture_corners_two_diag",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.125,
+				"maxX": 0.875,
+				"maxY": 0.15625
+			}
+		},
+		{
+			"name": "grass_texture_corners_two_diag_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.125,
+				"maxX": 0.9375,
+				"maxY": 0.15625
+			}
+		},
+		{
+			"name": "grass_texture_corners_two_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.125,
+				"maxX": 1,
+				"maxY": 0.15625
+			}
+		},
+		{
+			"name": "grass_texture_corners_two_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.15625,
+				"maxX": 0.0625,
+				"maxY": 0.1875
+			}
+		},
+		{
+			"name": "grass_texture_corners_two_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.15625,
+				"maxX": 0.125,
+				"maxY": 0.1875
+			}
+		},
+		{
+			"name": "grass_texture_corner_big",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.15625,
+				"maxX": 0.1875,
+				"maxY": 0.1875
+			}
+		},
+		{
+			"name": "grass_texture_corner_big_little",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.15625,
+				"maxX": 0.25,
+				"maxY": 0.1875
+			}
+		},
+		{
+			"name": "grass_texture_corner_big_little_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.15625,
+				"maxX": 0.3125,
+				"maxY": 0.1875
+			}
+		},
+		{
+			"name": "grass_texture_corner_big_little_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.15625,
+				"maxX": 0.375,
+				"maxY": 0.1875
+			}
+		},
+		{
+			"name": "grass_texture_corner_big_little_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.15625,
+				"maxX": 0.4375,
+				"maxY": 0.1875
+			}
+		},
+		{
+			"name": "grass_texture_corner_big_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.15625,
+				"maxX": 0.5,
+				"maxY": 0.1875
+			}
+		},
+		{
+			"name": "grass_texture_corner_big_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.15625,
+				"maxX": 0.5625,
+				"maxY": 0.1875
+			}
+		},
+		{
+			"name": "grass_texture_corner_big_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.15625,
+				"maxX": 0.625,
+				"maxY": 0.1875
+			}
+		},
+		{
+			"name": "grass_texture_dead_end",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.15625,
+				"maxX": 0.6875,
+				"maxY": 0.1875
+			}
+		},
+		{
+			"name": "grass_texture_dead_end_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.15625,
+				"maxX": 0.75,
+				"maxY": 0.1875
+			}
+		},
+		{
+			"name": "grass_texture_dead_end_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.15625,
+				"maxX": 0.8125,
+				"maxY": 0.1875
+			}
+		},
+		{
+			"name": "grass_texture_dead_end_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.15625,
+				"maxX": 0.875,
+				"maxY": 0.1875
+			}
+		},
+		{
+			"name": "grass_texture_long_corner_01",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.15625,
+				"maxX": 0.9375,
+				"maxY": 0.1875
+			}
+		},
+		{
+			"name": "grass_texture_long_corner_01_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.15625,
+				"maxX": 1,
+				"maxY": 0.1875
+			}
+		},
+		{
+			"name": "grass_texture_long_corner_01_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.1875,
+				"maxX": 0.0625,
+				"maxY": 0.21875
+			}
+		},
+		{
+			"name": "grass_texture_long_corner_01_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.1875,
+				"maxX": 0.125,
+				"maxY": 0.21875
+			}
+		},
+		{
+			"name": "grass_texture_long_corner_02",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.1875,
+				"maxX": 0.1875,
+				"maxY": 0.21875
+			}
+		},
+		{
+			"name": "grass_texture_long_corner_02_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.1875,
+				"maxX": 0.25,
+				"maxY": 0.21875
+			}
+		},
+		{
+			"name": "grass_texture_long_corner_02_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.1875,
+				"maxX": 0.3125,
+				"maxY": 0.21875
+			}
+		},
+		{
+			"name": "grass_texture_long_corner_02_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.1875,
+				"maxX": 0.375,
+				"maxY": 0.21875
+			}
+		},
+		{
+			"name": "grass_texture_middle",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.1875,
+				"maxX": 0.4375,
+				"maxY": 0.21875
+			}
+		},
+		{
+			"name": "grass_texture_ring",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.1875,
+				"maxX": 0.5,
+				"maxY": 0.21875
+			}
+		},
+		{
+			"name": "grass_texture_ring_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.1875,
+				"maxX": 0.5625,
+				"maxY": 0.21875
+			}
+		},
+		{
+			"name": "grass_texture_ring_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.1875,
+				"maxX": 0.625,
+				"maxY": 0.21875
+			}
+		},
+		{
+			"name": "grass_texture_ring_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.1875,
+				"maxX": 0.6875,
+				"maxY": 0.21875
+			}
+		},
+		{
+			"name": "grass_texture_straight_bothside",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.1875,
+				"maxX": 0.75,
+				"maxY": 0.21875
+			}
+		},
+		{
+			"name": "grass_texture_straight_bothside_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.1875,
+				"maxX": 0.8125,
+				"maxY": 0.21875
+			}
+		},
+		{
+			"name": "grass_texture_straight_bothside_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.1875,
+				"maxX": 0.875,
+				"maxY": 0.21875
+			}
+		},
+		{
+			"name": "grass_texture_straight_bothside_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.1875,
+				"maxX": 0.9375,
+				"maxY": 0.21875
+			}
+		},
+		{
+			"name": "grass_texture_straight_corner_01",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.1875,
+				"maxX": 1,
+				"maxY": 0.21875
+			}
+		},
+		{
+			"name": "grass_texture_straight_corner_01_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.21875,
+				"maxX": 0.0625,
+				"maxY": 0.25
+			}
+		},
+		{
+			"name": "grass_texture_straight_corner_01_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.21875,
+				"maxX": 0.125,
+				"maxY": 0.25
+			}
+		},
+		{
+			"name": "grass_texture_straight_corner_01_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.21875,
+				"maxX": 0.1875,
+				"maxY": 0.25
+			}
+		},
+		{
+			"name": "grass_texture_straight_corner_02",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.21875,
+				"maxX": 0.25,
+				"maxY": 0.25
+			}
+		},
+		{
+			"name": "grass_texture_straight_corner_02_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.21875,
+				"maxX": 0.3125,
+				"maxY": 0.25
+			}
+		},
+		{
+			"name": "grass_texture_straight_corner_02_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.21875,
+				"maxX": 0.375,
+				"maxY": 0.25
+			}
+		},
+		{
+			"name": "grass_texture_straight_corner_02_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.21875,
+				"maxX": 0.4375,
+				"maxY": 0.25
+			}
+		},
+		{
+			"name": "grass_texture_straight_oneside",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.21875,
+				"maxX": 0.5,
+				"maxY": 0.25
+			}
+		},
+		{
+			"name": "grass_texture_straight_oneside_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.21875,
+				"maxX": 0.5625,
+				"maxY": 0.25
+			}
+		},
+		{
+			"name": "grass_texture_straight_oneside_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.21875,
+				"maxX": 0.625,
+				"maxY": 0.25
+			}
+		},
+		{
+			"name": "grass_texture_straight_oneside_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.21875,
+				"maxX": 0.6875,
+				"maxY": 0.25
+			}
+		},
+		{
+			"name": "grass_texture_straight_two_corners",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.21875,
+				"maxX": 0.75,
+				"maxY": 0.25
+			}
+		},
+		{
+			"name": "grass_texture_straight_two_corners_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.21875,
+				"maxX": 0.8125,
+				"maxY": 0.25
+			}
+		},
+		{
+			"name": "grass_texture_straight_two_corners_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.21875,
+				"maxX": 0.875,
+				"maxY": 0.25
+			}
+		},
+		{
+			"name": "grass_texture_straight_two_corners_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.21875,
+				"maxX": 0.9375,
+				"maxY": 0.25
+			}
+		},
+		{
+			"name": "pavingstone_texture_corners_four",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.21875,
+				"maxX": 1,
+				"maxY": 0.25
+			}
+		},
+		{
+			"name": "pavingstone_texture_corners_one",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.25,
+				"maxX": 0.0625,
+				"maxY": 0.28125
+			}
+		},
+		{
+			"name": "pavingstone_texture_corners_one_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.25,
+				"maxX": 0.125,
+				"maxY": 0.28125
+			}
+		},
+		{
+			"name": "pavingstone_texture_corners_one_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.25,
+				"maxX": 0.1875,
+				"maxY": 0.28125
+			}
+		},
+		{
+			"name": "pavingstone_texture_corners_one_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.25,
+				"maxX": 0.25,
+				"maxY": 0.28125
+			}
+		},
+		{
+			"name": "pavingstone_texture_corners_three",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.25,
+				"maxX": 0.3125,
+				"maxY": 0.28125
+			}
+		},
+		{
+			"name": "pavingstone_texture_corners_three_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.25,
+				"maxX": 0.375,
+				"maxY": 0.28125
+			}
+		},
+		{
+			"name": "pavingstone_texture_corners_three_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.25,
+				"maxX": 0.4375,
+				"maxY": 0.28125
+			}
+		},
+		{
+			"name": "pavingstone_texture_corners_three_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.25,
+				"maxX": 0.5,
+				"maxY": 0.28125
+			}
+		},
+		{
+			"name": "pavingstone_texture_corners_two",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.25,
+				"maxX": 0.5625,
+				"maxY": 0.28125
+			}
+		},
+		{
+			"name": "pavingstone_texture_corners_two_diag",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.25,
+				"maxX": 0.625,
+				"maxY": 0.28125
+			}
+		},
+		{
+			"name": "pavingstone_texture_corners_two_diag_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.25,
+				"maxX": 0.6875,
+				"maxY": 0.28125
+			}
+		},
+		{
+			"name": "pavingstone_texture_corners_two_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.25,
+				"maxX": 0.75,
+				"maxY": 0.28125
+			}
+		},
+		{
+			"name": "pavingstone_texture_corners_two_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.25,
+				"maxX": 0.8125,
+				"maxY": 0.28125
+			}
+		},
+		{
+			"name": "pavingstone_texture_corners_two_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.25,
+				"maxX": 0.875,
+				"maxY": 0.28125
+			}
+		},
+		{
+			"name": "pavingstone_texture_corner_big",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.25,
+				"maxX": 0.9375,
+				"maxY": 0.28125
+			}
+		},
+		{
+			"name": "pavingstone_texture_corner_big_little",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.25,
+				"maxX": 1,
+				"maxY": 0.28125
+			}
+		},
+		{
+			"name": "pavingstone_texture_corner_big_little_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.28125,
+				"maxX": 0.0625,
+				"maxY": 0.3125
+			}
+		},
+		{
+			"name": "pavingstone_texture_corner_big_little_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.28125,
+				"maxX": 0.125,
+				"maxY": 0.3125
+			}
+		},
+		{
+			"name": "pavingstone_texture_corner_big_little_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.28125,
+				"maxX": 0.1875,
+				"maxY": 0.3125
+			}
+		},
+		{
+			"name": "pavingstone_texture_corner_big_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.28125,
+				"maxX": 0.25,
+				"maxY": 0.3125
+			}
+		},
+		{
+			"name": "pavingstone_texture_corner_big_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.28125,
+				"maxX": 0.3125,
+				"maxY": 0.3125
+			}
+		},
+		{
+			"name": "pavingstone_texture_corner_big_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.28125,
+				"maxX": 0.375,
+				"maxY": 0.3125
+			}
+		},
+		{
+			"name": "pavingstone_texture_dead_end",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.28125,
+				"maxX": 0.4375,
+				"maxY": 0.3125
+			}
+		},
+		{
+			"name": "pavingstone_texture_dead_end_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.28125,
+				"maxX": 0.5,
+				"maxY": 0.3125
+			}
+		},
+		{
+			"name": "pavingstone_texture_dead_end_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.28125,
+				"maxX": 0.5625,
+				"maxY": 0.3125
+			}
+		},
+		{
+			"name": "pavingstone_texture_dead_end_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.28125,
+				"maxX": 0.625,
+				"maxY": 0.3125
+			}
+		},
+		{
+			"name": "pavingstone_texture_long_corner_01",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.28125,
+				"maxX": 0.6875,
+				"maxY": 0.3125
+			}
+		},
+		{
+			"name": "pavingstone_texture_long_corner_01_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.28125,
+				"maxX": 0.75,
+				"maxY": 0.3125
+			}
+		},
+		{
+			"name": "pavingstone_texture_long_corner_01_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.28125,
+				"maxX": 0.8125,
+				"maxY": 0.3125
+			}
+		},
+		{
+			"name": "pavingstone_texture_long_corner_01_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.28125,
+				"maxX": 0.875,
+				"maxY": 0.3125
+			}
+		},
+		{
+			"name": "pavingstone_texture_long_corner_02",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.28125,
+				"maxX": 0.9375,
+				"maxY": 0.3125
+			}
+		},
+		{
+			"name": "pavingstone_texture_long_corner_02_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.28125,
+				"maxX": 1,
+				"maxY": 0.3125
+			}
+		},
+		{
+			"name": "pavingstone_texture_long_corner_02_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.3125,
+				"maxX": 0.0625,
+				"maxY": 0.34375
+			}
+		},
+		{
+			"name": "pavingstone_texture_long_corner_02_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.3125,
+				"maxX": 0.125,
+				"maxY": 0.34375
+			}
+		},
+		{
+			"name": "pavingstone_texture_middle",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.3125,
+				"maxX": 0.1875,
+				"maxY": 0.34375
+			}
+		},
+		{
+			"name": "pavingstone_texture_ring",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.3125,
+				"maxX": 0.25,
+				"maxY": 0.34375
+			}
+		},
+		{
+			"name": "pavingstone_texture_ring_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.3125,
+				"maxX": 0.3125,
+				"maxY": 0.34375
+			}
+		},
+		{
+			"name": "pavingstone_texture_ring_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.3125,
+				"maxX": 0.375,
+				"maxY": 0.34375
+			}
+		},
+		{
+			"name": "pavingstone_texture_ring_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.3125,
+				"maxX": 0.4375,
+				"maxY": 0.34375
+			}
+		},
+		{
+			"name": "pavingstone_texture_straight_bothside",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.3125,
+				"maxX": 0.5,
+				"maxY": 0.34375
+			}
+		},
+		{
+			"name": "pavingstone_texture_straight_bothside_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.3125,
+				"maxX": 0.5625,
+				"maxY": 0.34375
+			}
+		},
+		{
+			"name": "pavingstone_texture_straight_bothside_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.3125,
+				"maxX": 0.625,
+				"maxY": 0.34375
+			}
+		},
+		{
+			"name": "pavingstone_texture_straight_bothside_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.3125,
+				"maxX": 0.6875,
+				"maxY": 0.34375
+			}
+		},
+		{
+			"name": "pavingstone_texture_straight_corner_01",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.3125,
+				"maxX": 0.75,
+				"maxY": 0.34375
+			}
+		},
+		{
+			"name": "pavingstone_texture_straight_corner_01_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.3125,
+				"maxX": 0.8125,
+				"maxY": 0.34375
+			}
+		},
+		{
+			"name": "pavingstone_texture_straight_corner_01_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.3125,
+				"maxX": 0.875,
+				"maxY": 0.34375
+			}
+		},
+		{
+			"name": "pavingstone_texture_straight_corner_01_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.3125,
+				"maxX": 0.9375,
+				"maxY": 0.34375
+			}
+		},
+		{
+			"name": "pavingstone_texture_straight_corner_02",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.3125,
+				"maxX": 1,
+				"maxY": 0.34375
+			}
+		},
+		{
+			"name": "pavingstone_texture_straight_corner_02_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.34375,
+				"maxX": 0.0625,
+				"maxY": 0.375
+			}
+		},
+		{
+			"name": "pavingstone_texture_straight_corner_02_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.34375,
+				"maxX": 0.125,
+				"maxY": 0.375
+			}
+		},
+		{
+			"name": "pavingstone_texture_straight_corner_02_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.34375,
+				"maxX": 0.1875,
+				"maxY": 0.375
+			}
+		},
+		{
+			"name": "pavingstone_texture_straight_oneside",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.34375,
+				"maxX": 0.25,
+				"maxY": 0.375
+			}
+		},
+		{
+			"name": "pavingstone_texture_straight_oneside_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.34375,
+				"maxX": 0.3125,
+				"maxY": 0.375
+			}
+		},
+		{
+			"name": "pavingstone_texture_straight_oneside_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.34375,
+				"maxX": 0.375,
+				"maxY": 0.375
+			}
+		},
+		{
+			"name": "pavingstone_texture_straight_oneside_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.34375,
+				"maxX": 0.4375,
+				"maxY": 0.375
+			}
+		},
+		{
+			"name": "pavingstone_texture_straight_two_corners",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.34375,
+				"maxX": 0.5,
+				"maxY": 0.375
+			}
+		},
+		{
+			"name": "pavingstone_texture_straight_two_corners_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.34375,
+				"maxX": 0.5625,
+				"maxY": 0.375
+			}
+		},
+		{
+			"name": "pavingstone_texture_straight_two_corners_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.34375,
+				"maxX": 0.625,
+				"maxY": 0.375
+			}
+		},
+		{
+			"name": "pavingstone_texture_straight_two_corners_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.34375,
+				"maxX": 0.6875,
+				"maxY": 0.375
+			}
+		},
+		{
+			"name": "rock_texture_corners_four",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.34375,
+				"maxX": 0.75,
+				"maxY": 0.375
+			}
+		},
+		{
+			"name": "rock_texture_corners_one",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.34375,
+				"maxX": 0.8125,
+				"maxY": 0.375
+			}
+		},
+		{
+			"name": "rock_texture_corners_one_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.34375,
+				"maxX": 0.875,
+				"maxY": 0.375
+			}
+		},
+		{
+			"name": "rock_texture_corners_one_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.34375,
+				"maxX": 0.9375,
+				"maxY": 0.375
+			}
+		},
+		{
+			"name": "rock_texture_corners_one_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.34375,
+				"maxX": 1,
+				"maxY": 0.375
+			}
+		},
+		{
+			"name": "rock_texture_corners_three",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.375,
+				"maxX": 0.0625,
+				"maxY": 0.40625
+			}
+		},
+		{
+			"name": "rock_texture_corners_three_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.375,
+				"maxX": 0.125,
+				"maxY": 0.40625
+			}
+		},
+		{
+			"name": "rock_texture_corners_three_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.375,
+				"maxX": 0.1875,
+				"maxY": 0.40625
+			}
+		},
+		{
+			"name": "rock_texture_corners_three_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.375,
+				"maxX": 0.25,
+				"maxY": 0.40625
+			}
+		},
+		{
+			"name": "rock_texture_corners_two",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.375,
+				"maxX": 0.3125,
+				"maxY": 0.40625
+			}
+		},
+		{
+			"name": "rock_texture_corners_two_diag",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.375,
+				"maxX": 0.375,
+				"maxY": 0.40625
+			}
+		},
+		{
+			"name": "rock_texture_corners_two_diag_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.375,
+				"maxX": 0.4375,
+				"maxY": 0.40625
+			}
+		},
+		{
+			"name": "rock_texture_corners_two_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.375,
+				"maxX": 0.5,
+				"maxY": 0.40625
+			}
+		},
+		{
+			"name": "rock_texture_corners_two_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.375,
+				"maxX": 0.5625,
+				"maxY": 0.40625
+			}
+		},
+		{
+			"name": "rock_texture_corners_two_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.375,
+				"maxX": 0.625,
+				"maxY": 0.40625
+			}
+		},
+		{
+			"name": "rock_texture_corner_big",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.375,
+				"maxX": 0.6875,
+				"maxY": 0.40625
+			}
+		},
+		{
+			"name": "rock_texture_corner_big_little",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.375,
+				"maxX": 0.75,
+				"maxY": 0.40625
+			}
+		},
+		{
+			"name": "rock_texture_corner_big_little_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.375,
+				"maxX": 0.8125,
+				"maxY": 0.40625
+			}
+		},
+		{
+			"name": "rock_texture_corner_big_little_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.375,
+				"maxX": 0.875,
+				"maxY": 0.40625
+			}
+		},
+		{
+			"name": "rock_texture_corner_big_little_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.375,
+				"maxX": 0.9375,
+				"maxY": 0.40625
+			}
+		},
+		{
+			"name": "rock_texture_corner_big_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.375,
+				"maxX": 1,
+				"maxY": 0.40625
+			}
+		},
+		{
+			"name": "rock_texture_corner_big_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.40625,
+				"maxX": 0.0625,
+				"maxY": 0.4375
+			}
+		},
+		{
+			"name": "rock_texture_corner_big_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.40625,
+				"maxX": 0.125,
+				"maxY": 0.4375
+			}
+		},
+		{
+			"name": "rock_texture_dead_end",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.40625,
+				"maxX": 0.1875,
+				"maxY": 0.4375
+			}
+		},
+		{
+			"name": "rock_texture_dead_end_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.40625,
+				"maxX": 0.25,
+				"maxY": 0.4375
+			}
+		},
+		{
+			"name": "rock_texture_dead_end_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.40625,
+				"maxX": 0.3125,
+				"maxY": 0.4375
+			}
+		},
+		{
+			"name": "rock_texture_dead_end_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.40625,
+				"maxX": 0.375,
+				"maxY": 0.4375
+			}
+		},
+		{
+			"name": "rock_texture_long_corner_01",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.40625,
+				"maxX": 0.4375,
+				"maxY": 0.4375
+			}
+		},
+		{
+			"name": "rock_texture_long_corner_01_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.40625,
+				"maxX": 0.5,
+				"maxY": 0.4375
+			}
+		},
+		{
+			"name": "rock_texture_long_corner_01_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.40625,
+				"maxX": 0.5625,
+				"maxY": 0.4375
+			}
+		},
+		{
+			"name": "rock_texture_long_corner_01_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.40625,
+				"maxX": 0.625,
+				"maxY": 0.4375
+			}
+		},
+		{
+			"name": "rock_texture_long_corner_02",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.40625,
+				"maxX": 0.6875,
+				"maxY": 0.4375
+			}
+		},
+		{
+			"name": "rock_texture_long_corner_02_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.40625,
+				"maxX": 0.75,
+				"maxY": 0.4375
+			}
+		},
+		{
+			"name": "rock_texture_long_corner_02_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.40625,
+				"maxX": 0.8125,
+				"maxY": 0.4375
+			}
+		},
+		{
+			"name": "rock_texture_long_corner_02_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.40625,
+				"maxX": 0.875,
+				"maxY": 0.4375
+			}
+		},
+		{
+			"name": "rock_texture_middle",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.40625,
+				"maxX": 0.9375,
+				"maxY": 0.4375
+			}
+		},
+		{
+			"name": "rock_texture_ring",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.40625,
+				"maxX": 1,
+				"maxY": 0.4375
+			}
+		},
+		{
+			"name": "rock_texture_ring_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.4375,
+				"maxX": 0.0625,
+				"maxY": 0.46875
+			}
+		},
+		{
+			"name": "rock_texture_ring_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.4375,
+				"maxX": 0.125,
+				"maxY": 0.46875
+			}
+		},
+		{
+			"name": "rock_texture_ring_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.4375,
+				"maxX": 0.1875,
+				"maxY": 0.46875
+			}
+		},
+		{
+			"name": "rock_texture_straight_bothside",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.4375,
+				"maxX": 0.25,
+				"maxY": 0.46875
+			}
+		},
+		{
+			"name": "rock_texture_straight_bothside_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.4375,
+				"maxX": 0.3125,
+				"maxY": 0.46875
+			}
+		},
+		{
+			"name": "rock_texture_straight_bothside_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.4375,
+				"maxX": 0.375,
+				"maxY": 0.46875
+			}
+		},
+		{
+			"name": "rock_texture_straight_bothside_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.4375,
+				"maxX": 0.4375,
+				"maxY": 0.46875
+			}
+		},
+		{
+			"name": "rock_texture_straight_corner_01",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.4375,
+				"maxX": 0.5,
+				"maxY": 0.46875
+			}
+		},
+		{
+			"name": "rock_texture_straight_corner_01_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.4375,
+				"maxX": 0.5625,
+				"maxY": 0.46875
+			}
+		},
+		{
+			"name": "rock_texture_straight_corner_01_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.4375,
+				"maxX": 0.625,
+				"maxY": 0.46875
+			}
+		},
+		{
+			"name": "rock_texture_straight_corner_01_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.4375,
+				"maxX": 0.6875,
+				"maxY": 0.46875
+			}
+		},
+		{
+			"name": "rock_texture_straight_corner_02",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.4375,
+				"maxX": 0.75,
+				"maxY": 0.46875
+			}
+		},
+		{
+			"name": "rock_texture_straight_corner_02_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.4375,
+				"maxX": 0.8125,
+				"maxY": 0.46875
+			}
+		},
+		{
+			"name": "rock_texture_straight_corner_02_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.4375,
+				"maxX": 0.875,
+				"maxY": 0.46875
+			}
+		},
+		{
+			"name": "rock_texture_straight_corner_02_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.4375,
+				"maxX": 0.9375,
+				"maxY": 0.46875
+			}
+		},
+		{
+			"name": "rock_texture_straight_oneside",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.4375,
+				"maxX": 1,
+				"maxY": 0.46875
+			}
+		},
+		{
+			"name": "rock_texture_straight_oneside_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.46875,
+				"maxX": 0.0625,
+				"maxY": 0.5
+			}
+		},
+		{
+			"name": "rock_texture_straight_oneside_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.46875,
+				"maxX": 0.125,
+				"maxY": 0.5
+			}
+		},
+		{
+			"name": "rock_texture_straight_oneside_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.46875,
+				"maxX": 0.1875,
+				"maxY": 0.5
+			}
+		},
+		{
+			"name": "rock_texture_straight_two_corners",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.46875,
+				"maxX": 0.25,
+				"maxY": 0.5
+			}
+		},
+		{
+			"name": "rock_texture_straight_two_corners_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.46875,
+				"maxX": 0.3125,
+				"maxY": 0.5
+			}
+		},
+		{
+			"name": "rock_texture_straight_two_corners_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.46875,
+				"maxX": 0.375,
+				"maxY": 0.5
+			}
+		},
+		{
+			"name": "rock_texture_straight_two_corners_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.46875,
+				"maxX": 0.4375,
+				"maxY": 0.5
+			}
+		},
+		{
+			"name": "sand_texture_corners_four",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.46875,
+				"maxX": 0.5,
+				"maxY": 0.5
+			}
+		},
+		{
+			"name": "sand_texture_corners_one",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.46875,
+				"maxX": 0.5625,
+				"maxY": 0.5
+			}
+		},
+		{
+			"name": "sand_texture_corners_one_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.46875,
+				"maxX": 0.625,
+				"maxY": 0.5
+			}
+		},
+		{
+			"name": "sand_texture_corners_one_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.46875,
+				"maxX": 0.6875,
+				"maxY": 0.5
+			}
+		},
+		{
+			"name": "sand_texture_corners_one_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.46875,
+				"maxX": 0.75,
+				"maxY": 0.5
+			}
+		},
+		{
+			"name": "sand_texture_corners_three",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.46875,
+				"maxX": 0.8125,
+				"maxY": 0.5
+			}
+		},
+		{
+			"name": "sand_texture_corners_three_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.46875,
+				"maxX": 0.875,
+				"maxY": 0.5
+			}
+		},
+		{
+			"name": "sand_texture_corners_three_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.46875,
+				"maxX": 0.9375,
+				"maxY": 0.5
+			}
+		},
+		{
+			"name": "sand_texture_corners_three_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.46875,
+				"maxX": 1,
+				"maxY": 0.5
+			}
+		},
+		{
+			"name": "sand_texture_corners_two",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.5,
+				"maxX": 0.0625,
+				"maxY": 0.53125
+			}
+		},
+		{
+			"name": "sand_texture_corners_two_diag",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.5,
+				"maxX": 0.125,
+				"maxY": 0.53125
+			}
+		},
+		{
+			"name": "sand_texture_corners_two_diag_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.5,
+				"maxX": 0.1875,
+				"maxY": 0.53125
+			}
+		},
+		{
+			"name": "sand_texture_corners_two_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.5,
+				"maxX": 0.25,
+				"maxY": 0.53125
+			}
+		},
+		{
+			"name": "sand_texture_corners_two_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.5,
+				"maxX": 0.3125,
+				"maxY": 0.53125
+			}
+		},
+		{
+			"name": "sand_texture_corners_two_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.5,
+				"maxX": 0.375,
+				"maxY": 0.53125
+			}
+		},
+		{
+			"name": "sand_texture_corner_big",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.5,
+				"maxX": 0.4375,
+				"maxY": 0.53125
+			}
+		},
+		{
+			"name": "sand_texture_corner_big_little",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.5,
+				"maxX": 0.5,
+				"maxY": 0.53125
+			}
+		},
+		{
+			"name": "sand_texture_corner_big_little_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.5,
+				"maxX": 0.5625,
+				"maxY": 0.53125
+			}
+		},
+		{
+			"name": "sand_texture_corner_big_little_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.5,
+				"maxX": 0.625,
+				"maxY": 0.53125
+			}
+		},
+		{
+			"name": "sand_texture_corner_big_little_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.5,
+				"maxX": 0.6875,
+				"maxY": 0.53125
+			}
+		},
+		{
+			"name": "sand_texture_corner_big_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.5,
+				"maxX": 0.75,
+				"maxY": 0.53125
+			}
+		},
+		{
+			"name": "sand_texture_corner_big_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.5,
+				"maxX": 0.8125,
+				"maxY": 0.53125
+			}
+		},
+		{
+			"name": "sand_texture_corner_big_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.5,
+				"maxX": 0.875,
+				"maxY": 0.53125
+			}
+		},
+		{
+			"name": "sand_texture_dead_end",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.5,
+				"maxX": 0.9375,
+				"maxY": 0.53125
+			}
+		},
+		{
+			"name": "sand_texture_dead_end_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.5,
+				"maxX": 1,
+				"maxY": 0.53125
+			}
+		},
+		{
+			"name": "sand_texture_dead_end_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.53125,
+				"maxX": 0.0625,
+				"maxY": 0.5625
+			}
+		},
+		{
+			"name": "sand_texture_dead_end_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.53125,
+				"maxX": 0.125,
+				"maxY": 0.5625
+			}
+		},
+		{
+			"name": "sand_texture_long_corner_01",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.53125,
+				"maxX": 0.1875,
+				"maxY": 0.5625
+			}
+		},
+		{
+			"name": "sand_texture_long_corner_01_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.53125,
+				"maxX": 0.25,
+				"maxY": 0.5625
+			}
+		},
+		{
+			"name": "sand_texture_long_corner_01_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.53125,
+				"maxX": 0.3125,
+				"maxY": 0.5625
+			}
+		},
+		{
+			"name": "sand_texture_long_corner_01_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.53125,
+				"maxX": 0.375,
+				"maxY": 0.5625
+			}
+		},
+		{
+			"name": "sand_texture_long_corner_02",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.53125,
+				"maxX": 0.4375,
+				"maxY": 0.5625
+			}
+		},
+		{
+			"name": "sand_texture_long_corner_02_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.53125,
+				"maxX": 0.5,
+				"maxY": 0.5625
+			}
+		},
+		{
+			"name": "sand_texture_long_corner_02_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.53125,
+				"maxX": 0.5625,
+				"maxY": 0.5625
+			}
+		},
+		{
+			"name": "sand_texture_long_corner_02_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.53125,
+				"maxX": 0.625,
+				"maxY": 0.5625
+			}
+		},
+		{
+			"name": "sand_texture_middle",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.53125,
+				"maxX": 0.6875,
+				"maxY": 0.5625
+			}
+		},
+		{
+			"name": "sand_texture_ring",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.53125,
+				"maxX": 0.75,
+				"maxY": 0.5625
+			}
+		},
+		{
+			"name": "sand_texture_ring_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.53125,
+				"maxX": 0.8125,
+				"maxY": 0.5625
+			}
+		},
+		{
+			"name": "sand_texture_ring_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.53125,
+				"maxX": 0.875,
+				"maxY": 0.5625
+			}
+		},
+		{
+			"name": "sand_texture_ring_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.53125,
+				"maxX": 0.9375,
+				"maxY": 0.5625
+			}
+		},
+		{
+			"name": "sand_texture_straight_bothside",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.53125,
+				"maxX": 1,
+				"maxY": 0.5625
+			}
+		},
+		{
+			"name": "sand_texture_straight_bothside_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.5625,
+				"maxX": 0.0625,
+				"maxY": 0.59375
+			}
+		},
+		{
+			"name": "sand_texture_straight_bothside_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.5625,
+				"maxX": 0.125,
+				"maxY": 0.59375
+			}
+		},
+		{
+			"name": "sand_texture_straight_bothside_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.5625,
+				"maxX": 0.1875,
+				"maxY": 0.59375
+			}
+		},
+		{
+			"name": "sand_texture_straight_corner_01",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.5625,
+				"maxX": 0.25,
+				"maxY": 0.59375
+			}
+		},
+		{
+			"name": "sand_texture_straight_corner_01_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.5625,
+				"maxX": 0.3125,
+				"maxY": 0.59375
+			}
+		},
+		{
+			"name": "sand_texture_straight_corner_01_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.5625,
+				"maxX": 0.375,
+				"maxY": 0.59375
+			}
+		},
+		{
+			"name": "sand_texture_straight_corner_01_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.5625,
+				"maxX": 0.4375,
+				"maxY": 0.59375
+			}
+		},
+		{
+			"name": "sand_texture_straight_corner_02",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.5625,
+				"maxX": 0.5,
+				"maxY": 0.59375
+			}
+		},
+		{
+			"name": "sand_texture_straight_corner_02_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.5625,
+				"maxX": 0.5625,
+				"maxY": 0.59375
+			}
+		},
+		{
+			"name": "sand_texture_straight_corner_02_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.5625,
+				"maxX": 0.625,
+				"maxY": 0.59375
+			}
+		},
+		{
+			"name": "sand_texture_straight_corner_02_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.5625,
+				"maxX": 0.6875,
+				"maxY": 0.59375
+			}
+		},
+		{
+			"name": "sand_texture_straight_oneside",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.5625,
+				"maxX": 0.75,
+				"maxY": 0.59375
+			}
+		},
+		{
+			"name": "sand_texture_straight_oneside_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.5625,
+				"maxX": 0.8125,
+				"maxY": 0.59375
+			}
+		},
+		{
+			"name": "sand_texture_straight_oneside_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.5625,
+				"maxX": 0.875,
+				"maxY": 0.59375
+			}
+		},
+		{
+			"name": "sand_texture_straight_oneside_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.5625,
+				"maxX": 0.9375,
+				"maxY": 0.59375
+			}
+		},
+		{
+			"name": "sand_texture_straight_two_corners",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.5625,
+				"maxX": 1,
+				"maxY": 0.59375
+			}
+		},
+		{
+			"name": "sand_texture_straight_two_corners_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.59375,
+				"maxX": 0.0625,
+				"maxY": 0.625
+			}
+		},
+		{
+			"name": "sand_texture_straight_two_corners_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.59375,
+				"maxX": 0.125,
+				"maxY": 0.625
+			}
+		},
+		{
+			"name": "sand_texture_straight_two_corners_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.59375,
+				"maxX": 0.1875,
+				"maxY": 0.625
+			}
+		},
+		{
+			"name": "stoney_path_texture_corners_four",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.59375,
+				"maxX": 0.25,
+				"maxY": 0.625
+			}
+		},
+		{
+			"name": "stoney_path_texture_corners_one",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.59375,
+				"maxX": 0.3125,
+				"maxY": 0.625
+			}
+		},
+		{
+			"name": "stoney_path_texture_corners_one_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.59375,
+				"maxX": 0.375,
+				"maxY": 0.625
+			}
+		},
+		{
+			"name": "stoney_path_texture_corners_one_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.59375,
+				"maxX": 0.4375,
+				"maxY": 0.625
+			}
+		},
+		{
+			"name": "stoney_path_texture_corners_one_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.59375,
+				"maxX": 0.5,
+				"maxY": 0.625
+			}
+		},
+		{
+			"name": "stoney_path_texture_corners_three",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.59375,
+				"maxX": 0.5625,
+				"maxY": 0.625
+			}
+		},
+		{
+			"name": "stoney_path_texture_corners_three_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.59375,
+				"maxX": 0.625,
+				"maxY": 0.625
+			}
+		},
+		{
+			"name": "stoney_path_texture_corners_three_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.59375,
+				"maxX": 0.6875,
+				"maxY": 0.625
+			}
+		},
+		{
+			"name": "stoney_path_texture_corners_three_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.59375,
+				"maxX": 0.75,
+				"maxY": 0.625
+			}
+		},
+		{
+			"name": "stoney_path_texture_corners_two",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.59375,
+				"maxX": 0.8125,
+				"maxY": 0.625
+			}
+		},
+		{
+			"name": "stoney_path_texture_corners_two_diag",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.59375,
+				"maxX": 0.875,
+				"maxY": 0.625
+			}
+		},
+		{
+			"name": "stoney_path_texture_corners_two_diag_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.59375,
+				"maxX": 0.9375,
+				"maxY": 0.625
+			}
+		},
+		{
+			"name": "stoney_path_texture_corners_two_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.59375,
+				"maxX": 1,
+				"maxY": 0.625
+			}
+		},
+		{
+			"name": "stoney_path_texture_corners_two_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.625,
+				"maxX": 0.0625,
+				"maxY": 0.65625
+			}
+		},
+		{
+			"name": "stoney_path_texture_corners_two_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.625,
+				"maxX": 0.125,
+				"maxY": 0.65625
+			}
+		},
+		{
+			"name": "stoney_path_texture_corner_big",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.625,
+				"maxX": 0.1875,
+				"maxY": 0.65625
+			}
+		},
+		{
+			"name": "stoney_path_texture_corner_big_little",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.625,
+				"maxX": 0.25,
+				"maxY": 0.65625
+			}
+		},
+		{
+			"name": "stoney_path_texture_corner_big_little_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.625,
+				"maxX": 0.3125,
+				"maxY": 0.65625
+			}
+		},
+		{
+			"name": "stoney_path_texture_corner_big_little_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.625,
+				"maxX": 0.375,
+				"maxY": 0.65625
+			}
+		},
+		{
+			"name": "stoney_path_texture_corner_big_little_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.625,
+				"maxX": 0.4375,
+				"maxY": 0.65625
+			}
+		},
+		{
+			"name": "stoney_path_texture_corner_big_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.625,
+				"maxX": 0.5,
+				"maxY": 0.65625
+			}
+		},
+		{
+			"name": "stoney_path_texture_corner_big_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.625,
+				"maxX": 0.5625,
+				"maxY": 0.65625
+			}
+		},
+		{
+			"name": "stoney_path_texture_corner_big_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.625,
+				"maxX": 0.625,
+				"maxY": 0.65625
+			}
+		},
+		{
+			"name": "stoney_path_texture_dead_end",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.625,
+				"maxX": 0.6875,
+				"maxY": 0.65625
+			}
+		},
+		{
+			"name": "stoney_path_texture_dead_end_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.625,
+				"maxX": 0.75,
+				"maxY": 0.65625
+			}
+		},
+		{
+			"name": "stoney_path_texture_dead_end_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.625,
+				"maxX": 0.8125,
+				"maxY": 0.65625
+			}
+		},
+		{
+			"name": "stoney_path_texture_dead_end_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.625,
+				"maxX": 0.875,
+				"maxY": 0.65625
+			}
+		},
+		{
+			"name": "stoney_path_texture_long_corner_01",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.625,
+				"maxX": 0.9375,
+				"maxY": 0.65625
+			}
+		},
+		{
+			"name": "stoney_path_texture_long_corner_01_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.625,
+				"maxX": 1,
+				"maxY": 0.65625
+			}
+		},
+		{
+			"name": "stoney_path_texture_long_corner_01_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.65625,
+				"maxX": 0.0625,
+				"maxY": 0.6875
+			}
+		},
+		{
+			"name": "stoney_path_texture_long_corner_01_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.65625,
+				"maxX": 0.125,
+				"maxY": 0.6875
+			}
+		},
+		{
+			"name": "stoney_path_texture_long_corner_02",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.65625,
+				"maxX": 0.1875,
+				"maxY": 0.6875
+			}
+		},
+		{
+			"name": "stoney_path_texture_long_corner_02_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.65625,
+				"maxX": 0.25,
+				"maxY": 0.6875
+			}
+		},
+		{
+			"name": "stoney_path_texture_long_corner_02_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.65625,
+				"maxX": 0.3125,
+				"maxY": 0.6875
+			}
+		},
+		{
+			"name": "stoney_path_texture_long_corner_02_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.65625,
+				"maxX": 0.375,
+				"maxY": 0.6875
+			}
+		},
+		{
+			"name": "stoney_path_texture_middle",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.65625,
+				"maxX": 0.4375,
+				"maxY": 0.6875
+			}
+		},
+		{
+			"name": "stoney_path_texture_ring",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.65625,
+				"maxX": 0.5,
+				"maxY": 0.6875
+			}
+		},
+		{
+			"name": "stoney_path_texture_ring_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.65625,
+				"maxX": 0.5625,
+				"maxY": 0.6875
+			}
+		},
+		{
+			"name": "stoney_path_texture_ring_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.65625,
+				"maxX": 0.625,
+				"maxY": 0.6875
+			}
+		},
+		{
+			"name": "stoney_path_texture_ring_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.65625,
+				"maxX": 0.6875,
+				"maxY": 0.6875
+			}
+		},
+		{
+			"name": "stoney_path_texture_straight_bothside",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.65625,
+				"maxX": 0.75,
+				"maxY": 0.6875
+			}
+		},
+		{
+			"name": "stoney_path_texture_straight_bothside_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.65625,
+				"maxX": 0.8125,
+				"maxY": 0.6875
+			}
+		},
+		{
+			"name": "stoney_path_texture_straight_bothside_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.65625,
+				"maxX": 0.875,
+				"maxY": 0.6875
+			}
+		},
+		{
+			"name": "stoney_path_texture_straight_bothside_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.65625,
+				"maxX": 0.9375,
+				"maxY": 0.6875
+			}
+		},
+		{
+			"name": "stoney_path_texture_straight_corner_01",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.65625,
+				"maxX": 1,
+				"maxY": 0.6875
+			}
+		},
+		{
+			"name": "stoney_path_texture_straight_corner_01_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.6875,
+				"maxX": 0.0625,
+				"maxY": 0.71875
+			}
+		},
+		{
+			"name": "stoney_path_texture_straight_corner_01_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.6875,
+				"maxX": 0.125,
+				"maxY": 0.71875
+			}
+		},
+		{
+			"name": "stoney_path_texture_straight_corner_01_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.6875,
+				"maxX": 0.1875,
+				"maxY": 0.71875
+			}
+		},
+		{
+			"name": "stoney_path_texture_straight_corner_02",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.6875,
+				"maxX": 0.25,
+				"maxY": 0.71875
+			}
+		},
+		{
+			"name": "stoney_path_texture_straight_corner_02_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.6875,
+				"maxX": 0.3125,
+				"maxY": 0.71875
+			}
+		},
+		{
+			"name": "stoney_path_texture_straight_corner_02_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.6875,
+				"maxX": 0.375,
+				"maxY": 0.71875
+			}
+		},
+		{
+			"name": "stoney_path_texture_straight_corner_02_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.6875,
+				"maxX": 0.4375,
+				"maxY": 0.71875
+			}
+		},
+		{
+			"name": "stoney_path_texture_straight_oneside",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.6875,
+				"maxX": 0.5,
+				"maxY": 0.71875
+			}
+		},
+		{
+			"name": "stoney_path_texture_straight_oneside_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.6875,
+				"maxX": 0.5625,
+				"maxY": 0.71875
+			}
+		},
+		{
+			"name": "stoney_path_texture_straight_oneside_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.6875,
+				"maxX": 0.625,
+				"maxY": 0.71875
+			}
+		},
+		{
+			"name": "stoney_path_texture_straight_oneside_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.6875,
+				"maxX": 0.6875,
+				"maxY": 0.71875
+			}
+		},
+		{
+			"name": "stoney_path_texture_straight_two_corners",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.6875,
+				"maxX": 0.75,
+				"maxY": 0.71875
+			}
+		},
+		{
+			"name": "stoney_path_texture_straight_two_corners_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.6875,
+				"maxX": 0.8125,
+				"maxY": 0.71875
+			}
+		},
+		{
+			"name": "stoney_path_texture_straight_two_corners_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.6875,
+				"maxX": 0.875,
+				"maxY": 0.71875
+			}
+		},
+		{
+			"name": "stoney_path_texture_straight_two_corners_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.6875,
+				"maxX": 0.9375,
+				"maxY": 0.71875
+			}
+		},
+		{
+			"name": "stone_texture_corners_four",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.6875,
+				"maxX": 1,
+				"maxY": 0.71875
+			}
+		},
+		{
+			"name": "stone_texture_corners_one",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.71875,
+				"maxX": 0.0625,
+				"maxY": 0.75
+			}
+		},
+		{
+			"name": "stone_texture_corners_one_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.71875,
+				"maxX": 0.125,
+				"maxY": 0.75
+			}
+		},
+		{
+			"name": "stone_texture_corners_one_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.71875,
+				"maxX": 0.1875,
+				"maxY": 0.75
+			}
+		},
+		{
+			"name": "stone_texture_corners_one_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.71875,
+				"maxX": 0.25,
+				"maxY": 0.75
+			}
+		},
+		{
+			"name": "stone_texture_corners_three",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.71875,
+				"maxX": 0.3125,
+				"maxY": 0.75
+			}
+		},
+		{
+			"name": "stone_texture_corners_three_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.71875,
+				"maxX": 0.375,
+				"maxY": 0.75
+			}
+		},
+		{
+			"name": "stone_texture_corners_three_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.71875,
+				"maxX": 0.4375,
+				"maxY": 0.75
+			}
+		},
+		{
+			"name": "stone_texture_corners_three_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.71875,
+				"maxX": 0.5,
+				"maxY": 0.75
+			}
+		},
+		{
+			"name": "stone_texture_corners_two",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.71875,
+				"maxX": 0.5625,
+				"maxY": 0.75
+			}
+		},
+		{
+			"name": "stone_texture_corners_two_diag",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.71875,
+				"maxX": 0.625,
+				"maxY": 0.75
+			}
+		},
+		{
+			"name": "stone_texture_corners_two_diag_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.71875,
+				"maxX": 0.6875,
+				"maxY": 0.75
+			}
+		},
+		{
+			"name": "stone_texture_corners_two_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.71875,
+				"maxX": 0.75,
+				"maxY": 0.75
+			}
+		},
+		{
+			"name": "stone_texture_corners_two_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.71875,
+				"maxX": 0.8125,
+				"maxY": 0.75
+			}
+		},
+		{
+			"name": "stone_texture_corners_two_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.71875,
+				"maxX": 0.875,
+				"maxY": 0.75
+			}
+		},
+		{
+			"name": "stone_texture_corner_big",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.71875,
+				"maxX": 0.9375,
+				"maxY": 0.75
+			}
+		},
+		{
+			"name": "stone_texture_corner_big_little",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.71875,
+				"maxX": 1,
+				"maxY": 0.75
+			}
+		},
+		{
+			"name": "stone_texture_corner_big_little_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.75,
+				"maxX": 0.0625,
+				"maxY": 0.78125
+			}
+		},
+		{
+			"name": "stone_texture_corner_big_little_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.75,
+				"maxX": 0.125,
+				"maxY": 0.78125
+			}
+		},
+		{
+			"name": "stone_texture_corner_big_little_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.75,
+				"maxX": 0.1875,
+				"maxY": 0.78125
+			}
+		},
+		{
+			"name": "stone_texture_corner_big_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.75,
+				"maxX": 0.25,
+				"maxY": 0.78125
+			}
+		},
+		{
+			"name": "stone_texture_corner_big_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.75,
+				"maxX": 0.3125,
+				"maxY": 0.78125
+			}
+		},
+		{
+			"name": "stone_texture_corner_big_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.75,
+				"maxX": 0.375,
+				"maxY": 0.78125
+			}
+		},
+		{
+			"name": "stone_texture_dead_end",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.75,
+				"maxX": 0.4375,
+				"maxY": 0.78125
+			}
+		},
+		{
+			"name": "stone_texture_dead_end_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.75,
+				"maxX": 0.5,
+				"maxY": 0.78125
+			}
+		},
+		{
+			"name": "stone_texture_dead_end_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.75,
+				"maxX": 0.5625,
+				"maxY": 0.78125
+			}
+		},
+		{
+			"name": "stone_texture_dead_end_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.75,
+				"maxX": 0.625,
+				"maxY": 0.78125
+			}
+		},
+		{
+			"name": "stone_texture_long_corner_01",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.75,
+				"maxX": 0.6875,
+				"maxY": 0.78125
+			}
+		},
+		{
+			"name": "stone_texture_long_corner_01_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.75,
+				"maxX": 0.75,
+				"maxY": 0.78125
+			}
+		},
+		{
+			"name": "stone_texture_long_corner_01_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.75,
+				"maxX": 0.8125,
+				"maxY": 0.78125
+			}
+		},
+		{
+			"name": "stone_texture_long_corner_01_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.75,
+				"maxX": 0.875,
+				"maxY": 0.78125
+			}
+		},
+		{
+			"name": "stone_texture_long_corner_02",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.75,
+				"maxX": 0.9375,
+				"maxY": 0.78125
+			}
+		},
+		{
+			"name": "stone_texture_long_corner_02_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.75,
+				"maxX": 1,
+				"maxY": 0.78125
+			}
+		},
+		{
+			"name": "stone_texture_long_corner_02_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.78125,
+				"maxX": 0.0625,
+				"maxY": 0.8125
+			}
+		},
+		{
+			"name": "stone_texture_long_corner_02_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.78125,
+				"maxX": 0.125,
+				"maxY": 0.8125
+			}
+		},
+		{
+			"name": "stone_texture_middle",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.78125,
+				"maxX": 0.1875,
+				"maxY": 0.8125
+			}
+		},
+		{
+			"name": "stone_texture_ring",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.78125,
+				"maxX": 0.25,
+				"maxY": 0.8125
+			}
+		},
+		{
+			"name": "stone_texture_ring_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.78125,
+				"maxX": 0.3125,
+				"maxY": 0.8125
+			}
+		},
+		{
+			"name": "stone_texture_ring_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.78125,
+				"maxX": 0.375,
+				"maxY": 0.8125
+			}
+		},
+		{
+			"name": "stone_texture_ring_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.78125,
+				"maxX": 0.4375,
+				"maxY": 0.8125
+			}
+		},
+		{
+			"name": "stone_texture_straight_bothside",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.78125,
+				"maxX": 0.5,
+				"maxY": 0.8125
+			}
+		},
+		{
+			"name": "stone_texture_straight_bothside_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.78125,
+				"maxX": 0.5625,
+				"maxY": 0.8125
+			}
+		},
+		{
+			"name": "stone_texture_straight_bothside_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.78125,
+				"maxX": 0.625,
+				"maxY": 0.8125
+			}
+		},
+		{
+			"name": "stone_texture_straight_bothside_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.78125,
+				"maxX": 0.6875,
+				"maxY": 0.8125
+			}
+		},
+		{
+			"name": "stone_texture_straight_corner_01",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.78125,
+				"maxX": 0.75,
+				"maxY": 0.8125
+			}
+		},
+		{
+			"name": "stone_texture_straight_corner_01_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.78125,
+				"maxX": 0.8125,
+				"maxY": 0.8125
+			}
+		},
+		{
+			"name": "stone_texture_straight_corner_01_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.78125,
+				"maxX": 0.875,
+				"maxY": 0.8125
+			}
+		},
+		{
+			"name": "stone_texture_straight_corner_01_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.78125,
+				"maxX": 0.9375,
+				"maxY": 0.8125
+			}
+		},
+		{
+			"name": "stone_texture_straight_corner_02",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.78125,
+				"maxX": 1,
+				"maxY": 0.8125
+			}
+		},
+		{
+			"name": "stone_texture_straight_corner_02_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.8125,
+				"maxX": 0.0625,
+				"maxY": 0.84375
+			}
+		},
+		{
+			"name": "stone_texture_straight_corner_02_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.8125,
+				"maxX": 0.125,
+				"maxY": 0.84375
+			}
+		},
+		{
+			"name": "stone_texture_straight_corner_02_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.8125,
+				"maxX": 0.1875,
+				"maxY": 0.84375
+			}
+		},
+		{
+			"name": "stone_texture_straight_oneside",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.8125,
+				"maxX": 0.25,
+				"maxY": 0.84375
+			}
+		},
+		{
+			"name": "stone_texture_straight_oneside_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.8125,
+				"maxX": 0.3125,
+				"maxY": 0.84375
+			}
+		},
+		{
+			"name": "stone_texture_straight_oneside_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.8125,
+				"maxX": 0.375,
+				"maxY": 0.84375
+			}
+		},
+		{
+			"name": "stone_texture_straight_oneside_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.8125,
+				"maxX": 0.4375,
+				"maxY": 0.84375
+			}
+		},
+		{
+			"name": "stone_texture_straight_two_corners",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.8125,
+				"maxX": 0.5,
+				"maxY": 0.84375
+			}
+		},
+		{
+			"name": "stone_texture_straight_two_corners_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.8125,
+				"maxX": 0.5625,
+				"maxY": 0.84375
+			}
+		},
+		{
+			"name": "stone_texture_straight_two_corners_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.8125,
+				"maxX": 0.625,
+				"maxY": 0.84375
+			}
+		},
+		{
+			"name": "stone_texture_straight_two_corners_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.8125,
+				"maxX": 0.6875,
+				"maxY": 0.84375
+			}
+		},
+		{
+			"name": "water_texture_corners_four",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.8125,
+				"maxX": 0.75,
+				"maxY": 0.84375
+			}
+		},
+		{
+			"name": "water_texture_corners_one",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.8125,
+				"maxX": 0.8125,
+				"maxY": 0.84375
+			}
+		},
+		{
+			"name": "water_texture_corners_one_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.8125,
+				"maxX": 0.875,
+				"maxY": 0.84375
+			}
+		},
+		{
+			"name": "water_texture_corners_one_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.8125,
+				"maxX": 0.9375,
+				"maxY": 0.84375
+			}
+		},
+		{
+			"name": "water_texture_corners_one_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.8125,
+				"maxX": 1,
+				"maxY": 0.84375
+			}
+		},
+		{
+			"name": "water_texture_corners_three",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.84375,
+				"maxX": 0.0625,
+				"maxY": 0.875
+			}
+		},
+		{
+			"name": "water_texture_corners_three_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.84375,
+				"maxX": 0.125,
+				"maxY": 0.875
+			}
+		},
+		{
+			"name": "water_texture_corners_three_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.84375,
+				"maxX": 0.1875,
+				"maxY": 0.875
+			}
+		},
+		{
+			"name": "water_texture_corners_three_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.84375,
+				"maxX": 0.25,
+				"maxY": 0.875
+			}
+		},
+		{
+			"name": "water_texture_corners_two",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.84375,
+				"maxX": 0.3125,
+				"maxY": 0.875
+			}
+		},
+		{
+			"name": "water_texture_corners_two_diag",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.84375,
+				"maxX": 0.375,
+				"maxY": 0.875
+			}
+		},
+		{
+			"name": "water_texture_corners_two_diag_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.84375,
+				"maxX": 0.4375,
+				"maxY": 0.875
+			}
+		},
+		{
+			"name": "water_texture_corners_two_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.84375,
+				"maxX": 0.5,
+				"maxY": 0.875
+			}
+		},
+		{
+			"name": "water_texture_corners_two_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.84375,
+				"maxX": 0.5625,
+				"maxY": 0.875
+			}
+		},
+		{
+			"name": "water_texture_corners_two_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.84375,
+				"maxX": 0.625,
+				"maxY": 0.875
+			}
+		},
+		{
+			"name": "water_texture_corner_big",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.84375,
+				"maxX": 0.6875,
+				"maxY": 0.875
+			}
+		},
+		{
+			"name": "water_texture_corner_big_little",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.84375,
+				"maxX": 0.75,
+				"maxY": 0.875
+			}
+		},
+		{
+			"name": "water_texture_corner_big_little_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.84375,
+				"maxX": 0.8125,
+				"maxY": 0.875
+			}
+		},
+		{
+			"name": "water_texture_corner_big_little_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.84375,
+				"maxX": 0.875,
+				"maxY": 0.875
+			}
+		},
+		{
+			"name": "water_texture_corner_big_little_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.84375,
+				"maxX": 0.9375,
+				"maxY": 0.875
+			}
+		},
+		{
+			"name": "water_texture_corner_big_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.84375,
+				"maxX": 1,
+				"maxY": 0.875
+			}
+		},
+		{
+			"name": "water_texture_corner_big_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.875,
+				"maxX": 0.0625,
+				"maxY": 0.90625
+			}
+		},
+		{
+			"name": "water_texture_corner_big_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.875,
+				"maxX": 0.125,
+				"maxY": 0.90625
+			}
+		},
+		{
+			"name": "water_texture_dead_end",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.875,
+				"maxX": 0.1875,
+				"maxY": 0.90625
+			}
+		},
+		{
+			"name": "water_texture_dead_end_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.875,
+				"maxX": 0.25,
+				"maxY": 0.90625
+			}
+		},
+		{
+			"name": "water_texture_dead_end_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.875,
+				"maxX": 0.3125,
+				"maxY": 0.90625
+			}
+		},
+		{
+			"name": "water_texture_dead_end_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.875,
+				"maxX": 0.375,
+				"maxY": 0.90625
+			}
+		},
+		{
+			"name": "water_texture_long_corner_01",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.875,
+				"maxX": 0.4375,
+				"maxY": 0.90625
+			}
+		},
+		{
+			"name": "water_texture_long_corner_01_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.875,
+				"maxX": 0.5,
+				"maxY": 0.90625
+			}
+		},
+		{
+			"name": "water_texture_long_corner_01_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.875,
+				"maxX": 0.5625,
+				"maxY": 0.90625
+			}
+		},
+		{
+			"name": "water_texture_long_corner_01_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.875,
+				"maxX": 0.625,
+				"maxY": 0.90625
+			}
+		},
+		{
+			"name": "water_texture_long_corner_02",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.875,
+				"maxX": 0.6875,
+				"maxY": 0.90625
+			}
+		},
+		{
+			"name": "water_texture_long_corner_02_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.875,
+				"maxX": 0.75,
+				"maxY": 0.90625
+			}
+		},
+		{
+			"name": "water_texture_long_corner_02_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.875,
+				"maxX": 0.8125,
+				"maxY": 0.90625
+			}
+		},
+		{
+			"name": "water_texture_long_corner_02_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.875,
+				"maxX": 0.875,
+				"maxY": 0.90625
+			}
+		},
+		{
+			"name": "water_texture_middle",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.875,
+				"maxX": 0.9375,
+				"maxY": 0.90625
+			}
+		},
+		{
+			"name": "water_texture_ring",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.875,
+				"maxX": 1,
+				"maxY": 0.90625
+			}
+		},
+		{
+			"name": "water_texture_ring_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.90625,
+				"maxX": 0.0625,
+				"maxY": 0.9375
+			}
+		},
+		{
+			"name": "water_texture_ring_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.90625,
+				"maxX": 0.125,
+				"maxY": 0.9375
+			}
+		},
+		{
+			"name": "water_texture_ring_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.90625,
+				"maxX": 0.1875,
+				"maxY": 0.9375
+			}
+		},
+		{
+			"name": "water_texture_straight_bothside",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.90625,
+				"maxX": 0.25,
+				"maxY": 0.9375
+			}
+		},
+		{
+			"name": "water_texture_straight_bothside_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.90625,
+				"maxX": 0.3125,
+				"maxY": 0.9375
+			}
+		},
+		{
+			"name": "water_texture_straight_bothside_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.90625,
+				"maxX": 0.375,
+				"maxY": 0.9375
+			}
+		},
+		{
+			"name": "water_texture_straight_bothside_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.90625,
+				"maxX": 0.4375,
+				"maxY": 0.9375
+			}
+		},
+		{
+			"name": "water_texture_straight_corner_01",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.90625,
+				"maxX": 0.5,
+				"maxY": 0.9375
+			}
+		},
+		{
+			"name": "water_texture_straight_corner_01_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.90625,
+				"maxX": 0.5625,
+				"maxY": 0.9375
+			}
+		},
+		{
+			"name": "water_texture_straight_corner_01_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.90625,
+				"maxX": 0.625,
+				"maxY": 0.9375
+			}
+		},
+		{
+			"name": "water_texture_straight_corner_01_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.90625,
+				"maxX": 0.6875,
+				"maxY": 0.9375
+			}
+		},
+		{
+			"name": "water_texture_straight_corner_02",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.90625,
+				"maxX": 0.75,
+				"maxY": 0.9375
+			}
+		},
+		{
+			"name": "water_texture_straight_corner_02_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.90625,
+				"maxX": 0.8125,
+				"maxY": 0.9375
+			}
+		},
+		{
+			"name": "water_texture_straight_corner_02_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.90625,
+				"maxX": 0.875,
+				"maxY": 0.9375
+			}
+		},
+		{
+			"name": "water_texture_straight_corner_02_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.90625,
+				"maxX": 0.9375,
+				"maxY": 0.9375
+			}
+		},
+		{
+			"name": "water_texture_straight_oneside",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.90625,
+				"maxX": 1,
+				"maxY": 0.9375
+			}
+		},
+		{
+			"name": "water_texture_straight_oneside_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.9375,
+				"maxX": 0.0625,
+				"maxY": 0.96875
+			}
+		},
+		{
+			"name": "water_texture_straight_oneside_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.9375,
+				"maxX": 0.125,
+				"maxY": 0.96875
+			}
+		},
+		{
+			"name": "water_texture_straight_oneside_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.125,
+				"minY": 0.9375,
+				"maxX": 0.1875,
+				"maxY": 0.96875
+			}
+		},
+		{
+			"name": "water_texture_straight_two_corners",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.1875,
+				"minY": 0.9375,
+				"maxX": 0.25,
+				"maxY": 0.96875
+			}
+		},
+		{
+			"name": "water_texture_straight_two_corners_rotate1",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.25,
+				"minY": 0.9375,
+				"maxX": 0.3125,
+				"maxY": 0.96875
+			}
+		},
+		{
+			"name": "water_texture_straight_two_corners_rotate2",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.3125,
+				"minY": 0.9375,
+				"maxX": 0.375,
+				"maxY": 0.96875
+			}
+		},
+		{
+			"name": "water_texture_straight_two_corners_rotate3",
+			"type": "terrain transition",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.375,
+				"minY": 0.9375,
+				"maxX": 0.4375,
+				"maxY": 0.96875
+			}
+		},
+		{
+			"name": "detail_cracktile_detail",
+			"type": "terrain detail",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.4375,
+				"minY": 0.9375,
+				"maxX": 0.5,
+				"maxY": 0.96875
+			},
+			"collision": false
+		},
+		{
+			"name": "detail_cracktile_detail_02",
+			"type": "terrain detail",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5,
+				"minY": 0.9375,
+				"maxX": 0.5625,
+				"maxY": 0.96875
+			}
+		},
+		{
+			"name": "detail_crack_texture",
+			"type": "terrain detail",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.5625,
+				"minY": 0.9375,
+				"maxX": 0.625,
+				"maxY": 0.96875
+			}
+		},
+		{
+			"name": "detail_dotsyellow_detail",
+			"type": "terrain detail",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.625,
+				"minY": 0.9375,
+				"maxX": 0.6875,
+				"maxY": 0.96875
+			}
+		},
+		{
+			"name": "detail_moss_texture",
+			"type": "terrain detail",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.6875,
+				"minY": 0.9375,
+				"maxX": 0.75,
+				"maxY": 0.96875
+			}
+		},
+		{
+			"name": "detail_pebblesbrown_01",
+			"type": "terrain detail",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.75,
+				"minY": 0.9375,
+				"maxX": 0.8125,
+				"maxY": 0.96875
+			}
+		},
+		{
+			"name": "detail_pebblesbrown_02",
+			"type": "terrain detail",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.8125,
+				"minY": 0.9375,
+				"maxX": 0.875,
+				"maxY": 0.96875
+			}
+		},
+		{
+			"name": "detail_pebblesbrown_03",
+			"type": "terrain detail",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.875,
+				"minY": 0.9375,
+				"maxX": 0.9375,
+				"maxY": 0.96875
+			}
+		},
+		{
+			"name": "detail_pebbleswhite_01",
+			"type": "terrain detail",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.9375,
+				"minY": 0.9375,
+				"maxX": 1,
+				"maxY": 0.96875
+			}
+		},
+		{
+			"name": "detail_pebbleswhite_02",
+			"type": "terrain detail",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0.96875,
+				"maxX": 0.0625,
+				"maxY": 1
+			}
+		},
+		{
+			"name": "detail_pebbleswhite_03",
+			"type": "terrain detail",
+			"texture": "tilesets/basic_flat_terrain.png",
+			"scale": 1,
+			"rotation": 0,
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0.0625,
+				"minY": 0.96875,
+				"maxX": 0.125,
+				"maxY": 1
+			}
+		}
+	]
+}

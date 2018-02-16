@@ -1,5 +1,5 @@
 {
-	"name":"barracks",
 	"create":["swordsman","archer"],
-	"level":"3"
+    "hp": 300,
+    "vision": 30
 }

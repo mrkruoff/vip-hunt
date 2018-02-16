@@ -1,3 +1,10 @@
+import * as _ from 'lodash';
+
+import AudioMap from './audio-map';
+import Events from './events';
+import Hud from './hud';
+import NewGame from './newgame';
+
 declare var wade: any;
 declare var TextSprite: any;
 declare var SceneObject: any;
@@ -9,6 +16,7 @@ declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
 const displayWelcome = function() {
+    // wade.playAudio(AudioMap.menu_music, true);
     const color = 'white';
     const alignment = 'center';
 
@@ -57,14 +65,20 @@ function setupSaveGame() {
 
 }
 
-function setupNewGame() {
+const setupNewGame = function() {
     this.newGameObject.setPosition(0, 0);
 
     setMouseInOut(this.newGameObject);
 
-    // this.newGameObject.onClick = startGame.call(this);
-    // wade.addEventListener(this.newGameObject, 'onClick');
-}
+    this.newGameObject.onClick = function() {
+        const clearscene = true;
+        // load the map
+        wade.loadScene('../public/grass_map.wsc', null, function() {
+            NewGame.initialize();
+        }, clearscene);
+    };
+    wade.addEventListener(this.newGameObject, 'onClick');
+};
 
 // Helper function that returns a function that will change a textObject's
 // color
