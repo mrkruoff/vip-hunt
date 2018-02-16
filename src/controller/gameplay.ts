@@ -148,12 +148,12 @@ var GamePlay = {
         //Once the move is complete, there is no more reason to 
         // keep tracking the location.
         unit.onMoveComplete = function stopMoving(event) {
-            unit.isMoving = false;
+            unit.data.isMoving = false;
         }
-        unit.isMoving = true;
+        unit.data.isMoving = true;
     
         let time = 250;
-        while(unit.isMoving) {
+        while(unit.data.isMoving) {
             await delay(time);
             GamePlay.updateUnitMapLocation(unit);
         }
@@ -245,10 +245,10 @@ var GamePlay = {
 
         // Set the callback: when the attacker reaches the target, do damage.
         attacker.onObjectReached = function doDamage(event) {
-            console.log(target.data.hp);
             // Deal damage only in intervals.
             // shouldAttack's value will switch based on the loop below
-            if(attacker.shouldAttack) {
+            if(attacker.shouldAttack && target && target.data) {
+                console.log(target.data.hp);
                 target.data.takeDamage(attacker.data.getAttack());
             }
         };
@@ -267,6 +267,8 @@ var GamePlay = {
 
             //Stop pursuing and remove target once it is dead.
             if(target.data.hp <= 0) {
+                attacker.shouldAttack = false;
+                attacker.onObjectReached = null;
                 GamePlay.clearPursue(attacker);
                 GamePlay.deleteGameObject(target);
             }
@@ -334,7 +336,7 @@ var GamePlay = {
         });
 
         //Eleminate the 'data' property, and then delete the SceneObject itself.
-        sceneObject.isMoving = false; // end the moving cycle
+        sceneObject.data.isMoving = false; // end the moving cycle
         delete sceneObject['data'];
         wade.iso.deleteObject(sceneObject);
         console.log(global.state);
