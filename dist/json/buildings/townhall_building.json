@@ -1,5 +1,5 @@
 {
-	"name":"townhall",
-	"create":["gatherer","drummerBoy"],
-	"level":"3"
+	"create": ["gatherer","drummerBoy"],
+    "hp": 1000,
+    "vision": 40
 }

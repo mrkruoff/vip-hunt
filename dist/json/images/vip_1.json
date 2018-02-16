@@ -1,0 +1,7 @@
+{
+    "type": "sprite",
+    "name": "vip_1",
+    "visible": "true",
+    "image": "../js/../public/sprites/units/vip_1.png",
+    "size": {"x": 70, "y": 130}
+}

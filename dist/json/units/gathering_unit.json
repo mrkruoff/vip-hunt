@@ -1,11 +1,11 @@
 {
 	"name":"gatherer",
-	"health":"25",
-	"defense":"25",
-	"attack":"25",
-	"gathering": "75",
-	"speed":"25",
-	"vision":"25",
-	"cost":"25",
-	"range":"0"
+	"hp":25,
+	"defense":25,
+	"attack":25,
+	"gathering": 75,
+	"speed":25,
+	"vision":25,
+	"cost":25,
+	"range":0
 }
