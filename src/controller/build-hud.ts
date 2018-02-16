@@ -29,6 +29,7 @@ const BuildHud = {
         let x2 = x + 15;
         const stoneCount = BuildHud.buildText(global.state.getPlayer().stone.toString(),
                                 font, color, alignment, x2, y2, layerId);
+        stoneCount.setName(Names.stoneCount);
 
         y = y;
         x = x - 100;
@@ -38,6 +39,7 @@ const BuildHud = {
         x2 = x + 20;
         const woodCount = BuildHud.buildText(global.state.getPlayer().wood.toString(),
                                 font, color, alignment, x2, y2, layerId);
+        woodCount.setName(Names.woodCount);
 
         y = y;
         x = x - 100;
@@ -47,6 +49,7 @@ const BuildHud = {
         x2 = x + 15;
         const foodCount = BuildHud.buildText(global.state.getPlayer().food.toString(),
                                 font, color, alignment, x2, y2, layerId);
+        foodCount.setName(Names.foodCount);
 
         return [stone, wood, food, stoneCount, woodCount, foodCount];
 

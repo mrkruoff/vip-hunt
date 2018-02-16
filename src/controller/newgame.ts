@@ -11,6 +11,7 @@ import ImageMap from './image-map';
 import JsonMap from './json-map';
 import Mouse from './mouse';
 import SceneObjectConstruction from './scene-object-construction';
+import { BuildingBuilding, GamePlay } from './gameplay';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -56,7 +57,7 @@ const NewGame = {
             // to build a matching building in the game world.
             const setOnClickToBuild = (b) => {
                 const imageName = b.getSprite(0).getImageName();
-                b.onClick = Events.selectABuildingCallback(imageName, options);
+                b.onClick = BuildingBuilding.selectABuildingCallback(imageName, options);
                 wade.addEventListener(b, 'onClick');
             };
 
@@ -88,6 +89,7 @@ function addToScene(state: GlobalGameState) {
                 console.log(b);
                 b.data = building;
                 wade.iso.moveObjectToTile(b, tile.x, tile.y);
+                GamePlay.updateBuildingMapLocation(b);
 
                 //Then we attach the appropriate callbacks for a constructed building
                 let displayFn;
@@ -101,7 +103,7 @@ function addToScene(state: GlobalGameState) {
                 } else if (c === 'Tower') {
                     displayFn = Hud.showBarracksPanel;
                 }
-                b.onMouseDown = Events.onSelectBuilding(b, displayFn);
+                b.onMouseDown = GamePlay.onSelectBuilding(b, displayFn);
                 wade.addEventListener(b, 'onMouseDown');
 
             }
@@ -123,10 +125,12 @@ function addToScene(state: GlobalGameState) {
                 const u = constructUnitFromModel(unit);
                 u.data = unit;
                 wade.iso.moveObjectToTile(u, tile.x, tile.y);
+                GamePlay.updateUnitMapLocation(u);
 
                 //Then we attach the appropriate callbacks for a constructed unit.
-                u.onMouseDown = Events.onSelectUnit(u);
+                u.onMouseDown = GamePlay.onSelectUnit(u);
                 wade.addEventListener(u, 'onMouseDown');
+            
             }
         });
     });

@@ -15,23 +15,23 @@ declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
 App = function() {
-    // Sets up initial variables for the game
+    // START HERE. This function is called to start the game!
     this.init = function() {
-        //Allow diagonal and straight movement
+        //Allow diagonal and straight movement in the game
         wade.iso.init({movementDirection: 'both'});
 
-        //display a welcome screen with menu choices.
+        // Star the menu.
         Menu.displayWelcome.call(this);
-
     };
 
-    // Initial loading of assets from server to client
+    // This function is called for asynchronous loading of assets. However,
+    // the game will not start until all assets are loaded.
     this.load = function() {
         loadImages();
         loadSpriteJson();
         loadDataJson();
         loadCostJson();
-        loadAudio();
+//        loadAudio();
 
     };
 

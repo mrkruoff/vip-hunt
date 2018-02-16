@@ -106,6 +106,16 @@ const Hud = {
 
         return global.hud.resources;
     },
+    updateResourcePanel: () => {
+        const player = wade.getSceneObject('global').state.getPlayer();
+        console.log(wade.getSceneObject(Names.stoneCount));
+        let stoneCount = wade.getSceneObject(Names.stoneCount).getSprite(0);  
+        stoneCount.setText(player.stone.toString());
+        let woodCount = wade.getSceneObject(Names.woodCount).getSprite(0);  
+        woodCount.setText(player.wood.toString());
+        let foodCount = wade.getSceneObject(Names.foodCount).getSprite(0);  
+        foodCount.setText(player.food.toString());
+    }
 
 };
 
