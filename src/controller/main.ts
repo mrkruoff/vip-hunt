@@ -76,6 +76,9 @@ function loadDataJson() {
     wade.loadJson(JsonMap.swordsman_data);
     wade.loadJson(JsonMap.vip_data);
 
+    wade.loadJson(JsonMap.stone_data);
+    wade.loadJson(JsonMap.wood_data);
+    wade.loadJson(JsonMap.food_data);
 }
 
 function loadImages() {
@@ -106,7 +109,4 @@ function loadSpriteJson() {
     wade.loadJson(JsonMap.swordsman_1);
     wade.loadJson(JsonMap.vip_1);
 
-    wade.loadJson(JsonMap.stone);
-    wade.loadJson(JsonMap.wood);
-    wade.loadJson(JsonMap.food);
 }

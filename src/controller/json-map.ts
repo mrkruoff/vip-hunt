@@ -41,9 +41,9 @@ const JsonMap = {
     townhall_cost: '../js/../json/costs/townhall_cost.json',
     tower_cost: '../js/../json/costs/tower_cost.json',
 
-    stone: '../js/../json/resources/stone.json',
-    wood: '../js/../json/resources/wood.json',
-    food: '../js/../json/resources/food.json',
+    stone_data: '../js/../json/resources/stone.json',
+    wood_data: '../js/../json/resources/wood.json',
+    food_data: '../js/../json/resources/food.json',
 
 
 };

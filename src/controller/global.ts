@@ -14,6 +14,10 @@ import VIP from '../model/units/VIP_unit';
 import Id from './id';
 import JsonMap from './json-map';
 
+import Stone from '../model/resources/stone';
+import Wood from '../model/resources/wood';
+import Food from '../model/resources/food';
+
 declare var wade: any;
 declare var TextSprite: any;
 declare var SceneObject: any;
@@ -68,6 +72,14 @@ function defaultGlobalState() {
     const aiState = new AiGameState([aiVIP], [aiTownHall],
                         startingStone, startingWood, startingFood);
 
+    const wood = Wood.fromObject(wade.getJson(JsonMap.wood_data));
+    wood.id = Id.getId();
+    const stone = Stone.fromObject(wade.getJson(JsonMap.stone_data));
+    stone.id = Id.getId();
+    const food = Food.fromObject(wade.getJson(JsonMap.food_data));
+    food.id = Id.getId();
+    const resources = [wood, stone, food];
+
     const map = [];
     for (let i = 0; i < 20; i++) {
         map[i] = [];
@@ -84,8 +96,11 @@ function defaultGlobalState() {
     map[1][5].buildingId = playerTownHall.id;
     map[5][15].unitId = aiVIP.id;
     map[1][10].buildingId = aiTownHall.id;
+    map[7][16].resourceId = wood.id;
+    map[9][9].resourceId = stone.id;
+    map[3][4].resourceId = food.id;
 
-    const state = new GlobalGameState(map, playerState, aiState);
+    const state = new GlobalGameState(map, resources, playerState, aiState);
 
     return state;
 }

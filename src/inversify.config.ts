@@ -1,4 +1,6 @@
-import "reflect-metadata";
+/*
+ *
+ * import "reflect-metadata";
 import { Container, interfaces } from "inversify";
 import TYPES from "./types";
 
@@ -145,3 +147,5 @@ function bindDependencies (func, dependencies) {
 
 export default container; // Make all these dependencies available everywhere else
 export { container, bindDependencies };
+
+*/

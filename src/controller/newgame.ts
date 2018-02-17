@@ -82,8 +82,8 @@ const NewGame = {
 // parameters:
 //  @ state: The Global Game State that needs to be added to the WADE map.
 function addToScene(state: GlobalGameState) {
-    _.forEach(state.map, (innerArray) => {
-        _.forEach(innerArray, (tile) => {
+    _.forEach(state.map, (row) => {
+        _.forEach(row, (tile) => {
             if (tile.buildingId >= 0) {
                 let building = _.find(state.getPlayer().getBuildings(), (b) => {
                     return b.id === tile.buildingId;
@@ -143,6 +143,10 @@ function addToScene(state: GlobalGameState) {
                 //Then we attach the appropriate callbacks for a constructed unit.
                 u.onMouseDown = GamePlay.onSelectUnit(u);
                 wade.addEventListener(u, 'onMouseDown');
+            
+            }
+
+            if (tile.resourceId >= 0) {
             
             }
         });
