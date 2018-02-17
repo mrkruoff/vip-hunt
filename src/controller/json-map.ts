@@ -1,3 +1,9 @@
+/* json-map.ts
+ *
+ *
+ * The JsonMap enum contains references to the filepaths of the various
+ * JSON files that will be used in the game.
+ */
 
 const JsonMap = {
     barracks_1: '../js/../json/images/barracks_1.json',

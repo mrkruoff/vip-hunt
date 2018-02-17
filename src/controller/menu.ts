@@ -1,3 +1,10 @@
+/* menu.ts
+ *
+ * This function contains the various functions needed to display the 
+ * game's starting menu.
+ *
+ */
+
 import * as _ from 'lodash';
 
 import AudioMap from './audio-map';

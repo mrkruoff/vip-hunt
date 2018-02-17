@@ -1,4 +1,11 @@
 
+/* keys.ts
+ *
+ * The Keys module makes it easier to work with key pressing by providing functions that 
+ * indicate whether a key press is up, down, left, and right, according to the game
+ * settings.
+ */
+
 const Keys = {
     up() {
         return this.w;

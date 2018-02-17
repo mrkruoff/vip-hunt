@@ -1,3 +1,11 @@
+/* id.ts
+ *
+ * The Id module contains functions for getting a new Game Object Id
+ * for a newly created Game Object (Unit, Building, or Resource).
+ *
+ */
+
+
 import IIdentifiable from '../interfaces/identifiable';
 import * as _ from 'lodash';
 
@@ -12,6 +20,9 @@ declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
 const Id = {
+    // This function gets a new, unique Id for a newly created 
+    // Unit, Building, or Resource. It relies on the 'global'
+    // SceneObject's id property.
     getId: () => {
         let id;
         const global = wade.getSceneObject('global');
@@ -23,6 +34,12 @@ const Id = {
 
         return id;
     },
+    // This function determines whether an IIdentifiable object 
+    // has a certain id.
+    //
+    // parameters:
+    //  @ obj: A IIdentifiable object (Unit, Resource, Building)
+    //  @ id: the id in question.
     hasId: (obj: IIdentifiable, id: number) => {
         return _.isEqual(obj.getId(), id); 
     },

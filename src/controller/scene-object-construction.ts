@@ -1,3 +1,9 @@
+/* scene-object-construction.ts
+ *
+ * The SceneObjectConstruction module contains functions for building various 
+ * SceneObjects for the game.
+ *
+ */
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -10,6 +16,11 @@ declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
 const SceneObjectConstruction = {
+    // This function returns a SceneObject for the Barracks.
+    // 
+    // parameters
+    //  @ imageJsonFile: filepath to the JSON file that will be used
+    //      to construct the Barracks SceneObject
     barracks: (imageJsonFile: string) => {
         const objectData = {
             sprites: wade.getJson(imageJsonFile),
@@ -22,6 +33,11 @@ const SceneObjectConstruction = {
         return barracks;
 
     },
+    // This function returns a SceneObject for the Stables.
+    // 
+    // parameters
+    //  @ imageJsonFile: filepath to the JSON file that will be used
+    //      to construct the Stables SceneObject
     stables: (imageJsonFile: string) => {
         const objectData = {
             sprites: wade.getJson(imageJsonFile),
@@ -34,6 +50,11 @@ const SceneObjectConstruction = {
         return stables;
 
     },
+    // This function returns a SceneObject for the Tower.
+    // 
+    // parameters
+    //  @ imageJsonFile: filepath to the JSON file that will be used
+    //      to construct the Tower SceneObject
     towers: (imageJsonFile: string) => {
         const objectData = {
             sprites: wade.getJson(imageJsonFile),
@@ -46,6 +67,11 @@ const SceneObjectConstruction = {
         return tower;
 
     },
+    // This function returns a SceneObject for the VIP.
+    // 
+    // parameters
+    //  @ imageJsonFile: filepath to the JSON file that will be used
+    //      to construct the VIP SceneObject
     vip: (imageJsonFile: string) => {
         const objectData = {
             sprites: wade.getJson(imageJsonFile),
@@ -58,6 +84,11 @@ const SceneObjectConstruction = {
         return VIP;
 
     },
+    // This function returns a SceneObject for the TownHall.
+    // 
+    // parameters
+    //  @ imageJsonFile: filepath to the JSON file that will be used
+    //      to construct the TownHall SceneObject
     townHalls: (imageJsonFile: string) => {
         const objectData = {
             sprites: wade.getJson(imageJsonFile),
@@ -70,6 +101,11 @@ const SceneObjectConstruction = {
         return townHall;
 
     },
+    // This function returns a SceneObject for the Swordsman.
+    // 
+    // parameters
+    //  @ imageJsonFile: filepath to the JSON file that will be used
+    //      to construct the Swordsman SceneObject
     swordsman: (imageJsonFile: string) => {
         const objectData = {
             sprites: wade.getJson(imageJsonFile),
@@ -81,6 +117,11 @@ const SceneObjectConstruction = {
 
         return swordsman;
     },
+    // This function returns a SceneObject for the Archer.
+    // 
+    // parameters
+    //  @ imageJsonFile: filepath to the JSON file that will be used
+    //      to construct the Archer SceneObject
     archer: (imageJsonFile: string) => {
         const objectData = {
             sprites: wade.getJson(imageJsonFile),
@@ -92,6 +133,11 @@ const SceneObjectConstruction = {
 
         return archer;
     },
+    // This function returns a SceneObject for the ArcherCalvary.
+    // 
+    // parameters
+    //  @ imageJsonFile: filepath to the JSON file that will be used
+    //      to construct the ArcherCalvary SceneObject
     archerCalvary: (imageJsonFile: string) => {
         const objectData = {
             sprites: wade.getJson(imageJsonFile),
@@ -103,6 +149,11 @@ const SceneObjectConstruction = {
 
         return archerCalvary;
     },
+    // This function returns a SceneObject for the SpearCalvary.
+    // 
+    // parameters
+    //  @ imageJsonFile: filepath to the JSON file that will be used
+    //      to construct the SpearCalvary SceneObject
     spearCalvary: (imageJsonFile: string) => {
         const objectData = {
             sprites: wade.getJson(imageJsonFile),
@@ -114,6 +165,11 @@ const SceneObjectConstruction = {
 
         return spearCalvary;
     },
+    // This function returns a SceneObject for the Gatherer.
+    // 
+    // parameters
+    //  @ imageJsonFile: filepath to the JSON file that will be used
+    //      to construct the Gatherer SceneObject
     gatherer: (imageJsonFile: string) => {
         const objectData = {
             sprites: wade.getJson(imageJsonFile),
@@ -125,6 +181,11 @@ const SceneObjectConstruction = {
 
         return gatherer;
     },
+    // This function returns a SceneObject for the DrummerBoy.
+    // 
+    // parameters
+    //  @ imageJsonFile: filepath to the JSON file that will be used
+    //      to construct the DrummerBoy SceneObject
     drummerBoy: (imageJsonFile: string) => {
         const objectData = {
             sprites: wade.getJson(imageJsonFile),
