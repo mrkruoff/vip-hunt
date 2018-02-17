@@ -91,6 +91,10 @@ function loadImages() {
     wade.loadImage(ImageMap.woodIcon);
     wade.loadImage(ImageMap.foodIcon);
     wade.loadImage(ImageMap.vip_1);
+
+    wade.loadImage(ImageMap.food);
+    wade.loadImage(ImageMap.wood);
+    wade.loadImage(ImageMap.stone);
 }
 
 function loadSpriteJson() {
@@ -101,4 +105,8 @@ function loadSpriteJson() {
     wade.loadJson(JsonMap.town_halls_1);
     wade.loadJson(JsonMap.swordsman_1);
     wade.loadJson(JsonMap.vip_1);
+
+    wade.loadJson(JsonMap.stone);
+    wade.loadJson(JsonMap.wood);
+    wade.loadJson(JsonMap.food);
 }

@@ -10,6 +10,7 @@
 const ImageMap = {
     scroll: '../js/../public/sprites/hud/scroll.png',
     buildingIcon: '../js/../public/sprites/hud/building.png',
+
     barracks_1: '../js/../public/sprites/buildings/barracks_1.png',
     stables_1: '../js/../public/sprites/buildings/stables_1.png',
     towers_1: '../js/../public/sprites/buildings/towers_1.png',
@@ -21,10 +22,15 @@ const ImageMap = {
     archer_calvary_1: 'default',
     drummer_boy_1: ' ',
     vip_1: '../js/../public/sprites/units/vip_1.png',
+    stone: '../js/../public/sprites/resources/stone.png',
+    food: '../js/../public/sprites/resources/food.png',
+    wood: '../js/../public/sprites/resources/wood.png',
 
     stoneIcon: '../js/../public/sprites/resources/stone.png',
     woodIcon: '../js/../public/sprites/resources/wood.png',
     foodIcon: '../js/../public/sprites/resources/food.png',
+
+
 
 };
 
