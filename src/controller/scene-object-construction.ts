@@ -33,8 +33,7 @@ const SceneObjectConstruction = {
         return barracks;
 
     },
-    // This function returns a SceneObject for the Stables.
-    // 
+    // This function returns a SceneObject for the Stables.  
     // parameters
     //  @ imageJsonFile: filepath to the JSON file that will be used
     //      to construct the Stables SceneObject
@@ -196,6 +195,36 @@ const SceneObjectConstruction = {
         const drummerBoy = wade.iso.createObject(objectData);
 
         return drummerBoy;
+    },
+    stone: (imageJsonFile: string) => {
+        const objectData = {
+            sprites: wade.getJson(imageJsonFile),
+            gridSize: {x: 1, z: 1},
+            collisionSize: {x: 1, z: 1},
+        };
+        const stone = wade.iso.createObject(objectData);
+
+        return stone;
+    },
+    wood: (imageJsonFile: string) => {
+        const objectData = {
+            sprites: wade.getJson(imageJsonFile),
+            gridSize: {x: 1, z: 1},
+            collisionSize: {x: 1, z: 1},
+        };
+        const wood = wade.iso.createObject(objectData);
+
+        return wood;
+    },
+    food: (imageJsonFile: string) => {
+        const objectData = {
+            sprites: wade.getJson(imageJsonFile),
+            gridSize: {x: 1, z: 1},
+            collisionSize: {x: 1, z: 1},
+        };
+        const food = wade.iso.createObject(objectData);
+
+        return food;
     },
 
 };

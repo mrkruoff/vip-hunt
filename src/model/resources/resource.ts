@@ -10,6 +10,7 @@ class Resource implements IIdentifiable {
     amount: number;
     id: number;
     name: string;
+    rep: any;
 
     constructor( id: number, amount: number) {
         this.amount = amount;
@@ -27,6 +28,18 @@ class Resource implements IIdentifiable {
 
     getAmount() {
         return this.amount;
+    }
+
+    takeGather(gather: number) {
+        this.amount -= gather; 
+
+        if(this.amount <= 0) {
+            this.amount = 0;
+            return -1; //let caller know resource is empty 
+        }
+
+        return 0; //Let caller know resource still has more
+    
     }
 
 }

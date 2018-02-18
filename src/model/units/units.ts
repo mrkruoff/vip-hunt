@@ -14,6 +14,7 @@ class Unit implements IIdentifiable {
     gathering: number;
     id: number;
     name: string;
+    rep: any;
 
     constructor(
             id: number, hp: number, attack: number, defense: number,
@@ -30,6 +31,10 @@ class Unit implements IIdentifiable {
 
     getClassName(): string {
         return this.name; 
+    }
+
+    getGather(): number {
+        return this.gathering; 
     }
 
     // Applies damage to the unit instance

@@ -96,8 +96,8 @@ function defaultGlobalState() {
     map[1][5].buildingId = playerTownHall.id;
     map[5][15].unitId = aiVIP.id;
     map[1][10].buildingId = aiTownHall.id;
-    map[7][16].resourceId = wood.id;
-    map[9][9].resourceId = stone.id;
+    map[19][16].resourceId = wood.id;
+    map[19][8].resourceId = stone.id;
     map[3][4].resourceId = food.id;
 
     const state = new GlobalGameState(map, resources, playerState, aiState);

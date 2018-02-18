@@ -9,6 +9,7 @@ class Building implements IIdentifiable {
     id: number;
     vision: number;
     name: string;
+    rep: any;
 
     constructor(id: number, hp: number, vision: number) {
         this.hp = hp;

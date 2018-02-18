@@ -108,5 +108,7 @@ function loadSpriteJson() {
     wade.loadJson(JsonMap.town_halls_1);
     wade.loadJson(JsonMap.swordsman_1);
     wade.loadJson(JsonMap.vip_1);
-
+    wade.loadJson(JsonMap.wood);
+    wade.loadJson(JsonMap.food);
+    wade.loadJson(JsonMap.stone);
 }

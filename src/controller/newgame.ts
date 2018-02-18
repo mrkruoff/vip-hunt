@@ -5,6 +5,7 @@
  */
 
 import * as _ from 'lodash';
+import Resource from '../model/resources/resource';
 import Building from '../model/buildings/buildings';
 import GlobalGameState from '../model/state/global-game-state';
 import Unit from '../model/units/units';
@@ -101,6 +102,7 @@ function addToScene(state: GlobalGameState) {
                 const b = constructBuildingFromModel(building);
                 console.log(b);
                 b.data = building;
+                building.rep = b; // circular reference
                 wade.iso.moveObjectToTile(b, tile.x, tile.y);
                 GamePlay.updateBuildingMapLocation(b);
 
@@ -137,6 +139,7 @@ function addToScene(state: GlobalGameState) {
                 // grid position with the appropriate image
                 const u = constructUnitFromModel(unit);
                 u.data = unit;
+                unit.rep = u; //circular reference
                 wade.iso.moveObjectToTile(u, tile.x, tile.y);
                 GamePlay.updateUnitMapLocation(u);
 
@@ -147,11 +150,48 @@ function addToScene(state: GlobalGameState) {
             }
 
             if (tile.resourceId >= 0) {
-            
+                let resource = _.find(state.getResources(), (r) => {
+                    return r.getId() === tile.resourceId; 
+                });
+
+                console.log(resource);
+
+                // Once we have the resource, we can paint it on the appropriate
+                // grid position with the correct image
+
+                const r = constructResourceFromModel(resource);
+                r.data = resource;
+                resource.rep = r; //circular reference
+                wade.iso.moveObjectToTile(r, tile.x, tile.y);
+                GamePlay.updateResourceMapLocation(r);
+
+                //Then we attach the appropriate callbacks for a constructed resource
+                r.onMouseDown = GamePlay.onSelectResource(r);
+                wade.addEventListener(r, 'onMouseDown');
+
             }
+    
         });
     });
 
+}
+
+function constructResourceFromModel(resource: Resource) {
+    let r;
+    console.log("Constructing resource");
+
+    if(resource.getClassName() === 'Stone') {
+        r = SceneObjectConstruction.stone(JsonMap.stone);
+    } else if (resource.getClassName() === 'Wood') {
+        r = SceneObjectConstruction.wood(JsonMap.wood); 
+    } else if (resource.getClassName() === 'Food') {
+        r = SceneObjectConstruction.food(JsonMap.food); 
+    }
+    else {
+        console.log("Error in constructResourceFromModel") ;
+    }
+
+    return r;
 }
 
 // This function takes a Building and returns the correct 

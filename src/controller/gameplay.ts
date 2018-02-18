@@ -77,6 +77,25 @@ var GamePlay = {
             GamePlay.removeSelected();
         }
     },
+    addSelectedResource: (selected) => {
+        wade.app.selected = selected; 
+
+        wade.app.onIsoTerrainMouseDown = (event) => {
+            //Clicking on any old unoccupied IsoTerrain leads to 
+            // deselection.
+            Hud.clearResourceData(); 
+            Hud.showMainPanel();
+
+            if(GamePlay.getSelected()) {
+                GamePlay.removeSelected();
+            }
+            wade.app.onIsoTerrainMouseDown = null;
+        };
+
+        //However, you do get to display the stats of the resource
+        Hud.showResourceData(selected);
+    
+    },
     // This function sets up the gameplay for a selected unit:
     // showing its stats and setting up the click events it can handle.
     // Parameters:
@@ -113,30 +132,77 @@ var GamePlay = {
                     if(enemy) {
                         //If an enemy was found, attack it.
                         console.log("Found enemy!");
-                        selected.shouldPursue = true;
+                            // Clear any previous movements
+                        GamePlay.clearPursue(selected);
+                        GamePlay.clearGather(selected);
+
 
                         // while pursue flag is true, pursue and attack.
                         GamePlay.attack(selected, enemy);
+
                     } else {
-                        // If no enemy was there, deselect unit
-                        // Unit will continue whatever it was doing, however.
-                        GamePlay.removeSelected();
-                        Hud.showMainPanel();
+                        //Check if the collision was due to a resource
+                        let resource = _.find(objects, (o) => {
+                            let global = wade.getSceneObject('global'); 
+                            let id = o.data.getId();
+                            let hasId = (obj: IIdentifiable) => {
+                                return obj.getId() === id;  
+                            }
+
+                            //Check if id is a resource
+                            let resources = global.state.getResources();
+                            if(_.some(resources, hasId)) {
+                                return true; 
+                            }
+
+                            return false;
+                        });
+
+
+                        if(resource) {
+                            //If resource was found, go try to gather it.
+                            console.log(resource);
+                                // Clear any previous movements
+                            GamePlay.clearPursue(selected);
+                            GamePlay.clearGather(selected);
+
+                            selected.getBehavior('IsoCharacter').goToObject(resource)
+                            GamePlay.move(selected);
+                            selected.onObjectReached = GamePlay.gather(selected, resource);
+                        
+                        
+                        } else {
+                            // If no resource was there, deselect unit
+                            // Unit will continue whatever it was doing, however.
+                            GamePlay.removeSelected();
+                            Hud.showMainPanel();
+                            wade.app.onIsoTerrainMouseMove = null;
+                        }
                     }
                 //Right click on empty square moves there.
                 } else {
                     GamePlay.clearPursue(selected); // stop pursuing enemy
+                    GamePlay.clearGather(selected); // stop gathering
                     selected.getBehavior('IsoCharacter').clearDestinations();
                     selected.getBehavior('IsoCharacter').setDestination(event.gridCoords);
                     GamePlay.move(selected);
                 }
-            } else if (event.button === Mouse.left) {
+            }
+            else if (event.button === Mouse.left) {
                 //Left click always leads to deselection and return
                 // to main menu
                 GamePlay.removeSelected();
                 Hud.showMainPanel();
+                wade.app.onIsoTerrainMouseDown = null;
             }
+
+            return true;
         };
+    },
+    clearGather: (unit) => {
+        //Remove all drivers of gathering behavior.
+        unit.shouldGather = false; 
+        unit.onObjectReached = null;
     },
     // This function tracks an object while it is moving and updates 
     // its location on the internal state map with the location on the 
@@ -180,8 +246,7 @@ var GamePlay = {
                 //When selecting a unit, stop event propagation
                 return true;
             } else if (event.button === Mouse.right) {
-            
-            
+                
             }
         };
     },
@@ -214,6 +279,24 @@ var GamePlay = {
             }
         };
     },
+    onSelectResource: (resource) => {
+        return (event) => {
+            Hud.clearBuildingsPanel();
+            Hud.clearMainPanel();
+            Hud.clearBarracksPanel();
+
+            if(event.button === Mouse.left) {
+                if(GamePlay.getSelected()) {
+                    GamePlay.removeSelected(); 
+                } 
+                // Set up callbacks for the newly selected resource.
+                GamePlay.addSelectedResource(resource);
+
+
+                return true;
+            }
+        } 
+    },
     // This function takes the costs described in a JSON costs file
     // and subtracts them from the resources of the PlayerGameState.
     //
@@ -242,6 +325,7 @@ var GamePlay = {
     //  @ target: target unit or building SceneObject that contains state in its
     //      'data' property.
     attack: async function(attacker, target) {
+        attacker.shouldPursue = true;
 
         // Set the callback: when the attacker reaches the target, do damage.
         attacker.onObjectReached = function doDamage(event) {
@@ -276,6 +360,24 @@ var GamePlay = {
             //Update the attacking unit's location.
             GamePlay.updateUnitMapLocation(attacker);
         }
+    },
+    gather: function(gatherer, target) {
+        return async function(event) {
+            let time = 500;
+            gatherer.shouldGather = true;
+            while(gatherer.shouldGather) {
+                console.log(target.data.amount); 
+                target.data.takeGather(gatherer.data.getGather());
+
+                await delay(time); // wait a bit before gathering again.
+                 
+                if(target.data.amount <= 0) {
+                    //Stop the gathering behavior
+                    GamePlay.clearGather(gatherer);
+                    GamePlay.deleteGameObject(target);
+                }
+            } 
+        };
     },
     // This function removes the attacking status from 
     // a SceneObject
@@ -374,6 +476,12 @@ var GamePlay = {
         //update new location.
         map[sceneObject.iso.gridCoords.z][sceneObject.iso.gridCoords.x].buildingId = sceneObject.data.getId();
     },
+    updateResourceMapLocation: function(sceneObject) {
+        let map = wade.getSceneObject('global').state.getMap(); 
+
+        //update new location.
+        map[sceneObject.iso.gridCoords.z][sceneObject.iso.gridCoords.x].resourceId = sceneObject.data.getId();
+    }
 }
 
 var BuildingBuilding = {

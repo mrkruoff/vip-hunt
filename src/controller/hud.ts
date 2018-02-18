@@ -8,6 +8,7 @@
  *
  */
 
+import * as _ from 'lodash';
 import BuildHud from './build-hud';
 import Names from './names';
 
@@ -22,6 +23,7 @@ declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
 const Hud = {
+
     // This function clears the Buildings Panel, which contains 
     // the possible buildings a player can build.
     clearBuildingsPanel: () => {
@@ -160,7 +162,29 @@ const Hud = {
         woodCount.setText(player.wood.toString());
         let foodCount = wade.getSceneObject(Names.foodCount).getSprite(0);  
         foodCount.setText(player.food.toString());
-    }
+    },
+    showResourceData: (resource) => {
+        const global = wade.getSceneObject('global');
+        if(global.hud.stats) {
+            // If the global hud is already showing stats, clear it away (destroy it).
+            _.forEach(global.hud.stats, (icon) => {
+                wade.removeSceneObject(icon); 
+            });
+            global.hud.stats = null;
+        }
+        global.hud.stats = BuildHud.resourceStats(resource, 9);
+    },
+    clearResourceData: () => {
+        const global = wade.getSceneObject('global');
+        if(global.hud.stats) {
+            // If the global hud is already showing stats, clear it away (destroy it).
+            _.forEach(global.hud.stats, (icon) => {
+                wade.removeSceneObject(icon); 
+            });
+            global.hud.stats = null;
+        } 
+    
+    },
 
 };
 

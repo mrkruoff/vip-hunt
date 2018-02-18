@@ -187,6 +187,17 @@ const BuildHud = {
         return scroll;
 
     },
+    resourceStats: (resourceSceneObject, layer: number) => {
+        let text = "amount: " + resourceSceneObject.data.getAmount().toString();
+        let font = "12px Verdana";
+        let color = "black";
+        let alignment = "center";
+        let y = (wade.getScreenHeight() / 2) - 210;
+        let x = (-1 * wade.getScreenWidth() / 2) + 100;
+        const amount = BuildHud.buildText(text, font, color, alignment, x, y, layer); 
+
+        return [amount];
+    },
 
 };
 

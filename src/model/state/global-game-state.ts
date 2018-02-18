@@ -39,6 +39,10 @@ class GlobalGameState {
         return this.map; 
     }
 
+    getResources() {
+        return this.resources; 
+    }
+
 }
 
 export default GlobalGameState;
