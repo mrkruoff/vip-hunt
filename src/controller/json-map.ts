@@ -17,6 +17,9 @@ const JsonMap = {
     gatherer_1: ' ',
     drummer_boy_1: ' ',
     vip_1: '../js/../json/images/vip_1.json',
+    stone: '../js/../json/images/stone.json',
+    wood: '../js/../json/images/wood.json',
+    food: '../js/../json/images/food.json',
 
     archer_calvary_data: '../js/../json/units/archer_calvary_unit.json',
     archer_data: '../js/../json/units/archer_unit.json',

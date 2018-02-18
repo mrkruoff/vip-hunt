@@ -1,0 +1,8 @@
+
+{
+    "type": "sprite",
+    "name": "stone",
+    "visible": "true",
+    "image": "../js/../public/sprites/resources/stone.png",
+    "size": {"x": 70, "y": 130}
+}

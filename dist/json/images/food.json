@@ -1,0 +1,9 @@
+
+{
+    "type": "sprite",
+    "name": "food",
+    "visible": "true",
+    "image": "../js/../public/sprites/resources/food.png",
+    "size": {"x": 70, "y": 130}
+}
+

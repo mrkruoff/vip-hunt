@@ -1,0 +1,8 @@
+
+{
+    "type": "sprite",
+    "name": "wood",
+    "visible": "true",
+    "image": "../js/../public/sprites/resources/wood.png",
+    "size": {"x": 70, "y": 130}
+}
