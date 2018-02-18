@@ -12,7 +12,7 @@ import Unit from '../model/units/units';
 import Camera from './camera';
 import Construction from './construction';
 import Events from './events';
-import { BuildingBuilding, GamePlay } from './gameplay';
+import { UnitBuilding, BuildingBuilding, GamePlay } from './gameplay';
 import Global from './global';
 import Hud from './hud';
 import ImageMap from './image-map';
@@ -99,7 +99,7 @@ function addToScene(state: GlobalGameState) {
 
                 // Once we have the building, we can paint it on the appropriate
                 // grid position with the appropriate image
-                const b = constructBuildingFromModel(building);
+                const b = BuildingBuilding.constructBuildingFromModel(building);
                 console.log(b);
                 b.data = building;
                 building.rep = b; // circular reference
@@ -137,7 +137,7 @@ function addToScene(state: GlobalGameState) {
 
                 // Once we have the unit, we can paint it on the appropriate
                 // grid position with the appropriate image
-                const u = constructUnitFromModel(unit);
+                const u = UnitBuilding.constructUnitFromModel(unit);
                 u.data = unit;
                 unit.rep = u; //circular reference
                 wade.iso.moveObjectToTile(u, tile.x, tile.y);
@@ -193,42 +193,6 @@ function constructResourceFromModel(resource: Resource) {
     return r;
 }
 
-// This function takes a Building and returns the correct
-// SceneObject for that Building.
-function constructBuildingFromModel(building: Building) {
-    let b;
-    if (building.getClassName() === 'Barracks') {
-        b = SceneObjectConstruction.barracks(JsonMap.barracks_1);
-    } else if (building.getClassName() === 'Stables') {
-        b = SceneObjectConstruction.stables(JsonMap.stables_1);
-    } else if (building.getClassName() === 'TownHall') {
-        b = SceneObjectConstruction.townHalls(JsonMap.town_halls_1);
-    } else if (building.getClassName() === 'Tower') {
-        b = SceneObjectConstruction.towers(JsonMap.towers_1);
-    }
-    return b;
-}
 
-// This function takes a Unit and returns the correct
-// SceneObject for that Unit
-function constructUnitFromModel(unit: Unit) {
-    let u;
-    if (unit.getClassName() === 'VIP') {
-        u = SceneObjectConstruction.vip(JsonMap.vip_1);
-    } else if (unit.getClassName() === 'Archer') {
-        u = SceneObjectConstruction.archer(JsonMap.archer_1);
-    } else if (unit.getClassName() === 'Swordsman') {
-        u = SceneObjectConstruction.swordsman(JsonMap.swordsman_1);
-    } else if (unit.getClassName() === 'Gatherer') {
-        u = SceneObjectConstruction.gatherer(JsonMap.gatherer_1);
-    } else if (unit.getClassName() === 'DrummerBoy') {
-        u = SceneObjectConstruction.drummerBoy(JsonMap.drummer_boy_1);
-    } else if (unit.getClassName() === 'SpearCalvary') {
-        u = SceneObjectConstruction.spearCalvary(JsonMap.spear_calvary_1);
-    } else if (unit.getClassName() === 'ArcherCalvary') {
-        u = SceneObjectConstruction.archerCalvary(JsonMap.archer_calvary_1);
-    }
-    return u;
-}
 
 export default NewGame;

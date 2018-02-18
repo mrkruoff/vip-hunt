@@ -14,6 +14,9 @@ import Id from './id';
 import ImageMap from './image-map';
 import JsonMap from './json-map';
 import Mouse from './mouse';
+import Unit from '../model/units/units';
+import Building from '../model/buildings/buildings';
+import SceneObjectConstruction from './scene-object-construction';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -460,7 +463,7 @@ const GamePlay = {
     // parameters:
     //  @ sceneObject: a unit SceneObject whose location will update the
     //         state map's understanding of where it is.
-    updateUnitMapLocation(sceneObject) {
+    updateUnitMapLocation: (sceneObject) => {
         const map = wade.getSceneObject('global').state.getMap();
 
         //Clear old location if it exists
@@ -481,14 +484,24 @@ const GamePlay = {
     // parameters:
     //  @ sceneObject: a building SceneObject whose location will update the
     //      state map's understanding of where it is.
-    updateBuildingMapLocation(sceneObject) {
+    updateBuildingMapLocation: (sceneObject) => {
         const map = wade.getSceneObject('global').state.getMap();
+
+        //Clear old location if it exists
+        if (_.has(sceneObject, 'oldZ') && _.has(sceneObject, 'oldY') ) {
+            map[sceneObject.oldZ][sceneObject.oldX].buildingId = Tile.EMPTY;
+        }
 
         //update new location.
         map[sceneObject.iso.gridCoords.z][sceneObject.iso.gridCoords.x].buildingId = sceneObject.data.getId();
     },
-    updateResourceMapLocation(sceneObject) {
+    updateResourceMapLocation: (sceneObject) => {
         const map = wade.getSceneObject('global').state.getMap();
+
+        //Clear old location if it exists
+        if (_.has(sceneObject, 'oldZ') && _.has(sceneObject, 'oldY') ) {
+            map[sceneObject.oldZ][sceneObject.oldX].resourceId = Tile.EMPTY;
+        }
 
         //update new location.
         map[sceneObject.iso.gridCoords.z][sceneObject.iso.gridCoords.x].resourceId = sceneObject.data.getId();
@@ -593,6 +606,21 @@ const BuildingBuilding = {
             console.log(building);
         };
     },
+    // This function takes a Building and returns the correct
+    // SceneObject for that Building.
+    constructBuildingFromModel: (building: Building) => {
+        let b;
+        if (building.getClassName() === 'Barracks') {
+            b = SceneObjectConstruction.barracks(JsonMap.barracks_1);
+        } else if (building.getClassName() === 'Stables') {
+            b = SceneObjectConstruction.stables(JsonMap.stables_1);
+        } else if (building.getClassName() === 'TownHall') {
+            b = SceneObjectConstruction.townHalls(JsonMap.town_halls_1);
+        } else if (building.getClassName() === 'Tower') {
+            b = SceneObjectConstruction.towers(JsonMap.towers_1);
+        }
+        return b;
+    }
 
 };
 
@@ -699,6 +727,27 @@ const UnitBuilding = {
             console.log(unit);
         };
     },
+    // This function takes a Unit and returns the correct
+    // SceneObject for that Unit
+    constructUnitFromModel: (unit: Unit) => {
+        let u;
+        if (unit.getClassName() === 'VIP') {
+            u = SceneObjectConstruction.vip(JsonMap.vip_1);
+        } else if (unit.getClassName() === 'Archer') {
+            u = SceneObjectConstruction.archer(JsonMap.archer_1);
+        } else if (unit.getClassName() === 'Swordsman') {
+            u = SceneObjectConstruction.swordsman(JsonMap.swordsman_1);
+        } else if (unit.getClassName() === 'Gatherer') {
+            u = SceneObjectConstruction.gatherer(JsonMap.gatherer_1);
+        } else if (unit.getClassName() === 'DrummerBoy') {
+            u = SceneObjectConstruction.drummerBoy(JsonMap.drummer_boy_1);
+        } else if (unit.getClassName() === 'SpearCalvary') {
+            u = SceneObjectConstruction.spearCalvary(JsonMap.spear_calvary_1);
+        } else if (unit.getClassName() === 'ArcherCalvary') {
+            u = SceneObjectConstruction.archerCalvary(JsonMap.archer_calvary_1);
+        }
+        return u;
+    }
 };
 
 export { GamePlay, UnitBuilding, BuildingBuilding };
