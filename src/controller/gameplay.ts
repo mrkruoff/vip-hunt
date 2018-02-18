@@ -341,7 +341,7 @@ var GamePlay = {
         let i = 0; // iteration number
         let attackFreq = 1; 
         let time = 250;
-        while(attacker.shouldPursue) {
+        while(target && attacker.shouldPursue) {
             //Attack will occur every attackFreq * time milliseconds
             attacker.shouldAttack = (i % attackFreq) === 0;
             i++;
@@ -351,7 +351,7 @@ var GamePlay = {
             await delay(time); 
 
             //Stop pursuing and remove target once it is dead.
-            if(target.data.hp <= 0) {
+            if(target && target.data.hp <= 0) {
                 attacker.shouldAttack = false;
                 attacker.onObjectReached = null;
                 GamePlay.clearPursue(attacker);
