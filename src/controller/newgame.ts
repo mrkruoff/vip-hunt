@@ -5,20 +5,20 @@
  */
 
 import * as _ from 'lodash';
-import Resource from '../model/resources/resource';
 import Building from '../model/buildings/buildings';
+import Resource from '../model/resources/resource';
 import GlobalGameState from '../model/state/global-game-state';
 import Unit from '../model/units/units';
 import Camera from './camera';
 import Construction from './construction';
 import Events from './events';
+import { BuildingBuilding, GamePlay } from './gameplay';
 import Global from './global';
 import Hud from './hud';
 import ImageMap from './image-map';
 import JsonMap from './json-map';
 import Mouse from './mouse';
 import SceneObjectConstruction from './scene-object-construction';
-import { BuildingBuilding, GamePlay } from './gameplay';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -146,12 +146,12 @@ function addToScene(state: GlobalGameState) {
                 //Then we attach the appropriate callbacks for a constructed unit.
                 u.onMouseDown = GamePlay.onSelectUnit(u);
                 wade.addEventListener(u, 'onMouseDown');
-            
+
             }
 
             if (tile.resourceId >= 0) {
-                let resource = _.find(state.getResources(), (r) => {
-                    return r.getId() === tile.resourceId; 
+                const resource = _.find(state.getResources(), (r) => {
+                    return r.getId() === tile.resourceId;
                 });
 
                 console.log(resource);
@@ -170,7 +170,7 @@ function addToScene(state: GlobalGameState) {
                 wade.addEventListener(r, 'onMouseDown');
 
             }
-    
+
         });
     });
 
@@ -178,23 +178,22 @@ function addToScene(state: GlobalGameState) {
 
 function constructResourceFromModel(resource: Resource) {
     let r;
-    console.log("Constructing resource");
+    console.log('Constructing resource');
 
-    if(resource.getClassName() === 'Stone') {
+    if (resource.getClassName() === 'Stone') {
         r = SceneObjectConstruction.stone(JsonMap.stone);
     } else if (resource.getClassName() === 'Wood') {
-        r = SceneObjectConstruction.wood(JsonMap.wood); 
+        r = SceneObjectConstruction.wood(JsonMap.wood);
     } else if (resource.getClassName() === 'Food') {
-        r = SceneObjectConstruction.food(JsonMap.food); 
-    }
-    else {
-        console.log("Error in constructResourceFromModel") ;
+        r = SceneObjectConstruction.food(JsonMap.food);
+    } else {
+        console.log('Error in constructResourceFromModel') ;
     }
 
     return r;
 }
 
-// This function takes a Building and returns the correct 
+// This function takes a Building and returns the correct
 // SceneObject for that Building.
 function constructBuildingFromModel(building: Building) {
     let b;
@@ -210,7 +209,7 @@ function constructBuildingFromModel(building: Building) {
     return b;
 }
 
-// This function takes a Unit and returns the correct 
+// This function takes a Unit and returns the correct
 // SceneObject for that Unit
 function constructUnitFromModel(unit: Unit) {
     let u;

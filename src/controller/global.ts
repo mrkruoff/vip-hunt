@@ -14,9 +14,9 @@ import VIP from '../model/units/VIP_unit';
 import Id from './id';
 import JsonMap from './json-map';
 
+import Food from '../model/resources/food';
 import Stone from '../model/resources/stone';
 import Wood from '../model/resources/wood';
-import Food from '../model/resources/food';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -29,8 +29,8 @@ declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
 const Global = {
-    // This function creates a SceneObject named 'global' that contains global 
-    // settings and will contain the global game state. It wll also contain 
+    // This function creates a SceneObject named 'global' that contains global
+    // settings and will contain the global game state. It wll also contain
     // references to hud elements so the game can determine whether they've been
     // created or not.
     createGlobalSettings: () => {
@@ -49,8 +49,8 @@ const Global = {
     },
 };
 
-// This function creates a GlobalGameState object that default to containing 
-// a 20x20 map and having a single Player and AI, each with one VIP and one 
+// This function creates a GlobalGameState object that default to containing
+// a 20x20 map and having a single Player and AI, each with one VIP and one
 // TownHall each.
 function defaultGlobalState() {
     const startingStone = 100;

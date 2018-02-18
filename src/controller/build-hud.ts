@@ -1,6 +1,6 @@
 /* build-hud.ts
  *
- * The BuildHud module provides various functions that utilize wade 
+ * The BuildHud module provides various functions that utilize wade
  * to build HUD elements when they did not exist previously.
  */
 
@@ -18,13 +18,13 @@ declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
 const BuildHud = {
-    // This function builds a resource panel consisting of stone, wood, and food 
+    // This function builds a resource panel consisting of stone, wood, and food
     // icons and associated text that list the amount stored in the GLOBAL object.
     // Currently it constructs each icon at a fixed location. To change those locations,
     // you change the constants in this function.
     //
     // parameters:
-    //  @ layerId: an integer that indicates which WADE layer to draw on. Recall that 
+    //  @ layerId: an integer that indicates which WADE layer to draw on. Recall that
     //      a smaller number (down to 1) means the resourcePanel will be drawn on
     //      TOP of other elements on layers with larger numbers.
     resourcePanel: (layerId: number) => {
@@ -123,11 +123,11 @@ const BuildHud = {
 
         return building;
     },
-    // This function builds the buildings Panel, consisting of the possible buildings that 
+    // This function builds the buildings Panel, consisting of the possible buildings that
     // the player can build in the game. Currently this consists of a barracks, stables,
     // towers, and town hall
     //
-    // parameters: 
+    // parameters:
     //  @ layer: the WADE layer to draw the panel on.
     buildingsPanel: (layer: number) => {
         const buttonWidth = 50;
@@ -160,10 +160,10 @@ const BuildHud = {
         return [barracks, stables, towers, townHalls];
     },
     // This function builds the barracks panel, consisting of the possible units
-    // the player can build from the barracks. Currently this consists of a 
+    // the player can build from the barracks. Currently this consists of a
     // swordsman.
     //
-    // parameters: 
+    // parameters:
     //  @ layer: the WADE layer on which to draw the panel.
     barracksPanel: (layer: number) => {
         const y = (wade.getScreenHeight() / 2) - 200;
@@ -188,13 +188,13 @@ const BuildHud = {
 
     },
     resourceStats: (resourceSceneObject, layer: number) => {
-        let text = "amount: " + resourceSceneObject.data.getAmount().toString();
-        let font = "12px Verdana";
-        let color = "black";
-        let alignment = "center";
-        let y = (wade.getScreenHeight() / 2) - 210;
-        let x = (-1 * wade.getScreenWidth() / 2) + 100;
-        const amount = BuildHud.buildText(text, font, color, alignment, x, y, layer); 
+        const text = 'amount: ' + resourceSceneObject.data.getAmount().toString();
+        const font = '12px Verdana';
+        const color = 'black';
+        const alignment = 'center';
+        const y = (wade.getScreenHeight() / 2) - 210;
+        const x = (-1 * wade.getScreenWidth() / 2) + 100;
+        const amount = BuildHud.buildText(text, font, color, alignment, x, y, layer);
 
         return [amount];
     },

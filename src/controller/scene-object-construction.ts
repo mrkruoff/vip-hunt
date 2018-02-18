@@ -1,6 +1,6 @@
 /* scene-object-construction.ts
  *
- * The SceneObjectConstruction module contains functions for building various 
+ * The SceneObjectConstruction module contains functions for building various
  * SceneObjects for the game.
  *
  */
@@ -17,7 +17,7 @@ declare var TilemapCharacter: any;
 
 const SceneObjectConstruction = {
     // This function returns a SceneObject for the Barracks.
-    // 
+    //
     // parameters
     //  @ imageJsonFile: filepath to the JSON file that will be used
     //      to construct the Barracks SceneObject
@@ -33,7 +33,7 @@ const SceneObjectConstruction = {
         return barracks;
 
     },
-    // This function returns a SceneObject for the Stables.  
+    // This function returns a SceneObject for the Stables.
     // parameters
     //  @ imageJsonFile: filepath to the JSON file that will be used
     //      to construct the Stables SceneObject
@@ -50,7 +50,7 @@ const SceneObjectConstruction = {
 
     },
     // This function returns a SceneObject for the Tower.
-    // 
+    //
     // parameters
     //  @ imageJsonFile: filepath to the JSON file that will be used
     //      to construct the Tower SceneObject
@@ -67,7 +67,7 @@ const SceneObjectConstruction = {
 
     },
     // This function returns a SceneObject for the VIP.
-    // 
+    //
     // parameters
     //  @ imageJsonFile: filepath to the JSON file that will be used
     //      to construct the VIP SceneObject
@@ -84,7 +84,7 @@ const SceneObjectConstruction = {
 
     },
     // This function returns a SceneObject for the TownHall.
-    // 
+    //
     // parameters
     //  @ imageJsonFile: filepath to the JSON file that will be used
     //      to construct the TownHall SceneObject
@@ -101,7 +101,7 @@ const SceneObjectConstruction = {
 
     },
     // This function returns a SceneObject for the Swordsman.
-    // 
+    //
     // parameters
     //  @ imageJsonFile: filepath to the JSON file that will be used
     //      to construct the Swordsman SceneObject
@@ -117,7 +117,7 @@ const SceneObjectConstruction = {
         return swordsman;
     },
     // This function returns a SceneObject for the Archer.
-    // 
+    //
     // parameters
     //  @ imageJsonFile: filepath to the JSON file that will be used
     //      to construct the Archer SceneObject
@@ -133,7 +133,7 @@ const SceneObjectConstruction = {
         return archer;
     },
     // This function returns a SceneObject for the ArcherCalvary.
-    // 
+    //
     // parameters
     //  @ imageJsonFile: filepath to the JSON file that will be used
     //      to construct the ArcherCalvary SceneObject
@@ -149,7 +149,7 @@ const SceneObjectConstruction = {
         return archerCalvary;
     },
     // This function returns a SceneObject for the SpearCalvary.
-    // 
+    //
     // parameters
     //  @ imageJsonFile: filepath to the JSON file that will be used
     //      to construct the SpearCalvary SceneObject
@@ -165,7 +165,7 @@ const SceneObjectConstruction = {
         return spearCalvary;
     },
     // This function returns a SceneObject for the Gatherer.
-    // 
+    //
     // parameters
     //  @ imageJsonFile: filepath to the JSON file that will be used
     //      to construct the Gatherer SceneObject
@@ -181,7 +181,7 @@ const SceneObjectConstruction = {
         return gatherer;
     },
     // This function returns a SceneObject for the DrummerBoy.
-    // 
+    //
     // parameters
     //  @ imageJsonFile: filepath to the JSON file that will be used
     //      to construct the DrummerBoy SceneObject

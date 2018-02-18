@@ -18,7 +18,7 @@ const Mouse = {
     left: 0,
     middle: 1,
     right: 2,
-    // This function causes the isoSceneObject to track the 
+    // This function causes the isoSceneObject to track the
     // mouse position while the mouse is over the isometric map.
     // The isoSceneObject will only be positioned at non-colliding positions,
     // however.

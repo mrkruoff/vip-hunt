@@ -1,9 +1,9 @@
 /* hud.ts
  *
- * The Hud module consists of functions for displaying and hiding 
+ * The Hud module consists of functions for displaying and hiding
  * HUD elements at any given time. Most utilize the 'global' SceneObject
  * to check whether or not a particular HUD element has been created.
- * If it has not been created, this module relies on the BuildHud 
+ * If it has not been created, this module relies on the BuildHud
  * module to construct said element.
  *
  */
@@ -24,7 +24,7 @@ declare var TilemapCharacter: any;
 
 const Hud = {
 
-    // This function clears the Buildings Panel, which contains 
+    // This function clears the Buildings Panel, which contains
     // the possible buildings a player can build.
     clearBuildingsPanel: () => {
         const global = wade.getSceneObject('global');
@@ -35,7 +35,7 @@ const Hud = {
             wade.getSceneObject(Names.townHallsIcon).setVisible(false);
         }
     },
-    // This function clears the Main Panel, which contains things like 
+    // This function clears the Main Panel, which contains things like
     // Save icon, Pause game icon, Menu icon, and Build Buildings icon.
     clearMainPanel: () => {
         const global = wade.getSceneObject('global');
@@ -43,7 +43,7 @@ const Hud = {
             wade.getSceneObject(Names.buildingIcon).setVisible(false);
         }
     },
-    // This function clears the Barracks Panel, which cotntains 
+    // This function clears the Barracks Panel, which cotntains
     // the possible units a Barracks can build.
     clearBarracksPanel: () => {
         const global = wade.getSceneObject('global');
@@ -52,7 +52,7 @@ const Hud = {
         }
 
     },
-    // This function clears the Resource panel, which shows the amount 
+    // This function clears the Resource panel, which shows the amount
     // of Wood, Stone, and Food a player currently has.
     clearResourcePanel: () => {
         const global = wade.getSceneObject('global');
@@ -101,7 +101,7 @@ const Hud = {
     // This function shows and returns a reference to the Main Panel SceneObjects.
     //
     // returns:
-    //  reference to an array containing the Panel's various 
+    //  reference to an array containing the Panel's various
     //      SceneObjects.
     showMainPanel: () => {
         const global = wade.getSceneObject('global');
@@ -147,28 +147,28 @@ const Hud = {
 
         return global.hud.resources;
     },
-    // This function updates the Resource Panel SceneObjects to reflect 
+    // This function updates the Resource Panel SceneObjects to reflect
     // the Player's amounts of stone, wood, and food.
     //
     // pre:
-    //  The ResourcePanel must be shown (must exist) before calling this 
+    //  The ResourcePanel must be shown (must exist) before calling this
     //      function. Call Hud.showResourcePanel() to do this.
     updateResourcePanel: () => {
         const player = wade.getSceneObject('global').state.getPlayer();
         console.log(wade.getSceneObject(Names.stoneCount));
-        let stoneCount = wade.getSceneObject(Names.stoneCount).getSprite(0);  
+        const stoneCount = wade.getSceneObject(Names.stoneCount).getSprite(0);
         stoneCount.setText(player.stone.toString());
-        let woodCount = wade.getSceneObject(Names.woodCount).getSprite(0);  
+        const woodCount = wade.getSceneObject(Names.woodCount).getSprite(0);
         woodCount.setText(player.wood.toString());
-        let foodCount = wade.getSceneObject(Names.foodCount).getSprite(0);  
+        const foodCount = wade.getSceneObject(Names.foodCount).getSprite(0);
         foodCount.setText(player.food.toString());
     },
     showResourceData: (resource) => {
         const global = wade.getSceneObject('global');
-        if(global.hud.stats) {
+        if (global.hud.stats) {
             // If the global hud is already showing stats, clear it away (destroy it).
             _.forEach(global.hud.stats, (icon) => {
-                wade.removeSceneObject(icon); 
+                wade.removeSceneObject(icon);
             });
             global.hud.stats = null;
         }
@@ -176,14 +176,14 @@ const Hud = {
     },
     clearResourceData: () => {
         const global = wade.getSceneObject('global');
-        if(global.hud.stats) {
+        if (global.hud.stats) {
             // If the global hud is already showing stats, clear it away (destroy it).
             _.forEach(global.hud.stats, (icon) => {
-                wade.removeSceneObject(icon); 
+                wade.removeSceneObject(icon);
             });
             global.hud.stats = null;
-        } 
-    
+        }
+
     },
 
 };

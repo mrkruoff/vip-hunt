@@ -18,7 +18,7 @@ declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
 const Camera = {
-    // This function sets the bounds for the camera to ensure the 
+    // This function sets the bounds for the camera to ensure the
     // player can't move it to the 'infinte darkness' portion of the world.
     setBounds: () => {
         wade.setCameraBounds(-1500, 1500, -1500, 1500, 3, 10);
@@ -123,9 +123,9 @@ const Camera = {
     isMoving: () => {
         return wade.getSceneObject('global').cameraIsMoving;
     },
-    // This function is a callback that sets up how the 
-    // camera should move in gameplay in response to 
-    // the mouse moving. Currently the camera moves only 
+    // This function is a callback that sets up how the
+    // camera should move in gameplay in response to
+    // the mouse moving. Currently the camera moves only
     // when the mouse moves to the edges of the screen.
     //
     // The camera stops moving when the mouse moves out
@@ -176,9 +176,9 @@ const Camera = {
         }
 
     },
-    // This function is a callback that sets the events 
-    // for when keys are pressed. Currently this consists 
-    // only of key presses that move the camera. 
+    // This function is a callback that sets the events
+    // for when keys are pressed. Currently this consists
+    // only of key presses that move the camera.
     //
     // Perhaps this belongs in a KeyShortcuts module
     // in a separate file?
@@ -196,8 +196,8 @@ const Camera = {
             Camera.moveToRight();
         }
     },
-    // This function is a callback that sets the events for when keys 
-    // are released. Currently this consists only of key releases that 
+    // This function is a callback that sets the events for when keys
+    // are released. Currently this consists only of key releases that
     // stop the camera form moving.
     //
     // Perhaps this belongs in a KeyShortcuts module

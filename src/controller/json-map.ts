@@ -48,7 +48,6 @@ const JsonMap = {
     wood_data: '../js/../json/resources/wood.json',
     food_data: '../js/../json/resources/food.json',
 
-
 };
 
 export default JsonMap;

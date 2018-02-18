@@ -1,6 +1,6 @@
 /* menu.ts
  *
- * This function contains the various functions needed to display the 
+ * This function contains the various functions needed to display the
  * game's starting menu.
  *
  */
