@@ -172,7 +172,7 @@ var GamePlay = {
                         
                         
                         } else {
-                            // If no resource was there, deselect unit
+                            // If no resource (and no enemy building) was there, deselect unit
                             // Unit will continue whatever it was doing, however.
                             GamePlay.removeSelected();
                             Hud.showMainPanel();
@@ -196,7 +196,7 @@ var GamePlay = {
                 wade.app.onIsoTerrainMouseDown = null;
             }
 
-            return true;
+            return true; //don't propagate
         };
     },
     clearGather: (unit) => {
@@ -246,7 +246,8 @@ var GamePlay = {
                 //When selecting a unit, stop event propagation
                 return true;
             } else if (event.button === Mouse.right) {
-                
+                // Should anything be done on right-clicking a unit 
+                // when nothing is selected?
             }
         };
     },
