@@ -368,6 +368,9 @@ var GamePlay = {
             while(gatherer.shouldGather) {
                 console.log(target.data.amount); 
                 target.data.takeGather(gatherer.data.getGather());
+                GamePlay.applyGatherToPlayer(gatherer.data.getGather(),
+                                            target.data.getClassName());
+                Hud.updateResourcePanel();
 
                 await delay(time); // wait a bit before gathering again.
                  
@@ -378,6 +381,20 @@ var GamePlay = {
                 }
             } 
         };
+    },
+    applyGatherToPlayer: (gather: number, resource: string) => {
+        let player = wade.getSceneObject('global').state.getPlayer();
+        if(resource === "Stone") {
+            player.stone += gather; 
+        } else if (resource === "Wood") {
+            player.wood += gather; 
+        } else if (resource === "Food") {
+            player.food += gather; 
+        }
+        else {
+            console.log("applyGatherToPlayer error!"); 
+        }
+    
     },
     // This function removes the attacking status from 
     // a SceneObject
@@ -482,7 +499,7 @@ var GamePlay = {
         //update new location.
         map[sceneObject.iso.gridCoords.z][sceneObject.iso.gridCoords.x].resourceId = sceneObject.data.getId();
     }
-}
+};
 
 var BuildingBuilding = {
     // This function uses the name of an image to select the correct 
