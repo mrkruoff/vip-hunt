@@ -97,8 +97,27 @@ var AiGamePlay = {
         // and clear its old tile
         GamePlay.updateResourceMapLocation(sceneBuilding);
     },
-    moveUnit: (id: number, x:number, y: number) => {
-    
+    unitMove: (id: number, x:number, y: number) => {
+        let state = wade.getSceneObject('global').state;
+        let ai = state.getAi();
+        let map = state.getMap();
+
+        let unitData = _.find(ai.getUnits(), (u) => {
+            u.getId() === id; 
+        });
+
+        let unitSceneObject = unitData.rep;
+        unitSceneObject.getBehavior('IsoCharacter').clearDestinations();
+        if(wade.iso.checkCollisionsAtTile(x, z)) {
+            //If something is there, get as close as possible to it.
+            const objects = wade.iso.getObjectsInTile(x, z);
+            unitSceneObject.getBehavior('IsoCharacter').goToObject(objects[0]);
+        } else {
+            // If nothing is there, move ther directly. 
+            unitSceneObject.getBehavior('IsoCharacter').setDestination({x: x, z: y});
+        }
+        //Keep track of the movements in the internal game state.
+        GamePlay.move(unitSceneObject);
     
     },
     constructUnit: (className: string, x: number, y: number) => {
