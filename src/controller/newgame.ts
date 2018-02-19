@@ -34,7 +34,6 @@ declare var TilemapCharacter: any;
 const NewGame = {
     // Initializes a new game
     initialize: () => {
-        //Initialize isometric engine to allow diagonal movement.
 
         //Set up global settings and sync with scene.
         const global = Global.createGlobalSettings();

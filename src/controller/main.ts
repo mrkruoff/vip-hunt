@@ -27,7 +27,12 @@ App = function() {
         //Allow diagonal and straight movement in the game
         wade.iso.init({movementDirection: 'both'});
 
-        // Star the menu.
+        // Initialize the screen min and max screen height/width to 
+        // control screen size appearance
+        wade.setMinScreenSize(600, 375);
+        wade.setMaxScreenSize(1280, 800)
+
+        // Start the menu.
         Menu.displayWelcome.call(this);
     };
 

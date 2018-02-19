@@ -39,32 +39,38 @@ const BuildHud = {
         let y = (wade.getScreenHeight() / 2) - 210;
         let x = (wade.getScreenWidth() / 2) - 50;
         const stone = BuildHud.buildIcon(ImageMap.stoneIcon, width, height, x, y, layerId);
+        stone.setAlignment('right', 'bottom');
         stone.setName(Names.stoneIcon);
         let y2 = y;
         let x2 = x + 15;
         const stoneCount = BuildHud.buildText(global.state.getPlayer().stone.toString(),
                                 font, color, alignment, x2, y2, layerId);
+        stoneCount.setAlignment('right', 'bottom');
         stoneCount.setName(Names.stoneCount);
 
         y = y;
         x = x - 100;
         const wood = BuildHud.buildIcon(ImageMap.woodIcon, width, height, x, y, layerId);
+        wood.setAlignment('right', 'bottom');
         wood.setName(Names.woodIcon);
         y2 = y;
         x2 = x + 20;
         const woodCount = BuildHud.buildText(global.state.getPlayer().wood.toString(),
                                 font, color, alignment, x2, y2, layerId);
         woodCount.setName(Names.woodCount);
+        woodCount.setAlignment('right', 'bottom');
 
         y = y;
         x = x - 100;
         const food = BuildHud.buildIcon(ImageMap.foodIcon, width, height, x, y, layerId);
         food.setName(Names.foodIcon);
+        food.setAlignment('right', 'bottom');
         y2 = y;
         x2 = x + 15;
         const foodCount = BuildHud.buildText(global.state.getPlayer().food.toString(),
                                 font, color, alignment, x2, y2, layerId);
         foodCount.setName(Names.foodCount);
+        foodCount.setAlignment('right', 'bottom');
 
         return [stone, wood, food, stoneCount, woodCount, foodCount];
 
@@ -120,6 +126,7 @@ const BuildHud = {
         building.setPosition((-1 * wade.getScreenWidth() / 2) + 100, (wade.getScreenHeight() / 2) - 100);
         wade.addSceneObject(building);
         building.setName(Names.buildingIcon);
+        building.setAlignment('right', 'bottom');
 
         return building;
     },
@@ -138,24 +145,28 @@ const BuildHud = {
         const barracks = BuildHud.buildIcon(ImageMap.barracks_1, buttonWidth, buttonHeight,
                 x, y, layer);
         barracks.setName(Names.barracksIcon);
+        barracks.setAlignment('right', 'bottom');
 
         x = (-1 * wade.getScreenWidth() / 2) + 200;
         y = (wade.getScreenHeight() / 2) - 100;
         const stables = BuildHud.buildIcon(ImageMap.stables_1, buttonWidth, buttonHeight,
                 x, y, layer);
         stables.setName(Names.stablesIcon);
+        stables.setAlignment('right', 'bottom');
 
         x = (-1 * wade.getScreenWidth() / 2) + 200;
         y = (wade.getScreenHeight() / 2) - 200;
         const towers = BuildHud.buildIcon(ImageMap.towers_1, buttonWidth, buttonHeight,
                 x, y, layer);
         towers.setName(Names.towersIcon);
+        towers.setAlignment('right', 'bottom');
 
         x = (-1 * wade.getScreenWidth() / 2) + 100;
         y = (wade.getScreenHeight() / 2) - 200;
         const townHalls = BuildHud.buildIcon(ImageMap.town_halls_1, buttonWidth,
                 buttonHeight, x, y, layer);
         townHalls.setName(Names.townHallsIcon);
+        townHalls.setAlignment('right', 'bottom');
 
         return [barracks, stables, towers, townHalls];
     },
@@ -170,6 +181,7 @@ const BuildHud = {
         const x = 50;
         const swordsman = BuildHud.buildIcon(ImageMap.swordsman_1, 35, 65, x, y, layer);
         swordsman.setName(Names.swordsmanIcon);
+        swordsman.setAlignment('right', 'bottom');
 
         return [swordsman];
     },
@@ -181,9 +193,10 @@ const BuildHud = {
     // parameters:
     //  @ layer: the WADE layer on which to draw the panel.
     background: (layer: number) => {
-        const scroll = BuildHud.buildIcon(ImageMap.scroll, 350, 5000, 0, 400, layer);
+        const scroll = BuildHud.buildIcon(ImageMap.scroll, 350, 5000, 0, 300, layer);
         scroll.setRotation(1.5708);
         scroll.setName(Names.hudBackground);
+        scroll.setAlignment('right', 'bottom');
         return scroll;
 
     },
@@ -195,6 +208,7 @@ const BuildHud = {
         const y = (wade.getScreenHeight() / 2) - 210;
         const x = (-1 * wade.getScreenWidth() / 2) + 100;
         const amount = BuildHud.buildText(text, font, color, alignment, x, y, layer);
+        amount.setAlignment('right', 'bottom');
 
         return [amount];
     },
