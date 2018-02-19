@@ -52,7 +52,12 @@ const NewGame = {
         const scroll = Hud.showBackground();
         wade.setLayerTransform(10, 0, 0);
 
-        AiGamePlay.constructBuilding("Barracks", 17, 17);
+        let AiB = AiGamePlay.constructBuilding("Barracks", 17, 17);
+        let AiU = AiGamePlay.constructUnit("Swordsman", 12, 12);
+        AiGamePlay.unitMove(AiU.getId(), 7, 7);
+        AiU.rep.onMoveComplete = (event) => {
+            AiGamePlay.unitMove(AiU.getId(), 15, 5);
+        }
 
         // Add building button for building units.
         // Set up callbacks for building a unit using the underlying menu.

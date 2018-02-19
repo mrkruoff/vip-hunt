@@ -104,14 +104,18 @@ var AiGamePlay = {
         //Once the sprite is properly moved, update its map location in the state.
         // and clear its old tile
         GamePlay.updateResourceMapLocation(sceneBuilding);
+
+        return b;
     },
     unitMove: (id: number, x:number, z: number) => {
+        console.log(id);
         let state = wade.getSceneObject('global').state;
         let ai = state.getAi();
         let map = state.getMap();
 
+        console.log(ai.getUnits());
         let unitData = _.find(ai.getUnits(), (u) => {
-            u.getId() === id; 
+            return u.getId() === id; 
         });
 
         let unitSceneObject = unitData.rep;
@@ -199,6 +203,10 @@ var AiGamePlay = {
         //Once the sprite is properly moved, update its map location in the state.
         // and clear its old tile
         GamePlay.updateUnitMapLocation(sceneUnit);
+
+        console.log(u);
+
+        return u;
     }
 
 
