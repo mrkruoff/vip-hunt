@@ -1,11 +1,11 @@
- <?php
+<?php
 ini_set('display_erros', 'On');
- $mysqli=new mysqli("oniddb.cws.oregonstate.edu", "behmerl-db", "kydsTsEbE8LP0z88", "behmerl-db");
- if($mysqli->connect_errno)
- {
- 	echo "Connection error " . $mysqli->connect_errno . " " . $mysqli->connect_error;
+$mysqli=new mysqli("oniddb.cws.oregonstate.edu", "behmerl-db", "kydsTsEbE8LP0z88", "behmerl-db");
+if($mysqli->connect_errno)
+{
+    echo "Connection error " . $mysqli->connect_errno . " " . $mysqli->connect_error;
 
- }
+}
 
 echo "Connection successful";
 
@@ -21,23 +21,23 @@ echo "Connection successful";
 /*this clears the contents of what the user entered*/
 
 function submit_form() {
-document.cred_create.submit();
-document.cred_create.reset(); 
+    document.cred_create.submit();
+    document.cred_create.reset(); 
 }
 
 function required()
 {
-var empt = document.forms["cred_create"]["psw"].value;
-var emptTwo = document.forms["cred_create"]["userid"].value;
-if (empt == "" || emptTwo=="")
-{
-alert("Please input a Value");
-return false;
-}
-else 
-{
-return true; 
-}
+    var empt = document.forms["cred_create"]["psw"].value;
+    var emptTwo = document.forms["cred_create"]["userid"].value;
+    if (empt == "" || emptTwo=="")
+    {
+        alert("Please input a Value");
+        return false;
+    }
+    else 
+    {
+        return true; 
+    }
 }
 
 </script>
