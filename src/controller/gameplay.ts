@@ -595,13 +595,11 @@ const BuildingBuilding = {
             GamePlay.applyCostsToPlayer(costsFile);
             Hud.updateResourcePanel();
 
-            //Add the building's state to the game state
+            //Add the building's state to the game state (i.e., the map and Player);
             building.data.id = Id.getId();
             wade.getSceneObject('global').state.getPlayer().getBuildings().push(building.data);
+            GamePlay.updateBuildingMapLocation(building);
 
-            //Add the building's location to the game state map.
-            const map = wade.getSceneObject('global').state.getMap();
-            map[building.iso.gridCoords.z][building.iso.gridCoords.x].buildingId = building.data.id;
             console.log(wade.getSceneObject('global').state);
             console.log(building);
         };

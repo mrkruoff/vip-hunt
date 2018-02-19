@@ -52,8 +52,9 @@ var AiGamePlay = {
         //Give it an id.
         b.id = Id.getId();
 
-        //Put it on the map.
+        //Put it on the map and in the AI's state.
         map[z][x].buildingId = b.getId();
+        ai.getBuildings().push(b);
 
         // Use that model to build an associated sprite. 
         // IF THIS FAILS IT WAS BECAUSE OF A COLLISION at 0, 0, which is a BUG.

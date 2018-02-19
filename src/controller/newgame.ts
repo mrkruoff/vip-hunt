@@ -19,6 +19,7 @@ import ImageMap from './image-map';
 import JsonMap from './json-map';
 import Mouse from './mouse';
 import SceneObjectConstruction from './scene-object-construction';
+import AiGamePlay from './ai-gameplay';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -50,6 +51,8 @@ const NewGame = {
         //Add background on a fixed layer 10
         const scroll = Hud.showBackground();
         wade.setLayerTransform(10, 0, 0);
+
+        AiGamePlay.constructBuilding("Barracks", 17, 17);
 
         // Add building button for building units.
         // Set up callbacks for building a unit using the underlying menu.
