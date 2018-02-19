@@ -34,6 +34,8 @@ declare var TilemapCharacter: any;
 const NewGame = {
     // Initializes a new game
     initialize: () => {
+        wade.setMinScreenSize(20, 20);
+        wade.setMaxScreenSize(1280, 800)
 
         //Set up global settings and sync with scene.
         const global = Global.createGlobalSettings();
