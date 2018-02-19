@@ -46,6 +46,7 @@ const Construction = {
         // Attach a new instance to sprite.
         // This new instance will have to be added to the global object as well.
         barracks.data = Barracks.fromObject(wade.getJson(dataJsonFile));
+        barracks.data.rep = barracks;
 
         return barracks;
 
@@ -61,6 +62,7 @@ const Construction = {
     stables: (imageJsonFile: string, dataJsonFile: string) => {
         const stables = SceneObjectConstruction.stables(imageJsonFile);
         stables.data = Stables.fromObject(wade.getJson(dataJsonFile));
+        stables.data.rep = stables;
 
         return stables;
 
@@ -76,6 +78,7 @@ const Construction = {
     towers: (imageJsonFile: string, dataJsonFile: string) => {
         const tower = SceneObjectConstruction.towers(imageJsonFile);
         tower.data = Tower.fromObject(wade.getJson(dataJsonFile));
+        tower.data.rep = tower;
 
         return tower;
 
@@ -91,6 +94,7 @@ const Construction = {
     vip: (imageJsonFile: string, dataJsonFile: string) => {
         const v = SceneObjectConstruction.vip(imageJsonFile);
         v.data = v.fromObject(wade.getJson(dataJsonFile));
+        v.data.rep = v;
 
         return v;
 
@@ -106,6 +110,7 @@ const Construction = {
     townHalls: (imageJsonFile: string, dataJsonFile: string) => {
         const townHall = SceneObjectConstruction.townHalls(imageJsonFile);
         townHall.data = TownHall.fromObject(wade.getJson(dataJsonFile));
+        townHall.data.rep = townHall;
 
         return townHall;
 
@@ -121,6 +126,7 @@ const Construction = {
     swordsman: (imageJsonFile: string, dataJsonFile: string) => {
         const swordsman = SceneObjectConstruction.swordsman(imageJsonFile);
         swordsman.data = Swordsman.fromObject(wade.getJson(dataJsonFile));
+        swordsman.data.rep = swordsman;
 
         return swordsman;
     },
@@ -135,6 +141,7 @@ const Construction = {
     archer: (imageJsonFile: string, dataJsonFile: string) => {
         const archer = SceneObjectConstruction.archer(imageJsonFile);
         archer.data = Archer.fromObject(wade.getJson(dataJsonFile));
+        archer.data.rep = archer;
 
         return archer;
     },
@@ -149,6 +156,7 @@ const Construction = {
     archerCalvary: (imageJsonFile: string, dataJsonFile: string) => {
         const archerCalvary = SceneObjectConstruction.archerCalvary(imageJsonFile);
         archerCalvary.data = ArcherCalvary.fromObject(wade.getJson(dataJsonFile));
+        archerCalvary.data.rep = archerCalvary;
 
         return archerCalvary;
     },
@@ -163,6 +171,7 @@ const Construction = {
     spearCalvary: (imageJsonFile: string, dataJsonFile: string) => {
         const spearCalvary = SceneObjectConstruction.spearCalvary(imageJsonFile);
         spearCalvary.data = SpearCalvary.fromObject(wade.getJson(dataJsonFile));
+        spearCalvary.data.rep = spearCalvary;
 
         return spearCalvary;
     },
@@ -177,6 +186,7 @@ const Construction = {
     gatherer: (imageJsonFile: string, dataJsonFile: string) => {
         const gatherer = SceneObjectConstruction.gatherer(imageJsonFile);
         gatherer.data = Gatherer.fromObject(wade.getJson(dataJsonFile));
+        gatherer.data.rep = gatherer;
 
         return gatherer;
     },
@@ -191,6 +201,7 @@ const Construction = {
     drummerBoy: (imageJsonFile: string, dataJsonFile: string) => {
         const drummerBoy = SceneObjectConstruction.drummerBoy(imageJsonFile);
         drummerBoy.data = DrummerBoy.fromObject(wade.getJson(dataJsonFile));
+        drummerBoy.data.rep = drummerBoy;
 
         return drummerBoy;
     },

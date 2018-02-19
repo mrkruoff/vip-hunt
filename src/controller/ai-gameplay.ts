@@ -56,7 +56,7 @@ var AiGamePlay = {
         map[z][x].buildingId = b.getId();
 
         // Use that model to build an associated sprite. 
-        // IF THIS FAILS IT WAS BECAUSE OF A COLLISION
+        // IF THIS FAILS IT WAS BECAUSE OF A COLLISION at 0, 0, which is a BUG.
         let sceneBuilding = BuildingBuilding.constructBuildingFromModel(b);
         //Save the location it should be at, in case it changes.
         sceneBuilding.oldX = x;
@@ -96,6 +96,13 @@ var AiGamePlay = {
         // and clear its old tile
         GamePlay.updateResourceMapLocation(sceneBuilding);
     },
+    moveUnit: (id: number, x:number, y: number) => {
+    
+    
+    },
+    constructUnit: (className: string, x: number, y: number) => {
+    
+    }
 
 
 }
