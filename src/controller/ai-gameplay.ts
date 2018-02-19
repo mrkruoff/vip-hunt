@@ -38,6 +38,16 @@ declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
 var AiGamePlay = {
+    // This function constructs a Building GameObject and returns its
+    // data portion to the caller.
+    //
+    // If the desired tile is already occupied, the function will
+    // search for a nearby available tile to construct the building on.
+    //
+    // parameters:
+    //  className: the class of Building to construct.
+    //  x: the x-coordinate to construct it on.
+    //  z: the z-coordinate to construct it on.
     constructBuilding: (className: string, x: number, z: number) => {
         let state = wade.getSceneObject('global').state;
         let ai: AiGameState = state.getAi();
@@ -80,6 +90,7 @@ var AiGamePlay = {
         let wasMoved = false;
         let sideLength = map[0].length;
         while(!wasMoved) {  
+            wasMoved = wade.iso.moveObjectToTile(sceneBuilding, x, z);
             //Randomly shift x and z until it is placed properly.
             let changeX = Math.floor(Math.random() * 2);
             let shouldIncrease = Math.floor(Math.random() * 3); //more likely to increase
@@ -99,7 +110,6 @@ var AiGamePlay = {
                 }
             }
 
-            wasMoved = wade.iso.moveObjectToTile(sceneBuilding, x, z);
         }
         //Once the sprite is properly moved, update its map location in the state.
         // and clear its old tile
@@ -107,6 +117,13 @@ var AiGamePlay = {
 
         return b;
     },
+    // This function moves a unit with the given id as close to the 
+    // specified target coordinates as possible.
+    //
+    // parameters: 
+    //  @ id: the id of an existing AI unit.
+    //  @ x: the x-coordinate of the tile to move to.
+    //  @ y: the y-coordinate of the tile to move to.
     unitMove: (id: number, x:number, z: number) => {
         console.log(id);
         let state = wade.getSceneObject('global').state;
@@ -132,6 +149,16 @@ var AiGamePlay = {
         GamePlay.move(unitSceneObject);
     
     },
+    // This function constructs a Unit GameObject and returns its
+    // data portion to the caller.
+    //
+    // If the desired tile is already occupied, the function will
+    // search for a nearby available tile to construct the unit on.
+    //
+    // parameters:
+    //  className: the class of Unit to construct.
+    //  x: the x-coordinate to construct it on.
+    //  z: the z-coordinate to construct it on.
     constructUnit: (className: string, x: number, z: number) => {
         let state = wade.getSceneObject('global').state; 
         let ai: AiGameState = state.getAi();
@@ -178,6 +205,7 @@ var AiGamePlay = {
         let wasMoved = false;
         let sideLength = map[0].length;
         while(!wasMoved) {  
+            wasMoved = wade.iso.moveObjectToTile(sceneUnit, x, z);
             //Randomly shift x and z until it is placed properly.
             let changeX = Math.floor(Math.random() * 2);
             let shouldIncrease = Math.floor(Math.random() * 3); //more likely to increase
@@ -196,8 +224,6 @@ var AiGamePlay = {
                     z += sideLength; 
                 }
             }
-
-            wasMoved = wade.iso.moveObjectToTile(sceneUnit, x, z);
         }
         
         //Once the sprite is properly moved, update its map location in the state.
