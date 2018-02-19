@@ -57,7 +57,7 @@ var AiGamePlay = {
 
         // Use that model to build an associated sprite. 
         // IF THIS FAILS IT WAS BECAUSE OF A COLLISION
-        let sceneBuilding = GamePlay.constructBuildingFromModel(b);
+        let sceneBuilding = BuildingBuilding.constructBuildingFromModel(b);
         //Save the location it should be at, in case it changes.
         sceneBuilding.oldX = x;
         sceneBuilding.oldZ = z;
