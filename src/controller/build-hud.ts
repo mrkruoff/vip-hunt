@@ -126,7 +126,7 @@ const BuildHud = {
         building.setPosition((-1 * wade.getScreenWidth() / 2) + 100, (wade.getScreenHeight() / 2) - 100);
         wade.addSceneObject(building);
         building.setName(Names.buildingIcon);
-        building.setAlignment('right', 'bottom');
+        building.setAlignment('left', 'bottom');
 
         return building;
     },
@@ -145,28 +145,28 @@ const BuildHud = {
         const barracks = BuildHud.buildIcon(ImageMap.barracks_1, buttonWidth, buttonHeight,
                 x, y, layer);
         barracks.setName(Names.barracksIcon);
-        barracks.setAlignment('right', 'bottom');
+        barracks.setAlignment('left', 'bottom');
 
         x = (-1 * wade.getScreenWidth() / 2) + 200;
         y = (wade.getScreenHeight() / 2) - 100;
         const stables = BuildHud.buildIcon(ImageMap.stables_1, buttonWidth, buttonHeight,
                 x, y, layer);
         stables.setName(Names.stablesIcon);
-        stables.setAlignment('right', 'bottom');
+        stables.setAlignment('left', 'bottom');
 
         x = (-1 * wade.getScreenWidth() / 2) + 200;
         y = (wade.getScreenHeight() / 2) - 200;
         const towers = BuildHud.buildIcon(ImageMap.towers_1, buttonWidth, buttonHeight,
                 x, y, layer);
         towers.setName(Names.towersIcon);
-        towers.setAlignment('right', 'bottom');
+        towers.setAlignment('left', 'bottom');
 
         x = (-1 * wade.getScreenWidth() / 2) + 100;
         y = (wade.getScreenHeight() / 2) - 200;
         const townHalls = BuildHud.buildIcon(ImageMap.town_halls_1, buttonWidth,
                 buttonHeight, x, y, layer);
         townHalls.setName(Names.townHallsIcon);
-        townHalls.setAlignment('right', 'bottom');
+        townHalls.setAlignment('left', 'bottom');
 
         return [barracks, stables, towers, townHalls];
     },
