@@ -101,7 +101,6 @@ const Camera = {
         const destination = wade.getCameraPosition();
         destination.z -= 0.1;
         wade.moveCamera(destination, wade.getSceneObject('global').zoomSpeed);
-        wade.getSceneObject('global').cameraIsMoving = true;
     },
     // This function causes the camera to zoom OUT just a little.
     // It sets the GLOBAL cameraIsMoving property to show that the camera is moving.
@@ -109,7 +108,6 @@ const Camera = {
         const destination = wade.getCameraPosition();
         destination.z += 0.1;
         wade.moveCamera(destination, wade.getSceneObject('global').zoomSpeed);
-        wade.getSceneObject('global').cameraIsMoving = true;
     },
     // This function stops the camera from moving, if it was moving
     stop: () => {
@@ -132,11 +130,11 @@ const Camera = {
     // of the edges of the screen.
     //
     // parameters:
-    //  @ event: An event object that is created when the
-    //      mouse moves during the game.
-    mouseMove: (event) => {
-        const x = event.screenPosition.x;
-        const y = event.screenPosition.y;
+    //  @ screenPosition: the screenPosition the mouse was moving at;
+    //      Has x and y properties.
+    mouseMove: (screenPosition) => {
+        const x = screenPosition.x;
+        const y = screenPosition.y;
 
         const rightLimit = wade.getScreenWidth() / 2;
         const rightDiff = Math.abs(x - rightLimit);
@@ -153,26 +151,28 @@ const Camera = {
         const edgeTol = 20;
         const cornerTol = 40;
 
-        //There are bugs here. What if player uses keys to move camera
-        // at same time?
-        if (topDiff < cornerTol && leftDiff < cornerTol) {
-            Camera.moveToNW();
-        } else if (topDiff < cornerTol && rightDiff < cornerTol) {
-            Camera.moveToNE();
-        } else if (bottomDiff < cornerTol && rightDiff < cornerTol) {
-            Camera.moveToSE();
-        } else if (bottomDiff < cornerTol && leftDiff < cornerTol) {
-            Camera.moveToSW();
-        } else if (topDiff < edgeTol) {
-            Camera.moveToTop();
-        } else if (bottomDiff < edgeTol) {
-            Camera.moveToBottom();
-        } else if (leftDiff < edgeTol) {
-            Camera.moveToLeft();
-        } else if (rightDiff < edgeTol) {
-            Camera.moveToRight();
-        } else if (Camera.isMoving()) {
-            Camera.stop();
+        // Only allow the mouse to affect the camera if the keys aren't
+        // moving the camera.
+        if ( Camera.noKeysPressed() ) {
+            if (topDiff < cornerTol && leftDiff < cornerTol) {
+                Camera.moveToNW();
+            } else if (topDiff < cornerTol && rightDiff < cornerTol) {
+                Camera.moveToNE();
+            } else if (bottomDiff < cornerTol && rightDiff < cornerTol) {
+                Camera.moveToSE();
+            } else if (bottomDiff < cornerTol && leftDiff < cornerTol) {
+                Camera.moveToSW();
+            } else if (topDiff < edgeTol) {
+                Camera.moveToTop();
+            } else if (bottomDiff < edgeTol) {
+                Camera.moveToBottom();
+            } else if (leftDiff < edgeTol) {
+                Camera.moveToLeft();
+            } else if (rightDiff < edgeTol) {
+                Camera.moveToRight();
+            } else if (Camera.isMoving()) {
+                Camera.stop();
+            }
         }
 
     },
@@ -192,6 +192,12 @@ const Camera = {
             return;
         }
 
+        // Attempt to take control away from the mouse camera movement. Will this work?
+        if (Camera.isMoving() ) {
+            Camera.stop();
+        }
+        
+        // Move the camera according to the currently pressed keys
         // Could consider replacing all this with checks to see if any two pairs of keys
         // are currently down. Not sure if it would work though.
         if (keyCode === Keys.up() ) {

@@ -32,7 +32,7 @@ const Events = {
         };
 
         wade.app.onMouseMove = function(event) {
-            Camera.mouseMove(event);
+            Camera.mouseMove(event.screenPosition);
         };
 
         wade.app.onMouseWheel = function(event) {
