@@ -506,6 +506,24 @@ const GamePlay = {
         //update new location.
         map[sceneObject.iso.gridCoords.z][sceneObject.iso.gridCoords.x].resourceId = sceneObject.data.getId();
     },
+    enoughPlayerResources: (costsFile: string): boolean => {
+        let player: PlayerGameState = wade.getSceneObject('global').state.getPlayer();
+
+        //Check that each resource in the costs file is greater than the player's actual cost.
+        let costs = wade.getJson(costsFile);
+        let enough = true;
+        if(_.has(costs, 'stone')) {
+            enough = (player.stone >= costs.stone) && enough;
+        }
+        if(_.has(costs, 'wood')) {
+            enough = (player.wood >= costs.wood) && enough;
+        }
+        if(_.has(costs, 'food')) {
+            enough = (player.food >= costs.food) && enough;
+        }
+
+        return enough;
+    },
 };
 
 const BuildingBuilding = {
@@ -587,21 +605,30 @@ const BuildingBuilding = {
             //Remove this very event listener
             wade.app.onIsoTerrainMouseDown = null;
 
-            // Set the new building up for gameplay callbacks
-            building.onMouseDown = GamePlay.onSelectBuilding(building, displayFn);
-            wade.addEventListener(building, 'onMouseDown');
+            if( GamePlay.enoughPlayerResources(costFile)) {
+                // Set the new building up for gameplay callbacks
+                building.onMouseDown = GamePlay.onSelectBuilding(building, displayFn);
+                wade.addEventListener(building, 'onMouseDown');
 
-            // apply the cost of the building to the state.
-            GamePlay.applyCostsToPlayer(costsFile);
-            Hud.updateResourcePanel();
+                // apply the cost of the building to the state.
+                GamePlay.applyCostsToPlayer(costsFile);
+                Hud.updateResourcePanel();
 
-            //Add the building's state to the game state (i.e., the map and Player);
-            building.data.id = Id.getId();
-            wade.getSceneObject('global').state.getPlayer().getBuildings().push(building.data);
-            GamePlay.updateBuildingMapLocation(building);
+                //Add the building's state to the game state (i.e., the map and Player);
+                building.data.id = Id.getId();
+                wade.getSceneObject('global').state.getPlayer().getBuildings().push(building.data);
+                GamePlay.updateBuildingMapLocation(building);
 
-            console.log(wade.getSceneObject('global').state);
-            console.log(building);
+                console.log(wade.getSceneObject('global').state);
+                console.log(building);
+            { else {
+                // Remove the building from existence and display an error message to player
+                building.data.rep = null; // remove circular reference
+                delete building.data;
+                wade.iso.deleteObject(building); //remove object from game
+
+                Hud.showResourceError();
+            }
         };
     },
     // This function takes a Building and returns the correct
@@ -707,22 +734,31 @@ const UnitBuilding = {
             //Remove this very event listener from the global scope
             wade.app.onIsoTerrainMouseDown = null;
 
-            //Set up the newly constructed unit for gameplay
-            unit.onMouseDown = GamePlay.onSelectUnit(unit);
-            wade.addEventListener(unit, 'onMouseDown');
+            if(GamePlay.enoughPlayerResources(costFile) ) {
+                //Set up the newly constructed unit for gameplay
+                unit.onMouseDown = GamePlay.onSelectUnit(unit);
+                wade.addEventListener(unit, 'onMouseDown');
 
-            //apply the cost of the unit to the state.
-            GamePlay.applyCostsToPlayer(costsFile);
-            Hud.updateResourcePanel();
+                //apply the cost of the unit to the state.
+                GamePlay.applyCostsToPlayer(costsFile);
+                Hud.updateResourcePanel();
 
-            //Add the unit's state to the game state.
-            unit.data.id = Id.getId();
-            wade.getSceneObject('global').state.getPlayer().getUnits().push(unit.data);
+                //Add the unit's state to the game state.
+                unit.data.id = Id.getId();
+                wade.getSceneObject('global').state.getPlayer().getUnits().push(unit.data);
 
-            //Add the unit's location to the game state map.
-            GamePlay.updateUnitMapLocation(unit);
-            console.log(wade.getSceneObject('global').state);
-            console.log(unit);
+                //Add the unit's location to the game state map.
+                GamePlay.updateUnitMapLocation(unit);
+                console.log(wade.getSceneObject('global').state);
+                console.log(unit);
+            } else {
+                // Remove the unit from the game.
+
+                //Get rid of circular reference and then delete the SceneObject
+                unit.data.rep = null;
+                delete unit.data;
+                wade.iso.deleteObject(unit);
+            }
         };
     },
     // This function takes a Unit and returns the correct
