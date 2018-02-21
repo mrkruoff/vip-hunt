@@ -184,16 +184,48 @@ const Camera = {
     // in a separate file?
     //
     // parameters:
-    //  @ event: generated in the game when a key is pressed down.
-    keyDown: (event) => {
-        if (event.keyCode === Keys.up() ) {
-            Camera.moveToTop();
-        } else if (event.keyCode === Keys.down() ) {
-            Camera.moveToBottom();
-        } else if (event.keyCode === Keys.left() ) {
-            Camera.moveToLeft();
-        } else if (event.keyCode === Keys.right() ) {
-            Camera.moveToRight();
+    //  @ keyCode: the code of a key that the player pressed down
+    keyDown: (keyCode: number) => {
+        // Stop moving the camera if any opposing movement keys are pressed.
+        if(Camera.opposingKeysPressed() ) {
+            Camera.stop();
+            return;
+        }
+
+        // Could consider replacing all this with checks to see if any two pairs of keys
+        // are currently down. Not sure if it would work though.
+        if (keyCode === Keys.up() ) {
+            if(wade.isKeyDown(Keys.left() ) ) {
+                Camera.moveToNW();
+            } else if ( wade.isKeyDown(Keys.right() ) ) {
+                Camera.moveToNE();
+            } else {
+                Camera.moveToTop();
+            }
+        } else if (keyCode === Keys.down() ) {
+            if(wade.isKeyDown(Keys.left() ) ) {
+                Camera.moveToSW();
+            } else if (wade.isKeyDown(Keys.right() ) ) {
+                Camera.moveToSE();
+            } else {
+                Camera.moveToBottom();
+            }
+        } else if (keyCode === Keys.left() ) {
+            if(wade.isKeyDown(Keys.up()) {
+                Camera.moveToNW();
+            } else if (wade.isKeyDown(Keys.down()) ) {
+                Camera.moveToSW(); 
+            } else {
+                Camera.moveToLeft();
+            }
+        } else if (keyCode === Keys.right() ) {
+            if(wade.isKeyDown(Keys.up()) {
+                Camera.moveToNE();
+            } else if (wade.isKeyDown(Keys.down()) ) {
+                Camera.moveToSE(); 
+            } else {
+                Camera.moveToRight();
+            }
         }
     },
     // This function is a callback that sets the events for when keys
@@ -203,20 +235,47 @@ const Camera = {
     // Perhaps this belongs in a KeyShortcuts module
     // in a separate file?
     //
-    // parameters:
-    //  @ event: generated in the game when a key is released.
-    keyUp: (event) => {
-        //Once player lets go, stop the camera from moving
-        if (event.keyCode === Keys.up() ) {
+    keyUp: () => {
+        // If no camera keys are pressed, stop all movement of camera.
+        if ( Camera.noKeysPressed() ) {
             Camera.stop();
-        } else if (event.keyCode === Keys.down() ) {
+            return;
+        }
+        if (Camera.opposingKeysPressed() ) {
             Camera.stop();
-        } else if (event.keyCode === Keys.left() ) {
-            Camera.stop();
-        } else if (event.keyCode === Keys.right() ) {
+            return;
+        }
+
+        // If there are still some Camera keys pressed, then we must continue
+        // moving in that specified direction
+        if( wade.isKeyDown(Keys.up() ) {
+            Camera.moveToTop();
+        } else if (wade.isKeyDown(Keys.down() ) {
+            Camera.moveToBottom(); 
+        } else if (wade.isKeyDown(Keys.left() ) {
+            Camera.moveToLeft();
+        } else if (wade.isKeyDown(Keys.right() ) {
+            Camera.moveToRight();
+        } else {
+            // If none of the Camera keys are pressed, stop moving
             Camera.stop();
         }
+        
     },
+    opposingKeysPressed: (): boolean => {
+        if(wade.isKeyDown(Keys.left()) && wade.isKeyDown(Keys.right() ) {
+            return true;
+        }
+        if(wade.isKeyDown(Keys.up()) && wade.isKeyDown(Keys.down() ) {
+            return true;
+        }
+    },
+    noKeysPressed: (): boolean => {
+        return !wade.isKeyDown(Keys.up() ) &&
+                !wade.isKeyDown(Keys.down() ) &&
+                !wade.isKeyDown(Keys.left() ) &&
+                !wade.isKeyDown(Keys.right() );
+    }
 };
 
 export default Camera;

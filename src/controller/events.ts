@@ -24,11 +24,11 @@ const Events = {
     // to Mouse and Keyboard input
     addCamera: () => {
         wade.app.onKeyDown = function(event) {
-            Camera.keyDown(event);
+            Camera.keyDown(event.keyCode);
         };
 
         wade.app.onKeyUp = function(event) {
-            Camera.keyUp(event);
+            Camera.keyUp();
         };
 
         wade.app.onMouseMove = function(event) {
