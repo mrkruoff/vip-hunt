@@ -23,7 +23,15 @@ declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
 const Hud = {
-
+    clearMenuPanel: () => {
+        const global = wade.getSceneObject('global'); 
+        if (global.hud.menu) {
+            wade.getSceneObject(Names.menu_background).setVisible(false); 
+            wade.getSceneObject(Names.menu_save).setVisible(false);
+            wade.getSceneObject(Names.menu_resume).setVisible(false);
+            wade.getSceneObject(Names.menu_quit).setVisible(false);
+        }
+    },
     // This function clears the Buildings Panel, which contains
     // the possible buildings a player can build.
     clearBuildingsPanel: () => {
@@ -41,6 +49,7 @@ const Hud = {
         const global = wade.getSceneObject('global');
         if (global.hud.main) {
             wade.getSceneObject(Names.buildingIcon).setVisible(false);
+            wade.getSceneObject(Names.menuIcon).setVisible(false);
         }
     },
     // This function clears the Barracks Panel, which cotntains
@@ -50,7 +59,6 @@ const Hud = {
         if (global.hud.barracks) {
             wade.getSceneObject(Names.swordsmanIcon).setVisible(false);
         }
-
     },
     // This function clears the Resource panel, which shows the amount
     // of Wood, Stone, and Food a player currently has.
@@ -107,11 +115,66 @@ const Hud = {
         const global = wade.getSceneObject('global');
         if (global.hud.main) {
             wade.getSceneObject(Names.buildingIcon).setVisible(true);
+            wade.getSceneObject(Names.menuIcon).setVisible(true);
         } else {
             global.hud.main = BuildHud.mainPanel(9);
+            let menu = global.hud.main[1];
+            menu.onMouseIn = (event) => {
+                menu.getSprite(0).setFont("20px Verdana"); 
+            }
+            wade.addEventListener(menu, 'onMouseIn');
+
+            menu.onMouseOut = (event) => {
+                menu.getSprite(0).setFont("16px Verdana"); 
+            }
+            wade.addEventListener(menu, 'onMouseOut');
+
+            // Set up menu button click event: pause and show menu
+            menu.onClick = (event) => {
+                menu.getSprite(0).setFont("16px Verdana");
+                wade.pauseSimulation(null); 
+                Hud.clearMainPanel();
+                Hud.showMenuPanel();
+            }
+            wade.addEventListener(menu, 'onClick');
         }
 
         return global.hud.main;
+    },
+    showMenuPanel: () => {
+        const global = wade.getSceneObject('global'); 
+        if(global.hud.menu) {
+            wade.getSceneObject(Names.menu_background).setVisible(true); 
+            wade.getSceneObject(Names.menu_save).setVisible(true);
+            wade.getSceneObject(Names.menu_resume).setVisible(true);
+            wade.getSceneObject(Names.menu_quit).setVisible(true);
+        } else {
+            global.hud.menu = BuildHud.menuPanel(9); 
+            let save = global.hud.menu[0];
+
+            let resume = global.hud.menu[1];
+            resume.onMouseIn = (event) => {
+                resume.getSprite(0).setFont("20px Verdana"); 
+            }
+            wade.addEventListener(resume, 'onMouseIn');
+            resume.onMouseOut = (event) => {
+                resume.getSprite(0).setFont("16px Verdana"); 
+            }
+            wade.addEventListener(resume, 'onMouseOut');
+            resume.onClick = (event) => {
+                resume.getSprite(0).setFont("16px Verdana");
+                wade.resumeSimulation(null); 
+                Hud.showMainPanel();
+                Hud.clearMenuPanel();
+            }
+            wade.addEventListener(resume, 'onClick');
+
+            let quit = global.hud.menu[2];
+
+            let background = BuildHud.menuBackground(10);
+            global.hud.menu.push(background);
+        }
+    
     },
     // This function shows and returns a reference to the Barracks Panel SceneObjects.
     //

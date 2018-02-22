@@ -128,7 +128,35 @@ const BuildHud = {
         building.setName(Names.buildingIcon);
         building.setAlignment('left', 'bottom');
 
-        return building;
+        // Add Pause-Menu icon to screen.
+        let x = (-1 * wade.getScreenWidth() / 2) + 200;
+        let y = (wade.getScreenHeight() / 2) - 100;
+        const menu = BuildHud.buildText("Menu", "16px Verdana", "black", "center",
+                                x, y, layer);
+        menu.setName(Names.menuIcon);
+        
+        return [building, menu];
+    },
+    menuPanel: (layer: number) => {
+        let font = "16px Verdana";
+        let color = "black";
+        let alignment = 'center';
+
+        let save = BuildHud.buildText("Save", font, color, alignment, 0, -125, layer);
+        save.setName(Names.menu_save);
+        let resume = BuildHud.buildText("Resume", font, color, alignment, 0, -25, layer);
+        resume.setName(Names.menu_resume);
+        let quit = BuildHud.buildText("Quit", font, color, alignment, 0, 75, layer);
+        quit.setName(Names.menu_quit);
+
+        return [save, resume, quit];
+    
+    },
+    menuBackground: (layer: number) => {
+        const scroll = BuildHud.buildIcon(ImageMap.scroll, 200, 500, 0, 0, layer);
+        scroll.setName(Names.menu_background);
+
+        return scroll;
     },
     // This function builds the buildings Panel, consisting of the possible buildings that
     // the player can build in the game. Currently this consists of a barracks, stables,

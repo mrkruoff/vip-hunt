@@ -78,8 +78,8 @@ const NewGame = {
 
         // Add building button for building units.
         // Set up callbacks for building a unit using the underlying menu.
-        const building = Hud.showMainPanel();
-        building.onClick = function(event) {
+        const main = Hud.showMainPanel();
+        main[0].onClick = function(event) {
             //Make the clicked building disappear
             Hud.clearMainPanel();
 
@@ -97,7 +97,7 @@ const NewGame = {
             //Process each icon to have correct events
             _.forEach(options, setOnClickToBuild);
         };
-        wade.addEventListener(building, 'onClick');
+        wade.addEventListener(main[0], 'onClick');
     },
 };
 
