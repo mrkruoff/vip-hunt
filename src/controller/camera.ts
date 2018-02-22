@@ -21,7 +21,7 @@ const Camera = {
     // This function sets the bounds for the camera to ensure the
     // player can't move it to the 'infinte darkness' portion of the world.
     setBounds: () => {
-        wade.setCameraBounds(-1500, 1500, -1500, 1500, 3, 10);
+        wade.setCameraBounds(-1500, 1500, -1500, 10, 3, 10);
     },
     // This function moves the camera as far to the top as it can go.
     // it sets the GLOBAL cameraIsMoving property to show that the camera is moving.

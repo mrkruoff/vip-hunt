@@ -197,6 +197,24 @@ const BuildHud = {
         scroll.setRotation(1.5708);
         scroll.setName(Names.hudBackground);
         scroll.setAlignment('right', 'bottom');
+
+        // The background should prevent propagation of all MOUSE events to the map 
+        // beneath it.
+        // HOWEVER, allow onMouseMove so that mouse can control camera near 
+        // bottom of the screen
+        scroll.onClick = prevent_propagation;
+        wade.addEventListener(scroll, 'onClick');
+        scroll.onMouseDown = prevent_propagation;
+        wade.addEventListener(scroll, 'onMouseDown');
+        scroll.onMouseUp = prevent_propagation;
+        wade.addEventListener(scroll, 'onMouseUp');
+        scroll.onMouseWheel = prevent_propagation;
+        wade.addEventListener(scroll, 'onMouseWheel');
+        scroll.onMouseIn = prevent_propagation;
+        wade.addEventListener(scroll, 'onMouseIn');
+        scroll.onMouseOut = prevent_propagation;
+        wade.addEventListener(scroll, 'onMouseOut');
+
         return scroll;
 
     },
@@ -227,5 +245,10 @@ const BuildHud = {
     }
 
 };
+
+var prevent_propagation = (event) => {
+    return true;
+
+}
 
 export default BuildHud;
