@@ -65,11 +65,17 @@ function defaultGlobalState() {
                         startingStone, startingWood, startingFood);
 
     console.log(wade.getJson(JsonMap.vip_data));
+    /*
     const aiVIP = VIP.fromObject(wade.getJson(JsonMap.vip_data));
     aiVIP.id = Id.getId();
     const aiTownHall = TownHall.fromObject(wade.getJson(JsonMap.townhall_data));
     aiTownHall.id = Id.getId();
+    */
+    /*
     const aiState = new AiGameState([aiVIP], [aiTownHall],
+                        startingStone, startingWood, startingFood);
+    */
+    const aiState = new AiGameState([], [], 
                         startingStone, startingWood, startingFood);
 
     const wood = Wood.fromObject(wade.getJson(JsonMap.wood_data));
@@ -94,8 +100,10 @@ function defaultGlobalState() {
     //Put the VIP and Townhall on the map
     map[15][15].unitId = playerVIP.id;
     map[1][5].buildingId = playerTownHall.id;
+    /*
     map[5][15].unitId = aiVIP.id;
     map[1][10].buildingId = aiTownHall.id;
+    */
     map[19][16].resourceId = wood.id;
     map[19][8].resourceId = stone.id;
     map[3][4].resourceId = food.id;

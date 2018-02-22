@@ -125,6 +125,7 @@ var AiGamePlay = {
     //  @ x: the x-coordinate of the tile to move to.
     //  @ y: the y-coordinate of the tile to move to.
     unitMove: (id: number, x:number, z: number) => {
+
         console.log(id);
         let state = wade.getSceneObject('global').state;
         let ai = state.getAi();
@@ -135,7 +136,13 @@ var AiGamePlay = {
             return u.getId() === id; 
         });
 
+        // Stop whatever the unit was currently doing and then go to 
+        // the new destination
         let unitSceneObject = unitData.rep;
+        //Clear previous movement actions
+        GamePlay.clearPursue(unitSceneObject);
+        GamePlay.clearGather(unitSceneObject);
+        GamePlay.clearMove(unitSceneObject);
         unitSceneObject.getBehavior('IsoCharacter').clearDestinations();
         if(wade.iso.checkCollisionsAtTile(x, z)) {
             //If something is there, get as close as possible to it.
@@ -147,6 +154,74 @@ var AiGamePlay = {
         }
         //Keep track of the movements in the internal game state.
         GamePlay.move(unitSceneObject);
+    
+    },
+    // This function sends the unit with a given id to the resource 
+    // and gathers from this resource
+    unitGather: (gatherId: number, resourceId: number) => {
+        let state = wade.getSceneObject('global').state;
+        let ai = state.getAi();
+        
+        let gatherData = _.find(ai.getUnits(), (u) => {
+            return u.getId() === gatherId; 
+        });
+        let resourceData = _.find(state.getResources(), (r) => {
+            return r.getId() === resourceId; 
+        });
+
+        // Stop whatever the unit is doing and send it to gather the resource
+        const gatherer = gatherData.rep;
+        const resource = resourceData.rep;
+        //Clear previous movement actions
+        GamePlay.clearPursue(gatherer);
+        GamePlay.clearGather(gatherer);
+        GamePlay.clearMove(gatherer);
+
+        gatherer.getBehavior('IsoCharacter').clearDestinations();
+        gatherer.getBehavior('IsoCharacter').goToObject(resource);
+        GamePlay.move(gatherer);
+
+        gatherer.onObjectReached = GamePlay.gather(gatherer, resource);
+         
+    
+    },
+    // This function sends the unit with the given id to the 
+    // target and attacks the target WHILE following it.
+    unitAttack: (attackId: number, targetId: number) => {
+
+        let state = wade.getSceneObject('global').state;
+        let ai = state.getAi();
+        let player = state.getPlayer();
+
+        let attackData = _.find(ai.getUnits(), (u) => {
+            return u.getId() === attackId; 
+        });
+        let targetData = _.find(player.getUnits(), (u) => {
+            return u.getId() === targetId; 
+        });
+        
+        // If target was not a unit, check if it was a building.
+        if( _.isNull(targetData) ) {
+            targetData = _.find(player.getBuildings(), (b) => {
+                return b.getId() === targetId; 
+            }) ;
+        } 
+
+        // Regardless of whether it is a building or unit, pursue 
+        // and attack it.
+        console.log("attacking!");
+        let attacker = attackData.rep; 
+        let target = targetData.rep;
+        //Clear previous movement actions
+        GamePlay.clearPursue(attacker);
+        GamePlay.clearGather(attacker);
+        GamePlay.clearMove(attacker);
+        attacker.getBehavior('IsoCharacter').clearDestinations();
+
+        GamePlay.attack(attacker, target);
+        
+
+    
     
     },
     // This function constructs a Unit GameObject and returns its

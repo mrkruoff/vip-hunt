@@ -31,9 +31,15 @@ declare var Path: any;
 declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
+async function delay(milliseconds: number) {
+    return new Promise<void>((resolve) => {
+        setTimeout(resolve, milliseconds);
+    });
+}
+
 const NewGame = {
     // Initializes a new game
-    initialize: () => {
+    initialize: async () => {
         wade.setMinScreenSize(20, 20);
         wade.setMaxScreenSize(1280, 800)
 
@@ -58,10 +64,21 @@ const NewGame = {
 
         let AiB = AiGamePlay.constructBuilding("Barracks", 17, 17);
         let AiU = AiGamePlay.constructUnit("Swordsman", 12, 12);
+        let AiVip = AiGamePlay.constructUnit("VIP", 15, 5);
+        let AiTownHall = AiGamePlay.constructBuilding("TownHall", 10, 1 );
         AiGamePlay.unitMove(AiU.getId(), 7, 7);
         AiU.rep.onMoveComplete = (event) => {
             AiGamePlay.unitMove(AiU.getId(), 15, 5);
         }
+
+        // Test the attack and the resource functions
+        let state = wade.getSceneObject('global').state;
+        let playerUnits = state.getPlayer().getUnits();
+        let re = state.getResources();
+        console.log(playerUnits);
+        AiU.rep.onMoveComplete = null;
+        AiGamePlay.unitAttack(AiU.getId(), playerUnits[0].getId());
+        AiGamePlay.unitGather(AiVip.getId(), re[0].getId() );
 
         // Add building button for building units.
         // Set up callbacks for building a unit using the underlying menu.

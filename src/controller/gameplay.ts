@@ -203,6 +203,9 @@ const GamePlay = {
         unit.shouldGather = false;
         unit.onObjectReached = null;
     },
+    clearMove: (unit) => {
+        unit.data.isMoving = false; 
+    },
     // This function tracks an object while it is moving and updates
     // its location on the internal state map with the location on the
     // Visual Map.
@@ -538,6 +541,12 @@ const GamePlay = {
         }
 
         return enough;
+    },
+    clearUnitActions: (unitSceneObject) => {
+        GamePlay.clearPursue(unitSceneObject);
+        GamePlay.clearGather(unitSceneObject);
+        GamePlay.clearMove(unitSceneObject);
+        unitSceneObject.getBehavior('IsoCharacter').clearDestinations();
     },
 };
 
