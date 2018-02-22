@@ -212,6 +212,19 @@ const BuildHud = {
 
         return [amount];
     },
+    resourceError: (layer: number) => {
+        const text = "Not enough resources!";
+        const font = "18px Verdana";
+        const color = 'red';
+        const alignment = 'center';
+        const y = (wade.getScreenHeight() / 2) - 210;
+        const x = (-1 * wade.getScreenHeight() / 2) + 100;
+
+        const error = BuildHud.buildText(text, font, color, alignment, x, y, layer);
+        error.setAlignment('right', 'bottom');
+
+        return [error];
+    }
 
 };
 

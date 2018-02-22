@@ -217,7 +217,7 @@ const Camera = {
                 Camera.moveToBottom();
             }
         } else if (keyCode === Keys.left() ) {
-            if(wade.isKeyDown(Keys.up()) {
+            if(wade.isKeyDown(Keys.up()) ) {
                 Camera.moveToNW();
             } else if (wade.isKeyDown(Keys.down()) ) {
                 Camera.moveToSW(); 
@@ -225,7 +225,7 @@ const Camera = {
                 Camera.moveToLeft();
             }
         } else if (keyCode === Keys.right() ) {
-            if(wade.isKeyDown(Keys.up()) {
+            if(wade.isKeyDown(Keys.up()) ) {
                 Camera.moveToNE();
             } else if (wade.isKeyDown(Keys.down()) ) {
                 Camera.moveToSE(); 
@@ -254,13 +254,13 @@ const Camera = {
 
         // If there are still some Camera keys pressed, then we must continue
         // moving in that specified direction
-        if( wade.isKeyDown(Keys.up() ) {
+        if( wade.isKeyDown(Keys.up() ) ) {
             Camera.moveToTop();
-        } else if (wade.isKeyDown(Keys.down() ) {
+        } else if (wade.isKeyDown(Keys.down() ) ) {
             Camera.moveToBottom(); 
-        } else if (wade.isKeyDown(Keys.left() ) {
+        } else if (wade.isKeyDown(Keys.left() ) ) {
             Camera.moveToLeft();
-        } else if (wade.isKeyDown(Keys.right() ) {
+        } else if (wade.isKeyDown(Keys.right() ) ) {
             Camera.moveToRight();
         } else {
             // If none of the Camera keys are pressed, stop moving
@@ -269,10 +269,10 @@ const Camera = {
         
     },
     opposingKeysPressed: (): boolean => {
-        if(wade.isKeyDown(Keys.left()) && wade.isKeyDown(Keys.right() ) {
+        if(wade.isKeyDown(Keys.left()) && wade.isKeyDown(Keys.right() ) ) {
             return true;
         }
-        if(wade.isKeyDown(Keys.up()) && wade.isKeyDown(Keys.down() ) {
+        if(wade.isKeyDown(Keys.up()) && wade.isKeyDown(Keys.down() ) ) {
             return true;
         }
     },

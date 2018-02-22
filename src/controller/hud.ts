@@ -174,6 +174,24 @@ const Hud = {
         }
         global.hud.stats = BuildHud.resourceStats(resource, 9);
     },
+    showResourceError: () => {
+        const global = wade.getSceneObject('global');
+        if(global.hud.resource_error) {
+            // If global hud is already showing resource error, clear it. 
+            _.forEach(global.hud.resource_error, (icon) => {
+                wade.removeSceneObject(icon); 
+            } )
+            global.hud.resource_error = null;
+        }
+
+        const layer = 8;
+        const seconds = 3;
+        const callback = null;
+        global.hud.resource_error = BuildHud.resourceError(layer);
+
+        //Fade the error out over time.
+        wade.fadeOutLayer(layer, seconds, callback);
+    },
     clearResourceData: () => {
         const global = wade.getSceneObject('global');
         if (global.hud.stats) {
@@ -183,7 +201,6 @@ const Hud = {
             });
             global.hud.stats = null;
         }
-
     },
 
 };

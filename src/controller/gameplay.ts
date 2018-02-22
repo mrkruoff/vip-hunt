@@ -17,6 +17,7 @@ import Mouse from './mouse';
 import Unit from '../model/units/units';
 import Building from '../model/buildings/buildings';
 import SceneObjectConstruction from './scene-object-construction';
+import PlayerGameState from '../model/state/player-game-state';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -605,7 +606,7 @@ const BuildingBuilding = {
             //Remove this very event listener
             wade.app.onIsoTerrainMouseDown = null;
 
-            if( GamePlay.enoughPlayerResources(costFile)) {
+            if( GamePlay.enoughPlayerResources(costsFile)) {
                 // Set the new building up for gameplay callbacks
                 building.onMouseDown = GamePlay.onSelectBuilding(building, displayFn);
                 wade.addEventListener(building, 'onMouseDown');
@@ -621,7 +622,7 @@ const BuildingBuilding = {
 
                 console.log(wade.getSceneObject('global').state);
                 console.log(building);
-            { else {
+            } else {
                 // Remove the building from existence and display an error message to player
                 building.data.rep = null; // remove circular reference
                 delete building.data;
@@ -734,7 +735,7 @@ const UnitBuilding = {
             //Remove this very event listener from the global scope
             wade.app.onIsoTerrainMouseDown = null;
 
-            if(GamePlay.enoughPlayerResources(costFile) ) {
+            if(GamePlay.enoughPlayerResources(costsFile) ) {
                 //Set up the newly constructed unit for gameplay
                 unit.onMouseDown = GamePlay.onSelectUnit(unit);
                 wade.addEventListener(unit, 'onMouseDown');
@@ -758,6 +759,9 @@ const UnitBuilding = {
                 unit.data.rep = null;
                 delete unit.data;
                 wade.iso.deleteObject(unit);
+
+                // Show the player an error.
+                Hud.showResourceError();
             }
         };
     },

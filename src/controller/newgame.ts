@@ -45,6 +45,9 @@ const NewGame = {
         Events.addCamera();
         Camera.setBounds();
 
+        //show errors on a fixed layer 8.
+        wade.setLayerTransform(8, 0, 0);
+
         //Show resources on a fixed Layer 9
         wade.setLayerTransform(9, 0, 0);
         const resources = Hud.showResourcePanel();
