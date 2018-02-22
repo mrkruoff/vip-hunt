@@ -213,10 +213,10 @@ var AiGamePlay = {
         let attacker = attackData.rep; 
         let target = targetData.rep;
         //Clear previous movement actions
+        attacker.getBehavior('IsoCharacter').clearDestinations();
         GamePlay.clearPursue(attacker);
         GamePlay.clearGather(attacker);
         GamePlay.clearMove(attacker);
-        attacker.getBehavior('IsoCharacter').clearDestinations();
 
         GamePlay.attack(attacker, target);
         

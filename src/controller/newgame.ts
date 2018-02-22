@@ -63,22 +63,18 @@ const NewGame = {
         wade.setLayerTransform(10, 0, 0);
 
         let AiB = AiGamePlay.constructBuilding("Barracks", 17, 17);
-        let AiU = AiGamePlay.constructUnit("Swordsman", 12, 12);
+        let AiU = AiGamePlay.constructUnit("Swordsman", 10, 10);
         let AiVip = AiGamePlay.constructUnit("VIP", 15, 5);
         let AiTownHall = AiGamePlay.constructBuilding("TownHall", 10, 1 );
-        AiGamePlay.unitMove(AiU.getId(), 7, 7);
-        AiU.rep.onMoveComplete = (event) => {
-            AiGamePlay.unitMove(AiU.getId(), 15, 5);
-        }
+        AiGamePlay.unitMove(AiVip.getId(), 7, 7);
 
         // Test the attack and the resource functions
         let state = wade.getSceneObject('global').state;
         let playerUnits = state.getPlayer().getUnits();
         let re = state.getResources();
         console.log(playerUnits);
-        AiU.rep.onMoveComplete = null;
         AiGamePlay.unitAttack(AiU.getId(), playerUnits[0].getId());
-        AiGamePlay.unitGather(AiVip.getId(), re[0].getId() );
+        AiGamePlay.unitGather(AiVip.getId(), re[2].getId() );
 
         // Add building button for building units.
         // Set up callbacks for building a unit using the underlying menu.
