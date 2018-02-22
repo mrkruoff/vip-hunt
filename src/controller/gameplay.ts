@@ -209,7 +209,7 @@ const GamePlay = {
     //
     // parameters:
     //  @ unit: The unit SceneObject that is moving
-    async move(unit) {
+    move: async function(unit) {
         //Once the move is complete, there is no more reason to
         // keep tracking the location.
         unit.onMoveComplete = function stopMoving(event) {
@@ -233,6 +233,7 @@ const GamePlay = {
             Hud.clearBarracksPanel();
             Hud.clearBuildingsPanel();
             Hud.clearMainPanel();
+            Hud.clearResourceData();
 
             if (event.button === Mouse.left) {
                 if (GamePlay.getSelected()) {
@@ -265,6 +266,7 @@ const GamePlay = {
             Hud.clearBuildingsPanel();
             Hud.clearMainPanel();
             Hud.clearBarracksPanel();
+            Hud.clearResourceData();
 
             // Left-mouse click counts as selecting the building.
             if (event.button === Mouse.left) {
@@ -323,16 +325,17 @@ const GamePlay = {
     //      'data' property.
     //  @ target: target unit or building SceneObject that contains state in its
     //      'data' property.
-    async attack(attacker, target) {
+    attack: async function(attacker, target) {
         attacker.shouldPursue = true;
+        const targetData = target.data;
 
         // Set the callback: when the attacker reaches the target, do damage.
         attacker.onObjectReached = function doDamage(event) {
             // Deal damage only in intervals.
             // shouldAttack's value will switch based on the loop below
-            if (attacker.shouldAttack && target && target.data) {
-                console.log(target.data.hp);
-                target.data.takeDamage(attacker.data.getAttack());
+            if (attacker.shouldAttack && target && targetData) {
+                console.log(targetData.hp);
+                targetData.takeDamage(attacker.data.getAttack());
             }
         };
 
@@ -349,31 +352,36 @@ const GamePlay = {
             await delay(time);
 
             //Stop pursuing and remove target once it is dead.
-            if (target && target.data.hp <= 0) {
+            if (targetData.hp <= 0) {
                 attacker.shouldAttack = false;
                 attacker.onObjectReached = null;
                 GamePlay.clearPursue(attacker);
-                GamePlay.deleteGameObject(target);
+
+                //Only try to delete them if the delete process hasn't started
+                if(target && targetData) {
+                    GamePlay.deleteGameObject(target);
+                }
             }
 
             //Update the attacking unit's location.
             GamePlay.updateUnitMapLocation(attacker);
         }
     },
-    gather(gatherer, target) {
+    gather: function(gatherer, target) {
         return async function(event) {
             const time = 500;
+            const targetData = target.data;
             gatherer.shouldGather = true;
             while (gatherer.shouldGather) {
-                console.log(target.data.amount);
-                target.data.takeGather(gatherer.data.getGather());
+                console.log(targetData.amount);
+                targetData.takeGather(gatherer.data.getGather());;
                 GamePlay.applyGatherToPlayer(gatherer.data.getGather(),
-                                            target.data.getClassName());
+                                            targetData.getClassName());
                 Hud.updateResourcePanel();
 
                 await delay(time); // wait a bit before gathering again.
 
-                if (target.data.amount <= 0) {
+                if (targetData.amount <= 0) {
                     //Stop the gathering behavior
                     GamePlay.clearGather(gatherer);
                     GamePlay.deleteGameObject(target);
@@ -410,53 +418,59 @@ const GamePlay = {
     // parameters:
     //  @ sceneObject: the sceneObject to be deleted (without memory leaks please)
     deleteGameObject: (sceneObject) => {
-        // Remove data and all references to it from the game state.
-        // That means removing it from the arrays and removing it from
-        // the map of Tiles.
-        const global = wade.getSceneObject('global');
+        try {
+            // Remove data and all references to it from the game state.
+            // That means removing it from the arrays and removing it from
+            // the map of Tiles.
+            const global = wade.getSceneObject('global');
 
-        const id = sceneObject.data.getId();
-        const hasId = (obj: IIdentifiable) => {
-            return _.isEqual(obj.getId(), id);
-        };
+            const id = sceneObject.data.getId();
+            const hasId = (obj: IIdentifiable) => {
+                return _.isEqual(obj.getId(), id);
+            };
 
-        // Remove the unit from its array, whichever one it is.
-        const playerUnits = global.state.getPlayer().getUnits();
-        const playerBuildings = global.state.getPlayer().getBuildings();
-        const aiUnits = global.state.getAi().getUnits();
-        const aiBuildings = global.state.getAi().getBuildings();
-        if (_.some(playerUnits, hasId)) {
-            _.remove(playerUnits, hasId);
-        } else if (_.some(playerBuildings, hasId )) {
-            _.remove(playerBuildings, hasId);
-        } else if (_.some(aiUnits, hasId)) {
-            _.remove(aiUnits, hasId);
-        } else if (_.some(aiBuildings, hasId)) {
-            _.remove(aiBuildings, hasId);
-        }
+            // Remove the unit from its array, whichever one it is.
+            const playerUnits = global.state.getPlayer().getUnits();
+            const playerBuildings = global.state.getPlayer().getBuildings();
+            const aiUnits = global.state.getAi().getUnits();
+            const aiBuildings = global.state.getAi().getBuildings();
+            if (_.some(playerUnits, hasId)) {
+                _.remove(playerUnits, hasId);
+            } else if (_.some(playerBuildings, hasId )) {
+                _.remove(playerBuildings, hasId);
+            } else if (_.some(aiUnits, hasId)) {
+                _.remove(aiUnits, hasId);
+            } else if (_.some(aiBuildings, hasId)) {
+                _.remove(aiBuildings, hasId);
+            }
 
-        // Remove the unit from the data map, whichever tile it now is at, since
-        // this can't be guaranteed to be accurate to the visual map all the time.
-        const map = global.state.getMap();
-        _.forEach(map, (row) => {
-            _.forEach(row, (tile: Tile) => {
-                if (_.isEqual(tile.getUnitId(), id)) {
-                    tile.setUnitId(Tile.EMPTY);
-                }
-                if (_.isEqual(tile.getBuildingId(), id)) {
-                    tile.setBuildingId(Tile.EMPTY);
-                }
-                if (_.isEqual(tile.getResourceId(), id )) {
-                    tile.setResourceId(Tile.EMPTY);
-                }
+            // Remove the unit from the data map, whichever tile it now is at, since
+            // this can't be guaranteed to be accurate to the visual map all the time.
+            const map = global.state.getMap();
+            _.forEach(map, (row) => {
+                _.forEach(row, (tile: Tile) => {
+                    if (_.isEqual(tile.getUnitId(), id)) {
+                        tile.setUnitId(Tile.EMPTY);
+                    }
+                    if (_.isEqual(tile.getBuildingId(), id)) {
+                        tile.setBuildingId(Tile.EMPTY);
+                    }
+                    if (_.isEqual(tile.getResourceId(), id )) {
+                        tile.setResourceId(Tile.EMPTY);
+                    }
+                });
             });
-        });
 
-        //Eleminate the 'data' property, and then delete the SceneObject itself.
-        sceneObject.data.isMoving = false; // end the moving cycle
-        delete sceneObject.data;
-        wade.iso.deleteObject(sceneObject);
-        console.log(global.state);
+            //Eleminate the 'data' property, and then delete the SceneObject itself.
+            sceneObject.data.isMoving = false; // end the moving cycle
+            delete sceneObject.data;
+            wade.iso.deleteObject(sceneObject);
+            console.log(global.state);
+        } 
+        catch(error) {
+            //Do nothing if there's an error. It probably isn't fatal 
+            console.log(error);
+        }
     },
     // This function takes a unit sceneObject and uses its location on the Visual
     // Map to update its location in the State map.

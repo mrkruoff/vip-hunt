@@ -200,16 +200,18 @@ const BuildHud = {
 
         // The background should prevent propagation of all MOUSE events to the map 
         // beneath it.
-        // HOWEVER, allow onMouseMove so that mouse can control camera near 
-        // bottom of the screen
+        // HOWEVER, allow onMouseMove and onMouseWheel so that mouse can control camera near 
+        // bottom of the screen and zooming is still possible.
         scroll.onClick = prevent_propagation;
         wade.addEventListener(scroll, 'onClick');
         scroll.onMouseDown = prevent_propagation;
         wade.addEventListener(scroll, 'onMouseDown');
         scroll.onMouseUp = prevent_propagation;
         wade.addEventListener(scroll, 'onMouseUp');
-        scroll.onMouseWheel = prevent_propagation;
-        wade.addEventListener(scroll, 'onMouseWheel');
+        // scroll.onMouseWheel = prevent_propagation;
+        // wade.addEventListener(scroll, 'onMouseWheel');
+        // scroll.onMouseMove = prevent_propagation;
+        // wade.addEventListener(scroll, 'onMouseMove');
         scroll.onMouseIn = prevent_propagation;
         wade.addEventListener(scroll, 'onMouseIn');
         scroll.onMouseOut = prevent_propagation;
