@@ -103,6 +103,8 @@ function loadImages() {
     wade.loadImage(ImageMap.food);
     wade.loadImage(ImageMap.wood);
     wade.loadImage(ImageMap.stone);
+
+    wade.loadImage("../js/../public/sprites/units/test_spritesheet.png")
 }
 
 function loadSpriteJson() {

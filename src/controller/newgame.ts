@@ -64,6 +64,8 @@ const NewGame = {
 
         let AiB = AiGamePlay.constructBuilding("Barracks", 17, 17);
         let AiU = AiGamePlay.constructUnit("Swordsman", 10, 10);
+        console.log(AiU);
+        AiU.rep.playAnimation('run', 'forward');
         let AiVip = AiGamePlay.constructUnit("VIP", 15, 5);
         let AiTownHall = AiGamePlay.constructBuilding("TownHall", 10, 1 );
         AiGamePlay.unitMove(AiVip.getId(), 7, 7);

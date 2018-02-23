@@ -106,13 +106,20 @@ const SceneObjectConstruction = {
     //  @ imageJsonFile: filepath to the JSON file that will be used
     //      to construct the Swordsman SceneObject
     swordsman: (imageJsonFile: string) => {
+        var run = new Animation("../js/../public/sprites/units/test_spritesheet.png",
+                6, 3, 20, true, 0, 15);
+        var sprite = wade.getJson(imageJsonFile);
         const objectData = {
-            sprites: wade.getJson(imageJsonFile),
+            sprites: sprite,
             gridSize: {x: 1, z: 1},
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
         const swordsman = wade.iso.createObject(objectData);
+
+        swordsman.getSprite(0).addAnimation('run', run);
+        swordsman.getSprite(0).setSize(30, 80);
+
 
         return swordsman;
     },
