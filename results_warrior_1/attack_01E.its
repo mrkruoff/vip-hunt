@@ -1,0 +1,295 @@
+
+{
+    "tiles":
+    [
+        
+        {
+            "name":"heroes_isometric_02_attack_01_0_0175",
+            "type": "isometric object",
+            "texture": "attack_01E.png",
+            "imageArea":
+            {
+                "minX":0.0006485084306095979,
+                "minY":0.00032425421530479895,
+                "maxX":0.3326848249027237,
+                "maxY":0.16634241245136186
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_02_attack_01_0_0176",
+            "type": "isometric object",
+            "texture": "attack_01E.png",
+            "imageArea":
+            {
+                "minX":0.3339818417639429,
+                "minY":0.00032425421530479895,
+                "maxX":0.666018158236057,
+                "maxY":0.16634241245136186
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_02_attack_01_0_0177",
+            "type": "isometric object",
+            "texture": "attack_01E.png",
+            "imageArea":
+            {
+                "minX":0.6673151750972762,
+                "minY":0.00032425421530479895,
+                "maxX":0.9993514915693904,
+                "maxY":0.16634241245136186
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_02_attack_01_0_0178",
+            "type": "isometric object",
+            "texture": "attack_01E.png",
+            "imageArea":
+            {
+                "minX":0.0006485084306095979,
+                "minY":0.16699092088197146,
+                "maxX":0.3326848249027237,
+                "maxY":0.3330090791180285
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_02_attack_01_0_0179",
+            "type": "isometric object",
+            "texture": "attack_01E.png",
+            "imageArea":
+            {
+                "minX":0.3339818417639429,
+                "minY":0.16699092088197146,
+                "maxX":0.666018158236057,
+                "maxY":0.3330090791180285
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_02_attack_01_0_0180",
+            "type": "isometric object",
+            "texture": "attack_01E.png",
+            "imageArea":
+            {
+                "minX":0.6673151750972762,
+                "minY":0.16699092088197146,
+                "maxX":0.9993514915693904,
+                "maxY":0.3330090791180285
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_02_attack_01_0_0181",
+            "type": "isometric object",
+            "texture": "attack_01E.png",
+            "imageArea":
+            {
+                "minX":0.0006485084306095979,
+                "minY":0.3336575875486381,
+                "maxX":0.3326848249027237,
+                "maxY":0.4996757457846952
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_02_attack_01_0_0182",
+            "type": "isometric object",
+            "texture": "attack_01E.png",
+            "imageArea":
+            {
+                "minX":0.3339818417639429,
+                "minY":0.3336575875486381,
+                "maxX":0.666018158236057,
+                "maxY":0.4996757457846952
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_02_attack_01_0_0183",
+            "type": "isometric object",
+            "texture": "attack_01E.png",
+            "imageArea":
+            {
+                "minX":0.6673151750972762,
+                "minY":0.3336575875486381,
+                "maxX":0.9993514915693904,
+                "maxY":0.4996757457846952
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_02_attack_01_0_0184",
+            "type": "isometric object",
+            "texture": "attack_01E.png",
+            "imageArea":
+            {
+                "minX":0.0006485084306095979,
+                "minY":0.5003242542153048,
+                "maxX":0.3326848249027237,
+                "maxY":0.6663424124513618
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_02_attack_01_0_0185",
+            "type": "isometric object",
+            "texture": "attack_01E.png",
+            "imageArea":
+            {
+                "minX":0.3339818417639429,
+                "minY":0.5003242542153048,
+                "maxX":0.666018158236057,
+                "maxY":0.6663424124513618
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_02_attack_01_0_0186",
+            "type": "isometric object",
+            "texture": "attack_01E.png",
+            "imageArea":
+            {
+                "minX":0.6673151750972762,
+                "minY":0.5003242542153048,
+                "maxX":0.9993514915693904,
+                "maxY":0.6663424124513618
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_02_attack_01_0_0187",
+            "type": "isometric object",
+            "texture": "attack_01E.png",
+            "imageArea":
+            {
+                "minX":0.0006485084306095979,
+                "minY":0.6669909208819714,
+                "maxX":0.3326848249027237,
+                "maxY":0.8330090791180285
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_02_attack_01_0_0188",
+            "type": "isometric object",
+            "texture": "attack_01E.png",
+            "imageArea":
+            {
+                "minX":0.3339818417639429,
+                "minY":0.6669909208819714,
+                "maxX":0.666018158236057,
+                "maxY":0.8330090791180285
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_02_attack_01_0_0189",
+            "type": "isometric object",
+            "texture": "attack_01E.png",
+            "imageArea":
+            {
+                "minX":0.6673151750972762,
+                "minY":0.6669909208819714,
+                "maxX":0.9993514915693904,
+                "maxY":0.8330090791180285
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_02_attack_01_0_0190",
+            "type": "isometric object",
+            "texture": "attack_01E.png",
+            "imageArea":
+            {
+                "minX":0.0006485084306095979,
+                "minY":0.8336575875486382,
+                "maxX":0.3326848249027237,
+                "maxY":0.9996757457846952
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }
+        
+    ]
+}
