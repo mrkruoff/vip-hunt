@@ -34,7 +34,7 @@ declare var TilemapCharacter: any;
 //Based on https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-7.html which gives an example of the delay function.
 async function delay(milliseconds: number) {
     return new Promise<void>((resolve) => {
-        setTimeout(resolve, milliseconds);
+        wade.setTimeout(resolve, milliseconds);
     });
 }
 
