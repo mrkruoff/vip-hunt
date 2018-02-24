@@ -1,0 +1,1105 @@
+
+{
+    "tiles":
+    [
+        
+        {
+            "name":"00000",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.00025826446280991736,
+                "minY":0.0010330578512396695,
+                "maxX":0.062241735537190084,
+                "maxY":0.24896694214876033
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00001",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.06275826446280992,
+                "minY":0.0010330578512396695,
+                "maxX":0.12474173553719009,
+                "maxY":0.24896694214876033
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00002",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.1252582644628099,
+                "minY":0.0010330578512396695,
+                "maxX":0.1872417355371901,
+                "maxY":0.24896694214876033
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00003",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.1877582644628099,
+                "minY":0.0010330578512396695,
+                "maxX":0.2497417355371901,
+                "maxY":0.24896694214876033
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00004",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.2502582644628099,
+                "minY":0.0010330578512396695,
+                "maxX":0.3122417355371901,
+                "maxY":0.24896694214876033
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00005",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.3127582644628099,
+                "minY":0.0010330578512396695,
+                "maxX":0.3747417355371901,
+                "maxY":0.24896694214876033
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00006",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.3752582644628099,
+                "minY":0.0010330578512396695,
+                "maxX":0.4372417355371901,
+                "maxY":0.24896694214876033
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00007",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.4377582644628099,
+                "minY":0.0010330578512396695,
+                "maxX":0.4997417355371901,
+                "maxY":0.24896694214876033
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00008",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.50025826446281,
+                "minY":0.0010330578512396695,
+                "maxX":0.5622417355371901,
+                "maxY":0.24896694214876033
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00009",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.56275826446281,
+                "minY":0.0010330578512396695,
+                "maxX":0.6247417355371901,
+                "maxY":0.24896694214876033
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00010",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.62525826446281,
+                "minY":0.0010330578512396695,
+                "maxX":0.6872417355371901,
+                "maxY":0.24896694214876033
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00011",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.68775826446281,
+                "minY":0.0010330578512396695,
+                "maxX":0.7497417355371901,
+                "maxY":0.24896694214876033
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00012",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.75025826446281,
+                "minY":0.0010330578512396695,
+                "maxX":0.8122417355371901,
+                "maxY":0.24896694214876033
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00013",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.81275826446281,
+                "minY":0.0010330578512396695,
+                "maxX":0.8747417355371901,
+                "maxY":0.24896694214876033
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00014",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.87525826446281,
+                "minY":0.0010330578512396695,
+                "maxX":0.9372417355371901,
+                "maxY":0.24896694214876033
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00015",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.93775826446281,
+                "minY":0.0010330578512396695,
+                "maxX":0.9997417355371901,
+                "maxY":0.24896694214876033
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00016",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.00025826446280991736,
+                "minY":0.2510330578512397,
+                "maxX":0.062241735537190084,
+                "maxY":0.49896694214876036
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00017",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.06275826446280992,
+                "minY":0.2510330578512397,
+                "maxX":0.12474173553719009,
+                "maxY":0.49896694214876036
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00018",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.1252582644628099,
+                "minY":0.2510330578512397,
+                "maxX":0.1872417355371901,
+                "maxY":0.49896694214876036
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00019",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.1877582644628099,
+                "minY":0.2510330578512397,
+                "maxX":0.2497417355371901,
+                "maxY":0.49896694214876036
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00020",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.2502582644628099,
+                "minY":0.2510330578512397,
+                "maxX":0.3122417355371901,
+                "maxY":0.49896694214876036
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00021",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.3127582644628099,
+                "minY":0.2510330578512397,
+                "maxX":0.3747417355371901,
+                "maxY":0.49896694214876036
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00022",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.3752582644628099,
+                "minY":0.2510330578512397,
+                "maxX":0.4372417355371901,
+                "maxY":0.49896694214876036
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00023",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.4377582644628099,
+                "minY":0.2510330578512397,
+                "maxX":0.4997417355371901,
+                "maxY":0.49896694214876036
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00024",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.50025826446281,
+                "minY":0.2510330578512397,
+                "maxX":0.5622417355371901,
+                "maxY":0.49896694214876036
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00025",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.56275826446281,
+                "minY":0.2510330578512397,
+                "maxX":0.6247417355371901,
+                "maxY":0.49896694214876036
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00026",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.62525826446281,
+                "minY":0.2510330578512397,
+                "maxX":0.6872417355371901,
+                "maxY":0.49896694214876036
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00027",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.68775826446281,
+                "minY":0.2510330578512397,
+                "maxX":0.7497417355371901,
+                "maxY":0.49896694214876036
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00028",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.75025826446281,
+                "minY":0.2510330578512397,
+                "maxX":0.8122417355371901,
+                "maxY":0.49896694214876036
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00029",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.81275826446281,
+                "minY":0.2510330578512397,
+                "maxX":0.8747417355371901,
+                "maxY":0.49896694214876036
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00030",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.87525826446281,
+                "minY":0.2510330578512397,
+                "maxX":0.9372417355371901,
+                "maxY":0.49896694214876036
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00031",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.93775826446281,
+                "minY":0.2510330578512397,
+                "maxX":0.9997417355371901,
+                "maxY":0.49896694214876036
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00032",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.00025826446280991736,
+                "minY":0.5010330578512396,
+                "maxX":0.062241735537190084,
+                "maxY":0.7489669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00033",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.06275826446280992,
+                "minY":0.5010330578512396,
+                "maxX":0.12474173553719009,
+                "maxY":0.7489669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00034",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.1252582644628099,
+                "minY":0.5010330578512396,
+                "maxX":0.1872417355371901,
+                "maxY":0.7489669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00035",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.1877582644628099,
+                "minY":0.5010330578512396,
+                "maxX":0.2497417355371901,
+                "maxY":0.7489669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00036",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.2502582644628099,
+                "minY":0.5010330578512396,
+                "maxX":0.3122417355371901,
+                "maxY":0.7489669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00037",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.3127582644628099,
+                "minY":0.5010330578512396,
+                "maxX":0.3747417355371901,
+                "maxY":0.7489669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00038",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.3752582644628099,
+                "minY":0.5010330578512396,
+                "maxX":0.4372417355371901,
+                "maxY":0.7489669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00039",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.4377582644628099,
+                "minY":0.5010330578512396,
+                "maxX":0.4997417355371901,
+                "maxY":0.7489669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00040",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.50025826446281,
+                "minY":0.5010330578512396,
+                "maxX":0.5622417355371901,
+                "maxY":0.7489669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00041",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.56275826446281,
+                "minY":0.5010330578512396,
+                "maxX":0.6247417355371901,
+                "maxY":0.7489669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00042",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.62525826446281,
+                "minY":0.5010330578512396,
+                "maxX":0.6872417355371901,
+                "maxY":0.7489669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00043",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.68775826446281,
+                "minY":0.5010330578512396,
+                "maxX":0.7497417355371901,
+                "maxY":0.7489669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00044",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.75025826446281,
+                "minY":0.5010330578512396,
+                "maxX":0.8122417355371901,
+                "maxY":0.7489669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00045",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.81275826446281,
+                "minY":0.5010330578512396,
+                "maxX":0.8747417355371901,
+                "maxY":0.7489669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00046",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.87525826446281,
+                "minY":0.5010330578512396,
+                "maxX":0.9372417355371901,
+                "maxY":0.7489669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00047",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.93775826446281,
+                "minY":0.5010330578512396,
+                "maxX":0.9997417355371901,
+                "maxY":0.7489669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00048",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.00025826446280991736,
+                "minY":0.7510330578512396,
+                "maxX":0.062241735537190084,
+                "maxY":0.9989669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00049",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.06275826446280992,
+                "minY":0.7510330578512396,
+                "maxX":0.12474173553719009,
+                "maxY":0.9989669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00050",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.1252582644628099,
+                "minY":0.7510330578512396,
+                "maxX":0.1872417355371901,
+                "maxY":0.9989669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00051",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.1877582644628099,
+                "minY":0.7510330578512396,
+                "maxX":0.2497417355371901,
+                "maxY":0.9989669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00052",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.2502582644628099,
+                "minY":0.7510330578512396,
+                "maxX":0.3122417355371901,
+                "maxY":0.9989669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00053",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.3127582644628099,
+                "minY":0.7510330578512396,
+                "maxX":0.3747417355371901,
+                "maxY":0.9989669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00054",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.3752582644628099,
+                "minY":0.7510330578512396,
+                "maxX":0.4372417355371901,
+                "maxY":0.9989669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00055",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.4377582644628099,
+                "minY":0.7510330578512396,
+                "maxX":0.4997417355371901,
+                "maxY":0.9989669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00056",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.50025826446281,
+                "minY":0.7510330578512396,
+                "maxX":0.5622417355371901,
+                "maxY":0.9989669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00057",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.56275826446281,
+                "minY":0.7510330578512396,
+                "maxX":0.6247417355371901,
+                "maxY":0.9989669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00058",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.62525826446281,
+                "minY":0.7510330578512396,
+                "maxX":0.6872417355371901,
+                "maxY":0.9989669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00059",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.68775826446281,
+                "minY":0.7510330578512396,
+                "maxX":0.7497417355371901,
+                "maxY":0.9989669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }, 
+        
+        {
+            "name":"00060",
+            "type": "isometric object",
+            "texture": "idleNE.png",
+            "imageArea":
+            {
+                "minX":0.75025826446281,
+                "minY":0.7510330578512396,
+                "maxX":0.8122417355371901,
+                "maxY":0.9989669421487604
+            },
+            "size":
+            {
+                "x":242,
+                "y":242
+            }
+        }
+        
+    ]
+}

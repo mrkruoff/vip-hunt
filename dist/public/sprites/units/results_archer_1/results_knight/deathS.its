@@ -1,0 +1,97 @@
+
+{
+    "tiles":
+    [
+        
+        {
+            "name":"0035",
+            "type": "isometric object",
+            "texture": "deathS.png",
+            "imageArea":
+            {
+                "minX":0.0003891050583657588,
+                "minY":0.0019455252918287938,
+                "maxX":0.19961089494163425,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"0036",
+            "type": "isometric object",
+            "texture": "deathS.png",
+            "imageArea":
+            {
+                "minX":0.20038910505836577,
+                "minY":0.0019455252918287938,
+                "maxX":0.39961089494163426,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"0037",
+            "type": "isometric object",
+            "texture": "deathS.png",
+            "imageArea":
+            {
+                "minX":0.4003891050583658,
+                "minY":0.0019455252918287938,
+                "maxX":0.5996108949416343,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"0038",
+            "type": "isometric object",
+            "texture": "deathS.png",
+            "imageArea":
+            {
+                "minX":0.6003891050583657,
+                "minY":0.0019455252918287938,
+                "maxX":0.7996108949416343,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"0039",
+            "type": "isometric object",
+            "texture": "deathS.png",
+            "imageArea":
+            {
+                "minX":0.8003891050583658,
+                "minY":0.0019455252918287938,
+                "maxX":0.9996108949416342,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }
+        
+    ]
+}
