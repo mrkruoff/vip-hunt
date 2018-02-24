@@ -139,11 +139,11 @@ function addToScene(state: GlobalGameState) {
                 if (c === 'Barracks') {
                     displayFn = Hud.showBarracksPanel;
                 } else if (c === 'Stables') {
-                    displayFn = Hud.showBarracksPanel;
+                    displayFn = Hud.showStablesPanel;
                 } else if (c === 'TownHall') {
-                    displayFn = Hud.showBarracksPanel;
+                    displayFn = Hud.showTownHallPanel;
                 } else if (c === 'Tower') {
-                    displayFn = Hud.showBarracksPanel;
+                    displayFn = Hud.showTowerPanel;
                 }
                 b.onMouseDown = GamePlay.onSelectBuilding(b, displayFn);
                 wade.addEventListener(b, 'onMouseDown');
