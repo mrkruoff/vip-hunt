@@ -234,6 +234,28 @@ const BuildHud = {
 
         return [archerCalvary, spearCalvary];
     },
+    towerPanel: (layer: number) => {
+        let y = (wade.getScreenHeight() / 2) - 200;
+        let x = 50;
+
+        let text = BuildHud.buildText("Hi, I'm a tower!", "20px Verdana", 'black', "center",
+                    x, y, layer);
+        text.setAlignment('right', 'bottom');
+        return [ text ];
+    },
+    townHallPanel: (layer: number) => {
+        let y = (wade.getScreenHeight() / 2) - 200;
+        let x = 50;
+        const gatherer = BuildHud.buildIcon(ImageMap.gatherer_1, 35, 65, x, y, layer);
+        gatherer.setAlignment('right', 'bottom');
+
+        y = y;
+        x = x + 50;
+        const drummer = BuildHud.buildIcon(ImageMap.drummer_boy_1, 35, 65, x, y, layer);
+        drummer.setAlignment('right', 'bottom');
+
+        return [gatherer, drummer];
+    },
 
     // This function builds the background panel, which is the background for the HUD
     // in general. Currently this consists of a single sretched scroll image, but this

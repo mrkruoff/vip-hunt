@@ -1,0 +1,7 @@
+
+{
+    "type": "sprite",
+    "name": "drummer_boy_1",
+    "visible": "true",
+    "image": "../js/../public/sprites/units/results_warrior_2/drummer_icon.png"
+}

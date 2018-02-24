@@ -78,6 +78,8 @@ const GamePlay = {
             Hud.showMainPanel();
             Hud.clearBarracksPanel();
             Hud.clearStablesPanel();
+            Hud.clearTowerPanel();
+            Hud.clearTownHallPanel();
             GamePlay.removeSelected();
         };
     },
@@ -235,6 +237,8 @@ const GamePlay = {
     onSelectUnit: (unit) => {
         return (event) => {
             Hud.clearBarracksPanel();
+            Hud.clearTowerPanel();
+            Hud.clearTownHallPanel();
             Hud.clearStablesPanel();
             Hud.clearBuildingsPanel();
             Hud.clearMainPanel();
@@ -272,6 +276,8 @@ const GamePlay = {
             Hud.clearStablesPanel();
             Hud.clearMainPanel();
             Hud.clearBarracksPanel();
+            Hud.clearTowerPanel();
+            Hud.clearTownHallPanel();
             Hud.clearResourceData();
 
             // Left-mouse click counts as selecting the building.
@@ -292,6 +298,8 @@ const GamePlay = {
             Hud.clearBuildingsPanel();
             Hud.clearMainPanel();
             Hud.clearBarracksPanel();
+            Hud.clearTowerPanel();
+            Hud.clearTownHallPanel();
 
             if (event.button === Mouse.left) {
                 if (GamePlay.getSelected()) {
@@ -332,7 +340,6 @@ const GamePlay = {
     //  @ target: target unit or building SceneObject that contains state in its
     //      'data' property.
     attack: async function(attacker, target) {
-        attacker.shouldPursue = true;
         const targetData = target.data;
         attacker.isAttacking = false;
 
@@ -358,6 +365,8 @@ const GamePlay = {
         let i = 0; // iteration number
         const attackFreq = 7;
         const time = 250;
+        await delay(time);  //initial delay to allow old attack to expire properly
+        attacker.shouldPursue = true;
         while (target && attacker.shouldPursue) {
             //Attack will occur every attackFreq * time milliseconds
             attacker.shouldAttack = (i % attackFreq) === 0;
@@ -585,7 +594,7 @@ const GamePlay = {
     },
 };
 
-const BuildingBuilding = {
+let BuildingBuilding = {
     // This function uses the name of an image to select the correct
     // SceneObject Building to create.
     //
@@ -603,10 +612,10 @@ const BuildingBuilding = {
                         JsonMap.stables_1, JsonMap.stables_data, JsonMap.stables_cost, Hud.showStablesPanel);
         } else if (imageName === ImageMap.towers_1) {
             callback = BuildingBuilding.buildingConstruction(options, Construction.towers,
-                        JsonMap.towers_1, JsonMap.tower_data, JsonMap.tower_cost, Hud.showBarracksPanel);
+                        JsonMap.towers_1, JsonMap.tower_data, JsonMap.tower_cost, Hud.showTowerPanel);
         } else if (imageName === ImageMap.town_halls_1) {
             callback = BuildingBuilding.buildingConstruction(options, Construction.townHalls,
-                        JsonMap.town_halls_1, JsonMap.townhall_data, JsonMap.townhall_cost, Hud.showBarracksPanel);
+                        JsonMap.town_halls_1, JsonMap.townhall_data, JsonMap.townhall_cost, Hud.showTownHallPanel);
         }
 
         return callback;

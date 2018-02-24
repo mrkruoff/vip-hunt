@@ -103,9 +103,69 @@ const SceneObjectConstruction = {
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
-        const VIP = wade.iso.createObject(objectData);
+        const vip = wade.iso.createObject(objectData);
 
-        return VIP;
+        let idleAnims = [
+            ImageMap.vip_N_idle, ImageMap.vip_S_idle, ImageMap.vip_E_idle,
+            ImageMap.vip_W_idle, ImageMap.vip_NW_idle, ImageMap.vip_NE_idle,
+            ImageMap.vip_SW_idle, ImageMap.vip_SE_idle
+        ];
+        let startFrame = 0;
+        let endFrame = 8;
+        let xCells = 3;
+        let yCells = 3;
+        let speed = 7;
+        let looping = true;
+        addAnims(vip, idleAnims, idleNames, xCells, yCells,
+                 speed, looping, startFrame, endFrame);
+
+
+        let walkAnims = [
+            ImageMap.vip_N_walk, ImageMap.vip_S_walk,
+            ImageMap.vip_E_walk, ImageMap.vip_W_walk,
+            ImageMap.vip_NW_walk, ImageMap.vip_NE_walk,
+            ImageMap.vip_SW_walk, ImageMap.vip_SE_walk,
+        ];
+        startFrame = 0;
+        endFrame = 7;
+        xCells = 3;
+        yCells = 3;
+        speed = 15;
+        looping = true;
+        addAnims(vip, walkAnims, walkNames, xCells, yCells,
+                speed, looping, startFrame, endFrame);
+
+        let attackAnims = [
+            ImageMap.vip_N_attack, ImageMap.vip_S_attack,
+            ImageMap.vip_E_attack, ImageMap.vip_W_attack,
+            ImageMap.vip_NW_attack, ImageMap.vip_NE_attack,
+            ImageMap.vip_SW_attack, ImageMap.vip_SE_attack,
+        ];
+        startFrame = 0;
+        endFrame = 4;
+        xCells = 5;
+        yCells = 1;
+        speed = 10;
+        looping = false;
+        addAnims(vip, attackAnims, attackNames, xCells, yCells,
+                speed, looping, startFrame, endFrame);
+
+        let deathAnims = [
+            ImageMap.vip_N_death, ImageMap.vip_S_death,
+            ImageMap.vip_E_death, ImageMap.vip_W_death,
+            ImageMap.vip_NW_death, ImageMap.vip_NE_death,
+            ImageMap.vip_SW_death, ImageMap.vip_SE_death,
+        ];
+        startFrame = 0;
+        endFrame = 4;
+        xCells = 5;
+        yCells = 1;
+        speed = 10;
+        looping = false;
+        addAnims(vip, deathAnims, deathNames, xCells, yCells,
+                speed, looping, startFrame, endFrame);
+
+        return vip;
 
     },
     // This function returns a SceneObject for the TownHall.
@@ -451,6 +511,66 @@ const SceneObjectConstruction = {
             behaviors: [IsoCharacter],
         };
         const gatherer = wade.iso.createObject(objectData);
+        
+        let idleAnims = [
+            ImageMap.gatherer_N_idle, ImageMap.gatherer_S_idle, ImageMap.gatherer_E_idle,
+            ImageMap.gatherer_W_idle, ImageMap.gatherer_NW_idle, ImageMap.gatherer_NE_idle,
+            ImageMap.gatherer_SW_idle, ImageMap.gatherer_SE_idle
+        ];
+        let startFrame = 0;
+        let endFrame = 60;
+        let xCells = 16;
+        let yCells = 4;
+        let speed = 10;
+        let looping = true;
+        addAnims(gatherer, idleAnims, idleNames, xCells, yCells,
+                 speed, looping, startFrame, endFrame);
+
+
+        let walkAnims = [
+            ImageMap.gatherer_N_walk, ImageMap.gatherer_S_walk,
+            ImageMap.gatherer_E_walk, ImageMap.gatherer_W_walk,
+            ImageMap.gatherer_NW_walk, ImageMap.gatherer_NE_walk,
+            ImageMap.gatherer_SW_walk, ImageMap.gatherer_SE_walk,
+        ];
+        startFrame = 0;
+        endFrame = 24;
+        xCells = 4;
+        yCells = 7;
+        speed = 30;
+        looping = true;
+        addAnims(gatherer, walkAnims, walkNames, xCells, yCells,
+                speed, looping, startFrame, endFrame);
+
+        let attackAnims = [
+            ImageMap.gatherer_N_attack, ImageMap.gatherer_S_attack,
+            ImageMap.gatherer_E_attack, ImageMap.gatherer_W_attack,
+            ImageMap.gatherer_NW_attack, ImageMap.gatherer_NE_attack,
+            ImageMap.gatherer_SW_attack, ImageMap.gatherer_SE_attack,
+        ];
+        startFrame = 0;
+        endFrame = 44;
+        xCells = 15;
+        yCells = 3;
+        speed = 15;
+        looping = false;
+        addAnims(gatherer, attackAnims, attackNames, xCells, yCells,
+                speed, looping, startFrame, endFrame);
+
+        let deathAnims = [
+            ImageMap.gatherer_N_death, ImageMap.gatherer_S_death,
+            ImageMap.gatherer_E_death, ImageMap.gatherer_W_death,
+            ImageMap.gatherer_NW_death, ImageMap.gatherer_NE_death,
+            ImageMap.gatherer_SW_death, ImageMap.gatherer_SE_death,
+        ];
+        startFrame = 0;
+        endFrame = 108;
+        xCells = 16;
+        yCells = 7;
+        speed = 15;
+        looping = false;
+        addAnims(gatherer, deathAnims, deathNames, xCells, yCells,
+                speed, looping, startFrame, endFrame);
 
         return gatherer;
     },
@@ -467,6 +587,66 @@ const SceneObjectConstruction = {
             behaviors: [IsoCharacter],
         };
         const drummerBoy = wade.iso.createObject(objectData);
+
+        let idleAnims = [
+            ImageMap.drummerBoy_N_idle, ImageMap.drummerBoy_S_idle, ImageMap.drummerBoy_E_idle,
+            ImageMap.drummerBoy_W_idle, ImageMap.drummerBoy_NW_idle, ImageMap.drummerBoy_NE_idle,
+            ImageMap.drummerBoy_SW_idle, ImageMap.drummerBoy_SE_idle
+        ];
+        let startFrame = 0;
+        let endFrame = 14;
+        let xCells = 15;
+        let yCells = 1;
+        let speed = 10;
+        let looping = true;
+        addAnims(drummerBoy, idleAnims, idleNames, xCells, yCells,
+                 speed, looping, startFrame, endFrame);
+
+
+        let walkAnims = [
+            ImageMap.drummerBoy_N_walk, ImageMap.drummerBoy_S_walk,
+            ImageMap.drummerBoy_E_walk, ImageMap.drummerBoy_W_walk,
+            ImageMap.drummerBoy_NW_walk, ImageMap.drummerBoy_NE_walk,
+            ImageMap.drummerBoy_SW_walk, ImageMap.drummerBoy_SE_walk,
+        ];
+        startFrame = 0;
+        endFrame = 15;
+        xCells = 3;
+        yCells = 6;
+        speed = 30;
+        looping = true;
+        addAnims(drummerBoy, walkAnims, walkNames, xCells, yCells,
+                speed, looping, startFrame, endFrame);
+
+        let attackAnims = [
+            ImageMap.drummerBoy_N_attack, ImageMap.drummerBoy_S_attack,
+            ImageMap.drummerBoy_E_attack, ImageMap.drummerBoy_W_attack,
+            ImageMap.drummerBoy_NW_attack, ImageMap.drummerBoy_NE_attack,
+            ImageMap.drummerBoy_SW_attack, ImageMap.drummerBoy_SE_attack,
+        ];
+        startFrame = 0;
+        endFrame = 16;
+        xCells = 3;
+        yCells = 6;
+        speed = 15;
+        looping = false;
+        addAnims(drummerBoy, attackAnims, attackNames, xCells, yCells,
+                speed, looping, startFrame, endFrame);
+
+        let deathAnims = [
+            ImageMap.drummerBoy_N_death, ImageMap.drummerBoy_S_death,
+            ImageMap.drummerBoy_E_death, ImageMap.drummerBoy_W_death,
+            ImageMap.drummerBoy_NW_death, ImageMap.drummerBoy_NE_death,
+            ImageMap.drummerBoy_SW_death, ImageMap.drummerBoy_SE_death,
+        ];
+        startFrame = 0;
+        endFrame = 13;
+        xCells = 14;
+        yCells = 1;
+        speed = 15;
+        looping = false;
+        addAnims(drummerBoy, deathAnims, deathNames, xCells, yCells,
+                speed, looping, startFrame, endFrame);
 
         return drummerBoy;
     },

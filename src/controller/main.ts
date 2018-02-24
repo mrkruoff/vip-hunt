@@ -102,6 +102,8 @@ function loadImages() {
     wade.loadImage(ImageMap.archer_1);
     wade.loadImage(ImageMap.archer_calvary_1);
     wade.loadImage(ImageMap.spear_calvary_1);
+    wade.loadImage(ImageMap.gatherer_1);
+    wade.loadImage(ImageMap.drummer_boy_1);
 
     wade.loadImage(ImageMap.food);
     wade.loadImage(ImageMap.wood);
@@ -252,6 +254,116 @@ function loadImages() {
         ImageMap.spearCalvary_SW_death,
     ];
     wade.loadImages(spearCalvary_animations);
+    
+    let gatherer_animations = [
+        ImageMap.gatherer_N_idle,
+        ImageMap.gatherer_S_idle,
+        ImageMap.gatherer_E_idle,
+        ImageMap.gatherer_W_idle,
+        ImageMap.gatherer_NE_idle,
+        ImageMap.gatherer_NW_idle,
+        ImageMap.gatherer_SE_idle,
+        ImageMap.gatherer_SW_idle,
+        ImageMap.gatherer_N_walk,
+        ImageMap.gatherer_S_walk,
+        ImageMap.gatherer_E_walk,
+        ImageMap.gatherer_W_walk,
+        ImageMap.gatherer_NE_walk,
+        ImageMap.gatherer_NW_walk,
+        ImageMap.gatherer_SE_walk,
+        ImageMap.gatherer_SW_walk,
+        ImageMap.gatherer_N_attack,
+        ImageMap.gatherer_S_attack,
+        ImageMap.gatherer_E_attack,
+        ImageMap.gatherer_W_attack,
+        ImageMap.gatherer_NE_attack,
+        ImageMap.gatherer_NW_attack,
+        ImageMap.gatherer_SE_attack,
+        ImageMap.gatherer_SW_attack,
+        ImageMap.gatherer_N_death,
+        ImageMap.gatherer_S_death,
+        ImageMap.gatherer_E_death,
+        ImageMap.gatherer_W_death,
+        ImageMap.gatherer_NE_death,
+        ImageMap.gatherer_NW_death,
+        ImageMap.gatherer_SE_death,
+        ImageMap.gatherer_SW_death,
+    ];
+    wade.loadImages(gatherer_animations);
+
+
+    let drummerBoy_animations = [
+        ImageMap.drummerBoy_N_idle,
+        ImageMap.drummerBoy_S_idle,
+        ImageMap.drummerBoy_E_idle,
+        ImageMap.drummerBoy_W_idle,
+        ImageMap.drummerBoy_NE_idle,
+        ImageMap.drummerBoy_NW_idle,
+        ImageMap.drummerBoy_SE_idle,
+        ImageMap.drummerBoy_SW_idle,
+        ImageMap.drummerBoy_N_walk,
+        ImageMap.drummerBoy_S_walk,
+        ImageMap.drummerBoy_E_walk,
+        ImageMap.drummerBoy_W_walk,
+        ImageMap.drummerBoy_NE_walk,
+        ImageMap.drummerBoy_NW_walk,
+        ImageMap.drummerBoy_SE_walk,
+        ImageMap.drummerBoy_SW_walk,
+        ImageMap.drummerBoy_N_attack,
+        ImageMap.drummerBoy_S_attack,
+        ImageMap.drummerBoy_E_attack,
+        ImageMap.drummerBoy_W_attack,
+        ImageMap.drummerBoy_NE_attack,
+        ImageMap.drummerBoy_NW_attack,
+        ImageMap.drummerBoy_SE_attack,
+        ImageMap.drummerBoy_SW_attack,
+        ImageMap.drummerBoy_N_death,
+        ImageMap.drummerBoy_S_death,
+        ImageMap.drummerBoy_E_death,
+        ImageMap.drummerBoy_W_death,
+        ImageMap.drummerBoy_NE_death,
+        ImageMap.drummerBoy_NW_death,
+        ImageMap.drummerBoy_SE_death,
+        ImageMap.drummerBoy_SW_death,
+    ];
+    wade.loadImages(drummerBoy_animations);
+
+
+    let vip_animations = [
+        ImageMap.vip_N_idle,
+        ImageMap.vip_S_idle,
+        ImageMap.vip_E_idle,
+        ImageMap.vip_W_idle,
+        ImageMap.vip_NE_idle,
+        ImageMap.vip_NW_idle,
+        ImageMap.vip_SE_idle,
+        ImageMap.vip_SW_idle,
+        ImageMap.vip_N_walk,
+        ImageMap.vip_S_walk,
+        ImageMap.vip_E_walk,
+        ImageMap.vip_W_walk,
+        ImageMap.vip_NE_walk,
+        ImageMap.vip_NW_walk,
+        ImageMap.vip_SE_walk,
+        ImageMap.vip_SW_walk,
+        ImageMap.vip_N_attack,
+        ImageMap.vip_S_attack,
+        ImageMap.vip_E_attack,
+        ImageMap.vip_W_attack,
+        ImageMap.vip_NE_attack,
+        ImageMap.vip_NW_attack,
+        ImageMap.vip_SE_attack,
+        ImageMap.vip_SW_attack,
+        ImageMap.vip_N_death,
+        ImageMap.vip_S_death,
+        ImageMap.vip_E_death,
+        ImageMap.vip_W_death,
+        ImageMap.vip_NE_death,
+        ImageMap.vip_NW_death,
+        ImageMap.vip_SE_death,
+        ImageMap.vip_SW_death,
+    ];
+    wade.loadImages(vip_animations);
 }
 
 function loadSpriteJson() {
@@ -268,4 +380,6 @@ function loadSpriteJson() {
     wade.loadJson(JsonMap.archer_1);
     wade.loadJson(JsonMap.archer_calvary_1);
     wade.loadJson(JsonMap.spear_calvary_1);
+    wade.loadJson(JsonMap.drummer_boy_1);
+    wade.loadJson(JsonMap.gatherer_1);
 }

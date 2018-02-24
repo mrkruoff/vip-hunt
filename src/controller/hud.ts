@@ -218,6 +218,45 @@ const Hud = {
         }
     
     },
+    showTownHallPanel: () => {
+        const global = wade.getSceneObject('global');
+        if(global.hud.townhall) {
+            _.forEach(global.hud.townhall, (icon) => {
+                icon.setVisible(true); 
+            });    
+        } else {
+            global.hud.townhall = BuildHud.townHallPanel(9); 
+        }
+        return global.hud.townhall;
+    },
+    clearTownHallPanel: () => {
+        const global = wade.getSceneObject('global');
+        if(global.hud.townhall) {
+            _.forEach(global.hud.townhall, (icon) => {
+                icon.setVisible(false); 
+            });
+        }
+    },
+    showTowerPanel: () => {
+        const global = wade.getSceneObject('global');
+        if(global.hud.tower) {
+            _.forEach(global.hud.tower, (icon) => {
+                icon.setVisible(true); 
+            });
+        } else {
+            global.hud.tower = BuildHud.towerPanel(9); 
+        }
+        return global.hud.tower;
+    },
+    clearTowerPanel: () => {
+        const global = wade.getSceneObject('global');
+        if(global.hud.tower) {
+            _.forEach(global.hud.tower, (icon) => {
+                icon.setVisible(false); 
+            });
+        }
+    
+    },
     // This function shows and returns a reference to the Resource Panel SceneObjects
     //
     // returns:
