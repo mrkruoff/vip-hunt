@@ -221,6 +221,68 @@ const SceneObjectConstruction = {
             behaviors: [IsoCharacter],
         };
         const archer = wade.iso.createObject(objectData);
+        
+        let idleAnims = [
+            ImageMap.archer_N_idle, ImageMap.archer_S_idle, ImageMap.archer_E_idle,
+            ImageMap.archer_W_idle, ImageMap.archer_NW_idle, ImageMap.archer_NE_idle,
+            ImageMap.archer_SW_idle, ImageMap.archer_SE_idle
+        ];
+        let startFrame = 0;
+        let endFrame = 14;
+        let xCells = 15;
+        let yCells = 1;
+        let speed = 10;
+        let looping = true;
+        addAnims(archer, idleAnims, idleNames, xCells, yCells,
+                 speed, looping, startFrame, endFrame);
+
+
+        let walkAnims = [
+            ImageMap.archer_N_walk, ImageMap.archer_S_walk,
+            ImageMap.archer_E_walk, ImageMap.archer_W_walk,
+            ImageMap.archer_NW_walk, ImageMap.archer_NE_walk,
+            ImageMap.archer_SW_walk, ImageMap.archer_SE_walk,
+        ];
+        startFrame = 0;
+        endFrame = 15;
+        xCells = 3;
+        yCells = 6;
+        speed = 30;
+        looping = true;
+        addAnims(archer, walkAnims, walkNames, xCells, yCells,
+                speed, looping, startFrame, endFrame);
+
+        let attackAnims = [
+            ImageMap.archer_N_attack, ImageMap.archer_S_attack,
+            ImageMap.archer_E_attack, ImageMap.archer_W_attack,
+            ImageMap.archer_NW_attack, ImageMap.archer_NE_attack,
+            ImageMap.archer_SW_attack, ImageMap.archer_SE_attack,
+        ];
+        startFrame = 0;
+        endFrame = 14;
+        xCells = 15;
+        yCells = 1;
+        speed = 15;
+        looping = false;
+        addAnims(archer, attackAnims, attackNames, xCells, yCells,
+                speed, looping, startFrame, endFrame);
+
+        let deathAnims = [
+            ImageMap.archer_N_death, ImageMap.archer_S_death,
+            ImageMap.archer_E_death, ImageMap.archer_W_death,
+            ImageMap.archer_NW_death, ImageMap.archer_NE_death,
+            ImageMap.archer_SW_death, ImageMap.archer_SE_death,
+        ];
+        startFrame = 0;
+        endFrame = 13;
+        xCells = 14;
+        yCells = 1;
+        speed = 15;
+        looping = false;
+        addAnims(archer, deathAnims, deathNames, xCells, yCells,
+                speed, looping, startFrame, endFrame);
+
+        archer.getSprite(0).setSize(240, 320);
 
         return archer;
     },
@@ -238,6 +300,66 @@ const SceneObjectConstruction = {
         };
         const archerCalvary = wade.iso.createObject(objectData);
 
+        let idleAnims = [
+            ImageMap.archerCalvary_N_idle, ImageMap.archerCalvary_S_idle, ImageMap.archerCalvary_E_idle,
+            ImageMap.archerCalvary_W_idle, ImageMap.archerCalvary_NW_idle, ImageMap.archerCalvary_NE_idle,
+            ImageMap.archerCalvary_SW_idle, ImageMap.archerCalvary_SE_idle
+        ];
+        let startFrame = 0;
+        let endFrame = 14;
+        let xCells = 15;
+        let yCells = 1;
+        let speed = 10;
+        let looping = true;
+        addAnims(archerCalvary, idleAnims, idleNames, xCells, yCells,
+                 speed, looping, startFrame, endFrame);
+
+
+        let walkAnims = [
+            ImageMap.archerCalvary_N_walk, ImageMap.archerCalvary_S_walk,
+            ImageMap.archerCalvary_E_walk, ImageMap.archerCalvary_W_walk,
+            ImageMap.archerCalvary_NW_walk, ImageMap.archerCalvary_NE_walk,
+            ImageMap.archerCalvary_SW_walk, ImageMap.archerCalvary_SE_walk,
+        ];
+        startFrame = 0;
+        endFrame = 15;
+        xCells = 3;
+        yCells = 6;
+        speed = 30;
+        looping = true;
+        addAnims(archerCalvary, walkAnims, walkNames, xCells, yCells,
+                speed, looping, startFrame, endFrame);
+
+        let attackAnims = [
+            ImageMap.archerCalvary_N_attack, ImageMap.archerCalvary_S_attack,
+            ImageMap.archerCalvary_E_attack, ImageMap.archerCalvary_W_attack,
+            ImageMap.archerCalvary_NW_attack, ImageMap.archerCalvary_NE_attack,
+            ImageMap.archerCalvary_SW_attack, ImageMap.archerCalvary_SE_attack,
+        ];
+        startFrame = 0;
+        endFrame = 15;
+        xCells = 3;
+        yCells = 6;
+        speed = 15;
+        looping = false;
+        addAnims(archerCalvary, attackAnims, attackNames, xCells, yCells,
+                speed, looping, startFrame, endFrame);
+
+        let deathAnims = [
+            ImageMap.archerCalvary_N_death, ImageMap.archerCalvary_S_death,
+            ImageMap.archerCalvary_E_death, ImageMap.archerCalvary_W_death,
+            ImageMap.archerCalvary_NW_death, ImageMap.archerCalvary_NE_death,
+            ImageMap.archerCalvary_SW_death, ImageMap.archerCalvary_SE_death,
+        ];
+        startFrame = 0;
+        endFrame = 13;
+        xCells = 14;
+        yCells = 1;
+        speed = 15;
+        looping = false;
+        addAnims(archerCalvary, deathAnims, deathNames, xCells, yCells,
+                speed, looping, startFrame, endFrame);
+
         return archerCalvary;
     },
     // This function returns a SceneObject for the SpearCalvary.
@@ -253,6 +375,66 @@ const SceneObjectConstruction = {
             behaviors: [IsoCharacter],
         };
         const spearCalvary = wade.iso.createObject(objectData);
+        
+        let idleAnims = [
+            ImageMap.spearCalvary_N_idle, ImageMap.spearCalvary_S_idle, ImageMap.spearCalvary_E_idle,
+            ImageMap.spearCalvary_W_idle, ImageMap.spearCalvary_NW_idle, ImageMap.spearCalvary_NE_idle,
+            ImageMap.spearCalvary_SW_idle, ImageMap.spearCalvary_SE_idle
+        ];
+        let startFrame = 0;
+        let endFrame = 14;
+        let xCells = 15;
+        let yCells = 1;
+        let speed = 10;
+        let looping = true;
+        addAnims(spearCalvary, idleAnims, idleNames, xCells, yCells,
+                 speed, looping, startFrame, endFrame);
+
+
+        let walkAnims = [
+            ImageMap.spearCalvary_N_walk, ImageMap.spearCalvary_S_walk,
+            ImageMap.spearCalvary_E_walk, ImageMap.spearCalvary_W_walk,
+            ImageMap.spearCalvary_NW_walk, ImageMap.spearCalvary_NE_walk,
+            ImageMap.spearCalvary_SW_walk, ImageMap.spearCalvary_SE_walk,
+        ];
+        startFrame = 0;
+        endFrame = 15;
+        xCells = 3;
+        yCells = 6;
+        speed = 30;
+        looping = true;
+        addAnims(spearCalvary, walkAnims, walkNames, xCells, yCells,
+                speed, looping, startFrame, endFrame);
+
+        let attackAnims = [
+            ImageMap.spearCalvary_N_attack, ImageMap.spearCalvary_S_attack,
+            ImageMap.spearCalvary_E_attack, ImageMap.spearCalvary_W_attack,
+            ImageMap.spearCalvary_NW_attack, ImageMap.spearCalvary_NE_attack,
+            ImageMap.spearCalvary_SW_attack, ImageMap.spearCalvary_SE_attack,
+        ];
+        startFrame = 0;
+        endFrame = 16;
+        xCells = 3;
+        yCells = 6;
+        speed = 15;
+        looping = false;
+        addAnims(spearCalvary, attackAnims, attackNames, xCells, yCells,
+                speed, looping, startFrame, endFrame);
+
+        let deathAnims = [
+            ImageMap.spearCalvary_N_death, ImageMap.spearCalvary_S_death,
+            ImageMap.spearCalvary_E_death, ImageMap.spearCalvary_W_death,
+            ImageMap.spearCalvary_NW_death, ImageMap.spearCalvary_NE_death,
+            ImageMap.spearCalvary_SW_death, ImageMap.spearCalvary_SE_death,
+        ];
+        startFrame = 0;
+        endFrame = 13;
+        xCells = 14;
+        yCells = 1;
+        speed = 15;
+        looping = false;
+        addAnims(spearCalvary, deathAnims, deathNames, xCells, yCells,
+                speed, looping, startFrame, endFrame);
 
         return spearCalvary;
     },

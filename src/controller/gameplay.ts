@@ -77,6 +77,7 @@ const GamePlay = {
         wade.app.onIsoTerrainMouseDown = (event) => {
             Hud.showMainPanel();
             Hud.clearBarracksPanel();
+            Hud.clearStablesPanel();
             GamePlay.removeSelected();
         };
     },
@@ -234,6 +235,7 @@ const GamePlay = {
     onSelectUnit: (unit) => {
         return (event) => {
             Hud.clearBarracksPanel();
+            Hud.clearStablesPanel();
             Hud.clearBuildingsPanel();
             Hud.clearMainPanel();
             Hud.clearResourceData();
@@ -267,6 +269,7 @@ const GamePlay = {
             // Clear the panels and show the possible units to
             // build.
             Hud.clearBuildingsPanel();
+            Hud.clearStablesPanel();
             Hud.clearMainPanel();
             Hud.clearBarracksPanel();
             Hud.clearResourceData();
@@ -597,7 +600,7 @@ const BuildingBuilding = {
                         JsonMap.barracks_1, JsonMap.barracks_data, JsonMap.barracks_cost, Hud.showBarracksPanel);
         } else if (imageName === ImageMap.stables_1) {
             callback = BuildingBuilding.buildingConstruction(options, Construction.stables,
-                        JsonMap.stables_1, JsonMap.stables_data, JsonMap.stables_cost, Hud.showBarracksPanel);
+                        JsonMap.stables_1, JsonMap.stables_data, JsonMap.stables_cost, Hud.showStablesPanel);
         } else if (imageName === ImageMap.towers_1) {
             callback = BuildingBuilding.buildingConstruction(options, Construction.towers,
                         JsonMap.towers_1, JsonMap.tower_data, JsonMap.tower_cost, Hud.showBarracksPanel);
@@ -714,6 +717,7 @@ const UnitBuilding = {
     //  @ options: an array of SceneObjects representing all the
     //      possible units that ocould be built.
     selectAUnitCallback: (imageName: string, options) => {
+        console.log(imageName);
         let callback;
         if (imageName === ImageMap.swordsman_1) {
             callback = UnitBuilding.unitConstruction(options, Construction.swordsman,

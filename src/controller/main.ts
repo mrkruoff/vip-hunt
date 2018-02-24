@@ -99,12 +99,13 @@ function loadImages() {
     wade.loadImage(ImageMap.woodIcon);
     wade.loadImage(ImageMap.foodIcon);
     wade.loadImage(ImageMap.vip_1);
+    wade.loadImage(ImageMap.archer_1);
+    wade.loadImage(ImageMap.archer_calvary_1);
+    wade.loadImage(ImageMap.spear_calvary_1);
 
     wade.loadImage(ImageMap.food);
     wade.loadImage(ImageMap.wood);
     wade.loadImage(ImageMap.stone);
-
-    wade.loadImage("../js/../public/sprites/units/test_spritesheet.png")
 
     let swordsman_animations = [
         ImageMap.swordsman_N_idle,
@@ -141,6 +142,116 @@ function loadImages() {
         ImageMap.swordsman_SW_death,
     ];
     wade.loadImages(swordsman_animations);
+    
+    let archer_animations = [
+        ImageMap.archer_N_idle,
+        ImageMap.archer_S_idle,
+        ImageMap.archer_E_idle,
+        ImageMap.archer_W_idle,
+        ImageMap.archer_NE_idle,
+        ImageMap.archer_NW_idle,
+        ImageMap.archer_SE_idle,
+        ImageMap.archer_SW_idle,
+        ImageMap.archer_N_walk,
+        ImageMap.archer_S_walk,
+        ImageMap.archer_E_walk,
+        ImageMap.archer_W_walk,
+        ImageMap.archer_NE_walk,
+        ImageMap.archer_NW_walk,
+        ImageMap.archer_SE_walk,
+        ImageMap.archer_SW_walk,
+        ImageMap.archer_N_attack,
+        ImageMap.archer_S_attack,
+        ImageMap.archer_E_attack,
+        ImageMap.archer_W_attack,
+        ImageMap.archer_NE_attack,
+        ImageMap.archer_NW_attack,
+        ImageMap.archer_SE_attack,
+        ImageMap.archer_SW_attack,
+        ImageMap.archer_N_death,
+        ImageMap.archer_S_death,
+        ImageMap.archer_E_death,
+        ImageMap.archer_W_death,
+        ImageMap.archer_NE_death,
+        ImageMap.archer_NW_death,
+        ImageMap.archer_SE_death,
+        ImageMap.archer_SW_death,
+    ];
+    wade.loadImages(archer_animations);
+
+
+    let archerCalvary_animations = [
+        ImageMap.archerCalvary_N_idle,
+        ImageMap.archerCalvary_S_idle,
+        ImageMap.archerCalvary_E_idle,
+        ImageMap.archerCalvary_W_idle,
+        ImageMap.archerCalvary_NE_idle,
+        ImageMap.archerCalvary_NW_idle,
+        ImageMap.archerCalvary_SE_idle,
+        ImageMap.archerCalvary_SW_idle,
+        ImageMap.archerCalvary_N_walk,
+        ImageMap.archerCalvary_S_walk,
+        ImageMap.archerCalvary_E_walk,
+        ImageMap.archerCalvary_W_walk,
+        ImageMap.archerCalvary_NE_walk,
+        ImageMap.archerCalvary_NW_walk,
+        ImageMap.archerCalvary_SE_walk,
+        ImageMap.archerCalvary_SW_walk,
+        ImageMap.archerCalvary_N_attack,
+        ImageMap.archerCalvary_S_attack,
+        ImageMap.archerCalvary_E_attack,
+        ImageMap.archerCalvary_W_attack,
+        ImageMap.archerCalvary_NE_attack,
+        ImageMap.archerCalvary_NW_attack,
+        ImageMap.archerCalvary_SE_attack,
+        ImageMap.archerCalvary_SW_attack,
+        ImageMap.archerCalvary_N_death,
+        ImageMap.archerCalvary_S_death,
+        ImageMap.archerCalvary_E_death,
+        ImageMap.archerCalvary_W_death,
+        ImageMap.archerCalvary_NE_death,
+        ImageMap.archerCalvary_NW_death,
+        ImageMap.archerCalvary_SE_death,
+        ImageMap.archerCalvary_SW_death,
+    ];
+    wade.loadImages(archerCalvary_animations);
+
+
+    let spearCalvary_animations = [
+        ImageMap.spearCalvary_N_idle,
+        ImageMap.spearCalvary_S_idle,
+        ImageMap.spearCalvary_E_idle,
+        ImageMap.spearCalvary_W_idle,
+        ImageMap.spearCalvary_NE_idle,
+        ImageMap.spearCalvary_NW_idle,
+        ImageMap.spearCalvary_SE_idle,
+        ImageMap.spearCalvary_SW_idle,
+        ImageMap.spearCalvary_N_walk,
+        ImageMap.spearCalvary_S_walk,
+        ImageMap.spearCalvary_E_walk,
+        ImageMap.spearCalvary_W_walk,
+        ImageMap.spearCalvary_NE_walk,
+        ImageMap.spearCalvary_NW_walk,
+        ImageMap.spearCalvary_SE_walk,
+        ImageMap.spearCalvary_SW_walk,
+        ImageMap.spearCalvary_N_attack,
+        ImageMap.spearCalvary_S_attack,
+        ImageMap.spearCalvary_E_attack,
+        ImageMap.spearCalvary_W_attack,
+        ImageMap.spearCalvary_NE_attack,
+        ImageMap.spearCalvary_NW_attack,
+        ImageMap.spearCalvary_SE_attack,
+        ImageMap.spearCalvary_SW_attack,
+        ImageMap.spearCalvary_N_death,
+        ImageMap.spearCalvary_S_death,
+        ImageMap.spearCalvary_E_death,
+        ImageMap.spearCalvary_W_death,
+        ImageMap.spearCalvary_NE_death,
+        ImageMap.spearCalvary_NW_death,
+        ImageMap.spearCalvary_SE_death,
+        ImageMap.spearCalvary_SW_death,
+    ];
+    wade.loadImages(spearCalvary_animations);
 }
 
 function loadSpriteJson() {
@@ -154,4 +265,7 @@ function loadSpriteJson() {
     wade.loadJson(JsonMap.wood);
     wade.loadJson(JsonMap.food);
     wade.loadJson(JsonMap.stone);
+    wade.loadJson(JsonMap.archer_1);
+    wade.loadJson(JsonMap.archer_calvary_1);
+    wade.loadJson(JsonMap.spear_calvary_1);
 }

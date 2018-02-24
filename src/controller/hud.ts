@@ -57,6 +57,11 @@ const Hud = {
     clearBarracksPanel: () => {
         const global = wade.getSceneObject('global');
         if (global.hud.barracks) {
+            _.forEach(global.hud.barracks, (icon) => {
+                icon.setVisible(false); 
+            }); 
+            
+            
             wade.getSceneObject(Names.swordsmanIcon).setVisible(false);
         }
     },
@@ -183,12 +188,35 @@ const Hud = {
     showBarracksPanel: () => {
         const global = wade.getSceneObject('global');
         if (global.hud.barracks) {
-            wade.getSceneObject(Names.swordsmanIcon).setVisible(true);
+            _.forEach(global.hud.barracks, (icon) => {
+                icon.setVisible(true); 
+            });
         } else {
             global.hud.barracks = BuildHud.barracksPanel(9);
         }
 
         return global.hud.barracks;
+    },
+    showStablesPanel: () => {
+        const global = wade.getSceneObject('global');
+        if(global.hud.stables) {
+            _.forEach(global.hud.stables, (icon) => {
+                icon.setVisible(true); 
+            });
+        } else {
+            global.hud.stables = BuildHud.stablesPanel(9); 
+        }
+        return global.hud.stables;
+    
+    },
+    clearStablesPanel: () => {
+        const global = wade.getSceneObject('global');
+        if(global.hud.stables) {
+            _.forEach(global.hud.stables, (icon) => {
+                icon.setVisible(false); 
+            });
+        }
+    
     },
     // This function shows and returns a reference to the Resource Panel SceneObjects
     //

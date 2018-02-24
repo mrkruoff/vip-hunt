@@ -134,6 +134,7 @@ const BuildHud = {
         const menu = BuildHud.buildText("Menu", "16px Verdana", "black", "center",
                                 x, y, layer);
         menu.setName(Names.menuIcon);
+        menu.setAlignment('left', 'bottom');
         
         return [building, menu];
     },
@@ -205,13 +206,33 @@ const BuildHud = {
     // parameters:
     //  @ layer: the WADE layer on which to draw the panel.
     barracksPanel: (layer: number) => {
-        const y = (wade.getScreenHeight() / 2) - 200;
-        const x = 50;
+        let y = (wade.getScreenHeight() / 2) - 200;
+        let x = 50;
         const swordsman = BuildHud.buildIcon(ImageMap.swordsman_1, 35, 65, x, y, layer);
         swordsman.setName(Names.swordsmanIcon);
         swordsman.setAlignment('right', 'bottom');
 
-        return [swordsman];
+        y = y;
+        x = x + 50;
+        const archer = BuildHud.buildIcon(ImageMap.archer_1, 90, 150, x, y, layer);
+        archer.setAlignment('right', 'bottom');
+
+        return [swordsman, archer];
+    },
+    stablesPanel: (layer: number) => {
+        let y = (wade.getScreenHeight() / 2) - 200;
+        let x = 50;
+        const archerCalvary = BuildHud.buildIcon(ImageMap.archer_calvary_1, 90, 150, x,
+                        y, layer);
+        archerCalvary.setAlignment('right', 'bottom');
+    
+        y = y;
+        x = x + 50;
+        const spearCalvary = BuildHud.buildIcon(ImageMap.spear_calvary_1, 90, 150, x,
+                            y, layer);
+        spearCalvary.setAlignment('right', 'bottom');
+
+        return [archerCalvary, spearCalvary];
     },
 
     // This function builds the background panel, which is the background for the HUD
