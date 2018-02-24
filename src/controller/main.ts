@@ -105,6 +105,42 @@ function loadImages() {
     wade.loadImage(ImageMap.stone);
 
     wade.loadImage("../js/../public/sprites/units/test_spritesheet.png")
+
+    let swordsman_animations = [
+        ImageMap.swordsman_N_idle,
+        ImageMap.swordsman_S_idle,
+        ImageMap.swordsman_E_idle,
+        ImageMap.swordsman_W_idle,
+        ImageMap.swordsman_NE_idle,
+        ImageMap.swordsman_NW_idle,
+        ImageMap.swordsman_SE_idle,
+        ImageMap.swordsman_SW_idle,
+        ImageMap.swordsman_N_walk,
+        ImageMap.swordsman_S_walk,
+        ImageMap.swordsman_E_walk,
+        ImageMap.swordsman_W_walk,
+        ImageMap.swordsman_NE_walk,
+        ImageMap.swordsman_NW_walk,
+        ImageMap.swordsman_SE_walk,
+        ImageMap.swordsman_SW_walk,
+        ImageMap.swordsman_N_attack,
+        ImageMap.swordsman_S_attack,
+        ImageMap.swordsman_E_attack,
+        ImageMap.swordsman_W_attack,
+        ImageMap.swordsman_NE_attack,
+        ImageMap.swordsman_NW_attack,
+        ImageMap.swordsman_SE_attack,
+        ImageMap.swordsman_SW_attack,
+        ImageMap.swordsman_N_death,
+        ImageMap.swordsman_S_death,
+        ImageMap.swordsman_E_death,
+        ImageMap.swordsman_W_death,
+        ImageMap.swordsman_NE_death,
+        ImageMap.swordsman_NW_death,
+        ImageMap.swordsman_SE_death,
+        ImageMap.swordsman_SW_death,
+    ];
+    wade.loadImages(swordsman_animations);
 }
 
 function loadSpriteJson() {

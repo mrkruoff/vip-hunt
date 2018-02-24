@@ -331,19 +331,29 @@ const GamePlay = {
     attack: async function(attacker, target) {
         attacker.shouldPursue = true;
         const targetData = target.data;
+        attacker.isAttacking = false;
 
         // Set the callback: when the attacker reaches the target, do damage.
         attacker.onObjectReached = function doDamage(event) {
             // Deal damage only in intervals.
             // shouldAttack's value will switch based on the loop below
             if (attacker.shouldAttack && target && targetData) {
+                attacker.isAttacking = true;
+                var anim = attacker.getSprite(0).getCurrentAnimationName();
+                var direction = anim.substr(anim.lastIndexOf('_') + 1);
+                attacker.onAnimationEnd = (data) => {
+                    attacker.isAttacking = false; 
+                    attacker.onAnimationEnd = null;
+                }
+                wade.addEventListener(attacker, 'onAnimationEnd');
+                attacker.playAnimation('Attack_iso_' + direction, 'forward');
                 console.log(targetData.hp);
                 targetData.takeDamage(attacker.data.getAttack());
             }
         };
 
         let i = 0; // iteration number
-        const attackFreq = 1;
+        const attackFreq = 7;
         const time = 250;
         while (target && attacker.shouldPursue) {
             //Attack will occur every attackFreq * time milliseconds
@@ -351,7 +361,9 @@ const GamePlay = {
             i++;
 
             // Go to the object and trigger the doDamage function
-            attacker.getBehavior('IsoCharacter').goToObject(target);
+            if(!attacker.isAttacking) {
+                attacker.getBehavior('IsoCharacter').goToObject(target);
+            }
             await delay(time);
 
             //Stop pursuing and remove target once it is dead.
@@ -359,11 +371,17 @@ const GamePlay = {
                 attacker.shouldAttack = false;
                 attacker.onObjectReached = null;
                 GamePlay.clearPursue(attacker);
+                GamePlay.clearUnitActions(target);
 
-                //Only try to delete them if the delete process hasn't started
-                if(target && targetData) {
+                var anim = target.getSprite(0).getCurrentAnimationName();
+                var direction = anim.substr(anim.lastIndexOf('_') + 1);
+                target.onAnimationEnd = (data) => {
+                    //Once the animation is over, delete the object
                     GamePlay.deleteGameObject(target);
+                
                 }
+                wade.addEventListener(target, 'onAnimationEnd');
+                target.playAnimation('Death_iso_' + direction);
             }
 
             //Update the attacking unit's location.
@@ -375,12 +393,26 @@ const GamePlay = {
             const time = 500;
             const targetData = target.data;
             gatherer.shouldGather = true;
+            gatherer.isGathering = false;
             while (gatherer.shouldGather) {
-                console.log(targetData.amount);
-                targetData.takeGather(gatherer.data.getGather());;
-                GamePlay.applyGatherToPlayer(gatherer.data.getGather(),
-                                            targetData.getClassName());
-                Hud.updateResourcePanel();
+                // If the gatherer isn't currently in the middle
+                // of gathering, start gathering resources
+                if(! gatherer.isGathering) {
+                    console.log(targetData.amount);
+                    targetData.takeGather(gatherer.data.getGather());;
+                    GamePlay.applyGatherToPlayer(gatherer.data.getGather(),
+                                                targetData.getClassName());
+                    Hud.updateResourcePanel();
+                    gatherer.isGathering = true;
+                    var anim = gatherer.getSprite(0).getCurrentAnimationName();
+                    var dir = anim.substr(anim.lastIndexOf('_') + 1);
+                    gatherer.onAnimationEnd = (data) => {
+                        gatherer.isGathering = false; 
+                        gatherer.onAnimationEnd = null;
+                    };
+                    wade.addEventListener(gatherer, 'onAnimationEnd');
+                    gatherer.playAnimation('Attack_iso_' + dir, 'forward');
+                }
 
                 await delay(time); // wait a bit before gathering again.
 
