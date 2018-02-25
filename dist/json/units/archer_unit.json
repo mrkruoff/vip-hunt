@@ -4,7 +4,7 @@
 	"defense":25,
 	"attack":50,
 	"gathering": 25,
-	"speed":50,
+	"speed":160,
 	"vision":65,
 	"cost":25,
 	"range":20
