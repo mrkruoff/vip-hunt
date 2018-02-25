@@ -373,7 +373,7 @@ const GamePlay = {
             i++;
 
             // Go to the object and trigger the doDamage function
-            if(!attacker.isAttacking) {
+            if(target && !attacker.isAttacking) {
                 attacker.getBehavior('IsoCharacter').goToObject(target);
             }
             await delay(time);
@@ -394,6 +394,8 @@ const GamePlay = {
                 }
                 wade.addEventListener(target, 'onAnimationEnd');
                 target.playAnimation('Death_iso_' + direction);
+                console.log(attacker.getSprite(0).getCurrentAnimation());
+                attacker.getBehavior('IsoCharacter').setDirection('s');
             }
 
             //Update the attacking unit's location.
@@ -402,7 +404,7 @@ const GamePlay = {
     },
     gather: function(gatherer, target) {
         return async function(event) {
-            const time = 500;
+            const time = 1000;
             const targetData = target.data;
             gatherer.shouldGather = true;
             gatherer.isGathering = false;
@@ -430,8 +432,11 @@ const GamePlay = {
 
                 if (targetData.amount <= 0) {
                     //Stop the gathering behavior
+                    GamePlay.clearUnitActions(gatherer);
                     GamePlay.clearGather(gatherer);
                     GamePlay.deleteGameObject(target);
+                    console.log(gatherer.getSprite(0).getCurrentAnimation());
+                    gatherer.getBehavior('IsoCharacter').setDirection('s');
                 }
             }
         };
@@ -511,6 +516,9 @@ const GamePlay = {
             //Eleminate the 'data' property, and then delete the SceneObject itself.
             sceneObject.data.isMoving = false; // end the moving cycle
             delete sceneObject.data;
+            if(sceneObject === GamePlay.getSelected() ) {
+                GamePlay.removeSelected();
+            }
             wade.iso.deleteObject(sceneObject);
             console.log(global.state);
         } 
