@@ -150,6 +150,7 @@ function addToScene(state: GlobalGameState) {
 
             }
             if (tile.unitId >= 0) {
+                let isPlayerUnit = true;
                 let unit = _.find(state.getPlayer().getUnits(), (u) => {
                     return u.id === tile.unitId;
                 });
@@ -158,6 +159,7 @@ function addToScene(state: GlobalGameState) {
                     unit = _.find(state.getAi().getUnits(), (u) => {
                         return u.id === tile.unitId;
                     });
+                    isPlayerUnit = false;
                 }
 
                 console.log(unit);
@@ -167,12 +169,17 @@ function addToScene(state: GlobalGameState) {
                 const u = UnitBuilding.constructUnitFromModel(unit);
                 u.data = unit;
                 unit.rep = u; //circular reference
+                u.getBehavior('IsoCharacter').movementSpeed = u.data.speed;
+                u.getBehavior('IsoCharacter').setDirection('s');
                 wade.iso.moveObjectToTile(u, tile.x, tile.y);
                 GamePlay.updateUnitMapLocation(u);
 
                 //Then we attach the appropriate callbacks for a constructed unit.
-                u.onMouseDown = GamePlay.onSelectUnit(u);
-                wade.addEventListener(u, 'onMouseDown');
+                // But ONLY if it is a player unit
+                if(isPlayerUnit) {
+                    u.onMouseDown = GamePlay.onSelectUnit(u);
+                    wade.addEventListener(u, 'onMouseDown');
+                }
 
             }
 

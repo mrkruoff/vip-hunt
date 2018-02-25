@@ -389,8 +389,7 @@ const GamePlay = {
                 var direction = anim.substr(anim.lastIndexOf('_') + 1);
                 target.onAnimationEnd = (data) => {
                     //Once the animation is over, delete the object
-                    GamePlay.deleteGameObject(target);
-                
+                    GamePlay.deleteGameObject(target);            
                 }
                 wade.addEventListener(target, 'onAnimationEnd');
                 target.playAnimation('Death_iso_' + direction);
@@ -423,6 +422,7 @@ const GamePlay = {
                     gatherer.onAnimationEnd = (data) => {
                         gatherer.isGathering = false; 
                         gatherer.onAnimationEnd = null;
+                        gatherer.getBehavior('IsoCharacter').setDirection(dir);
                     };
                     wade.addEventListener(gatherer, 'onAnimationEnd');
                     gatherer.playAnimation('Attack_iso_' + dir, 'forward');
@@ -518,6 +518,7 @@ const GamePlay = {
             delete sceneObject.data;
             if(sceneObject === GamePlay.getSelected() ) {
                 GamePlay.removeSelected();
+                Hud.showMainPanel();
             }
             wade.iso.deleteObject(sceneObject);
             console.log(global.state);
@@ -782,6 +783,7 @@ const UnitBuilding = {
                     optionsPanel.icon = null;
                 }
                 optionsPanel.icon = constructionFn(jsonFile, dataFile);
+                optionsPanel.icon.getBehavior('IsoCharacter').setDirection('s');
 
                 //Make the icon track the mouse when the mouse is over the map
                 Mouse.trackIsoTerrainGridMove(optionsPanel.icon);

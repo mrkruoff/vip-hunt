@@ -275,6 +275,8 @@ var AiGamePlay = {
         //Link the data and the representation
         sceneUnit.data = u;
         u.rep = sceneUnit;
+        sceneUnit.getBehavior('IsoCharacter').movementSpeed = sceneUnit.data.speed;
+        sceneUnit.getBehavior('IsoCharacter').setDirection('s');
         
         //Place the unit where indicated. IF THIS FAILS IT WAS BECAUSE OF A COLLISION.
         let wasMoved = false;

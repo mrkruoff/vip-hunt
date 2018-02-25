@@ -93,8 +93,9 @@ const Construction = {
     //      construct the instance of the VIP class.
     vip: (imageJsonFile: string, dataJsonFile: string) => {
         const v = SceneObjectConstruction.vip(imageJsonFile);
-        v.data = v.fromObject(wade.getJson(dataJsonFile));
+        v.data = VIP.fromObject(wade.getJson(dataJsonFile));
         v.data.rep = v;
+        v.getBehavior('IsoCharacter').movementSpeed = v.data.speed;
 
         return v;
 
@@ -127,6 +128,7 @@ const Construction = {
         const swordsman = SceneObjectConstruction.swordsman(imageJsonFile);
         swordsman.data = Swordsman.fromObject(wade.getJson(dataJsonFile));
         swordsman.data.rep = swordsman;
+        swordsman.getBehavior('IsoCharacter').movementSpeed = swordsman.data.speed;
 
         return swordsman;
     },
@@ -142,6 +144,7 @@ const Construction = {
         const archer = SceneObjectConstruction.archer(imageJsonFile);
         archer.data = Archer.fromObject(wade.getJson(dataJsonFile));
         archer.data.rep = archer;
+        archer.getBehavior('IsoCharacter').movementSpeed = archer.data.speed;
 
         return archer;
     },
@@ -157,6 +160,7 @@ const Construction = {
         const archerCalvary = SceneObjectConstruction.archerCalvary(imageJsonFile);
         archerCalvary.data = ArcherCalvary.fromObject(wade.getJson(dataJsonFile));
         archerCalvary.data.rep = archerCalvary;
+        archerCalvary.getBehavior('IsoCharacter').movementSpeed = archerCalvary.data.speed;
 
         return archerCalvary;
     },
@@ -172,6 +176,7 @@ const Construction = {
         const spearCalvary = SceneObjectConstruction.spearCalvary(imageJsonFile);
         spearCalvary.data = SpearCalvary.fromObject(wade.getJson(dataJsonFile));
         spearCalvary.data.rep = spearCalvary;
+        spearCalvary.getBehavior('IsoCharacter').movementSpeed = spearCalvary.data.speed;
 
         return spearCalvary;
     },
@@ -187,6 +192,7 @@ const Construction = {
         const gatherer = SceneObjectConstruction.gatherer(imageJsonFile);
         gatherer.data = Gatherer.fromObject(wade.getJson(dataJsonFile));
         gatherer.data.rep = gatherer;
+        gatherer.getBehavior('IsoCharacter').movementSpeed = gatherer.data.speed;
 
         return gatherer;
     },
@@ -202,6 +208,7 @@ const Construction = {
         const drummerBoy = SceneObjectConstruction.drummerBoy(imageJsonFile);
         drummerBoy.data = DrummerBoy.fromObject(wade.getJson(dataJsonFile));
         drummerBoy.data.rep = drummerBoy;
+        drummerBoy.getBehavior('IsoCharacter').movementSpeed = drummerBoy.data.speed;
 
         return drummerBoy;
     },
