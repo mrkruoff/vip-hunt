@@ -354,6 +354,8 @@ const GamePlay = {
                 attacker.onAnimationEnd = (data) => {
                     attacker.isAttacking = false; 
                     attacker.onAnimationEnd = null;
+                    let dir = GamePlay.directionToTarget(attacker, target);
+                    attacker.getBehavior('IsoCharacter').setDirection(dir);
                 }
                 wade.addEventListener(attacker, 'onAnimationEnd');
                 attacker.playAnimation('Attack_iso_' + direction, 'forward');
@@ -373,19 +375,22 @@ const GamePlay = {
             attacker.shouldAttack = (i % attackFreq) === 0;
             i++;
 
+            // use attacker.data.range + 1 because the map is square, so 
+            // diagonal distances are technically longer.
+            if(GamePlay.distance(attacker, target) >= attacker.data.range + 1 ) {
+                attacker.getBehavior('IsoCharacter').goToObject(target);
+            }
             // Only go to the target if it is out of range
-            if(target && !attacker.isAttacking) {
-                if(GamePlay.distance(attacker, target) > attacker.data.range + 1 ) {
-                    attacker.getBehavior('IsoCharacter').goToObject(target);
-                }
-                else {
-                    // If the target is in range, face the target and damage it.
-                    let dir = GamePlay.directionToTarget(attacker, target);
-                    attacker.getBehavior('IsoCharacter').setDirection(dir);
-                    attacker.getBehavior('IsoCharacter').clearDestinations();
-                    doDamage(null);
-                
-                }
+            else if(target && !attacker.isAttacking) {
+                // If the target is in range, face the target and damage it.
+                let dir = GamePlay.directionToTarget(attacker, target);
+                attacker.getBehavior('IsoCharacter').clearDestinations();
+                attacker.getBehavior('IsoCharacter').setDirection(dir);
+                doDamage(null);
+            } else {
+                //If we got here, something went wrong.
+                await delay(1000);
+                attacker.isAttacking = false; 
             }
             await delay(time);
 
@@ -405,7 +410,6 @@ const GamePlay = {
                 }
                 wade.addEventListener(target, 'onAnimationEnd');
                 target.playAnimation('Death_iso_' + direction);
-                console.log(attacker.getSprite(0).getCurrentAnimation());
                 attacker.getBehavior('IsoCharacter').setDirection('s');
             }
 
@@ -422,8 +426,6 @@ const GamePlay = {
         if (dz < 0 )  {
             theta = (2*Math.PI - theta);
         }
-        console.log( "THETA IS " + theta.toString() );
-
         if( theta <= (Math.PI / 8) || theta >= (15*Math.PI / 8)  ) {
             return 'ne'; 
         } else if (theta <= (3*Math.PI) / 8 ) {
