@@ -220,9 +220,6 @@ var AiGamePlay = {
 
         GamePlay.attack(attacker, target);
         
-
-    
-    
     },
     // This function constructs a Unit GameObject and returns its
     // data portion to the caller.

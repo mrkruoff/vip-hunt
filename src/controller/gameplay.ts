@@ -344,7 +344,7 @@ const GamePlay = {
         attacker.isAttacking = false;
 
         // Set the callback: when the attacker reaches the target, do damage.
-        attacker.onObjectReached = function doDamage(event) {
+        let doDamage = function(event) {
             // Deal damage only in intervals.
             // shouldAttack's value will switch based on the loop below
             if (attacker.shouldAttack && target && targetData) {
@@ -361,6 +361,7 @@ const GamePlay = {
                 targetData.takeDamage(attacker.data.getAttack());
             }
         };
+        attacker.onObjectReached = doDamage;
 
         let i = 0; // iteration number
         const attackFreq = 7;
@@ -372,14 +373,25 @@ const GamePlay = {
             attacker.shouldAttack = (i % attackFreq) === 0;
             i++;
 
-            // Go to the object and trigger the doDamage function
+            // Only go to the target if it is out of range
             if(target && !attacker.isAttacking) {
-                attacker.getBehavior('IsoCharacter').goToObject(target);
+                if(GamePlay.distance(attacker, target) > attacker.data.range ) {
+                    attacker.getBehavior('IsoCharacter').goToObject(target);
+                }
+                else {
+                    // If the target is in range, face the target and damage it.
+                    let dir = GamePlay.directionToTarget(attacker, target);
+                    attacker.getBehavior('IsoCharacter').setDirection(dir);
+                    attacker.getBehavior('IsoCharacter').clearDestinations();
+                    doDamage(null);
+                
+                }
             }
             await delay(time);
 
             //Stop pursuing and remove target once it is dead.
             if (targetData.hp <= 0) {
+                attacker.isAttacking = false;
                 attacker.shouldAttack = false;
                 attacker.onObjectReached = null;
                 GamePlay.clearPursue(attacker);
@@ -397,9 +409,48 @@ const GamePlay = {
                 attacker.getBehavior('IsoCharacter').setDirection('s');
             }
 
-            //Update the attacking unit's location.
+            // Update the attacking unit's location.
             GamePlay.updateUnitMapLocation(attacker);
         }
+    },
+    directionToTarget: (attacker, target) => {
+        let hyp = GamePlay.distance(attacker, target);
+        let adj = target.iso.gridCoords.x - attacker.iso.gridCoords.x;
+        let dz = target.iso.gridCoords.z - attacker.iso.gridCoords.z;
+
+        let theta = ( Math.acos(adj / hyp) );
+        if (dz < 0 )  {
+            theta = Math.floor(2*Math.PI - theta);
+        }
+        console.log( "THETA IS " + theta.toString() );
+
+        if( theta <= (Math.PI / 8) || theta >= (15*Math.PI / 8)  ) {
+            return 'ne'; 
+        } else if (theta <= (3*Math.PI) / 8 ) {
+            return 'n'; 
+        } else if (theta <= (5*Math.PI / 8) ) {
+            return 'nw'; 
+        } else if (theta <= ( 7*Math.PI / 8) ) { 
+            return 'w'; 
+        } else if (theta <= (9*Math.PI / 8) ) {
+            return 'sw'; 
+        } else if (theta <= (11*Math.PI / 8) ) {
+            return 's'; 
+        } else if (theta <= (13*Math.PI / 8 ) ) {
+            return 'se'; 
+        } else {
+            return 'e'; 
+        }
+    },
+    distance: (sceneObject1, sceneObject2) => {
+        //Since both are isometric scene objects, both parameters have 
+        // a SceneObject.iso.gridCoords property
+        let dx = sceneObject1.iso.gridCoords.x - sceneObject2.iso.gridCoords.x;
+        let dz = sceneObject1.iso.gridCoords.z - sceneObject2.iso.gridCoords.z;
+        let d = Math.sqrt(Math.pow(dx, 2) + Math.pow(dz, 2)); 
+
+        return Math.ceil(d);
+    
     },
     gather: function(gatherer, target) {
         return async function(event) {
