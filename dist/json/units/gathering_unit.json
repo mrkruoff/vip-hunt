@@ -5,7 +5,7 @@
 	"attack":25,
 	"gathering": 75,
 	"speed":130,
-	"vision":25,
+	"vision":2,
 	"cost":25,
-	"range":0
+	"range":1
 }
