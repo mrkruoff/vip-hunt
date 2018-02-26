@@ -375,7 +375,7 @@ const GamePlay = {
 
             // Only go to the target if it is out of range
             if(target && !attacker.isAttacking) {
-                if(GamePlay.distance(attacker, target) > attacker.data.range ) {
+                if(GamePlay.distance(attacker, target) > attacker.data.range + 1 ) {
                     attacker.getBehavior('IsoCharacter').goToObject(target);
                 }
                 else {
@@ -420,7 +420,7 @@ const GamePlay = {
 
         let theta = ( Math.acos(adj / hyp) );
         if (dz < 0 )  {
-            theta = Math.floor(2*Math.PI - theta);
+            theta = (2*Math.PI - theta);
         }
         console.log( "THETA IS " + theta.toString() );
 
@@ -449,7 +449,7 @@ const GamePlay = {
         let dz = sceneObject1.iso.gridCoords.z - sceneObject2.iso.gridCoords.z;
         let d = Math.sqrt(Math.pow(dx, 2) + Math.pow(dz, 2)); 
 
-        return Math.ceil(d);
+        return d;
     
     },
     gather: function(gatherer, target) {
