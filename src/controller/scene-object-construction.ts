@@ -31,10 +31,20 @@ var deathNames = ['Death_iso_n', 'Death_iso_s', 'Death_iso_e', 'Death_iso_w',
 ];
 
 
-function addAnims(sceneObject, animsArray, namesArray, xCells, yCells, speed, looping, start, end) {
+function addAnims(sceneObject, animsArray, namesArray, xCells, yCells, speed, looping, start, end, offset) {
     for( let i = 0; i < animsArray.length; i++) {
-        let anim = new Animation(animsArray[i], xCells, yCells, speed, looping,
-                                start, end);
+        // let anim = new Animation(animsArray[i], xCells, yCells, speed, looping,
+         //                       start, end);
+        let anim = new Animation({
+            type: 'Animation',
+            startFrame: start,
+            endFrame: end,
+            numCells: {x: xCells, y: yCells},
+            image: animsArray[i],
+            speed: speed,
+            looping: looping,
+            offset: offset,
+        });
         sceneObject.getSprite(0).addAnimation(namesArray[i], anim);
     }
 
@@ -104,6 +114,7 @@ const SceneObjectConstruction = {
             behaviors: [IsoCharacter],
         };
         const vip = wade.iso.createObject(objectData);
+        let offset = {x: 0, y: -90};
 
         let idleAnims = [
             ImageMap.vip_N_idle, ImageMap.vip_S_idle, ImageMap.vip_E_idle,
@@ -117,7 +128,7 @@ const SceneObjectConstruction = {
         let speed = 7;
         let looping = true;
         addAnims(vip, idleAnims, idleNames, xCells, yCells,
-                 speed, looping, startFrame, endFrame);
+                 speed, looping, startFrame, endFrame, offset);
 
 
         let walkAnims = [
@@ -133,7 +144,7 @@ const SceneObjectConstruction = {
         speed = 15;
         looping = true;
         addAnims(vip, walkAnims, walkNames, xCells, yCells,
-                speed, looping, startFrame, endFrame);
+                speed, looping, startFrame, endFrame, offset);
 
         let attackAnims = [
             ImageMap.vip_N_attack, ImageMap.vip_S_attack,
@@ -148,7 +159,7 @@ const SceneObjectConstruction = {
         speed = 10;
         looping = false;
         addAnims(vip, attackAnims, attackNames, xCells, yCells,
-                speed, looping, startFrame, endFrame);
+                speed, looping, startFrame, endFrame, offset);
 
         let deathAnims = [
             ImageMap.vip_N_death, ImageMap.vip_S_death,
@@ -163,7 +174,7 @@ const SceneObjectConstruction = {
         speed = 10;
         looping = false;
         addAnims(vip, deathAnims, deathNames, xCells, yCells,
-                speed, looping, startFrame, endFrame);
+                speed, looping, startFrame, endFrame, offset);
 
         return vip;
 
@@ -201,6 +212,7 @@ const SceneObjectConstruction = {
             behaviors: [IsoCharacter],
         };
         const swordsman = wade.iso.createObject(objectData);
+        let offset = {x: 0, y: -50};
 
         let idleAnims = [
             ImageMap.swordsman_N_idle, ImageMap.swordsman_S_idle, ImageMap.swordsman_E_idle,
@@ -214,7 +226,7 @@ const SceneObjectConstruction = {
         let speed = 10;
         let looping = true;
         addAnims(swordsman, idleAnims, idleNames, xCells, yCells,
-                 speed, looping, startFrame, endFrame);
+                 speed, looping, startFrame, endFrame, offset);
 
 
         let walkAnims = [
@@ -230,7 +242,7 @@ const SceneObjectConstruction = {
         speed = 30;
         looping = true;
         addAnims(swordsman, walkAnims, walkNames, xCells, yCells,
-                speed, looping, startFrame, endFrame);
+                speed, looping, startFrame, endFrame, offset);
 
         let attackAnims = [
             ImageMap.swordsman_N_attack, ImageMap.swordsman_S_attack,
@@ -245,7 +257,7 @@ const SceneObjectConstruction = {
         speed = 15;
         looping = false;
         addAnims(swordsman, attackAnims, attackNames, xCells, yCells,
-                speed, looping, startFrame, endFrame);
+                speed, looping, startFrame, endFrame, offset);
 
         let deathAnims = [
             ImageMap.swordsman_N_death, ImageMap.swordsman_S_death,
@@ -260,7 +272,7 @@ const SceneObjectConstruction = {
         speed = 15;
         looping = false;
         addAnims(swordsman, deathAnims, deathNames, xCells, yCells,
-                speed, looping, startFrame, endFrame);
+                speed, looping, startFrame, endFrame, offset);
 
 
         swordsman.getSprite(0).setSize(30, 80);
@@ -281,6 +293,7 @@ const SceneObjectConstruction = {
             behaviors: [IsoCharacter],
         };
         const archer = wade.iso.createObject(objectData);
+        let offset = {x: 0, y: -50};
         
         let idleAnims = [
             ImageMap.archer_N_idle, ImageMap.archer_S_idle, ImageMap.archer_E_idle,
@@ -294,7 +307,7 @@ const SceneObjectConstruction = {
         let speed = 10;
         let looping = true;
         addAnims(archer, idleAnims, idleNames, xCells, yCells,
-                 speed, looping, startFrame, endFrame);
+                 speed, looping, startFrame, endFrame, offset);
 
 
         let walkAnims = [
@@ -310,7 +323,7 @@ const SceneObjectConstruction = {
         speed = 30;
         looping = true;
         addAnims(archer, walkAnims, walkNames, xCells, yCells,
-                speed, looping, startFrame, endFrame);
+                speed, looping, startFrame, endFrame, offset);
 
         let attackAnims = [
             ImageMap.archer_N_attack, ImageMap.archer_S_attack,
@@ -325,7 +338,7 @@ const SceneObjectConstruction = {
         speed = 15;
         looping = false;
         addAnims(archer, attackAnims, attackNames, xCells, yCells,
-                speed, looping, startFrame, endFrame);
+                speed, looping, startFrame, endFrame, offset);
 
         let deathAnims = [
             ImageMap.archer_N_death, ImageMap.archer_S_death,
@@ -340,7 +353,7 @@ const SceneObjectConstruction = {
         speed = 15;
         looping = false;
         addAnims(archer, deathAnims, deathNames, xCells, yCells,
-                speed, looping, startFrame, endFrame);
+                speed, looping, startFrame, endFrame, offset);
 
         archer.getSprite(0).setSize(240, 320);
 
@@ -359,6 +372,7 @@ const SceneObjectConstruction = {
             behaviors: [IsoCharacter],
         };
         const archerCalvary = wade.iso.createObject(objectData);
+        let offset = {x: 0, y: -100};
 
         let idleAnims = [
             ImageMap.archerCalvary_N_idle, ImageMap.archerCalvary_S_idle, ImageMap.archerCalvary_E_idle,
@@ -372,7 +386,7 @@ const SceneObjectConstruction = {
         let speed = 10;
         let looping = true;
         addAnims(archerCalvary, idleAnims, idleNames, xCells, yCells,
-                 speed, looping, startFrame, endFrame);
+                 speed, looping, startFrame, endFrame, offset);
 
 
         let walkAnims = [
@@ -388,7 +402,7 @@ const SceneObjectConstruction = {
         speed = 30;
         looping = true;
         addAnims(archerCalvary, walkAnims, walkNames, xCells, yCells,
-                speed, looping, startFrame, endFrame);
+                speed, looping, startFrame, endFrame, offset);
 
         let attackAnims = [
             ImageMap.archerCalvary_N_attack, ImageMap.archerCalvary_S_attack,
@@ -403,7 +417,7 @@ const SceneObjectConstruction = {
         speed = 15;
         looping = false;
         addAnims(archerCalvary, attackAnims, attackNames, xCells, yCells,
-                speed, looping, startFrame, endFrame);
+                speed, looping, startFrame, endFrame, offset);
 
         let deathAnims = [
             ImageMap.archerCalvary_N_death, ImageMap.archerCalvary_S_death,
@@ -418,7 +432,7 @@ const SceneObjectConstruction = {
         speed = 15;
         looping = false;
         addAnims(archerCalvary, deathAnims, deathNames, xCells, yCells,
-                speed, looping, startFrame, endFrame);
+                speed, looping, startFrame, endFrame, offset);
 
         return archerCalvary;
     },
@@ -435,6 +449,7 @@ const SceneObjectConstruction = {
             behaviors: [IsoCharacter],
         };
         const spearCalvary = wade.iso.createObject(objectData);
+        let offset = {x: 0, y: -100};
         
         let idleAnims = [
             ImageMap.spearCalvary_N_idle, ImageMap.spearCalvary_S_idle, ImageMap.spearCalvary_E_idle,
@@ -448,7 +463,7 @@ const SceneObjectConstruction = {
         let speed = 10;
         let looping = true;
         addAnims(spearCalvary, idleAnims, idleNames, xCells, yCells,
-                 speed, looping, startFrame, endFrame);
+                 speed, looping, startFrame, endFrame, offset);
 
 
         let walkAnims = [
@@ -464,7 +479,7 @@ const SceneObjectConstruction = {
         speed = 30;
         looping = true;
         addAnims(spearCalvary, walkAnims, walkNames, xCells, yCells,
-                speed, looping, startFrame, endFrame);
+                speed, looping, startFrame, endFrame, offset);
 
         let attackAnims = [
             ImageMap.spearCalvary_N_attack, ImageMap.spearCalvary_S_attack,
@@ -479,7 +494,7 @@ const SceneObjectConstruction = {
         speed = 15;
         looping = false;
         addAnims(spearCalvary, attackAnims, attackNames, xCells, yCells,
-                speed, looping, startFrame, endFrame);
+                speed, looping, startFrame, endFrame, offset);
 
         let deathAnims = [
             ImageMap.spearCalvary_N_death, ImageMap.spearCalvary_S_death,
@@ -494,7 +509,7 @@ const SceneObjectConstruction = {
         speed = 15;
         looping = false;
         addAnims(spearCalvary, deathAnims, deathNames, xCells, yCells,
-                speed, looping, startFrame, endFrame);
+                speed, looping, startFrame, endFrame, offset);
 
         return spearCalvary;
     },
@@ -511,6 +526,7 @@ const SceneObjectConstruction = {
             behaviors: [IsoCharacter],
         };
         const gatherer = wade.iso.createObject(objectData);
+        let offset = {x: 0, y: -30};
         
         let idleAnims = [
             ImageMap.gatherer_N_idle, ImageMap.gatherer_S_idle, ImageMap.gatherer_E_idle,
@@ -524,7 +540,7 @@ const SceneObjectConstruction = {
         let speed = 10;
         let looping = true;
         addAnims(gatherer, idleAnims, idleNames, xCells, yCells,
-                 speed, looping, startFrame, endFrame);
+                 speed, looping, startFrame, endFrame, offset);
 
 
         let walkAnims = [
@@ -540,7 +556,7 @@ const SceneObjectConstruction = {
         speed = 30;
         looping = true;
         addAnims(gatherer, walkAnims, walkNames, xCells, yCells,
-                speed, looping, startFrame, endFrame);
+                speed, looping, startFrame, endFrame, offset);
 
         let attackAnims = [
             ImageMap.gatherer_N_attack, ImageMap.gatherer_S_attack,
@@ -555,7 +571,7 @@ const SceneObjectConstruction = {
         speed = 15;
         looping = false;
         addAnims(gatherer, attackAnims, attackNames, xCells, yCells,
-                speed, looping, startFrame, endFrame);
+                speed, looping, startFrame, endFrame, offset);
 
         let deathAnims = [
             ImageMap.gatherer_N_death, ImageMap.gatherer_S_death,
@@ -570,7 +586,7 @@ const SceneObjectConstruction = {
         speed = 15;
         looping = false;
         addAnims(gatherer, deathAnims, deathNames, xCells, yCells,
-                speed, looping, startFrame, endFrame);
+                speed, looping, startFrame, endFrame, offset);
 
         return gatherer;
     },
@@ -587,6 +603,7 @@ const SceneObjectConstruction = {
             behaviors: [IsoCharacter],
         };
         const drummerBoy = wade.iso.createObject(objectData);
+        let offset = {x: 0, y: -100};
 
         let idleAnims = [
             ImageMap.drummerBoy_N_idle, ImageMap.drummerBoy_S_idle, ImageMap.drummerBoy_E_idle,
@@ -600,7 +617,7 @@ const SceneObjectConstruction = {
         let speed = 10;
         let looping = true;
         addAnims(drummerBoy, idleAnims, idleNames, xCells, yCells,
-                 speed, looping, startFrame, endFrame);
+                 speed, looping, startFrame, endFrame, offset);
 
 
         let walkAnims = [
@@ -616,7 +633,7 @@ const SceneObjectConstruction = {
         speed = 30;
         looping = true;
         addAnims(drummerBoy, walkAnims, walkNames, xCells, yCells,
-                speed, looping, startFrame, endFrame);
+                speed, looping, startFrame, endFrame, offset);
 
         let attackAnims = [
             ImageMap.drummerBoy_N_attack, ImageMap.drummerBoy_S_attack,
@@ -631,7 +648,7 @@ const SceneObjectConstruction = {
         speed = 15;
         looping = false;
         addAnims(drummerBoy, attackAnims, attackNames, xCells, yCells,
-                speed, looping, startFrame, endFrame);
+                speed, looping, startFrame, endFrame, offset);
 
         let deathAnims = [
             ImageMap.drummerBoy_N_death, ImageMap.drummerBoy_S_death,
@@ -646,7 +663,7 @@ const SceneObjectConstruction = {
         speed = 15;
         looping = false;
         addAnims(drummerBoy, deathAnims, deathNames, xCells, yCells,
-                speed, looping, startFrame, endFrame);
+                speed, looping, startFrame, endFrame, offset);
 
         return drummerBoy;
     },

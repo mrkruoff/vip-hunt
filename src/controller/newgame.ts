@@ -64,6 +64,11 @@ const NewGame = {
 
         let AiB = AiGamePlay.constructBuilding("Barracks", 17, 17);
         let AiU = AiGamePlay.constructUnit("Swordsman", 10, 10);
+        AiGamePlay.constructUnit("Archer", 13, 11);
+        AiGamePlay.constructUnit("Gatherer", 15, 13);
+        AiGamePlay.constructUnit("DrummerBoy", 7, 8);
+        AiGamePlay.constructUnit("ArcherCalvary", 17, 9);
+        AiGamePlay.constructUnit("SpearCalvary", 3, 3);
         console.log(AiU);
         AiU.rep.playAnimation('run', 'forward');
         let AiVip = AiGamePlay.constructUnit("VIP", 15, 5);
@@ -75,7 +80,6 @@ const NewGame = {
         let playerUnits = state.getPlayer().getUnits();
         let re = state.getResources();
         console.log(playerUnits);
-        AiGamePlay.unitAttack(AiU.getId(), playerUnits[0].getId());
         AiGamePlay.unitGather(AiVip.getId(), re[2].getId() );
 
         // Add building button for building units.

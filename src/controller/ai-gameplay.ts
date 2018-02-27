@@ -26,6 +26,7 @@ import SpearCalvary from '../model/units/spearCalvary_unit';
 import Swordsman from '../model/units/swordsman_unit';
 import Unit from '../model/units/units';
 import VIP from '../model/units/VIP_unit';
+import ImageMap from './image-map';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -269,6 +270,7 @@ var AiGamePlay = {
         sceneUnit.oldX = x;
         sceneUnit.oldZ = z;
 
+
         //Link the data and the representation
         sceneUnit.data = u;
         u.rep = sceneUnit;
@@ -305,6 +307,16 @@ var AiGamePlay = {
         GamePlay.updateUnitMapLocation(sceneUnit);
 
         console.log(u);
+        //Give the unit a sprite to indicate it's an AI unit.
+        let redCircle = new Sprite( {
+            type: 'Sprite',
+            sortPoint: {x: 0, y: -0.9 },
+            layer: 25,
+            size: {x: 700, y: 700},
+            image: ImageMap.enemy_unit_marker,
+        }); 
+        sceneUnit.addSprite(redCircle, {x: 0, y: 5});
+        sceneUnit.setSpriteOffset(1, {x:0, y: -45})
 
         return u;
     }

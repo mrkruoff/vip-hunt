@@ -265,6 +265,8 @@ const ImageMap = {
     vip_NW_death: '../js/../public/sprites/units/results_knight/deathNW.png',
     vip_SE_death: '../js/../public/sprites/units/results_knight/deathSE.png',
     vip_SW_death: '../js/../public/sprites/units/results_knight/deathSW.png',
+
+    enemy_unit_marker: '../js/../public/sprites/units/enemy_marker.png',
 };
 
 export default ImageMap;
