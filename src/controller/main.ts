@@ -39,6 +39,8 @@ App = function() {
     // This function is called for asynchronous loading of assets. However,
     // the game will not start until all assets are loaded.
     this.load = function() {
+        // wade.setLoadingImages('../js/../public/sprites/menu/loadingtext.png');
+        wade.setLoadingBar(true, {x: 0, y: 0}, 'white', 'black');
         loadImages();
         loadSpriteJson();
         loadDataJson();
