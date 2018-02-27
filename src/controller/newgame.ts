@@ -41,7 +41,7 @@ const NewGame = {
     // Initializes a new game
     initialize: async () => {
         wade.setMinScreenSize(20, 20);
-        wade.setMaxScreenSize(1280, 800)
+        wade.setMaxScreenSize(1280, 800);
 
         //Set up global settings and sync with scene.
         const global = Global.createGlobalSettings();

@@ -18,6 +18,9 @@ import Unit from '../model/units/units';
 import Building from '../model/buildings/buildings';
 import SceneObjectConstruction from './scene-object-construction';
 import PlayerGameState from '../model/state/player-game-state';
+import GlobalGameState from '../model/state/global-game-state';
+import AiGameState from '../model/state/ai-game-state';
+import Events from './events';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -406,7 +409,12 @@ const GamePlay = {
                 var direction = anim.substr(anim.lastIndexOf('_') + 1);
                 target.onAnimationEnd = (data) => {
                     //Once the animation is over, delete the object
-                    GamePlay.deleteGameObject(target);            
+                    if(_.isEqual(target.data.getClassName(), "VIP") ) {
+                        GamePlay.gameOver(target.data.getId());
+                    }
+                    else {
+                        GamePlay.deleteGameObject(target);            
+                    }
                 }
                 wade.addEventListener(target, 'onAnimationEnd');
                 target.playAnimation('Death_iso_' + direction);
@@ -416,6 +424,21 @@ const GamePlay = {
             // Update the attacking unit's location.
             GamePlay.updateUnitMapLocation(attacker);
         }
+    },
+    gameOver: (id: number) => {
+        let state: GlobalGameState = wade.getSceneObject('global').state;
+        let ai: AiGameState = state.getAi();
+        let player: PlayerGameState = state.getPlayer();
+
+        if( _.some(ai.getUnits(), (unit) => {
+            return _.isEqual(unit.getId(), id); 
+        })  ) {
+            Hud.showWinPanel();
+        } else {
+            Hud.showLossPanel(); 
+        }
+        wade.pauseSimulation();
+        Events.disableAllEvents();
     },
     directionToTarget: (attacker, target) => {
         let hyp = GamePlay.distance(attacker, target);

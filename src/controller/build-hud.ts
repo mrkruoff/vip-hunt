@@ -153,6 +153,27 @@ const BuildHud = {
         return [save, resume, quit];
     
     },
+    winPanel: (layer: number) => {
+        let font = "16px Verdana";
+        let color = "black";
+        let alignment = 'center';
+
+        let victory = BuildHud.buildText("Victory!", font, color, alignment, 0, -125, layer);
+        let menu = BuildHud.buildText("Menu", font, color, alignment, 0, -25, layer);
+
+        return [victory, menu];
+    
+    },
+    lossPanel: (layer: number) => {
+        let font = "16px Verdana";
+        let color = "black";
+        let alignment = 'center';
+
+        let defeat = BuildHud.buildText("Defeat...", font, color, alignment, 0, -125, layer);
+        let menu = BuildHud.buildText("Menu", font, color, alignment, 0, -25, layer);
+
+        return [defeat, menu];
+    },
     menuBackground: (layer: number) => {
         const scroll = BuildHud.buildIcon(ImageMap.scroll, 200, 500, 0, 0, layer);
         scroll.setName(Names.menu_background);

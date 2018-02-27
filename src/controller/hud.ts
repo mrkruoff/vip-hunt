@@ -11,7 +11,10 @@
 import * as _ from 'lodash';
 import BuildHud from './build-hud';
 import Names from './names';
+import Events from './events';
+import * as Menu from './menu';
 
+declare var window: any;
 declare var wade: any;
 declare var TextSprite: any;
 declare var SceneObject: any;
@@ -22,7 +25,69 @@ declare var Path: any;
 declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
+function cleanScene() {
+    let sceneObjects = wade.getSceneObjects(false);
+
+    _.forEach(sceneObjects, (obj) => {
+        //Clean up all circular references.
+        if(_.has(obj, 'data') ) {
+            obj.data.rep = null; 
+            delete obj.data;
+        }
+    });
+}
+
 const Hud = {
+    showWinPanel: () => {
+        let options = BuildHud.winPanel(9);
+
+        let menu = options[1];
+        menu.onClick = (data) => {
+            cleanScene();
+            wade.clearScene();
+            wade.resumeSimulation();
+            window.location.reload();
+
+            return true; 
+        }
+        wade.addEventListener(menu, 'onClick');
+        menu.onMouseIn = (event) => {
+            menu.getSprite(0).setFont("20px Verdana"); 
+        }
+        wade.addEventListener(menu, 'onMouseIn');
+        menu.onMouseOut = (event) => {
+            menu.getSprite(0).setFont("16px Verdana"); 
+        }
+        wade.addEventListener(menu, 'onMouseOut');
+
+
+        let background = BuildHud.menuBackground(10);
+    
+    },
+    showLossPanel: () => {
+        let options = BuildHud.lossPanel(9);
+
+        let menu = options[1];
+        menu.onClick = (data) => {
+            cleanScene();
+            wade.clearScene();
+            wade.resumeSimulation();
+            window.location.reload();
+        
+            return true; 
+        }
+        wade.addEventListener(menu, 'onClick');
+        menu.onMouseIn = (event) => {
+            menu.getSprite(0).setFont("20px Verdana"); 
+        }
+        wade.addEventListener(menu, 'onMouseIn');
+        menu.onMouseOut = (event) => {
+            menu.getSprite(0).setFont("16px Verdana"); 
+        }
+        wade.addEventListener(menu, 'onMouseOut');
+
+        let background = BuildHud.menuBackground(10);
+    },
     clearMenuPanel: () => {
         const global = wade.getSceneObject('global'); 
         if (global.hud.menu) {
