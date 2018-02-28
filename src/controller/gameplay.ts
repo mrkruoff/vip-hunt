@@ -477,7 +477,7 @@ const GamePlay = {
         return d;
     
     },
-    gather: function(gatherer, target) {
+    gather: function(gatherer, target, owner: string) {
         return async function(event) {
             const time = 1000;
             const targetData = target.data;
@@ -489,9 +489,14 @@ const GamePlay = {
                 if(! gatherer.isGathering) {
                     console.log(targetData.amount);
                     targetData.takeGather(gatherer.data.getGather());;
-                    GamePlay.applyGatherToPlayer(gatherer.data.getGather(),
-                                                targetData.getClassName());
-                    Hud.updateResourcePanel();
+                    if (_.isEqual(owner, "Player") {
+                        GamePlay.applyGatherToPlayer(gatherer.data.getGather(),
+                                                    targetData.getClassName());
+                        Hud.updateResourcePanel();
+                    } else {
+                        GamePlay.applyGatherToAi(gatherer.data.getGather(),
+                                                    targetData.getClassName());
+                    }
                     gatherer.isGathering = true;
                     var anim = gatherer.getSprite(0).getCurrentAnimationName();
                     var dir = anim.substr(anim.lastIndexOf('_') + 1);
@@ -527,6 +532,19 @@ const GamePlay = {
             player.food += gather;
         } else {
             console.log('applyGatherToPlayer error!');
+        }
+
+    },
+    applyGatherToAi: (gather: number, resource: string) => {
+        const ai = wade.getSceneObject('global').state.getAi();
+        if (resource === 'Stone') {
+            ai.stone += gather;
+        } else if (resource === 'Wood') {
+            ai.wood += gather;
+        } else if (resource === 'Food') {
+            ai.food += gather;
+        } else {
+            console.log('applyGatherToAi error!');
         }
 
     },
