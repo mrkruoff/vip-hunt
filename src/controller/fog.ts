@@ -19,6 +19,8 @@ var Fog = {
         let numTiles = wade.iso.getNumTiles();
         for(let i = -1; i < numTiles.x + 1; i++) {
             for(let j = -1; j < numTiles.z + 1; j++) {
+                Fog.paintTile(i, j, textureName, scale, layer, visisble);
+                /*
                 let data = {
                     texture: textureName, 
                     scale: scale,
@@ -27,6 +29,7 @@ var Fog = {
                 let sprite = wade.iso.getTransitionSprite(i, j);
                 sprite.setLayer(layer);
                 sprite.setVisible(visible);
+                */
             } 
         }
     
@@ -37,6 +40,27 @@ var Fog = {
 
     paintMapDarkness: () => {
         Fog.paintMap(ImageMap.darkness, 1, 21, true); 
+    },
+
+    paintTile: (x: number, z: number, textureName: string, scale: number, layer: number, visible: boolean) => {
+            let data = {
+                texture: textureName, 
+                scale: scale,
+            };
+            wade.iso.setTransition(x, z, data);
+            let sprite = wade.iso.getTransitionSprite(x, z);
+            sprite.setLayer(layer);
+            sprite.setVisible(visible);
+
+    },
+    setFogVisibility(x: number, z: number, visible: boolean) {
+        let fogSprite = wade.iso.getTransitionSprite(x, z);
+        if ( !_.isNull(fogSprite) ) {
+            fogSprite.setVisible(visible);
+        }
+        else {
+            paintTile(x, z, ImageMap.fog, 0.97, 22, visible);
+        }
     },
 
 
