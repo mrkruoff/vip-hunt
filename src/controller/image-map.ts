@@ -8,6 +8,7 @@
 // The root directory is the html folder. But because the Javascript is in the  /js folder, we must prepend ../js/ to all the image URLs.
 const ImageMap = {
     fog: '../js/../public/fog/darkness_150.png',
+    darkness: '../js/../public/fog/darkness.png',
     scroll: '../js/../public/sprites/hud/scroll.png',
     buildingIcon: '../js/../public/sprites/hud/building.png',
 

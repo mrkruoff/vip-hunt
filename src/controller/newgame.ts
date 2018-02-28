@@ -44,7 +44,7 @@ const NewGame = {
         wade.setMinScreenSize(20, 20);
         wade.setMaxScreenSize(1280, 800);
 
-        Fog.paintMapFog(); 
+        Fog.paintMapFog();
 
         //Set up global settings and sync with scene.
         const global = Global.createGlobalSettings();
