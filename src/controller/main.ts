@@ -90,6 +90,8 @@ function loadDataJson() {
 
 function loadImages() {
     // load images
+    wade.loadImage(ImageMap.fog);
+
     wade.loadImage(ImageMap.enemy_unit_marker);
     wade.loadImage(ImageMap.scroll);
     wade.loadImage(ImageMap.buildingIcon);
