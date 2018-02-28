@@ -175,7 +175,7 @@ const GamePlay = {
 
                             selected.getBehavior('IsoCharacter').goToObject(resource);
                             GamePlay.move(selected);
-                            selected.onObjectReached = GamePlay.gather(selected, resource);
+                            selected.onObjectReached = GamePlay.gather(selected, resource, "Player");
 
                         } else {
                             // If no resource (and no enemy building) was there, deselect unit
@@ -489,7 +489,7 @@ const GamePlay = {
                 if(! gatherer.isGathering) {
                     console.log(targetData.amount);
                     targetData.takeGather(gatherer.data.getGather());;
-                    if (_.isEqual(owner, "Player") {
+                    if (_.isEqual(owner, "Player") ) {
                         GamePlay.applyGatherToPlayer(gatherer.data.getGather(),
                                                     targetData.getClassName());
                         Hud.updateResourcePanel();
@@ -546,7 +546,6 @@ const GamePlay = {
         } else {
             console.log('applyGatherToAi error!');
         }
-
     },
     // This function removes the attacking status from
     // a SceneObject

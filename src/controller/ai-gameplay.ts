@@ -182,7 +182,7 @@ var AiGamePlay = {
         gatherer.getBehavior('IsoCharacter').goToObject(resource);
         GamePlay.move(gatherer);
 
-        gatherer.onObjectReached = GamePlay.gather(gatherer, resource);
+        gatherer.onObjectReached = GamePlay.gather(gatherer, resource, "Ai");
          
     
     },
