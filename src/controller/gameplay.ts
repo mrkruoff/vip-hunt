@@ -939,7 +939,54 @@ const UnitBuilding = {
             u = SceneObjectConstruction.archerCalvary(JsonMap.archer_calvary_1);
         }
         return u;
-    }
+    },
+    refreshDarkness: () => {
+        Fog.paintMapDarkness();
+
+        let playerUnits = wade.getSceneObject('global').state.getPlayer().getUnits();
+
+        _.forEach(playerUnits, (unitData) => {
+            let unit = unitData.rep;
+            let start = unit.iso.gridCoords;
+            Fog.setFogVisibility(start.x, start.y, false);
+
+            // Get rid of visibility problems around all player units.
+            // we'll it with a spiral pattern.
+            let coords = {
+                x: start.x,
+                z: start.z, 
+            };
+            let addX = true;
+            let addZ = true;
+            let stepSize = 0;
+            while( COORDINATE IS VALID       ) {
+                for(let i = 0; i < stepSize; i++) {
+                    let increment = 1;
+                    if( !addX ) {
+                        increment *= -1;
+                    }
+                    coords.x += increment;
+
+                    Fog.setFogVisibility(coords.x, coords.z, false);
+                }
+                addX = !addX;
+
+                for(let i = 0; i < stepSize; i++) {
+                    let increment = 1;
+                    if( !addZ ) {
+                        increment *= -1;
+                    }
+                    coords.z += increment;
+
+                    Fog.setFogVisibility(coords.x, coords.z, false);
+                }
+                addZ = !addZ;
+
+                stepSize++;
+            }
+        });
+
+    },
 };
 
 export { GamePlay, UnitBuilding, BuildingBuilding };
