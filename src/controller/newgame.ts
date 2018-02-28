@@ -20,6 +20,7 @@ import JsonMap from './json-map';
 import Mouse from './mouse';
 import SceneObjectConstruction from './scene-object-construction';
 import AiGamePlay from './ai-gameplay';
+import Fog from './fog';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -43,39 +44,11 @@ const NewGame = {
         wade.setMinScreenSize(20, 20);
         wade.setMaxScreenSize(1280, 800);
 
-        
+        Fog.paintMapFog(); 
 
         //Set up global settings and sync with scene.
         const global = Global.createGlobalSettings();
         addToScene(global.state);
-
-        //put full fog on map.
-        let numTiles = wade.iso.getNumTiles();
-        for(let i = 0; i < numTiles.x; i++) {
-            for(let j = 0; j < numTiles.z; j++) {
-                let data = {
-                    texture: ImageMap.fog, 
-                    scale: 0.97,
-                };
-                wade.iso.setTransition(i, j, data);
-                wade.iso.getTransitionSprite(i, j).setLayer(22);
-                
-            } 
-        }
-        wade.app.onIsoTerrainMouseDown = (event) => {
-            console.log(event); 
-            let x = event.gridCoords.x;
-            let z = event.gridCoords.z;
-
-            console.log(wade.iso.getTerrain());
-            console.log(wade.iso.getTileData(x, z));
-            console.log(wade.iso.getTileSprite(x, z));
-            console.log(wade.iso.getTransitionData(x, z));
-            console.log(wade.iso.getTransitionSprite(x, z));
-        };
-        wade.app.onClick = (event) => {
-            console.log(event); 
-        };
 
         //Add basic camera settings
         Events.addCamera();
