@@ -20,6 +20,7 @@ import JsonMap from './json-map';
 import Mouse from './mouse';
 import SceneObjectConstruction from './scene-object-construction';
 import AiGamePlay from './ai-gameplay';
+import Fog from './fog';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -43,6 +44,7 @@ const NewGame = {
         wade.setMinScreenSize(20, 20);
         wade.setMaxScreenSize(1280, 800);
 
+
         //Set up global settings and sync with scene.
         const global = Global.createGlobalSettings();
         addToScene(global.state);
@@ -54,7 +56,7 @@ const NewGame = {
         //show errors on a fixed layer 8.
         wade.setLayerTransform(8, 0, 0);
 
-        //Show resources on a fixed Layer 9
+        //Show user resources on a fixed Layer 9
         wade.setLayerTransform(9, 0, 0);
         const resources = Hud.showResourcePanel();
 
@@ -104,6 +106,9 @@ const NewGame = {
             _.forEach(options, setOnClickToBuild);
         };
         wade.addEventListener(main[0], 'onClick');
+
+        Fog.paintMapDarkness();
+        GamePlay.refreshPlayerVision();
     },
 };
 

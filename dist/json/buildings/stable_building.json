@@ -1,5 +1,5 @@
 {
 	"create":["spearCalvary","archerCalvary"],
     "hp": 300,
-    "vision": 30
+    "vision": 3 
 }

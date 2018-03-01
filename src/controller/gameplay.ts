@@ -21,6 +21,7 @@ import PlayerGameState from '../model/state/player-game-state';
 import GlobalGameState from '../model/state/global-game-state';
 import AiGameState from '../model/state/ai-game-state';
 import Events from './events';
+import Fog from './fog';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -425,11 +426,15 @@ const GamePlay = {
             GamePlay.updateUnitMapLocation(attacker);
         }
     },
-    gameOver: (id: number) => {
-        let state: GlobalGameState = wade.getSceneObject('global').state;
+    gameOver: async (id: number) => {
+        let global = wade.getSceneObject('global');
+        let state: GlobalGameState = global.state;
         let ai: AiGameState = state.getAi();
         let player: PlayerGameState = state.getPlayer();
 
+        global.isRunning = false;
+        await delay(1000);
+        
         if( _.some(ai.getUnits(), (unit) => {
             return _.isEqual(unit.getId(), id); 
         })  ) {
@@ -694,6 +699,54 @@ const GamePlay = {
         GamePlay.clearMove(unitSceneObject);
         unitSceneObject.getBehavior('IsoCharacter').clearDestinations();
     },
+    refreshPlayerVision: async () => {
+        let global = wade.getSceneObject('global');
+        let player = global.state.getPlayer();
+        let playerCollection = [];
+        while(global && global.isRunning) {
+            playerCollection = _.concat(player.getUnits(), player.getBuildings() );
+            let paintFog = [];
+            let paintClear = [];
+            _.forEach(playerCollection, (data) => {
+                let paintArrays = Fog.calculatePaintVision(data.rep);
+                paintFog = _.unionWith(paintFog, paintArrays.fog, _.isEqual);
+                paintClear = _.unionWith(paintClear, paintArrays.clear, _.isEqual);
+            });
+
+            // Paint the fog, then paint the clear. The order is important!
+            paintFog = _.differenceWith(paintFog, paintClear, _.isEqual);
+            _.forEach(paintFog, (coord) => {
+                Fog.setFogVisibility(coord.x, coord.z, true);
+            });
+            _.forEach(paintClear, (coord) => {
+                Fog.setFogVisibility(coord.x, coord.z, false);
+            });
+
+            // Check if any AI units are currently standing in the fog.
+            // If they are, set them to invisible.
+            // If they are not, set them to visible.
+            let aiUnits: Unit[] = global.state.getAi().getUnits();
+            let aiUnitReps = _.map(aiUnits, (unitData) => {
+                return unitData.rep;  
+            });
+            let aiUnitRepsInFog = _.intersectionWith(aiUnitReps, paintFog, (rep, coord) => {
+                return _.isEqual(rep.iso.gridCoords, coord); 
+            });
+            _.forEach(aiUnitRepsInFog, (rep) => {
+                rep.setVisible(false); 
+            })
+
+            let aiUnitRepsInClear = _.intersectionWith(aiUnitReps, paintClear,
+                                                    (rep, coord) => {
+                return _.isEqual(rep.iso.gridCoords, coord); 
+            });
+            _.forEach(aiUnitRepsInClear, (rep) => {
+                rep.setVisible(true); 
+            })
+        
+            await delay(1000); 
+        }
+    },
 };
 
 let BuildingBuilding = {
@@ -956,7 +1009,7 @@ const UnitBuilding = {
             u = SceneObjectConstruction.archerCalvary(JsonMap.archer_calvary_1);
         }
         return u;
-    }
+    },
 };
 
 export { GamePlay, UnitBuilding, BuildingBuilding };

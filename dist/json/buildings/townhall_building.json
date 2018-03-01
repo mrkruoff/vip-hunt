@@ -1,5 +1,5 @@
 {
 	"create": ["gatherer","drummerBoy"],
     "hp": 1000,
-    "vision": 40
+    "vision": 3
 }
