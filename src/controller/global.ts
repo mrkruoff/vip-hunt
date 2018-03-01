@@ -44,6 +44,7 @@ const Global = {
         global.hud = {
             //empty object to store references to other HUD elements
         };
+        global.isRunning = true;
 
         return global;
     },
