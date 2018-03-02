@@ -703,7 +703,14 @@ const GamePlay = {
         let global = wade.getSceneObject('global');
         let player = global.state.getPlayer();
         let playerCollection = [];
+        let worker = new Worker('../js/vision.js');
         while(global && global.isRunning) {
+
+            worker.onmessage = function(e) {
+            
+            };
+            worker.postMessage(["Hello", ", there!"]);
+            
             playerCollection = _.concat(player.getUnits(), player.getBuildings() );
             let paintFog = [];
             let paintClear = [];
@@ -712,15 +719,8 @@ const GamePlay = {
                 paintFog = _.unionWith(paintFog, paintArrays.fog, _.isEqual);
                 paintClear = _.unionWith(paintClear, paintArrays.clear, _.isEqual);
             });
-
-            // Paint the fog, then paint the clear. The order is important!
             paintFog = _.differenceWith(paintFog, paintClear, _.isEqual);
-            _.forEach(paintFog, (coord) => {
-                Fog.setFogVisibility(coord.x, coord.z, true);
-            });
-            _.forEach(paintClear, (coord) => {
-                Fog.setFogVisibility(coord.x, coord.z, false);
-            });
+
 
             // Check if any AI units are currently standing in the fog.
             // If they are, set them to invisible.
@@ -742,7 +742,17 @@ const GamePlay = {
             });
             _.forEach(aiUnitRepsInClear, (rep) => {
                 rep.setVisible(true); 
-            })
+            });
+
+
+            // Paint the fog, then paint the clear. The order is important!
+            _.forEach(paintFog, (coord) => {
+                Fog.setFogVisibility(coord.x, coord.z, true);
+            });
+            _.forEach(paintClear, (coord) => {
+                Fog.setFogVisibility(coord.x, coord.z, false);
+            });
+
         
             await delay(1000); 
         }
