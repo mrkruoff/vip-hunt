@@ -107,8 +107,8 @@ const NewGame = {
         };
         wade.addEventListener(main[0], 'onClick');
 
-        Fog.paintMapDarkness();
-        GamePlay.refreshPlayerVision();
+        // Fog.paintMapDarkness();
+        // GamePlay.refreshPlayerVision();
     },
 };
 
