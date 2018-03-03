@@ -707,7 +707,6 @@ const GamePlay = {
         let worker = new Worker('../js/vision.js');
         worker.onmessage = function(e) {
             console.log("GOT RESULT BACK");
-            console.log(e);
             
             // Paint fog and cleared tiles
             let paintFog = e.data.fog;
