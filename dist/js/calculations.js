@@ -1,7 +1,10 @@
 
 
 var Calculation = {
-    calculatePaintVision: (sceneObject) => {
+    // To calculate paint vision for a given sprite's coordinates, 
+    // I need the coordinates and the vision parameters.
+    // I also need the map bounds.
+    calculatePaintVision: (start_coord, vision, mapBounds) => {
         let dist = (coords1, coords2) => {
             let dx = coords1.x - coords2.x;
             let dz = coords1.z - coords2.z;
@@ -9,18 +12,17 @@ var Calculation = {
             return d;
         };
         let inMapBounds = (coords) => {
-            let numTiles = wade.iso.getNumTiles();
-            if(coords.x < 0 || coords.z < 0 ) {
+            if(coords.x < mapBounds.minX || coords.z < mapBounds.minZ ) {
                 return false; 
             }
 
-            if(coords.x >= numTiles.x || coords.z >= numTiles.z) {
+            if(coords.x >= mapBounds.maxX || coords.z >= mapBounds.maxZ) {
                     return false;
             }
             return true;
         }
 
-        let start = sceneObject.iso.gridCoords;
+        let start = start_coord;
         let paintArrays = {
             clear: [start],
             fog: [],
@@ -40,7 +42,7 @@ var Calculation = {
         // We're getting slightly more than the tiles that the sceneObject can see.
         // We want to repaint some of the tiles with fog in case the sceneObject 
         // is moving
-        let clearDistance = sceneObject.data.vision;
+        let clearDistance = vision;
         let angle = Math.cos(Math.PI / 4);
         let radius = clearDistance / angle;
         while( dist(coords, start) <= radius + 3 ) {
@@ -52,7 +54,10 @@ var Calculation = {
                 coords.x += increment;
 
                 if( inMapBounds(coords) ) {
-                    let new_coords = _.cloneDeep(coords);
+                    let new_coords = {
+                        x: coords.x,
+                        z: coords.z
+                    };
                     if(dist(coords, start) <= clearDistance) {
                         paintArrays.clear.push(new_coords);
                     }
@@ -71,7 +76,10 @@ var Calculation = {
                 coords.z += increment;
 
                 if( inMapBounds(coords) ) {
-                    let new_coords = _.cloneDeep(coords);
+                    let new_coords = {
+                        x: coords.x,
+                        z: coords.z
+                    };
                     if(dist(coords, start) <= clearDistance) {
                         paintArrays.clear.push(new_coords);
                     }

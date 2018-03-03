@@ -702,26 +702,75 @@ const GamePlay = {
     refreshPlayerVision: async () => {
         let global = wade.getSceneObject('global');
         let player = global.state.getPlayer();
+        let aiUnitReps = [];
         let playerCollection = [];
         let worker = new Worker('../js/vision.js');
+        worker.onmessage = function(e) {
+            console.log("GOT RESULT BACK");
+            console.log(e);
+            
+            // Paint fog and cleared tiles
+            let paintFog = e.data.fog;
+            let paintClear = e.data.clear;
+            _.forEach(paintFog, (coord) => {
+                Fog.setFogVisibility(coord.x, coord.z, true);
+            });
+            _.forEach(paintClear, (coord) => {
+                Fog.setFogVisibility(coord.x, coord.z, false);
+            });
+
+            // Set Ai Unit visiblity
+            let aiFog = e.data.aiFog;
+            let fogPairs = _.zip(aiUnitReps, aiFog);
+            _.forEach(fogPairs, (pair) => {
+                if(pair[1]) {
+                    pair[0].setVisible(false);  
+                } 
+            });
+
+            let aiClear = e.data.aiClear;
+            let clearPairs = _.zip(aiUnitReps, aiClear);
+            _.forEach(clearPairs, (pair) => {
+                if(pair[1]) {
+                    pair[0].setVisible(true); 
+                } 
+            });
+            
+
+        };
+        let numTiles = wade.iso.getNumTiles();
+
         while(global && global.isRunning) {
 
-            worker.onmessage = function(e) {
-            
-            };
-            worker.postMessage(["Hello", ", there!"]);
-            
             playerCollection = _.concat(player.getUnits(), player.getBuildings() );
-            let paintFog = [];
-            let paintClear = [];
-            _.forEach(playerCollection, (data) => {
-                let paintArrays = Fog.calculatePaintVision(data.rep);
-                paintFog = _.unionWith(paintFog, paintArrays.fog, _.isEqual);
-                paintClear = _.unionWith(paintClear, paintArrays.clear, _.isEqual);
+            let dataCollection = _.map(playerCollection, (data) => {
+                return {
+                    coords: data.rep.iso.gridCoords,                
+                    vision: data.vision,
+                };
             });
-            paintFog = _.differenceWith(paintFog, paintClear, _.isEqual);
 
+            let aiUnits: Unit[] = global.state.getAi().getUnits();
+            aiUnitReps = _.map(aiUnits, (unitData) => {
+                return unitData.rep;  
+            });
+            let aiUnitCoords = _.map(aiUnitReps, (unitRep) => {
+                return unitRep.iso.gridCoords; 
+            });
 
+            let visionData = {
+                spotlightArray: dataCollection,
+                mapBounds: {
+                    minX: 0,
+                    maxX: numTiles.x,
+                    minZ: 0,
+                    maxZ: numTiles.z,
+                },
+                aiCoords: aiUnitCoords,
+            }
+
+            worker.postMessage(visionData);
+     /*       
             // Check if any AI units are currently standing in the fog.
             // If they are, set them to invisible.
             // If they are not, set them to visible.
@@ -743,16 +792,7 @@ const GamePlay = {
             _.forEach(aiUnitRepsInClear, (rep) => {
                 rep.setVisible(true); 
             });
-
-
-            // Paint the fog, then paint the clear. The order is important!
-            _.forEach(paintFog, (coord) => {
-                Fog.setFogVisibility(coord.x, coord.z, true);
-            });
-            _.forEach(paintClear, (coord) => {
-                Fog.setFogVisibility(coord.x, coord.z, false);
-            });
-
+    */
         
             await delay(1000); 
         }
