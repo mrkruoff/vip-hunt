@@ -22,6 +22,7 @@ import GlobalGameState from '../model/state/global-game-state';
 import AiGameState from '../model/state/ai-game-state';
 import Events from './events';
 import Fog from './fog';
+import Minimap from './minimap';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -735,7 +736,9 @@ const GamePlay = {
                 } 
             });
             
-
+            // Use these calculations to update the minimap 
+            // since we don't want to have to repeat these calculations.
+            Minimap.refreshPlayerVision(e.data);
         };
         let numTiles = wade.iso.getNumTiles();
 

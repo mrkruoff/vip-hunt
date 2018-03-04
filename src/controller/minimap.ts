@@ -65,10 +65,42 @@ let Minimap = {
         }
 
         return layer;
-    }
+    },
+    refreshPlayerVision: (visionData) => {
+        let paintFog = visionData.fog;      
+        let paintClear = visionData.clear;
+        console.log("CLEAR");
+        console.log(paintClear);
+        _.forEach(paintFog, (coord) => {
+            Minimap.setFogVisibility(coord.x, coord.z, true);
+        });
 
+        _.forEach(paintClear, (coord) => {
+            Minimap.setFogVisibility(coord.x, coord.z, false); 
+        });
+    
+    },
+    setFogVisibility: (x: number, z: number, visible: boolean) => {
+        let sprite = wade.iso.getTransitionSprite(x, z);
+        let fogLayer = wade.getSceneObject('global').minimap.fogLayer;
 
-
+        if(sprite) {
+            if(sprite.discovered) {
+                // Then the sprite is an ImageMap.minimap_fog sprite. We can 
+                // set the visibility as we desire
+                fogLayer[x][z].getSprite(1).setVisible(visible);
+                fogLayer[x][z].getSprite(0).setVisible(false);
+            }
+            else {
+                // Then the sprite is an ImageMap.minimap_darkness sprite. We are only
+                // allowed to make it invisible.
+                if(!visible) {
+                    fogLayer[x][z].getSprite(0).setVisible(visible);
+                }
+            }
+        }
+    
+    },
 };
 
 

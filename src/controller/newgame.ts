@@ -106,10 +106,13 @@ const NewGame = {
             _.forEach(options, setOnClickToBuild);
         };
         wade.addEventListener(main[0], 'onClick');
+
+        Hud.showMinimap();
+
+
         Fog.paintMapDarkness();
         GamePlay.refreshPlayerVision();
        
-        Hud.showMinimap();
 
         
 

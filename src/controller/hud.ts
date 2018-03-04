@@ -53,18 +53,22 @@ const Hud = {
         // Paint the minimap initial fog
         let fogLayer = Minimap.createDarknessLayer();
 
-        let global = wade.getSceneObject('global');
-        global.minimap.background = background;
-        global.minimap.fogLayer = fogLayer;
-        
-
         // Based on the game state, paint the symbols for player units/buildings and AI units/buildings
-
         // Eveery few seconds, based on the game state, update the fog, visibility of 
         // ai units, and where the minimap units/buildings are located (based on movement).
         // Or should that last one be done when AI units are moving?
         //
         // Ideally not, since we would like to separate those concerns from each other
+
+
+        let global = wade.getSceneObject('global');
+        global.minimap = {
+        
+        };
+        global.minimap.background = background;
+        global.minimap.fogLayer = fogLayer;
+        
+
     
     
     },
