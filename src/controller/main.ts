@@ -90,6 +90,10 @@ function loadDataJson() {
 
 function loadImages() {
     // load images
+    wade.loadImage(ImageMap.minimap_background);
+    wade.loadImage(ImageMap.minimap_fog);
+    wade.loadImage(ImageMap.minimap_darkness);
+
     wade.loadImage(ImageMap.fog);
     wade.loadImage(ImageMap.darkness);
 
