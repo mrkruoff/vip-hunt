@@ -21,6 +21,7 @@ import Mouse from './mouse';
 import SceneObjectConstruction from './scene-object-construction';
 import AiGamePlay from './ai-gameplay';
 import Fog from './fog';
+import Minimap from './minimap'
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -44,9 +45,13 @@ const NewGame = {
         wade.setMinScreenSize(20, 20);
         wade.setMaxScreenSize(1280, 800);
 
+        wade.setLayerSorting(9, 'bottomToTop');
 
         //Set up global settings and sync with scene.
         const global = Global.createGlobalSettings();
+        Hud.showMinimap();
+
+
         addToScene(global.state);
 
         //Add basic camera settings
@@ -107,7 +112,6 @@ const NewGame = {
         };
         wade.addEventListener(main[0], 'onClick');
 
-        Hud.showMinimap();
 
 
         Fog.paintMapDarkness();
@@ -129,10 +133,12 @@ function addToScene(state: GlobalGameState) {
     _.forEach(state.map, (row) => {
         _.forEach(row, (tile) => {
             if (tile.buildingId >= 0) {
+                let isPlayer = true;
                 let building = _.find(state.getPlayer().getBuildings(), (b) => {
                     return b.id === tile.buildingId;
                 });
                 if ( !building )  {
+                    isPlayer = false;
                     //Otherwise the building is an ai building
                     building = _.find(state.getAi().getBuildings(), (b) => {
                         return b.id === tile.buildingId;
@@ -163,6 +169,12 @@ function addToScene(state: GlobalGameState) {
                 }
                 b.onMouseDown = GamePlay.onSelectBuilding(b, displayFn);
                 wade.addEventListener(b, 'onMouseDown');
+
+                if (isPlayer) {
+                    b.marker = Minimap.createBuildingMarker(b.iso.gridCoords.x, b.iso.gridCoords.z, "player");
+                } else {
+                    b.marker = Minimap.createBuildingMarker(b.iso.gridCoords.x, b.iso.gridCoords.z, "ai");
+                }
 
             }
             if (tile.unitId >= 0) {
@@ -195,6 +207,12 @@ function addToScene(state: GlobalGameState) {
                 if(isPlayerUnit) {
                     u.onMouseDown = GamePlay.onSelectUnit(u);
                     wade.addEventListener(u, 'onMouseDown');
+                }
+
+                if (isPlayerUnit) {
+                    u.marker = Minimap.createUnitMarker(u.iso.gridCoords.x, u.iso.gridCoords.z, "player");
+                } else {
+                    u.marker = Minimap.createUnitMarker(u.iso.gridCoords.x, u.iso.gridCoords.z, "ai");
                 }
 
             }

@@ -27,6 +27,7 @@ import Swordsman from '../model/units/swordsman_unit';
 import Unit from '../model/units/units';
 import VIP from '../model/units/VIP_unit';
 import ImageMap from './image-map';
+import Minimap from './minimap';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -115,6 +116,8 @@ var AiGamePlay = {
         //Once the sprite is properly moved, update its map location in the state.
         // and clear its old tile
         GamePlay.updateResourceMapLocation(sceneBuilding);
+        sceneBuilding.marker = Minimap.createBuildingMarker(sceneBuilding.iso.gridCoords.x,
+                                            sceneBuilding.iso.gridCoords.z, "ai");
 
         return b;
     },
@@ -305,6 +308,8 @@ var AiGamePlay = {
         //Once the sprite is properly moved, update its map location in the state.
         // and clear its old tile
         GamePlay.updateUnitMapLocation(sceneUnit);
+        sceneUnit.marker = Minimap.createUnitMarker(sceneUnit.iso.gridCoords.x,
+                                        sceneUnit.iso.gridCoords.z, "ai");
 
         console.log(u);
         //Give the unit a sprite to indicate it's an AI unit.

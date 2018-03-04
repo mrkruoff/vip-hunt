@@ -62,9 +62,6 @@ const Hud = {
 
 
         let global = wade.getSceneObject('global');
-        global.minimap = {
-        
-        };
         global.minimap.background = background;
         global.minimap.fogLayer = fogLayer;
         

@@ -707,8 +707,6 @@ const GamePlay = {
         let playerCollection = [];
         let worker = new Worker('../js/vision.js');
         worker.onmessage = function(e) {
-            console.log("GOT RESULT BACK");
-            
             // Paint fog and cleared tiles
             let paintFog = e.data.fog;
             let paintClear = e.data.clear;
@@ -725,6 +723,7 @@ const GamePlay = {
             _.forEach(fogPairs, (pair) => {
                 if(pair[1]) {
                     pair[0].setVisible(false);  
+                    pair[0].marker.setVisible(false);
                 } 
             });
 
@@ -733,6 +732,7 @@ const GamePlay = {
             _.forEach(clearPairs, (pair) => {
                 if(pair[1]) {
                     pair[0].setVisible(true); 
+                    pair[0].marker.setVisible(true);
                 } 
             });
             
@@ -894,8 +894,9 @@ let BuildingBuilding = {
                 wade.getSceneObject('global').state.getPlayer().getBuildings().push(building.data);
                 GamePlay.updateBuildingMapLocation(building);
 
-                console.log(wade.getSceneObject('global').state);
-                console.log(building);
+                building.marker = Minimap.createBuildingMarker(building.iso.gridCoords.x,
+                                            building.iso.gridCoords.z, "player");
+
             } else {
                 // Remove the building from existence and display an error message to player
                 building.data.rep = null; // remove circular reference
@@ -1026,8 +1027,9 @@ const UnitBuilding = {
 
                 //Add the unit's location to the game state map.
                 GamePlay.updateUnitMapLocation(unit);
-                console.log(wade.getSceneObject('global').state);
-                console.log(unit);
+
+                unit.marker = Minimap.createUnitMarker(unit.iso.gridCoords.x,
+                                                unit.iso.gridCoords.z, "player");
             } else {
                 // Remove the unit from the game.
 

@@ -22,6 +22,8 @@ import Stables from '../model/buildings/stable_buildings';
 import Tower from '../model/buildings/tower_buildings';
 import TownHall from '../model/buildings/townhall_buildings';
 
+import Minimap from './minimap';
+
 declare var wade: any;
 declare var TextSprite: any;
 declare var SceneObject: any;

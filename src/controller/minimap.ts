@@ -69,8 +69,6 @@ let Minimap = {
     refreshPlayerVision: (visionData) => {
         let paintFog = visionData.fog;      
         let paintClear = visionData.clear;
-        console.log("CLEAR");
-        console.log(paintClear);
         _.forEach(paintFog, (coord) => {
             Minimap.setFogVisibility(coord.x, coord.z, true);
         });
@@ -100,6 +98,49 @@ let Minimap = {
             }
         }
     
+    },
+    createBuildingMarker: (x: number, z: number, owner: string) => {
+        let numTiles = wade.iso.getNumTiles();
+        let sprite;
+        if(owner === "ai") {
+            sprite = new Sprite(ImageMap.minimap_red_square, 9);
+        }
+        else if (owner === "player") {
+            sprite = new Sprite(ImageMap.minimap_blue_square, 9);
+        }
+        sprite.setSize(100/numTiles.x, 100/numTiles.z);
+        sprite.setSortPoint(0, 0);
+
+        let fogLayer = wade.getSceneObject('global').minimap.fogLayer;
+        let building = new SceneObject(sprite);
+        building.setAlignment('right', 'bottom');
+        let position = fogLayer[x][z].getPosition();
+        building.setPosition(position);
+
+        wade.addSceneObject(building);
+
+        return building;
+    },
+    createUnitMarker: (x: number, z: number, owner: string) => {
+        let numTiles = wade.iso.getNumTiles();
+        let sprite;
+        if(owner === "ai") {
+            sprite = new Sprite(ImageMap.minimap_red_circle, 9);
+        }
+        else if (owner === "player") {
+            sprite = new Sprite(ImageMap.minimap_blue_circle, 9);
+        }
+        sprite.setSize(100/numTiles.x, 100/numTiles.z);
+        sprite.setSortPoint(0, 0);
+        let fogLayer = wade.getSceneObject('global').minimap.fogLayer;
+        let unit = new SceneObject(sprite);
+        unit.setAlignment('right', 'bottom');
+        let position = fogLayer[x][z].getPosition();
+        unit.setPosition(position);
+
+        wade.addSceneObject(unit);
+
+        return unit;
     },
 };
 
