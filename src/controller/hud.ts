@@ -37,7 +37,97 @@ function cleanScene() {
     });
 }
 
+async function delay(milliseconds: number) {
+    return new Promise<void>((resolve) => {
+        wade.setTimeout(resolve, milliseconds);
+    });
+}
+
 const Hud = {
+    showMinimap: () => {
+        // while(true) {
+            let transparent = new Sprite();
+            transparent.setDrawFunction(function() {});
+            transparent.setSize(5000, 5000);
+            transparent.drawToImage('test.png', true);
+
+            let worldArea = {
+                minX: -5000,
+                maxX: 5000,
+                minY: -5000,
+                maxY: 10
+            }
+            let terrainSprites = wade.getSpritesInArea(worldArea, 30, true);
+            console.log(terrainSprites);
+
+            let new_index = 0;
+            let chunkSize = 50;
+            function paintSomeTerrain(spriteIndex) {
+                let transform = {
+                    horizontalScale: 1,
+                    horizontalSkew: 0,
+                    verticalSkew: 0,
+                    verticalScale: 1,
+                    horizontalTranslate: 0,
+                    verticalTranslate: 0
+                }
+                let end = spriteIndex + chunkSize;
+                if (end > terrainSprites.length) {
+                    end = terrainSprites.length; 
+                }
+                for(let index = spriteIndex; index < end; index++) {
+                    console.log("Painted sprite " + index.toString());
+                    let sprite = terrainSprites[index]; 
+                    let position = sprite.getPosition();
+                    position.x /= 1;
+                    position.y /= 1;
+                    sprite.drawToImage('test.png', false, position,
+                                transform, null, null); 
+                }
+                spriteIndex = end;
+                if (spriteIndex < terrainSprites.length - 1) {
+                    let paint = function(i) {
+                        return function () {
+                            paintSomeTerrain(i);
+                        }
+                    }
+                    wade.setTimeout(paint(spriteIndex), 20); 
+                }
+                else {
+                    console.log("WE ARE DONE"); 
+                    let mapSprite = new Sprite('test.png', 20);
+                    let minimap = new SceneObject(mapSprite);
+                    wade.addSceneObject(minimap);
+                    minimap.setPosition(0, 0);
+                }
+            };
+            paintSomeTerrain(new_index);
+/*
+            _.forEach(terrainSprites, (sprite) => {
+                let position = sprite.getPosition();
+                position.x *= 20.1;
+                position.y *= 20.1;
+                sprite.drawToImage('test' + i.toString() + '.png', false, position,
+                            transform, null, null); 
+            });
+            
+            let fogSprites = wade.getSpritesInArea(worldArea, 22, true);
+            _.forEach(fogSprites, (sprite) => {
+                let position = sprite.getPosition();
+                position.x *= 20.1;
+                position.y *= 20.1;
+                sprite.drawToImage('test' + i.toString() + '.png', false, position,
+                            transform, null, null); 
+            });
+
+            let mapSprite = new Sprite('test' + i.toString() + '.png', 9);
+            let minimap = new SceneObject(mapSprite);
+            wade.addSceneObject(minimap);
+*/
+           // await delay(10000);
+            // wade.removeSceneObject(minimap);
+        //}
+    },
     showWinPanel: () => {
         let options = BuildHud.winPanel(9);
 
