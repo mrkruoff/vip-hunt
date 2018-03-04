@@ -13,6 +13,8 @@ import BuildHud from './build-hud';
 import Names from './names';
 import Events from './events';
 import * as Menu from './menu';
+import ImageMap from './image-map';
+import Minimap from './minimap';
 
 declare var window: any;
 declare var wade: any;
@@ -45,6 +47,28 @@ async function delay(milliseconds: number) {
 
 const Hud = {
     showMinimap: () => {
+        // paint the minimap terrain layer
+        let background = Minimap.createBackground();
+
+        // Paint the minimap initial fog
+        let fogLayer = Minimap.createDarknessLayer();
+
+        let global = wade.getSceneObject('global');
+        global.minimap.background = background;
+        global.minimap.fogLayer = fogLayer;
+        
+
+        // Based on the game state, paint the symbols for player units/buildings and AI units/buildings
+
+        // Eveery few seconds, based on the game state, update the fog, visibility of 
+        // ai units, and where the minimap units/buildings are located (based on movement).
+        // Or should that last one be done when AI units are moving?
+        //
+        // Ideally not, since we would like to separate those concerns from each other
+    
+    
+    },
+    showMinimap2: () => {
         // while(true) {
             let transparent = new Sprite();
             transparent.setDrawFunction(function() {});

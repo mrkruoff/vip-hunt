@@ -109,7 +109,7 @@ const NewGame = {
         Fog.paintMapDarkness();
         GamePlay.refreshPlayerVision();
        
-        //Hud.showMinimap();
+        Hud.showMinimap();
 
         
 
