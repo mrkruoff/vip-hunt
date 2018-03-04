@@ -18,8 +18,8 @@ var Fog = {
     // on the edges of the map in the darkness.
     paintMap: (textureName: string, scale: number, layer: number, visible: boolean) => {
         let numTiles = wade.iso.getNumTiles();
-        for(let i = -1; i < numTiles.x + 1; i++) {
-            for(let j = -1; j < numTiles.z + 1; j++) {
+        for(let i = 0; i < numTiles.x ; i++) {
+            for(let j = 0; j < numTiles.z ; j++) {
                 Fog.paintTile(i, j, textureName, scale, layer, visible);
             } 
         }

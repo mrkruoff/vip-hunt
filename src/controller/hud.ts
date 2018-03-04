@@ -13,6 +13,8 @@ import BuildHud from './build-hud';
 import Names from './names';
 import Events from './events';
 import * as Menu from './menu';
+import ImageMap from './image-map';
+import Minimap from './minimap';
 
 declare var window: any;
 declare var wade: any;
@@ -37,7 +39,119 @@ function cleanScene() {
     });
 }
 
+async function delay(milliseconds: number) {
+    return new Promise<void>((resolve) => {
+        wade.setTimeout(resolve, milliseconds);
+    });
+}
+
 const Hud = {
+    showMinimap: () => {
+        // paint the minimap terrain layer
+        let background = Minimap.createBackground();
+
+        // Paint the minimap initial fog
+        let fogLayer = Minimap.createDarknessLayer();
+
+        let global = wade.getSceneObject('global');
+        global.minimap.background = background;
+        global.minimap.fogLayer = fogLayer;
+        
+
+        // Based on the game state, paint the symbols for player units/buildings and AI units/buildings
+
+        // Eveery few seconds, based on the game state, update the fog, visibility of 
+        // ai units, and where the minimap units/buildings are located (based on movement).
+        // Or should that last one be done when AI units are moving?
+        //
+        // Ideally not, since we would like to separate those concerns from each other
+    
+    
+    },
+    showMinimap2: () => {
+        // while(true) {
+            let transparent = new Sprite();
+            transparent.setDrawFunction(function() {});
+            transparent.setSize(5000, 5000);
+            transparent.drawToImage('test.png', true);
+
+            let worldArea = {
+                minX: -5000,
+                maxX: 5000,
+                minY: -5000,
+                maxY: 10
+            }
+            let terrainSprites = wade.getSpritesInArea(worldArea, 30, true);
+            console.log(terrainSprites);
+
+            let new_index = 0;
+            let chunkSize = 50;
+            function paintSomeTerrain(spriteIndex) {
+                let transform = {
+                    horizontalScale: 1,
+                    horizontalSkew: 0,
+                    verticalSkew: 0,
+                    verticalScale: 1,
+                    horizontalTranslate: 0,
+                    verticalTranslate: 0
+                }
+                let end = spriteIndex + chunkSize;
+                if (end > terrainSprites.length) {
+                    end = terrainSprites.length; 
+                }
+                for(let index = spriteIndex; index < end; index++) {
+                    console.log("Painted sprite " + index.toString());
+                    let sprite = terrainSprites[index]; 
+                    let position = sprite.getPosition();
+                    position.x /= 1;
+                    position.y /= 1;
+                    sprite.drawToImage('test.png', false, position,
+                                transform, null, null); 
+                }
+                spriteIndex = end;
+                if (spriteIndex < terrainSprites.length - 1) {
+                    let paint = function(i) {
+                        return function () {
+                            paintSomeTerrain(i);
+                        }
+                    }
+                    wade.setTimeout(paint(spriteIndex), 20); 
+                }
+                else {
+                    console.log("WE ARE DONE"); 
+                    let mapSprite = new Sprite('test.png', 20);
+                    let minimap = new SceneObject(mapSprite);
+                    wade.addSceneObject(minimap);
+                    minimap.setPosition(0, 0);
+                }
+            };
+            paintSomeTerrain(new_index);
+/*
+            _.forEach(terrainSprites, (sprite) => {
+                let position = sprite.getPosition();
+                position.x *= 20.1;
+                position.y *= 20.1;
+                sprite.drawToImage('test' + i.toString() + '.png', false, position,
+                            transform, null, null); 
+            });
+            
+            let fogSprites = wade.getSpritesInArea(worldArea, 22, true);
+            _.forEach(fogSprites, (sprite) => {
+                let position = sprite.getPosition();
+                position.x *= 20.1;
+                position.y *= 20.1;
+                sprite.drawToImage('test' + i.toString() + '.png', false, position,
+                            transform, null, null); 
+            });
+
+            let mapSprite = new Sprite('test' + i.toString() + '.png', 9);
+            let minimap = new SceneObject(mapSprite);
+            wade.addSceneObject(minimap);
+*/
+           // await delay(10000);
+            // wade.removeSceneObject(minimap);
+        //}
+    },
     showWinPanel: () => {
         let options = BuildHud.winPanel(9);
 

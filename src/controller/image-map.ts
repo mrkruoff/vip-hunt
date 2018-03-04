@@ -7,6 +7,10 @@
 
 // The root directory is the html folder. But because the Javascript is in the  /js folder, we must prepend ../js/ to all the image URLs.
 const ImageMap = {
+    minimap_background: '../js/../public/sprites/minimap/minimap_background.png',
+    minimap_darkness: '../js/../public/sprites/minimap/darkness.png',
+    minimap_fog: '../js/../public/sprites/minimap/fog_150.png',
+
     fog: '../js/../public/fog/darkness_150.png',
     darkness: '../js/../public/fog/darkness.png',
     scroll: '../js/../public/sprites/hud/scroll.png',

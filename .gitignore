@@ -6,4 +6,5 @@ dist/js/bundle.*
 dist/js/inversify.*
 dist/js/types.*
 dist/js/bindDependencies.*
+src/controller/minimap/*
 *~
