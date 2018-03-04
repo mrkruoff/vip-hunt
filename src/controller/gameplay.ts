@@ -223,8 +223,11 @@ const GamePlay = {
     move: async function(unit) {
         //Once the move is complete, there is no more reason to
         // keep tracking the location.
+        let fogLayer = wade.getSceneObject('global').minimap.fogLayer;
         unit.onMoveComplete = function stopMoving(event) {
             unit.data.isMoving = false;
+            let position = fogLayer[unit.iso.gridCoords.x][unit.iso.gridCoords.z].getPosition();
+            unit.marker.setPosition(position.x, position.y);
         };
         unit.data.isMoving = true;
 
@@ -232,6 +235,8 @@ const GamePlay = {
         while (unit.data.isMoving) {
             await delay(time);
             GamePlay.updateUnitMapLocation(unit);
+            let position = fogLayer[unit.iso.gridCoords.x][unit.iso.gridCoords.z].getPosition();
+            unit.marker.setPosition(position.x, position.y);
         }
     },
     // This function returns a callback function that sets up
@@ -345,6 +350,7 @@ const GamePlay = {
     //  @ target: target unit or building SceneObject that contains state in its
     //      'data' property.
     attack: async function(attacker, target) {
+        let fogLayer = wade.getSceneObject('global').minimap.fogLayer;
         const targetData = target.data;
         attacker.isAttacking = false;
 
@@ -425,6 +431,8 @@ const GamePlay = {
 
             // Update the attacking unit's location.
             GamePlay.updateUnitMapLocation(attacker);
+            let position = fogLayer[attacker.iso.gridCoords.x][attacker.iso.gridCoords.z].getPosition();
+            attacker.marker.setPosition(position.x, position.y);
         }
     },
     gameOver: async (id: number) => {
@@ -612,12 +620,16 @@ const GamePlay = {
                 });
             });
 
-            //Eleminate the 'data' property, and then delete the SceneObject itself.
+            // Eliminate the 'data' property, and then
+            // remove the minimap marker and delete the SceneObject itself.
             sceneObject.data.isMoving = false; // end the moving cycle
             delete sceneObject.data;
             if(sceneObject === GamePlay.getSelected() ) {
                 GamePlay.removeSelected();
                 Hud.showMainPanel();
+            }
+            if(_.has(sceneObject, 'marker') ) {
+                wade.removeSceneObject(sceneObject.marker);
             }
             wade.iso.deleteObject(sceneObject);
             console.log(global.state);
