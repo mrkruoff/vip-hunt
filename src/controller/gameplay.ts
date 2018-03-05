@@ -223,6 +223,7 @@ const GamePlay = {
     move: async function(unit) {
         //Once the move is complete, there is no more reason to
         // keep tracking the location.
+        unit.data.isMoving = true;
         let fogLayer = wade.getSceneObject('global').minimap.fogLayer;
         unit.onMoveComplete = function stopMoving(event) {
             unit.data.isMoving = false;
