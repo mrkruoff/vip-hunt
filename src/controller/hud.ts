@@ -53,20 +53,16 @@ const Hud = {
         // Paint the minimap initial fog
         let fogLayer = Minimap.createDarknessLayer();
 
-        // Based on the game state, paint the symbols for player units/buildings and AI units/buildings
-        // Eveery few seconds, based on the game state, update the fog, visibility of 
-        // ai units, and where the minimap units/buildings are located (based on movement).
-        // Or should that last one be done when AI units are moving?
-        //
-        // Ideally not, since we would like to separate those concerns from each other
+        // Player and Ai Unit/Building icons will be build with the units/buildings 
+        // and updated when they move or are deleted.
+
+        let cameraZone = Minimap.createCameraZone();
 
 
         let global = wade.getSceneObject('global');
         global.minimap.background = background;
         global.minimap.fogLayer = fogLayer;
-        
-
-    
+        global.minimap.cameraZone = cameraZone;
     
     },
     showMinimap2: () => {

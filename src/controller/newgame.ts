@@ -44,19 +44,29 @@ const NewGame = {
     initialize: async () => {
         wade.setMinScreenSize(20, 20);
         wade.setMaxScreenSize(1280, 800);
+        //Add basic camera settings
+        Events.addCamera();
+        Camera.setBounds();
 
         wade.setLayerSorting(9, 'bottomToTop');
 
         //Set up global settings and sync with scene.
         const global = Global.createGlobalSettings();
+        // Create the Minimap first so unit/building/resource markers can be 
+        // drawn on it.
         Hud.showMinimap();
-
-
         addToScene(global.state);
 
-        //Add basic camera settings
-        Events.addCamera();
-        Camera.setBounds();
+
+
+        // Once all the player units are in the scene, position the camera to focus on the 
+        // Player's VIP.
+        wade.app.onCameraMove = (event) => {
+            let coords = event.newPosition;
+            Minimap.updateCameraZone(coords);
+        }
+        Camera.focusVIP();
+
 
         //show errors on a fixed layer 8.
         wade.setLayerTransform(8, 0, 0);

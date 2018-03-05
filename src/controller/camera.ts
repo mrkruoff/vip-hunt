@@ -6,6 +6,7 @@
  */
 
 import Keys from './keys';
+import * as _ from 'lodash';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -18,10 +19,29 @@ declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
 const Camera = {
+    focusVIP: () => {
+        // Get the player's vip sceneobject and use its position to set the 
+        // camera's position.
+        let player = wade.getSceneObject('global').state.getPlayer();
+        console.log("PLAYER UNITS");
+        console.log(player.getUnits());
+        let vip = _.find(player.getUnits(), (unitData) => {
+            return _.isEqual(unitData.getClassName(),  "VIP");
+        });
+        if (vip) {
+            let vipRep = vip.rep; 
+            let position = vipRep.getPosition();
+            position.z = wade.getCameraPosition().z;
+            wade.setCameraPosition(position);
+        } else {
+            console.log("NO VIP FOUND");
+        }
+    
+    },
     // This function sets the bounds for the camera to ensure the
     // player can't move it to the 'infinte darkness' portion of the world.
     setBounds: () => {
-        wade.setCameraBounds(-1500, 1500, -1500, 10, 3, 10);
+        wade.setCameraBounds(-3000, 3000, -2500, 1000, 3, 10);
     },
     // This function moves the camera as far to the top as it can go.
     // it sets the GLOBAL cameraIsMoving property to show that the camera is moving.

@@ -43,28 +43,73 @@ let Minimap = {
         for(let x = 0; x < numTiles.x; x++) {
             layer.push([]);
             for(let z = 0; z < numTiles.z; z++) {
+                let greenSprite = new Sprite(ImageMap.minimap_background, 9);
+                greenSprite.setSortPoint(0, -0.5);
+                greenSprite.setSize(xLength, zLength);
+                greenSprite.setVisible(true);
                 let darkSprite = new Sprite(ImageMap.minimap_darkness, 9);
-                darkSprite.setSortPoint(0, 1);
+                darkSprite.setSortPoint(0, 0.5);
                 darkSprite.setSize(xLength, zLength);
                 darkSprite.setVisible(true);
                 let fogSprite = new Sprite(ImageMap.minimap_fog, 9);
-                fogSprite.setSortPoint(0, 1);
+                fogSprite.setSortPoint(0, 0.5);
                 fogSprite.setSize(xLength, zLength);
                 fogSprite.setVisible(false);
 
-                let darkness = new SceneObject([darkSprite, fogSprite]);
+                let darkness = new SceneObject([darkSprite, fogSprite, greenSprite]);
                 darkness.setRotation(Math.PI / 4);
                 darkness.setPosition(origin.x - (z*xOffset), origin.y - (z*xOffset));
                 darkness.setAlignment('right', 'bottom');
 
                 wade.addSceneObject(darkness);
                 layer[x].push(darkness);
+
+                // The darkness scene object should know what its tile location is.
+                darkness.x = x;
+                darkness.z = z;
+
+                darkness.onClick = (event) => {
+                    console.log(event);
+                    console.log(darkness);
+                    let position = wade.iso.getFlatWorldCoordinates(darkness.x, darkness.z);
+                    position.z = wade.getCameraPosition().z;
+                    wade.setCameraPosition(position);
+
+                    return true;
+                }
+                wade.addEventListener(darkness, 'onClick');
             } 
             origin.x += xOffset;
             origin.y -= xOffset
         }
 
         return layer;
+    },
+    createCameraZone: () => {
+        let sprite = new Sprite(ImageMap.minimap_white_outline, 9);
+        sprite.setSortPoint(0, 1);
+        sprite.setSize(50, 50);
+        let zone = new SceneObject(sprite);
+        zone.setAlignment('right', 'bottom');
+        let origin = {
+            x: (wade.getScreenWidth() / 2) - 150,
+            y: (wade.getScreenHeight()/2) - 100 + (Math.sqrt(2)*50) - 4.2,
+        }
+        zone.setPosition(origin.x, origin.y);
+        wade.addSceneObject(zone);
+
+        return zone;
+    
+    },
+    updateCameraZone: (coords) => {
+        let minimap = wade.getSceneObject('global').minimap;
+        let cameraZone = minimap.cameraZone;
+        let fogLayer = minimap.fogLayer;
+        let gridCoords = wade.iso.getFlatTileCoordinates(coords.x, coords.y);
+        if(gridCoords.valid) {
+            let position = fogLayer[gridCoords.x][gridCoords.z].getPosition(); 
+            cameraZone.setPosition(position.x, position.y);
+        }
     },
     refreshPlayerVision: (visionData) => {
         let paintFog = visionData.fog;      
