@@ -90,10 +90,11 @@ function defaultGlobalState() {
     food.id = Id.getId();
     const resources = [wood, stone, food];
 
+    let numTiles = wade.iso.getNumTiles();
     const map = [];
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < numTiles.x; i++) {
         map[i] = [];
-        for (let j = 0; j < 20; j++) {
+        for (let j = 0; j < numTiles.z; j++) {
             map[i][j] = new Tile(Tile.EMPTY, Tile.EMPTY, Tile.EMPTY, true);
             //The tile should know itself what its coordinates are
             map[i][j].y = i;

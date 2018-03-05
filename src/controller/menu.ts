@@ -80,7 +80,7 @@ const setupNewGame = function() {
     this.newGameObject.onClick = function() {
         const clearscene = true;
         // load the map
-        wade.loadScene('../public/grass_map.wsc', null, function() {
+        wade.loadScene('../public/large_grass_map.wsc', null, function() {
             NewGame.initialize();
         }, clearscene);
     };
