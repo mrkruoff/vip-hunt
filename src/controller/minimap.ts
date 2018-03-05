@@ -4,6 +4,8 @@ import Names from './names';
 import Events from './events';
 import * as Menu from './menu';
 import ImageMap from './image-map';
+import Mouse from './mouse';
+import AiGamePlay from './ai-gameplay';
 
 declare var window: any;
 declare var wade: any;
@@ -71,11 +73,27 @@ let Minimap = {
                 darkness.onClick = (event) => {
                     console.log(event);
                     console.log(darkness);
-                    let position = wade.iso.getFlatWorldCoordinates(darkness.x, darkness.z);
-                    position.z = wade.getCameraPosition().z;
-                    wade.setCameraPosition(position);
+                    if(event.button === Mouse.left) {
+                        let position = wade.iso.getFlatWorldCoordinates(darkness.x, darkness.z);
+                        position.z = wade.getCameraPosition().z;
+                        wade.setCameraPosition(position);
+                        return true;
+                    }
+                    
+                    if(event.button === Mouse.right) {
+                        if (wade.app.selected) {
+                            // If there is a selected player object 
+                            if(_.has(wade.app.selected.data, 'speed')) {
+                                // If that object's data has a speed (can move) 
+                                // then it is a unit
+                                AiGamePlay.unitMove(wade.app.selected.data.getId(), darkness.x, darkness.z);
+                            }
+                            
+                        }
 
-                    return true;
+                    
+                        return true;
+                    }
                 }
                 wade.addEventListener(darkness, 'onClick');
             } 

@@ -139,6 +139,12 @@ var AiGamePlay = {
         let unitData = _.find(ai.getUnits(), (u) => {
             return u.getId() === id; 
         });
+        if(!unitData) {
+            // Then it was a player unit
+            unitData = _.find(state.getPlayer().getUnits(), (u) => {
+                return u.getId() === id;    
+            });
+        }
 
         // Stop whatever the unit was currently doing and then go to 
         // the new destination
@@ -153,7 +159,7 @@ var AiGamePlay = {
             const objects = wade.iso.getObjectsInTile(x, z);
             unitSceneObject.getBehavior('IsoCharacter').goToObject(objects[0]);
         } else {
-            // If nothing is there, move ther directly. 
+            // If nothing is there, move there directly. 
             unitSceneObject.getBehavior('IsoCharacter').setDestination({x: x, z: z});
         }
         //Keep track of the movements in the internal game state.
