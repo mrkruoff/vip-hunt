@@ -338,6 +338,36 @@ var AiGamePlay = {
         GamePlay.attack(attacker, target);
         
     },
+    playerUnitAttack: (attackId: number, targetId: number) => {
+        let state = wade.getSceneObject('global').state;
+        let ai = state.getAi();
+        let player = state.getPlayer();
+        let attackData = _.find(player.getUnits(), (u) => {
+            return u.getId() === attackId; 
+        });
+        let targetData = _.find(ai.getUnits(), (u) => {
+            return u.getId() === targetId; 
+        });
+        // If target was not a unit, check if it was a building.
+        if( _.isNull(targetData) ) {
+            targetData = _.find(ai.getBuildings(), (b) => {
+                return b.getId() === targetId; 
+            }) ;
+        } 
+        // Regardless of whether it is a building or unit, pursue 
+        // and attack it.
+        console.log("attacking!");
+        let attacker = attackData.rep; 
+        let target = targetData.rep;
+        //Clear previous movement actions
+        attacker.getBehavior('IsoCharacter').clearDestinations();
+        GamePlay.clearPursue(attacker);
+        GamePlay.clearGather(attacker);
+        GamePlay.clearMove(attacker);
+
+        GamePlay.attack(attacker, target);
+    
+    },
     // This function constructs a Unit GameObject and returns its
     // data portion to the caller.
     //

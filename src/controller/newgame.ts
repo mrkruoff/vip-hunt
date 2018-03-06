@@ -22,6 +22,7 @@ import SceneObjectConstruction from './scene-object-construction';
 import AiGamePlay from './ai-gameplay';
 import Fog from './fog';
 import Minimap from './minimap'
+import UnitDec from './unit-ai';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -68,6 +69,10 @@ const NewGame = {
         // Initiate random generation of resources during the game.
         AiGamePlay.generateRandomResources(); 
 
+        // Start background thread that checks for when player units enter 
+        // ai unit vision, and vice versa. This will start conflicts!
+        // UnitDec.playerUnitsWatch();
+        UnitDec.aiUnitsWatch();
     },
 };
 

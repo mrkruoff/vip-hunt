@@ -1,6 +1,21 @@
 
 
 var Calculation = {
+    attackerSeesTarget: (attackerData, targetData) => {
+        let dist = (coords1, coords2) => {
+            let dx = coords1.x - coords2.x;
+            let dz = coords1.z - coords2.z;
+            let d = Math.sqrt(Math.pow(dx, 2) + Math.pow(dz, 2) );
+            return d;
+        };
+
+        if(dist(attackerData.coords, targetData.coords) < attackerData.vision - 1) {
+            return true; 
+        }
+
+        return false;
+    
+    },
     // To calculate paint vision for a given sprite's coordinates, 
     // I need the coordinates and the vision parameters.
     // I also need the map bounds.

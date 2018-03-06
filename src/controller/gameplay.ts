@@ -786,29 +786,6 @@ const GamePlay = {
             }
 
             worker.postMessage(visionData);
-     /*       
-            // Check if any AI units are currently standing in the fog.
-            // If they are, set them to invisible.
-            // If they are not, set them to visible.
-            let aiUnits: Unit[] = global.state.getAi().getUnits();
-            let aiUnitReps = _.map(aiUnits, (unitData) => {
-                return unitData.rep;  
-            });
-            let aiUnitRepsInFog = _.intersectionWith(aiUnitReps, paintFog, (rep, coord) => {
-                return _.isEqual(rep.iso.gridCoords, coord); 
-            });
-            _.forEach(aiUnitRepsInFog, (rep) => {
-                rep.setVisible(false); 
-            })
-
-            let aiUnitRepsInClear = _.intersectionWith(aiUnitReps, paintClear,
-                                                    (rep, coord) => {
-                return _.isEqual(rep.iso.gridCoords, coord); 
-            });
-            _.forEach(aiUnitRepsInClear, (rep) => {
-                rep.setVisible(true); 
-            });
-    */
         
             await delay(1000); 
         }
@@ -1084,7 +1061,6 @@ const ResourceBuilding = {
 
     constructResourceFromModel: (resource: Resource) => {
         let r;
-        console.log('Constructing resource');
 
         if (resource.getClassName() === 'Stone') {
             r = SceneObjectConstruction.stone(JsonMap.stone);
