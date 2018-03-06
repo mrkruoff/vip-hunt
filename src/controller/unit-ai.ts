@@ -1,4 +1,4 @@
-import GlobalGameState from "./global-game-state"
+import GlobalGameState from "../model/state/global-game-state"
 import JsonMap from './json-map';
 
 

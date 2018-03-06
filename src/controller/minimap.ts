@@ -39,7 +39,7 @@ let Minimap = {
         let zOffset = zLength / Math.sqrt(2);
         let origin = {
             x: (wade.getScreenWidth() / 2) - 150,
-            y: (wade.getScreenHeight()/2) - 100 + (Math.sqrt(2)*50) - 4.2,
+            y: (wade.getScreenHeight()/2) - 100 + (Math.sqrt(2)*50) - 2,
         }
         let layer = []
         for(let x = 0; x < numTiles.x; x++) {
@@ -171,7 +171,7 @@ let Minimap = {
         else if (owner === "player") {
             sprite = new Sprite(ImageMap.minimap_blue_square, 9);
         }
-        sprite.setSize(100/numTiles.x, 100/numTiles.z);
+        sprite.setSize(100/20, 100/20);
         sprite.setSortPoint(0, 0);
 
         let fogLayer = wade.getSceneObject('global').minimap.fogLayer;
@@ -193,7 +193,7 @@ let Minimap = {
         else if (owner === "player") {
             sprite = new Sprite(ImageMap.minimap_blue_circle, 9);
         }
-        sprite.setSize(100/numTiles.x, 100/numTiles.z);
+        sprite.setSize(100/20, 100/20);
         sprite.setSortPoint(0, 0);
         let fogLayer = wade.getSceneObject('global').minimap.fogLayer;
         let unit = new SceneObject(sprite);
