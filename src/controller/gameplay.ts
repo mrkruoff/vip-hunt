@@ -44,6 +44,10 @@ async function delay(milliseconds: number) {
 }
 
 const GamePlay = {
+    generateRandomResources: () => {
+    
+    
+    },
     // This function removes the global selected unit
     // from the game and any events associated with it.
     removeSelected: () => {

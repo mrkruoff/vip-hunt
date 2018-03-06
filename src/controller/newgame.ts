@@ -44,94 +44,75 @@ const NewGame = {
     initialize: async () => {
         wade.setMinScreenSize(20, 20);
         wade.setMaxScreenSize(1280, 800);
-        //Add basic camera settings
-        Events.addCamera();
-        Camera.setBounds();
-
-        wade.setLayerSorting(9, 'bottomToTop');
 
         //Set up global settings and sync with scene.
-        const global = Global.createGlobalSettings();
-        // Create the Minimap first so unit/building/resource markers can be 
-        // drawn on it.
-        Hud.showMinimap();
-        addToScene(global.state);
+        Global.createGlobalSettings();
+        const minimap = Hud.showMinimap(); // minimap must be created before units 
+                                           // can be created.
 
+        createPlayerStartingUnits();   // units and buildings must be created before 
+        createAiStartingUnits();       // the rest of the HUD can be created
 
+        createHud();
 
-        // Once all the player units are in the scene, position the camera to focus on the 
-        // Player's VIP.
-        wade.app.onCameraMove = (event) => {
-            let coords = event.newPosition;
-            Minimap.updateCameraZone(coords);
-        }
-        Camera.focusVIP();
+        // Once units, buildings, and HUD are created properly,
+        // set up the camera for the game.
+        setUpCamera();
 
-
-        //show errors on a fixed layer 8.
-        wade.setLayerTransform(8, 0, 0);
-
-        //Show user resources on a fixed Layer 9
-        wade.setLayerTransform(9, 0, 0);
-        const resources = Hud.showResourcePanel();
-
-        //Add background on a fixed layer 10
-        const scroll = Hud.showBackground();
-        wade.setLayerTransform(10, 0, 0);
-
-        let AiB = AiGamePlay.constructBuilding("Barracks", 17, 17);
-        let AiU = AiGamePlay.constructUnit("Swordsman", 10, 10);
-        AiGamePlay.constructUnit("Archer", 13, 11);
-        AiGamePlay.constructUnit("Gatherer", 15, 13);
-        AiGamePlay.constructUnit("DrummerBoy", 7, 8);
-        AiGamePlay.constructUnit("ArcherCalvary", 17, 9);
-        AiGamePlay.constructUnit("SpearCalvary", 3, 3);
-        console.log(AiU);
-        AiU.rep.playAnimation('run', 'forward');
-        let AiVip = AiGamePlay.constructUnit("VIP", 15, 5);
-        let AiTownHall = AiGamePlay.constructBuilding("TownHall", 10, 1 );
-        AiGamePlay.unitMove(AiVip.getId(), 7, 7);
-
-        // Test the attack and the resource functions
-        let state = wade.getSceneObject('global').state;
-        let playerUnits = state.getPlayer().getUnits();
-        let re = state.getResources();
-        console.log(playerUnits);
-        AiGamePlay.unitGather(AiVip.getId(), re[2].getId() );
-
-        // Add building button for building units.
-        // Set up callbacks for building a unit using the underlying menu.
-        const main = Hud.showMainPanel();
-        main[0].onClick = function(event) {
-            //Make the clicked building disappear
-            Hud.clearMainPanel();
-
-            //Show the player new buttons for making buildings on map
-            const options = Hud.showBuildingsPanel();
-
-            // Function that takes a buildingIcon and sets its click event
-            // to build a matching building in the game world.
-            const setOnClickToBuild = (b) => {
-                const imageName = b.getSprite(0).getImageName();
-                b.onClick = BuildingBuilding.selectABuildingCallback(imageName, options);
-                wade.addEventListener(b, 'onClick');
-            };
-
-            //Process each icon to have correct events
-            _.forEach(options, setOnClickToBuild);
-        };
-        wade.addEventListener(main[0], 'onClick');
-
-
-
+        // Initiate the fog of war.
         Fog.paintMapDarkness();
         GamePlay.refreshPlayerVision();
        
-
-        
+        // Initiate random generation of resources during the game.
+        GamePlay.generateRandomResources(); 
 
     },
 };
+
+function setUpCamera() {
+    //Add basic camera settings
+    Events.addCamera();
+    Camera.setBounds();
+
+    // Once all the player units are in the scene, position the camera to focus on the 
+    // Player's VIP.
+    wade.app.onCameraMove = (event) => {
+        let coords = event.newPosition;
+        Minimap.updateCameraZone(coords);
+    }
+    Camera.focusVIP();
+
+}
+
+function createPlayerStartingUnits() {
+    let global = wade.getSceneObject('global');
+    global.state = Global.defaultGlobalState();
+    addToScene(global.state);
+}
+
+
+function constructResourceFromModel(resource: Resource) {
+    let r;
+    console.log('Constructing resource');
+
+    if (resource.getClassName() === 'Stone') {
+        r = SceneObjectConstruction.stone(JsonMap.stone);
+    } else if (resource.getClassName() === 'Wood') {
+        r = SceneObjectConstruction.wood(JsonMap.wood);
+    } else if (resource.getClassName() === 'Food') {
+        r = SceneObjectConstruction.food(JsonMap.food);
+    } else {
+        console.log('Error in constructResourceFromModel') ;
+    }
+
+    return r;
+}
+
+function createAiStartingUnits() {
+    let AiVip = AiGamePlay.constructUnit("VIP", 15, 5);
+    let AiTownHall = AiGamePlay.constructBuilding("TownHall", 10, 1 );
+}
+
 
 // This funcion takes a GlobalGameState and attempts to add every Unit, Building,
 // and Resource in its map, to the WADE Scene. This should only be used with a
@@ -251,26 +232,42 @@ function addToScene(state: GlobalGameState) {
 
         });
     });
-
 }
 
-function constructResourceFromModel(resource: Resource) {
-    let r;
-    console.log('Constructing resource');
+function createHud() {
+    // Set up WADE layers to display correctly.
+    wade.setLayerSorting(9, 'bottomToTop');
+    wade.setLayerTransform(8, 0, 0);
+    wade.setLayerTransform(9, 0, 0);
+    wade.setLayerTransform(10, 0, 0);
 
-    if (resource.getClassName() === 'Stone') {
-        r = SceneObjectConstruction.stone(JsonMap.stone);
-    } else if (resource.getClassName() === 'Wood') {
-        r = SceneObjectConstruction.wood(JsonMap.wood);
-    } else if (resource.getClassName() === 'Food') {
-        r = SceneObjectConstruction.food(JsonMap.food);
-    } else {
-        console.log('Error in constructResourceFromModel') ;
-    }
+    // Create hud elements.
+    const resources = Hud.showResourcePanel();
+    const scroll = Hud.showBackground();
 
-    return r;
+    // Add building button for building units.
+    // Set up callbacks for building a unit using the underlying menu.
+    const main = Hud.showMainPanel();
+    main[0].onClick = function(event) {
+        //Make the clicked building disappear
+        Hud.clearMainPanel();
+
+        //Show the player new buttons for making buildings on map
+        const options = Hud.showBuildingsPanel();
+
+        // Function that takes a buildingIcon and sets its click event
+        // to build a matching building in the game world.
+        const setOnClickToBuild = (b) => {
+            const imageName = b.getSprite(0).getImageName();
+            b.onClick = BuildingBuilding.selectABuildingCallback(imageName, options);
+            wade.addEventListener(b, 'onClick');
+        };
+
+        //Process each icon to have correct events
+        _.forEach(options, setOnClickToBuild);
+    };
+    wade.addEventListener(main[0], 'onClick');
+
 }
-
-
 
 export default NewGame;
