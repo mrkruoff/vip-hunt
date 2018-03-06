@@ -53,7 +53,7 @@ var AiGamePlay = {
         let resources: Resource[] = wade.getSceneObject('global').state.getResources();
         let numTiles = wade.iso.getNumTiles();
         let tiles = numTiles.x * numTiles.z;
-        let fraction = 0.01;
+        let fraction = 0.025;
         while(true) {
             if(!resources) {
                 break; 
@@ -82,7 +82,7 @@ var AiGamePlay = {
                     console.log("ERROR in generating random resource!");
                 }
             }
-        await delay(2000);
+        await delay(500);
         }
 
     },
