@@ -82,7 +82,7 @@ var AiGamePlay = {
                     console.log("ERROR in generating random resource!");
                 }
             }
-        await delay(500);
+            await delay(500);
         }
 
     },
@@ -225,6 +225,17 @@ var AiGamePlay = {
         GamePlay.updateBuildingMapLocation(sceneBuilding);
         sceneBuilding.marker = Minimap.createBuildingMarker(sceneBuilding.iso.gridCoords.x,
                                             sceneBuilding.iso.gridCoords.z, "ai");
+
+        //Give the building a sprite to indicate it's an AI building.
+        let redCircle = new Sprite( {
+            type: 'Sprite',
+            sortPoint: {x: 0, y: -0.9 },
+            layer: 25,
+            size: {x: 3000, y: 3000},
+            image: ImageMap.enemy_unit_marker,
+        }); 
+        sceneBuilding.addSprite(redCircle, {x: 0, y: 5});
+        sceneBuilding.setSpriteOffset(1, {x:0, y: -45})
 
         return b;
     },

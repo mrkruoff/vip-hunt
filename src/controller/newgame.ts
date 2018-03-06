@@ -189,6 +189,14 @@ function addToScene(state: GlobalGameState) {
                 if(isPlayerUnit) {
                     u.onMouseDown = GamePlay.onSelectUnit(u);
                     wade.addEventListener(u, 'onMouseDown');
+
+                    // Give the unit an aura to show it is the player's;
+                    let aura = new Sprite(ImageMap.player_unit_marker, 25);
+                    aura.setSortPoint(0, -1);
+                    aura.setSize(800, 800);
+                    aura.setVisible(false);
+                    let offset = { x: 10, y: -40};
+                    u.addSprite(aura, offset);
                 }
 
                 if (isPlayerUnit) {

@@ -48,6 +48,10 @@ const GamePlay = {
     // This function removes the global selected unit
     // from the game and any events associated with it.
     removeSelected: () => {
+        let selectedSprite = wade.app.selected.getSprite(1);
+        if(selectedSprite && selectedSprite.isVisible()) {
+            selectedSprite.setVisible(false); 
+        }
         wade.app.selected = null;
 
         //Get rid of global events specific to selected unit
@@ -68,6 +72,7 @@ const GamePlay = {
     //      AND returns an array of SceneObjects representing those unit options.
     addSelectedBuilding: (selected, displayFn) => {
         wade.app.selected = selected;
+        selected.getSprite(1).setVisible(true);
 
         // Show the unit options for the selected building,
         // and set up the click event for each.
@@ -114,6 +119,8 @@ const GamePlay = {
     //  @selected: the unit SceneObject to be selected
     addSelectedUnit: (selected) => {
         wade.app.selected = selected;
+        console.log(selected);
+        selected.getSprite(1).setVisible(true);
 
         wade.app.onIsoTerrainMouseDown = (event) => {
             // Right-click indicates move or attack
@@ -888,6 +895,13 @@ let BuildingBuilding = {
                 building.marker = Minimap.createBuildingMarker(building.iso.gridCoords.x,
                                             building.iso.gridCoords.z, "player");
 
+                // Give the building an aura to show it is the player's;
+                let aura = new Sprite(ImageMap.player_unit_marker, 25);
+                aura.setSortPoint(0, -1);
+                aura.setSize(3000, 3000);
+                aura.setVisible(false);
+                let offset = { x: 10, y: -40};
+                building.addSprite(aura, offset);
             } else {
                 // Remove the building from existence and display an error message to player
                 building.data.rep = null; // remove circular reference
@@ -1016,11 +1030,18 @@ const UnitBuilding = {
                 unit.data.id = Id.getId();
                 wade.getSceneObject('global').state.getPlayer().getUnits().push(unit.data);
 
-                //Add the unit's location to the game state map.
+                //Add the unit's location to the game state map and the minimap.
                 GamePlay.updateUnitMapLocation(unit);
-
                 unit.marker = Minimap.createUnitMarker(unit.iso.gridCoords.x,
                                                 unit.iso.gridCoords.z, "player");
+
+                // Give the unit an aura to show it is the player's;
+                let aura = new Sprite(ImageMap.player_unit_marker, 25);
+                aura.setSortPoint(0, -1);
+                aura.setSize(800, 800);
+                aura.setVisible(false);
+                let offset = { x: 10, y: -40};
+                unit.addSprite(aura, offset);
             } else {
                 // Remove the unit from the game.
 

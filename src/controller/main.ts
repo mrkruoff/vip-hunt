@@ -102,6 +102,7 @@ function loadImages() {
     wade.loadImage(ImageMap.fog);
     wade.loadImage(ImageMap.darkness);
 
+    wade.loadImage(ImageMap.player_unit_marker);
     wade.loadImage(ImageMap.enemy_unit_marker);
     wade.loadImage(ImageMap.scroll);
     wade.loadImage(ImageMap.buildingIcon);
