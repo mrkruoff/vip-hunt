@@ -896,11 +896,15 @@ let BuildingBuilding = {
                                             building.iso.gridCoords.z, "player");
 
                 // Give the building an aura to show it is the player's;
-                let aura = new Sprite(ImageMap.player_unit_marker, 25);
-                aura.setSortPoint(0, -1);
-                aura.setSize(3000, 3000);
+                let aura = new Sprite( {
+                    type: 'Sprite',
+                    sortPoint: {x: 0, y: -0.9 },
+                    layer: 25,
+                    size: {x: 500, y: 400},
+                    image: ImageMap.player_unit_marker,
+                }); 
                 aura.setVisible(false);
-                let offset = { x: 10, y: -40};
+                let offset = { x: 0, y: 0};
                 building.addSprite(aura, offset);
             } else {
                 // Remove the building from existence and display an error message to player
@@ -1035,12 +1039,15 @@ const UnitBuilding = {
                 unit.marker = Minimap.createUnitMarker(unit.iso.gridCoords.x,
                                                 unit.iso.gridCoords.z, "player");
 
-                // Give the unit an aura to show it is the player's;
-                let aura = new Sprite(ImageMap.player_unit_marker, 25);
-                aura.setSortPoint(0, -1);
-                aura.setSize(800, 800);
+                let aura = new Sprite( {
+                    type: 'Sprite',
+                    sortPoint: {x: 0, y: -0.9 },
+                    layer: 25,
+                    size: {x: 250, y: 200},
+                    image: ImageMap.player_unit_marker,
+                }); 
                 aura.setVisible(false);
-                let offset = { x: 10, y: -40};
+                let offset = { x: 0, y: 0};
                 unit.addSprite(aura, offset);
             } else {
                 // Remove the unit from the game.
