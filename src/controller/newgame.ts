@@ -71,7 +71,7 @@ const NewGame = {
 
         // Start background thread that checks for when player units enter 
         // ai unit vision, and vice versa. This will start conflicts!
-        // UnitDec.playerUnitsWatch();
+        UnitDec.playerUnitsWatch();
         UnitDec.aiUnitsWatch();
     },
 };
