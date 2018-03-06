@@ -12,7 +12,7 @@ import Unit from '../model/units/units';
 import Camera from './camera';
 import Construction from './construction';
 import Events from './events';
-import { UnitBuilding, BuildingBuilding, GamePlay } from './gameplay';
+import { ResourceBuilding, UnitBuilding, BuildingBuilding, GamePlay } from './gameplay';
 import Global from './global';
 import Hud from './hud';
 import ImageMap from './image-map';
@@ -53,7 +53,9 @@ const NewGame = {
         createPlayerStartingUnits();   // units and buildings must be created before 
         createAiStartingUnits();       // the rest of the HUD can be created
 
-        createHud();
+        createHud();                    // Requires all units/buildings to be created
+                                        // Actually it just requires a global game state 
+                                        // to have been created
 
         // Once units, buildings, and HUD are created properly,
         // set up the camera for the game.
@@ -64,7 +66,7 @@ const NewGame = {
         GamePlay.refreshPlayerVision();
        
         // Initiate random generation of resources during the game.
-        GamePlay.generateRandomResources(); 
+        AiGamePlay.generateRandomResources(); 
 
     },
 };
@@ -91,22 +93,6 @@ function createPlayerStartingUnits() {
 }
 
 
-function constructResourceFromModel(resource: Resource) {
-    let r;
-    console.log('Constructing resource');
-
-    if (resource.getClassName() === 'Stone') {
-        r = SceneObjectConstruction.stone(JsonMap.stone);
-    } else if (resource.getClassName() === 'Wood') {
-        r = SceneObjectConstruction.wood(JsonMap.wood);
-    } else if (resource.getClassName() === 'Food') {
-        r = SceneObjectConstruction.food(JsonMap.food);
-    } else {
-        console.log('Error in constructResourceFromModel') ;
-    }
-
-    return r;
-}
 
 function createAiStartingUnits() {
     let AiVip = AiGamePlay.constructUnit("VIP", 15, 5);
@@ -218,7 +204,7 @@ function addToScene(state: GlobalGameState) {
                 // Once we have the resource, we can paint it on the appropriate
                 // grid position with the correct image
 
-                const r = constructResourceFromModel(resource);
+                const r = ResourceBuilding.constructResourceFromModel(resource);
                 r.data = resource;
                 resource.rep = r; //circular reference
                 wade.iso.moveObjectToTile(r, tile.x, tile.y);

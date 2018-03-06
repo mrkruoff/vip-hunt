@@ -23,6 +23,7 @@ import AiGameState from '../model/state/ai-game-state';
 import Events from './events';
 import Fog from './fog';
 import Minimap from './minimap';
+import Resource from '../model/resources/resource';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -44,10 +45,6 @@ async function delay(milliseconds: number) {
 }
 
 const GamePlay = {
-    generateRandomResources: () => {
-    
-    
-    },
     // This function removes the global selected unit
     // from the game and any events associated with it.
     removeSelected: () => {
@@ -1083,4 +1080,25 @@ const UnitBuilding = {
     },
 };
 
-export { GamePlay, UnitBuilding, BuildingBuilding };
+const ResourceBuilding = {
+
+    constructResourceFromModel: (resource: Resource) => {
+        let r;
+        console.log('Constructing resource');
+
+        if (resource.getClassName() === 'Stone') {
+            r = SceneObjectConstruction.stone(JsonMap.stone);
+        } else if (resource.getClassName() === 'Wood') {
+            r = SceneObjectConstruction.wood(JsonMap.wood);
+        } else if (resource.getClassName() === 'Food') {
+            r = SceneObjectConstruction.food(JsonMap.food);
+        } else {
+            console.log('Error in constructResourceFromModel') ;
+        }
+
+        return r;
+    }
+
+}
+
+export { GamePlay, UnitBuilding, BuildingBuilding, ResourceBuilding };

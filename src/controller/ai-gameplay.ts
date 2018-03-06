@@ -6,10 +6,14 @@
  */
 
 
-import { GamePlay, BuildingBuilding, UnitBuilding } from './gameplay';
+import { ResourceBuilding, GamePlay, BuildingBuilding, UnitBuilding } from './gameplay';
 import Id from './id';
 import * as _ from 'lodash';
 
+import Resource from '../model/resources/resource';
+import Stone from '../model/resources/stone';
+import Wood from '../model/resources/wood';
+import Food from '../model/resources/food';
 import Barracks from '../model/buildings/barracks_buildings';
 import Building from '../model/buildings/buildings';
 import Stables from '../model/buildings/stable_buildings';
@@ -33,13 +37,116 @@ declare var wade: any;
 declare var TextSprite: any;
 declare var SceneObject: any;
 declare var Sprite: any;
-declare var Animation: any;
-declare var IsoCharacter: any;
+declare var Animation: any; declare var IsoCharacter: any;
 declare var Path: any;
 declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
+async function delay(milliseconds: number) {
+    return new Promise<void>((resolve) => {
+        wade.setTimeout(resolve, milliseconds);
+    });
+}
+
 var AiGamePlay = {
+    generateRandomResources: async () => {
+        let resources: Resource[] = wade.getSceneObject('global').state.getResources();
+        let numTiles = wade.iso.getNumTiles();
+        let tiles = numTiles.x * numTiles.z;
+        let fraction = 0.01;
+        while(true) {
+            if(!resources) {
+                break; 
+            }
+            // Construct up to 15 new resources.
+            let i = 0;
+            while(resources.length < Math.floor(fraction * tiles) && i < 15 ) {
+                i++;
+                let resource_type = Math.floor((Math.random() * 3));
+
+                // Find a random location for the resource
+                let numTiles = wade.iso.getNumTiles();
+                let x = Math.floor(Math.random() * numTiles.x);
+                let z = Math.floor(Math.random() * numTiles.z);
+
+                // Create a resource at or around that location.
+                let resource;
+                if(resource_type === 0) {
+                    resource = AiGamePlay.constructResource("Stone", x, z); 
+                } else if (resource_type === 1) {
+                    resource = AiGamePlay.constructResource("Wood", x, z); 
+                } else if (resource_type === 2) {
+                    resource = AiGamePlay.constructResource("Food", x, z);
+                }
+                else {
+                    console.log("ERROR in generating random resource!");
+                }
+            }
+        await delay(2000);
+        }
+
+    },
+    constructResource: (className: string, x: number, z: number) => {
+        let state = wade.getSceneObject('global').state; 
+        let resources = state.getResources();
+        let map: Array<Tile[]> = state.getMap();
+    
+        let r: Resource;
+        // build the correct Resource model
+        if(_.isEqual(className, "Food")) {
+            r = Food.fromObject(wade.getJson(JsonMap.food_data)); 
+        } else if (_.isEqual(className, "Wood")) {
+            r = Wood.fromObject(wade.getJson(JsonMap.wood_data));
+        } else if (_.isEqual(className, "Stone")) {
+            r = Stone.fromObject(wade.getJson(JsonMap.stone_data)); 
+        } else {
+            console.error("Invalid class name used in constructResource"); 
+        }
+        r.id = Id.getId();
+
+        // Put the resource in the resource array.
+        resources.push(r);
+
+
+        let sceneResource = ResourceBuilding.constructResourceFromModel(r);
+        sceneResource.oldX = x;
+        sceneResource.oldZ = z;
+
+        // Link the data and the resource.
+        sceneResource.data = r;
+        r.rep = sceneResource;
+
+        // Try to place the building on the Visual Map where indicated.
+        let wasMoved = false;
+        let sideLength = map[0].length;
+        while(!wasMoved) {  
+            wasMoved = wade.iso.moveObjectToTile(sceneResource, x, z);
+            //Randomly shift x and z until it is placed properly.
+            let changeX = Math.floor(Math.random() * 2);
+            let shouldIncrease = Math.floor(Math.random() * 3); //more likely to increase
+            let step = Math.floor(Math.floor(Math.random() * 3)) + 1;
+            if(!shouldIncrease) {
+                step = -1 * step; 
+            }
+            if(changeX) {
+                x = (x + step) % sideLength; 
+                if(x < 0) { 
+                    x += sideLength; 
+                }
+            } else {
+                z = (z + step) % sideLength; 
+                if(z < 0) {
+                    z += sideLength; 
+                }
+            }
+        }
+
+        // Once the resource has been properly placed, update its map location in the state.
+        GamePlay.updateResourceMapLocation(sceneResource);
+
+        return r;
+    },
+
     // This function constructs a Building GameObject and returns its
     // data portion to the caller.
     //
@@ -115,7 +222,7 @@ var AiGamePlay = {
         }
         //Once the sprite is properly moved, update its map location in the state.
         // and clear its old tile
-        GamePlay.updateResourceMapLocation(sceneBuilding);
+        GamePlay.updateBuildingMapLocation(sceneBuilding);
         sceneBuilding.marker = Minimap.createBuildingMarker(sceneBuilding.iso.gridCoords.x,
                                             sceneBuilding.iso.gridCoords.z, "ai");
 
