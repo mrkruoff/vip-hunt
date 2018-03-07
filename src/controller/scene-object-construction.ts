@@ -64,7 +64,7 @@ const SceneObjectConstruction = {
             dontAddToScene: true,
 
         };
-        const barracks = wade.iso.createObject(objectData, {x: -2, z: -2} );
+        const barracks = wade.iso.createObject(objectData, {x: 5, z: -2} );
 
         return barracks;
 
@@ -82,7 +82,7 @@ const SceneObjectConstruction = {
 
 
         };
-        const stables = wade.iso.createObject(objectData, {x: -2, z: -2} );
+        const stables = wade.iso.createObject(objectData, {x: 5, z: -2} );
 
         return stables;
 
@@ -101,7 +101,7 @@ const SceneObjectConstruction = {
 
 
         };
-        const tower = wade.iso.createObject(objectData, {x: -2, z: -2} );
+        const tower = wade.iso.createObject(objectData, {x: 5, z: -2} );
 
         return tower;
 
@@ -220,7 +220,7 @@ const SceneObjectConstruction = {
 
 
         };
-        const townHall = wade.iso.createObject(objectData, {x: -2, z: -2} );
+        const townHall = wade.iso.createObject(objectData, {x: 5, z: -2} );
         console.log("OFFSET");
         console.log(townHall.getSpriteOffset(0));
         console.log(townHall);
@@ -706,7 +706,7 @@ const SceneObjectConstruction = {
             gridSize: {x: 1, z: 1},
             collisionSize: {x: 1, z: 1},
         };
-        const stone = wade.iso.createObject(objectData, {x: -2, z: -2} );
+        const stone = wade.iso.createObject(objectData, {x: -2, z: 5} );
 
         return stone;
     },
@@ -716,7 +716,7 @@ const SceneObjectConstruction = {
             gridSize: {x: 1, z: 1},
             collisionSize: {x: 1, z: 1},
         };
-        const wood = wade.iso.createObject(objectData, {x: -2, z: -2} );
+        const wood = wade.iso.createObject(objectData, {x: -2, z: 5} );
 
         return wood;
     },
@@ -726,7 +726,7 @@ const SceneObjectConstruction = {
             gridSize: {x: 1, z: 1},
             collisionSize: {x: 1, z: 1},
         };
-        const food = wade.iso.createObject(objectData, {x: -2, z: -2} );
+        const food = wade.iso.createObject(objectData, {x: -2, z: 5} );
 
         return food;
     },
