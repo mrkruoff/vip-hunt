@@ -1,5 +1,5 @@
 {
 	"create":["swordsman","archer"],
     "hp": 300,
-    "vision": 3
+    "vision": 4
 }
