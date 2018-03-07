@@ -237,6 +237,8 @@ var AiGamePlay = {
         sceneBuilding.addSprite(redCircle, {x: 0, y: 5});
         sceneBuilding.setSpriteOffset(1, {x:0, y: -45})
 
+        wade.addSceneObject(sceneBuilding);
+
         return b;
     },
     // This function moves a unit with the given id as close to the 

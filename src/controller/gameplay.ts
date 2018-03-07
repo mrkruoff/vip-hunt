@@ -388,7 +388,7 @@ const GamePlay = {
                 attacker.playAnimation('Attack_iso_' + direction, 'forward');
                 console.log(targetData.hp);
                 targetData.takeDamage(attacker.data.getAttack());
-                target.getSprite(2).setVisible(true);
+                // target.getSprite(2).setVisible(true);
                 target.playAnimation('bleed', 'forward');
 
 

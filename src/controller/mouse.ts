@@ -27,8 +27,13 @@ const Mouse = {
     //  @ isoSceneObject: the isometric SceneObject that will track the mouse
     trackIsoTerrainGridMove: (isoSceneObject: any) => {
         wade.app.onIsoTerrainMouseMove = (event) => {
-            wade.iso.moveObjectToTile(isoSceneObject,
+            let wasMoved = wade.iso.moveObjectToTile(isoSceneObject,
                 event.gridCoords.x, event.gridCoords.z);
+
+            if (wasMoved) {
+                if(! isoSceneObject.isInScene() )
+                    wade.addSceneObject(isoSceneObject);
+            }
         };
     },
 };

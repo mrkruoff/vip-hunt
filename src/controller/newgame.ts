@@ -168,6 +168,7 @@ function addToScene(state: GlobalGameState) {
                 } else {
                     b.marker = Minimap.createBuildingMarker(b.iso.gridCoords.x, b.iso.gridCoords.z, "ai");
                 }
+                wade.addSceneObject(b);
 
             }
             if (tile.unitId >= 0) {
