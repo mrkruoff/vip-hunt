@@ -4,5 +4,7 @@
     "name": "stone",
     "visible": "true",
     "image": "../js/../public/sprites/resources/stone.png",
-    "size": {"x": 70, "y": 130}
+    "size": {"x": 70, "y": 130},
+    "pixelPerfectMouseEvents": 255
+
 }

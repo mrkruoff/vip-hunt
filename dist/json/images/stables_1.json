@@ -4,7 +4,9 @@
     "name": "stables_1",
     "visible": "true",
     "image": "../js/../public/sprites/buildings/stables_1.png",
-    "size": {"x": 600, "y": 600}
+    "size": {"x": 600, "y": 600},
+    "pixelPerfectMouseEvents": 255
+
 
 
 
