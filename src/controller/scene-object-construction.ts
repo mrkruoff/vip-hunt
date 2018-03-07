@@ -176,6 +176,28 @@ const SceneObjectConstruction = {
         addAnims(vip, deathAnims, deathNames, xCells, yCells,
                 speed, looping, startFrame, endFrame, offset);
 
+/*
+        // Finally, add an animation to play when a unit is hit.
+        let hitSprite = new Sprite();
+        hitSprite.setLayer(25);
+        hitSprite.setSortPoint(0, 1);
+        let animData = {
+            type: 'Animation',
+            name: 'bleed',
+            startFrame: 0, 
+            endFrame: 149,
+            numCells: {x: 10, y: 15 },
+            image: ImageMap.unit_hit_marker,
+            speed: 30,
+            looping: true,
+            offset: {x: 0, y: 0}
+        };
+        let hitAnim = new Animation(animData);
+        hitSprite.addAnimation('bleed', hitAnim, true);
+
+        vip.addSprite(hitSprite);
+*/
+
         return vip;
 
     },
@@ -192,6 +214,10 @@ const SceneObjectConstruction = {
 
         };
         const townHall = wade.iso.createObject(objectData);
+        console.log("OFFSET");
+        console.log(townHall.getSpriteOffset(0));
+        console.log(townHall);
+        console.log( townHall._spriteOffsets[0] );
 
         return townHall;
 

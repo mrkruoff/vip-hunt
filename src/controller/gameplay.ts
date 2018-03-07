@@ -372,15 +372,26 @@ const GamePlay = {
                 var anim = attacker.getSprite(0).getCurrentAnimationName();
                 var direction = anim.substr(anim.lastIndexOf('_') + 1);
                 attacker.onAnimationEnd = (data) => {
-                    attacker.isAttacking = false; 
-                    attacker.onAnimationEnd = null;
-                    let dir = GamePlay.directionToTarget(attacker, target);
-                    attacker.getBehavior('IsoCharacter').setDirection(dir);
+                    console.log("ANIMATION DATA");
+                    console.log(data);
+                    if(data.name === 'bleed') {
+                        target.getSprite(2).setVisible(false);
+                    
+                    } else {
+                        attacker.isAttacking = false; 
+                        attacker.onAnimationEnd = null;
+                        let dir = GamePlay.directionToTarget(attacker, target);
+                        attacker.getBehavior('IsoCharacter').setDirection(dir);
+                    }
                 }
                 wade.addEventListener(attacker, 'onAnimationEnd');
                 attacker.playAnimation('Attack_iso_' + direction, 'forward');
                 console.log(targetData.hp);
                 targetData.takeDamage(attacker.data.getAttack());
+                target.getSprite(2).setVisible(true);
+                target.playAnimation('bleed', 'forward');
+
+
             }
         };
         attacker.onObjectReached = doDamage;
@@ -1049,6 +1060,34 @@ const UnitBuilding = {
                 aura.setVisible(false);
                 let offset = { x: 0, y: 0};
                 unit.addSprite(aura, offset);
+
+                console.log("UNIT");
+                console.log(unit);
+                // Finally, add an animation to play when a unit is hit.
+                let hitSprite = new Sprite();
+                hitSprite.setLayer(24);
+                hitSprite.setSortPoint(0, 1);
+                let animData = {
+                    type: 'Animation',
+                    name: 'bleed',
+                    startFrame: 0, 
+                    endFrame: 10,
+                    numCells: {x: 10, y: 15 },
+                    image: ImageMap.unit_hit_marker,
+                    speed: 30,
+                    looping: false,
+                    offset: {x: 0, y: 0}
+                };
+                let hitAnim = new Animation(animData);
+                hitSprite.addAnimation('bleed', hitAnim, true);
+                unit.addSprite(hitSprite);
+                /*
+                unit.playAnimation('bleed', 'forward');
+                if(hitAnim.isPlaying()) {
+                    console.log("HI I'm BLEEDING"); 
+                }
+                */
+
             } else {
                 // Remove the unit from the game.
 

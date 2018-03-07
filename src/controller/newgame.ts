@@ -212,6 +212,25 @@ function addToScene(state: GlobalGameState) {
                     aura.setVisible(false);
                     let offset = { x: 0, y: 0};
                     u.addSprite(aura, offset);
+
+                    // Finally, add an animation to play when a unit is hit.
+                    let hitSprite = new Sprite();
+                    hitSprite.setLayer(24);
+                    hitSprite.setSortPoint(0, 1);
+                    let animData = {
+                        type: 'Animation',
+                        name: 'bleed',
+                        startFrame: 0, 
+                        endFrame: 10,
+                        numCells: {x: 10, y: 15 },
+                        image: ImageMap.unit_hit_marker,
+                        speed: 30,
+                        looping: false,
+                        offset: {x: 0, y: 0}
+                    };
+                    let hitAnim = new Animation(animData);
+                    hitSprite.addAnimation('bleed', hitAnim, true);
+                    u.addSprite(hitSprite);
                 }
 
                 if (isPlayerUnit) {
