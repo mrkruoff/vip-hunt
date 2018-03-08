@@ -82,7 +82,7 @@ const setupSaveGame = function () {
             //Add basic camera settings
             Events.addCamera();
             Camera.setBounds();
-            console.log(wade.iso.exportMap());
+            console.log(JSON.stringify(wade.iso.exportMap() )) ;
         
         }, true);
     };

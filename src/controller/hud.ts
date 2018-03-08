@@ -369,9 +369,22 @@ const Hud = {
                 save.getSprite(0).setFont("16px Verdana");
             };
             wade.addEventListener(save, 'onMouseOut');
-            save.onClick = (event)=>
+            save.onClick = (event) =>
             {
                 save.getSprite(0).setFont("16px Verdana");
+
+                // Unhook all the circular dependencies.
+                let global = wade.getSceneObject('global').state;
+
+                let data = _.concat(global.getResources(),
+                                   global.getAi().getUnits(),
+                                   global.getAi().getBuildings(),
+                                   global.getPlayer().getUnits(),
+                                   global.getPlayer().getBuildings());
+                console.log(data);
+                _.forEach(data, (datum) => {
+                    datum.rep = null; 
+                })
 
                 //export and store the scene use local 
                 let exportedScence = wade.exportScene();
@@ -386,7 +399,7 @@ const Hud = {
                 
                 
                 console.log(exportedScence);
-                console.log(wade.iso.exportMap())
+                console.log( JSON.stringify(wade.iso.exportMap()));
                 wade.storeLocalObject('save_game', JSON.stringify(exportedScence));
 
                 //line below was for debugging/testing
