@@ -7,7 +7,10 @@
  */
 
 const AudioMap = {
-    menu_music: '../js/../public/audio/music/Deeper_ambient.ogg',
+    menu_music: '../js/../public/audio/music/AMemoryAway_event.ogg',
+
+    building_construction_sound: '../js/../public/audio/sounds/construction/building_construction.wav',
+    unit_construction_sound: '../js/../public/audio/sounds/infantry/training.flac'
 
 };
 

@@ -24,6 +24,7 @@ import Events from './events';
 import Fog from './fog';
 import Minimap from './minimap';
 import Resource from '../model/resources/resource';
+import AudioMap from './audio-map';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -805,7 +806,7 @@ const GamePlay = {
 
             worker.postMessage(visionData);
         
-            await delay(1000); 
+            await delay(750); 
         }
     },
 };
@@ -917,6 +918,11 @@ let BuildingBuilding = {
                 aura.setVisible(false);
                 let offset = { x: 0, y: 0};
                 building.addSprite(aura, offset);
+
+                let music_id = wade.playAudio(AudioMap.building_construction_sound, false);
+                wade.setTimeout( () => {
+                    wade.stopAudio(music_id); 
+                }, 2000);
             } else {
                 // Remove the building from existence and display an error message to player
                 building.data.rep = null; // remove circular reference
@@ -1081,13 +1087,11 @@ const UnitBuilding = {
                 let hitAnim = new Animation(animData);
                 hitSprite.addAnimation('bleed', hitAnim, true);
                 unit.addSprite(hitSprite);
-                /*
-                unit.playAnimation('bleed', 'forward');
-                if(hitAnim.isPlaying()) {
-                    console.log("HI I'm BLEEDING"); 
-                }
-                */
 
+                let music_id = wade.playAudio(AudioMap.unit_construction_sound, false);
+                wade.setTimeout(() => {
+                    wade.stopAudio(music_id);
+                }, 1500);
             } else {
                 // Remove the unit from the game.
 
