@@ -62,15 +62,23 @@ function setupSettings() {
 
 }
 
-function setupSaveGame() {
+const setupSaveGame = function () {
     this.loadGameObject.setPosition(0, 50);
 
     setMouseInOut(this.loadGameObject);
 
-    // this.loadGameObject.onClick = loadGame.call(this);
-    // wade.addEventListener(this.loadGameObject, 'onClick');
+      this.loadGameObject.onClick = function() {
+       let savedGame = wade.retrieveLocalObject('save_game');
+       wade.setJson('savedGameScene.json', savedGame);
 
-}
+       //the line below was purely for testing purposes to make sure
+       //info was correct
+       //let testing = wade.getJson('savedGameScene.json');
+
+        wade.loadScene('savedGameScene.json', true, null, true);
+        };
+     wade.addEventListener(this.loadGameObject, 'onClick');      
+};
 
 const setupNewGame = function() {
     this.newGameObject.setPosition(0, 0);
@@ -80,7 +88,7 @@ const setupNewGame = function() {
     this.newGameObject.onClick = function() {
         const clearscene = true;
         // load the map
-        wade.loadScene('../public/large_grass_map.wsc', null, function() {
+        wade.loadScene('../public/grass_map.wsc', null, function() {
             NewGame.initialize();
         }, clearscene);
     };

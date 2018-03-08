@@ -330,27 +330,75 @@ const Hud = {
             wade.getSceneObject(Names.menu_resume).setVisible(true);
             wade.getSceneObject(Names.menu_quit).setVisible(true);
         } else {
-            global.hud.menu = BuildHud.menuPanel(9); 
+
+
+
+            global.hud.menu = BuildHud.menuPanel(9);
+
             let save = global.hud.menu[0];
 
-            let resume = global.hud.menu[1];
-            resume.onMouseIn = (event) => {
-                resume.getSprite(0).setFont("20px Verdana"); 
+            let resume_1 = global.hud.menu[1];
+            let quit = global.hud.menu[2];
+
+            resume_1.onMouseIn = (event)=> {
+              resume_1.getSprite(0).setFont("20px Verdana");
             }
-            wade.addEventListener(resume, 'onMouseIn');
-            resume.onMouseOut = (event) => {
-                resume.getSprite(0).setFont("16px Verdana"); 
-            }
-            wade.addEventListener(resume, 'onMouseOut');
-            resume.onClick = (event) => {
-                resume.getSprite(0).setFont("16px Verdana");
-                wade.resumeSimulation(null); 
+
+            save.onMouseIn = (event)=>{
+                save.getSprite(0).setFont("20px Verdana");
+            };
+
+            quit.onMouseIn = (event)=>{
+                quit.getSprite(0).setFont("20px Verdana");
+            };
+
+            wade.addEventListener(resume_1, 'onMouseIn');
+            resume_1.onMouseOut =  (event)=> {
+                resume_1.getSprite(0).setFont("16px Verdana");
+            };
+            wade.addEventListener(resume_1, 'onMouseOut');
+            resume_1.onClick =  (event)=> {
+                resume_1.getSprite(0).setFont("16px Verdana");
+                wade.resumeSimulation(null);
                 Hud.showMainPanel();
                 Hud.clearMenuPanel();
-            }
-            wade.addEventListener(resume, 'onClick');
+            };
 
-            let quit = global.hud.menu[2];
+            wade.addEventListener(save, 'onMouseIn');
+            save.onMouseOut = (event)=> {
+                save.getSprite(0).setFont("16px Verdana");
+            };
+            wade.addEventListener(save, 'onMouseOut');
+            save.onClick = (event)=>
+            {
+                save.getSprite(0).setFont("16px Verdana");
+
+                //export and store the scene use local 
+                let exportedScence = (wade.exportScene(true));
+                wade.storeLocalObject('save_game', exportedScence);
+
+                //line below was for debugging/testing
+                    //wade.setJson('savedGameScene.json', savedGame); 
+                    //wade.loadScene('savedGameSene', true, null, true);
+
+                Hud.showMainPanel();
+                Hud.clearMenuPanel();    
+            };
+
+            wade.addEventListener(quit, 'onMouseIn');
+            quit.onMouseOut = (event)=> {
+                quit.getSprite(0).setFont("16px Verdana");
+            };
+            wade.addEventListener(save, 'onMouseOut');
+            quit.onClick = (event)=>
+            {
+                quit.getSprite(0).setFont("16px Verdana");
+                close();
+            };
+
+            wade.addEventListener(resume_1, 'onClick');
+            wade.addEventListener(save, 'onClick');
+            wade.addEventListener(quit, 'onClick');
 
             let background = BuildHud.menuBackground(10);
             global.hud.menu.push(background);
