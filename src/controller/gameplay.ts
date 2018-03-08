@@ -744,7 +744,8 @@ const GamePlay = {
         let worker_1_isReady = true;
         let worker_2_isReady = true;
         let worker_3_isReady = true;
-        worker_1.onmessage = function(e) {
+            
+        let processVision = function(e) {
             // Paint fog and cleared tiles
             if(e.data.id == 1) {
                 worker_1_isReady = true;
@@ -787,6 +788,10 @@ const GamePlay = {
             // since we don't want to have to repeat these calculations.
             Minimap.refreshPlayerVision(e.data);
         };
+
+        worker_1.onmessage = processVision;
+        worker_2.onmessage = processVision;
+        worker_3.onmessage = processVision;
         let numTiles = wade.iso.getNumTiles();
 
         while(global && global.isRunning) {
@@ -832,7 +837,7 @@ const GamePlay = {
                 worker_3_isReady = false;
             }
         
-            await delay(250); 
+            await delay(1000); 
         }
     },
 };

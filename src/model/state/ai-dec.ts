@@ -163,7 +163,7 @@ const AiDec = {
 					  }
 					  else{
 						  gathering=AiGamePlay.constructUnit("Gatherer",3,1);
-						  resource=mapSearch(map,"resource");
+						  let resLoc=mapSearch(map,"resource");
 						  AiGamePlay.unitGather(gathering.id,resLoc);
 						  await delay(4000);
 						  
