@@ -738,9 +738,23 @@ const GamePlay = {
         let player = global.state.getPlayer();
         let aiUnitReps = [];
         let playerCollection = [];
-        let worker = new Worker('../js/vision.js');
-        worker.onmessage = function(e) {
+        let worker_1 = new Worker('../js/vision.js');
+        let worker_2 = new Worker('../js/vision.js');
+        let worker_3 = new Worker('../js/vision.js');
+        let worker_1_isReady = true;
+        let worker_2_isReady = true;
+        let worker_3_isReady = true;
+        worker_1.onmessage = function(e) {
             // Paint fog and cleared tiles
+            if(e.data.id == 1) {
+                worker_1_isReady = true;
+            }
+            if(e.data.id == 2) {
+                worker_2_isReady = true; 
+            }
+            if(e.data.id == 3) {
+                worker_3_isReady = true; 
+            }
             let paintFog = e.data.fog;
             let paintClear = e.data.clear;
             _.forEach(paintFog, (coord) => {
@@ -776,7 +790,6 @@ const GamePlay = {
         let numTiles = wade.iso.getNumTiles();
 
         while(global && global.isRunning) {
-
             playerCollection = _.concat(player.getUnits(), player.getBuildings() );
             let dataCollection = _.map(playerCollection, (data) => {
                 return {
@@ -802,11 +815,24 @@ const GamePlay = {
                     maxZ: numTiles.z,
                 },
                 aiCoords: aiUnitCoords,
+                id: 1,
             }
-
-            worker.postMessage(visionData);
+            if(worker_1_isReady) {
+                worker_1.postMessage(visionData);
+                worker_1_isReady = false;
+            }
+            else if (worker_2_isReady) {
+                visionData.id = 2;
+                worker_2.postMessage(visionData); 
+                worker_2_isReady = false;
+            }
+            else if (worker_3_isReady) {
+                visionData.id = 3;
+                worker_3.postMessage(visionData); 
+                worker_3_isReady = false;
+            }
         
-            await delay(750); 
+            await delay(250); 
         }
     },
 };
