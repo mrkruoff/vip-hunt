@@ -374,8 +374,20 @@ const Hud = {
                 save.getSprite(0).setFont("16px Verdana");
 
                 //export and store the scene use local 
-                let exportedScence = (wade.exportScene(true));
-                wade.storeLocalObject('save_game', exportedScence);
+                let exportedScence = wade.exportScene();
+                
+                exportedScence.sceneObjects = _.filter(exportedScence.sceneObjects, (obj) => {
+                    return ! _.has(obj.properties, 'iso'); 
+                });
+                
+                exportedScence.modules = {
+                    iso: wade.iso.exportMap() 
+                }
+                
+                
+                console.log(exportedScence);
+                console.log(wade.iso.exportMap())
+                wade.storeLocalObject('save_game', JSON.stringify(exportedScence));
 
                 //line below was for debugging/testing
                     //wade.setJson('savedGameScene.json', savedGame); 
