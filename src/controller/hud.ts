@@ -63,90 +63,90 @@ const Hud = {
         global.minimap.background = background;
         global.minimap.fogLayer = fogLayer;
         global.minimap.cameraZone = cameraZone;
-    
+
     },
     showMinimap2: () => {
         // while(true) {
-            let transparent = new Sprite();
-            transparent.setDrawFunction(function() {});
-            transparent.setSize(5000, 5000);
-            transparent.drawToImage('test.png', true);
+        let transparent = new Sprite();
+        transparent.setDrawFunction(function() {});
+        transparent.setSize(5000, 5000);
+        transparent.drawToImage('test.png', true);
 
-            let worldArea = {
-                minX: -5000,
-                maxX: 5000,
-                minY: -5000,
-                maxY: 10
+        let worldArea = {
+            minX: -5000,
+            maxX: 5000,
+            minY: -5000,
+            maxY: 10
+        }
+        let terrainSprites = wade.getSpritesInArea(worldArea, 30, true);
+        console.log(terrainSprites);
+
+        let new_index = 0;
+        let chunkSize = 50;
+        function paintSomeTerrain(spriteIndex) {
+            let transform = {
+                horizontalScale: 1,
+                horizontalSkew: 0,
+                verticalSkew: 0,
+                verticalScale: 1,
+                horizontalTranslate: 0,
+                verticalTranslate: 0
             }
-            let terrainSprites = wade.getSpritesInArea(worldArea, 30, true);
-            console.log(terrainSprites);
-
-            let new_index = 0;
-            let chunkSize = 50;
-            function paintSomeTerrain(spriteIndex) {
-                let transform = {
-                    horizontalScale: 1,
-                    horizontalSkew: 0,
-                    verticalSkew: 0,
-                    verticalScale: 1,
-                    horizontalTranslate: 0,
-                    verticalTranslate: 0
-                }
-                let end = spriteIndex + chunkSize;
-                if (end > terrainSprites.length) {
-                    end = terrainSprites.length; 
-                }
-                for(let index = spriteIndex; index < end; index++) {
-                    console.log("Painted sprite " + index.toString());
-                    let sprite = terrainSprites[index]; 
-                    let position = sprite.getPosition();
-                    position.x /= 1;
-                    position.y /= 1;
-                    sprite.drawToImage('test.png', false, position,
-                                transform, null, null); 
-                }
-                spriteIndex = end;
-                if (spriteIndex < terrainSprites.length - 1) {
-                    let paint = function(i) {
-                        return function () {
-                            paintSomeTerrain(i);
-                        }
+            let end = spriteIndex + chunkSize;
+            if (end > terrainSprites.length) {
+                end = terrainSprites.length; 
+            }
+            for(let index = spriteIndex; index < end; index++) {
+                console.log("Painted sprite " + index.toString());
+                let sprite = terrainSprites[index]; 
+                let position = sprite.getPosition();
+                position.x /= 1;
+                position.y /= 1;
+                sprite.drawToImage('test.png', false, position,
+                                   transform, null, null); 
+            }
+            spriteIndex = end;
+            if (spriteIndex < terrainSprites.length - 1) {
+                let paint = function(i) {
+                    return function () {
+                        paintSomeTerrain(i);
                     }
-                    wade.setTimeout(paint(spriteIndex), 20); 
                 }
-                else {
-                    console.log("WE ARE DONE"); 
-                    let mapSprite = new Sprite('test.png', 20);
-                    let minimap = new SceneObject(mapSprite);
-                    wade.addSceneObject(minimap);
-                    minimap.setPosition(0, 0);
-                }
-            };
-            paintSomeTerrain(new_index);
-/*
-            _.forEach(terrainSprites, (sprite) => {
-                let position = sprite.getPosition();
-                position.x *= 20.1;
-                position.y *= 20.1;
-                sprite.drawToImage('test' + i.toString() + '.png', false, position,
-                            transform, null, null); 
-            });
-            
-            let fogSprites = wade.getSpritesInArea(worldArea, 22, true);
-            _.forEach(fogSprites, (sprite) => {
-                let position = sprite.getPosition();
-                position.x *= 20.1;
-                position.y *= 20.1;
-                sprite.drawToImage('test' + i.toString() + '.png', false, position,
-                            transform, null, null); 
-            });
+                wade.setTimeout(paint(spriteIndex), 20); 
+            }
+            else {
+                console.log("WE ARE DONE"); 
+                let mapSprite = new Sprite('test.png', 20);
+                let minimap = new SceneObject(mapSprite);
+                wade.addSceneObject(minimap);
+                minimap.setPosition(0, 0);
+            }
+        };
+        paintSomeTerrain(new_index);
+        /*
+           _.forEach(terrainSprites, (sprite) => {
+           let position = sprite.getPosition();
+           position.x *= 20.1;
+           position.y *= 20.1;
+           sprite.drawToImage('test' + i.toString() + '.png', false, position,
+           transform, null, null); 
+           });
 
-            let mapSprite = new Sprite('test' + i.toString() + '.png', 9);
-            let minimap = new SceneObject(mapSprite);
-            wade.addSceneObject(minimap);
-*/
-           // await delay(10000);
-            // wade.removeSceneObject(minimap);
+           let fogSprites = wade.getSpritesInArea(worldArea, 22, true);
+           _.forEach(fogSprites, (sprite) => {
+           let position = sprite.getPosition();
+           position.x *= 20.1;
+           position.y *= 20.1;
+           sprite.drawToImage('test' + i.toString() + '.png', false, position,
+           transform, null, null); 
+           });
+
+           let mapSprite = new Sprite('test' + i.toString() + '.png', 9);
+           let minimap = new SceneObject(mapSprite);
+           wade.addSceneObject(minimap);
+         */
+        // await delay(10000);
+        // wade.removeSceneObject(minimap);
         //}
     },
     showWinPanel: () => {
@@ -173,7 +173,7 @@ const Hud = {
 
 
         let background = BuildHud.menuBackground(10);
-    
+
     },
     showLossPanel: () => {
         let options = BuildHud.lossPanel(9);
@@ -184,7 +184,7 @@ const Hud = {
             wade.clearScene();
             wade.resumeSimulation();
             window.location.reload();
-        
+
             return true; 
         }
         wade.addEventListener(menu, 'onClick');
@@ -236,8 +236,8 @@ const Hud = {
             _.forEach(global.hud.barracks, (icon) => {
                 icon.setVisible(false); 
             }); 
-            
-            
+
+
             wade.getSceneObject(Names.swordsmanIcon).setVisible(false);
         }
     },
@@ -341,7 +341,7 @@ const Hud = {
             let quit = global.hud.menu[2];
 
             resume_1.onMouseIn = (event)=> {
-              resume_1.getSprite(0).setFont("20px Verdana");
+                resume_1.getSprite(0).setFont("20px Verdana");
             }
 
             save.onMouseIn = (event)=>{
@@ -376,46 +376,45 @@ const Hud = {
                 // Unhook all the circular dependencies.
                 let global = wade.getSceneObject('global').state;
 
-                
-                
+
+
                 let data = _.concat(global.getResources(),
-                                   global.getAi().getUnits(),
-                                   global.getAi().getBuildings(),
-                                   global.getPlayer().getUnits(),
-                                   global.getPlayer().getBuildings());
+                                    global.getAi().getUnits(),
+                global.getAi().getBuildings(),
+                global.getPlayer().getUnits(),
+                global.getPlayer().getBuildings());
                 console.log(data);
                 _.forEach(data, (datum) => {
                     console.log(datum.rep);
                     datum.rep = null; 
                 });
-                
+
                 //don't include the menu as part of the exported scene
                 Hud.clearMenuPanel();
                 Hud.showMainPanel();                
 
                 //export and store the scene use local 
                 let exportedScence = wade.exportScene();
-               /* 
-                exportedScence.sceneObjects = [];
-                */
-                
-               //// exportedScence.sceneObjects = _.filter(exportedScence.sceneObjects, (obj) => {
-               ////     return ! _.has(obj.properties, 'iso'); 
-               //// });
-                
-               ///// exportedScence.modules = {
-               ////     iso: wade.iso.exportMap() 
-               /// }
-                
-                
-                
+                /* 
+                   exportedScence.sceneObjects = [];
+                 */
+
+                exportedScence.sceneObjects = _.filter(exportedScence.sceneObjects, (obj) => {
+                    return ! _.has(obj.properties, 'iso'); 
+                });
+
+                exportedScence.modules = {
+                    iso: wade.iso.exportMap() 
+                }
+
+
                 console.log( JSON.stringify( exportedScence ));
                 console.log( (wade.iso.exportMap()));
                 wade.storeLocalObject('save_game', JSON.stringify(exportedScence));
 
                 //line below was for debugging/testing
-                    //wade.setJson('savedGameScene.json', savedGame); 
-                    //wade.loadScene('savedGameSene', true, null, true);
+                //wade.setJson('savedGameScene.json', savedGame); 
+                //wade.loadScene('savedGameSene', true, null, true);
 
                 Hud.showMainPanel();
                 Hud.clearMenuPanel();    
@@ -439,7 +438,7 @@ const Hud = {
             let background = BuildHud.menuBackground(10);
             global.hud.menu.push(background);
         }
-    
+
     },
     // This function shows and returns a reference to the Barracks Panel SceneObjects.
     //
@@ -467,7 +466,7 @@ const Hud = {
             global.hud.stables = BuildHud.stablesPanel(9); 
         }
         return global.hud.stables;
-    
+
     },
     clearStablesPanel: () => {
         const global = wade.getSceneObject('global');
@@ -476,7 +475,7 @@ const Hud = {
                 icon.setVisible(false); 
             });
         }
-    
+
     },
     showTownHallPanel: () => {
         const global = wade.getSceneObject('global');
@@ -515,7 +514,7 @@ const Hud = {
                 icon.setVisible(false); 
             });
         }
-    
+
     },
     // This function shows and returns a reference to the Resource Panel SceneObjects
     //
