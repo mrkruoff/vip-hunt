@@ -81,9 +81,16 @@ const setupNewGame = function(music_id: number) {
         wade.stopAudio(music_id);
         const clearscene = true;
         // load the map
+        /*
+        wade.loadScene('../public/scene1.wsc', null, function() {
+            NewGame.initialize();
+        }, clearscene);
+        */
+        
         wade.loadScene('../public/large_grass_map.wsc', null, function() {
             NewGame.initialize();
         }, clearscene);
+        
     };
     wade.addEventListener(this.newGameObject, 'onClick');
 };

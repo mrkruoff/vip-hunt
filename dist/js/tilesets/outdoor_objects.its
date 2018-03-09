@@ -1,0 +1,2512 @@
+{
+	"tiles": [
+		{
+			"name": "Barrel Boxes 1",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 111.33333333333333,
+						"y": 101.33333333333333
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.465
+					},
+					"imageArea": {
+						"minX": 0.6572265625,
+						"minY": 0.67236328125,
+						"maxX": 0.73876953125,
+						"maxY": 0.74658203125
+					},
+					"offset": {
+						"x": 0,
+						"y": -7,
+						"originalX": 0,
+						"originalY": -3.5,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Barrel Boxes 2",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 114,
+						"y": 127.33333333333333
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.421
+					},
+					"imageArea": {
+						"minX": 0.8916015625,
+						"minY": 0.47412109375,
+						"maxX": 0.97509765625,
+						"maxY": 0.5673828125
+					},
+					"offset": {
+						"x": 0,
+						"y": -20,
+						"originalX": 0,
+						"originalY": -10,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Barrel",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 63.333333333333336,
+						"y": 102.66666666666667
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.369
+					},
+					"imageArea": {
+						"minX": 0.56884765625,
+						"minY": 0.88330078125,
+						"maxX": 0.615234375,
+						"maxY": 0.95849609375
+					},
+					"offset": {
+						"x": 0,
+						"y": -27,
+						"originalX": 0,
+						"originalY": -13.5,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Bush 1",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 174.66666666666666,
+						"y": 138
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.453
+					},
+					"imageArea": {
+						"minX": 0.36279296875,
+						"minY": 0.7724609375,
+						"maxX": 0.49072265625,
+						"maxY": 0.87353515625
+					},
+					"offset": {
+						"x": 0,
+						"y": -13,
+						"originalX": 0,
+						"originalY": -6.5,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Bush 2",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 156,
+						"y": 133.33333333333334
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.444
+					},
+					"imageArea": {
+						"minX": 0.48095703125,
+						"minY": 0.67236328125,
+						"maxX": 0.59521484375,
+						"maxY": 0.77001953125
+					},
+					"offset": {
+						"x": 6,
+						"y": -15,
+						"originalX": 3,
+						"originalY": -7.5,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Bush 3",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 180,
+						"y": 128
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.441
+					},
+					"imageArea": {
+						"minX": 0.3896484375,
+						"minY": 0.55859375,
+						"maxX": 0.521484375,
+						"maxY": 0.65234375
+					},
+					"offset": {
+						"x": 14,
+						"y": -15,
+						"originalX": 7,
+						"originalY": -7.5,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Chest 1",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 155,
+						"y": 136
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.419
+					},
+					"imageArea": {
+						"minX": 0.60986328125,
+						"minY": 0.751953125,
+						"maxX": 0.685546875,
+						"maxY": 0.818359375
+					},
+					"offset": {
+						"x": 4,
+						"y": -22,
+						"originalX": 2,
+						"originalY": -11,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				},
+				{
+					"visible": false,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 205,
+						"y": 195
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.367
+					},
+					"imageArea": {
+						"minX": 0.8916015625,
+						"minY": 0.2822265625,
+						"maxX": 0.99169921875,
+						"maxY": 0.37744140625
+					},
+					"offset": {
+						"x": -21,
+						"y": -52,
+						"originalX": -10.5,
+						"originalY": -26,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Chest 2",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 155,
+						"y": 136
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.397
+					},
+					"imageArea": {
+						"minX": 0.890625,
+						"minY": 0.7587890625,
+						"maxX": 0.96630859375,
+						"maxY": 0.8251953125
+					},
+					"offset": {
+						"x": -7,
+						"y": -28,
+						"originalX": -3.5,
+						"originalY": -14,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				},
+				{
+					"visible": false,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 204,
+						"y": 194
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.353
+					},
+					"imageArea": {
+						"minX": 0.8916015625,
+						"minY": 0.37841796875,
+						"maxX": 0.9912109375,
+						"maxY": 0.47314453125
+					},
+					"offset": {
+						"x": 18,
+						"y": -57,
+						"originalX": 9,
+						"originalY": -28.5,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Crate 1",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 113,
+						"y": 110
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.414
+					},
+					"imageArea": {
+						"minX": 0.94189453125,
+						"minY": 0.6318359375,
+						"maxX": 0.9970703125,
+						"maxY": 0.685546875
+					},
+					"offset": {
+						"x": 4,
+						"y": -19,
+						"originalX": 2,
+						"originalY": -9.5,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				},
+				{
+					"visible": false,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 123,
+						"y": 161
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.36
+					},
+					"imageArea": {
+						"minX": 0.59619140625,
+						"minY": 0.67236328125,
+						"maxX": 0.65625,
+						"maxY": 0.7509765625
+					},
+					"offset": {
+						"x": -1,
+						"y": -45,
+						"originalX": -0.5,
+						"originalY": -22.5,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Crate 2",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 113,
+						"y": 110
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.405
+					},
+					"imageArea": {
+						"minX": 0.94189453125,
+						"minY": 0.6865234375,
+						"maxX": 0.9970703125,
+						"maxY": 0.740234375
+					},
+					"offset": {
+						"x": -4,
+						"y": -21,
+						"originalX": -2,
+						"originalY": -10.5,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				},
+				{
+					"visible": false,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 124,
+						"y": 162
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.355
+					},
+					"imageArea": {
+						"minX": 0.6796875,
+						"minY": 0.525390625,
+						"maxX": 0.740234375,
+						"maxY": 0.6044921875
+					},
+					"offset": {
+						"x": 2,
+						"y": -47,
+						"originalX": 1,
+						"originalY": -23.5,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Flowers 1a",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 122,
+						"y": 85.33333333333333
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.465
+					},
+					"imageArea": {
+						"minX": 0.60986328125,
+						"minY": 0.8193359375,
+						"maxX": 0.69921875,
+						"maxY": 0.8818359375
+					},
+					"offset": {
+						"x": -2,
+						"y": -6,
+						"originalX": -1,
+						"originalY": -3,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Flowers 1b",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 135.33333333333334,
+						"y": 85.33333333333333
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.477
+					},
+					"imageArea": {
+						"minX": 0.73974609375,
+						"minY": 0.68798828125,
+						"maxX": 0.8388671875,
+						"maxY": 0.75048828125
+					},
+					"offset": {
+						"x": 0,
+						"y": -4,
+						"originalX": 0,
+						"originalY": -2,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Flowers 1c",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 160.66666666666666,
+						"y": 85.33333333333333
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.5
+					},
+					"imageArea": {
+						"minX": 0.7412109375,
+						"minY": 0.56103515625,
+						"maxX": 0.85888671875,
+						"maxY": 0.62353515625
+					},
+					"offset": {
+						"x": -2,
+						"y": 0,
+						"originalX": -1,
+						"originalY": 0,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Flowers 1d",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 122,
+						"y": 85.33333333333333
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.5
+					},
+					"imageArea": {
+						"minX": 0.6162109375,
+						"minY": 0.8828125,
+						"maxX": 0.70556640625,
+						"maxY": 0.9453125
+					},
+					"offset": {
+						"x": 0,
+						"y": 0,
+						"originalX": 0,
+						"originalY": 0,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Flowers 1e",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 159.33333333333334,
+						"y": 85.33333333333333
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.441
+					},
+					"imageArea": {
+						"minX": 0.85986328125,
+						"minY": 0.568359375,
+						"maxX": 0.9765625,
+						"maxY": 0.630859375
+					},
+					"offset": {
+						"x": -4,
+						"y": -10,
+						"originalX": -2,
+						"originalY": -5,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Flowers 1f",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 135.33333333333334,
+						"y": 85.33333333333333
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.465
+					},
+					"imageArea": {
+						"minX": 0.841796875,
+						"minY": 0.6318359375,
+						"maxX": 0.94091796875,
+						"maxY": 0.6943359375
+					},
+					"offset": {
+						"x": 3,
+						"y": -6,
+						"originalX": 1.5,
+						"originalY": -3,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Flowers 1g",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 171.33333333333334,
+						"y": 85.33333333333333
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.471
+					},
+					"imageArea": {
+						"minX": 0.5224609375,
+						"minY": 0.60888671875,
+						"maxX": 0.64794921875,
+						"maxY": 0.67138671875
+					},
+					"offset": {
+						"x": 0,
+						"y": -5,
+						"originalX": 0,
+						"originalY": -2.5,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Flowers 2a",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 136,
+						"y": 85.33333333333333
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.441
+					},
+					"imageArea": {
+						"minX": 0.7412109375,
+						"minY": 0.62451171875,
+						"maxX": 0.8408203125,
+						"maxY": 0.68701171875
+					},
+					"offset": {
+						"x": 0,
+						"y": -10,
+						"originalX": 0,
+						"originalY": -5,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Flowers 2b",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 125.33333333333333,
+						"y": 85.33333333333333
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.441
+					},
+					"imageArea": {
+						"minX": 0.7001953125,
+						"minY": 0.81494140625,
+						"maxX": 0.7919921875,
+						"maxY": 0.87744140625
+					},
+					"offset": {
+						"x": -3,
+						"y": -10,
+						"originalX": -1.5,
+						"originalY": -5,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Flowers 2c",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 176,
+						"y": 128
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.503
+					},
+					"imageArea": {
+						"minX": 0.70654296875,
+						"minY": 0.87841796875,
+						"maxX": 0.79248046875,
+						"maxY": 0.94091796875
+					},
+					"offset": {
+						"x": 0.08,
+						"y": 0.8,
+						"angle": 0
+					},
+					"animations": []
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			}
+		},
+		{
+			"name": "Flowers 2e",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 130.66666666666666,
+						"y": 85.33333333333333
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.418
+					},
+					"imageArea": {
+						"minX": 0.79345703125,
+						"minY": 0.822265625,
+						"maxX": 0.88916015625,
+						"maxY": 0.884765625
+					},
+					"offset": {
+						"x": 9,
+						"y": -14,
+						"originalX": 4.5,
+						"originalY": -7,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Flowers 2f",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 132,
+						"y": 85.33333333333333
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.453
+					},
+					"imageArea": {
+						"minX": 0.79296875,
+						"minY": 0.7587890625,
+						"maxX": 0.8896484375,
+						"maxY": 0.8212890625
+					},
+					"offset": {
+						"x": 10,
+						"y": -8,
+						"originalX": 5,
+						"originalY": -4,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Flowers 2g",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 203,
+						"y": 128
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.503
+					},
+					"imageArea": {
+						"minX": 0.83984375,
+						"minY": 0.6953125,
+						"maxX": 0.93896484375,
+						"maxY": 0.7578125
+					},
+					"offset": {
+						"x": -0.1,
+						"y": 0.8,
+						"angle": 0
+					},
+					"animations": []
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			}
+		},
+		{
+			"name": "Flowers 2h",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 135.33333333333334,
+						"y": 85.33333333333333
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.424
+					},
+					"imageArea": {
+						"minX": 0.6865234375,
+						"minY": 0.75146484375,
+						"maxX": 0.78564453125,
+						"maxY": 0.81396484375
+					},
+					"offset": {
+						"x": 0,
+						"y": -13,
+						"originalX": 0,
+						"originalY": -6.5,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Flowers 2i",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 124.66666666666667,
+						"y": 85.33333333333333
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.436
+					},
+					"imageArea": {
+						"minX": 0.64892578125,
+						"minY": 0.60888671875,
+						"maxX": 0.740234375,
+						"maxY": 0.67138671875
+					},
+					"offset": {
+						"x": 5,
+						"y": -11,
+						"originalX": 2.5,
+						"originalY": -5.5,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "LogPile",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 123.66666666666667,
+						"y": 86.8
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.437
+					},
+					"imageArea": {
+						"minX": 0.31494140625,
+						"minY": 0.87451171875,
+						"maxX": 0.4443359375,
+						"maxY": 0.96533203125
+					},
+					"offset": {
+						"x": -2,
+						"y": -11,
+						"originalX": -1,
+						"originalY": -5.5,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Plant 1a",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 240,
+						"y": 228
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.368
+					},
+					"imageArea": {
+						"minX": 0.49169921875,
+						"minY": 0.77099609375,
+						"maxX": 0.60888671875,
+						"maxY": 0.88232421875
+					},
+					"offset": {
+						"x": 0,
+						"y": -60,
+						"originalX": 0,
+						"originalY": -30,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Plant 1b",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 251,
+						"y": 226
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.352
+					},
+					"imageArea": {
+						"minX": 0.4453125,
+						"minY": 0.88330078125,
+						"maxX": 0.56787109375,
+						"maxY": 0.99365234375
+					},
+					"offset": {
+						"x": 0,
+						"y": -67,
+						"originalX": 0,
+						"originalY": -33.5,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Plant 1c",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 240,
+						"y": 242
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.364
+					},
+					"imageArea": {
+						"minX": 0.36279296875,
+						"minY": 0.6533203125,
+						"maxX": 0.47998046875,
+						"maxY": 0.771484375
+					},
+					"offset": {
+						"x": 0,
+						"y": -66,
+						"originalX": 0,
+						"originalY": -33,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "TreeStump 1",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 162.6,
+						"y": 107.39999999999999
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.463
+					},
+					"imageArea": {
+						"minX": 0.181640625,
+						"minY": 0.87451171875,
+						"maxX": 0.31396484375,
+						"maxY": 0.9619140625
+					},
+					"offset": {
+						"x": -9,
+						"y": -8,
+						"originalX": -4.5,
+						"originalY": -4,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "TreeStump 2",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 162.8,
+						"y": 92.95
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.441
+					},
+					"imageArea": {
+						"minX": 0.5341796875,
+						"minY": 0.525390625,
+						"maxX": 0.6787109375,
+						"maxY": 0.60791015625
+					},
+					"offset": {
+						"x": 0,
+						"y": -11,
+						"originalX": 0,
+						"originalY": -5.5,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "TreeStump 3",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 185.4,
+						"y": 102.6
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.432
+					},
+					"imageArea": {
+						"minX": 0.00048828125,
+						"minY": 0.89111328125,
+						"maxX": 0.1513671875,
+						"maxY": 0.974609375
+					},
+					"offset": {
+						"x": 0,
+						"y": -14,
+						"originalX": 0,
+						"originalY": -7,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Tree 1a",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 294,
+						"y": 568
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.259
+					},
+					"imageArea": {
+						"minX": 0.3896484375,
+						"minY": 0.2802734375,
+						"maxX": 0.533203125,
+						"maxY": 0.5576171875
+					},
+					"offset": {
+						"x": 34,
+						"y": -274,
+						"originalX": 17,
+						"originalY": -137,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Tree 1b",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 324,
+						"y": 575
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.261
+					},
+					"imageArea": {
+						"minX": 0.830078125,
+						"minY": 0.00048828125,
+						"maxX": 0.98828125,
+						"maxY": 0.28125
+					},
+					"offset": {
+						"x": -18,
+						"y": -275,
+						"originalX": -9,
+						"originalY": -137.5,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Tree 1c",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 298,
+						"y": 560
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.261
+					},
+					"imageArea": {
+						"minX": 0.7451171875,
+						"minY": 0.28662109375,
+						"maxX": 0.890625,
+						"maxY": 0.56005859375
+					},
+					"offset": {
+						"x": 0,
+						"y": -268,
+						"originalX": 0,
+						"originalY": -134,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Tree 2a",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 369,
+						"y": 622
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.287
+					},
+					"imageArea": {
+						"minX": 0.00048828125,
+						"minY": 0.58642578125,
+						"maxX": 0.1806640625,
+						"maxY": 0.89013671875
+					},
+					"offset": {
+						"x": 0,
+						"y": -265,
+						"originalX": 0,
+						"originalY": -132.5,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Tree 2b",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 379,
+						"y": 584
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.26
+					},
+					"imageArea": {
+						"minX": 0.64404296875,
+						"minY": 0.00048828125,
+						"maxX": 0.8291015625,
+						"maxY": 0.28564453125
+					},
+					"offset": {
+						"x": 5,
+						"y": -280,
+						"originalX": 2.5,
+						"originalY": -140,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Tree 2c",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 379,
+						"y": 573
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.272
+					},
+					"imageArea": {
+						"minX": 0.20361328125,
+						"minY": 0.29150390625,
+						"maxX": 0.388671875,
+						"maxY": 0.5712890625
+					},
+					"offset": {
+						"x": -8,
+						"y": -261,
+						"originalX": -4,
+						"originalY": -130.5,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Tree 2d",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 369,
+						"y": 588
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.268
+					},
+					"imageArea": {
+						"minX": 0.181640625,
+						"minY": 0.58642578125,
+						"maxX": 0.36181640625,
+						"maxY": 0.87353515625
+					},
+					"offset": {
+						"x": 0,
+						"y": -273,
+						"originalX": 0,
+						"originalY": -136.5,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Tree 3a",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 414,
+						"y": 602
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.286
+					},
+					"imageArea": {
+						"minX": 0.00048828125,
+						"minY": 0.29150390625,
+						"maxX": 0.20263671875,
+						"maxY": 0.58544921875
+					},
+					"offset": {
+						"x": 24,
+						"y": -258,
+						"originalX": 12,
+						"originalY": -129,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Tree 3b",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 438,
+						"y": 567
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.288
+					},
+					"imageArea": {
+						"minX": 0.42919921875,
+						"minY": 0.00048828125,
+						"maxX": 0.64306640625,
+						"maxY": 0.27734375
+					},
+					"offset": {
+						"x": -20,
+						"y": -240,
+						"originalX": -10,
+						"originalY": -120,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Tree 3c",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 437,
+						"y": 594
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.286
+					},
+					"imageArea": {
+						"minX": 0.00048828125,
+						"minY": 0.00048828125,
+						"maxX": 0.2138671875,
+						"maxY": 0.29052734375
+					},
+					"offset": {
+						"x": -38,
+						"y": -254,
+						"originalX": -19,
+						"originalY": -127,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Tree 3d",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 430,
+						"y": 487
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.293
+					},
+					"imageArea": {
+						"minX": 0.5341796875,
+						"minY": 0.28662109375,
+						"maxX": 0.744140625,
+						"maxY": 0.5244140625
+					},
+					"offset": {
+						"x": 40,
+						"y": -202,
+						"originalX": 20,
+						"originalY": -101,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		},
+		{
+			"name": "Tree 3e",
+			"type": "isometric object",
+			"scale": 1,
+			"rotation": 0,
+			"sprites": [
+				{
+					"visible": true,
+					"image": "tilesets/outdoor_objects.png",
+					"size": {
+						"x": 437,
+						"y": 571
+					},
+					"sortPoint": {
+						"x": 0,
+						"y": 0.298
+					},
+					"imageArea": {
+						"minX": 0.21484375,
+						"minY": 0.00048828125,
+						"maxX": 0.42822265625,
+						"maxY": 0.279296875
+					},
+					"offset": {
+						"x": 35,
+						"y": -231,
+						"originalX": 17.5,
+						"originalY": -115.5,
+						"angle": 0
+					},
+					"animations": [],
+					"layer": 25
+				}
+			],
+			"collisionMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"gridMap": [
+				{
+					"x": 0,
+					"z": 0
+				}
+			],
+			"behaviors": [],
+			"imageArea": {
+				"minX": 0,
+				"minY": 0,
+				"maxX": 1,
+				"maxY": 1
+			},
+			"collision": false
+		}
+	]
+}

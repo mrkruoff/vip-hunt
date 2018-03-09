@@ -47,6 +47,9 @@ App = function() {
         loadCostJson();
         loadAudio();
 
+        wade.loadImage('../js/tilesets/characters/sheep/whitesheep_Idle_iso_se.png');
+        wade.loadImage('../js/tilesets/characters/swordsman/swordsman_1_Idle_iso_se.png');
+        wade.loadImage('../js/tilesets/outdoor_objects.png');
     };
 
 };

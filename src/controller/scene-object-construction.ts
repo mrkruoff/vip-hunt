@@ -212,19 +212,19 @@ const SceneObjectConstruction = {
     //  @ imageJsonFile: filepath to the JSON file that will be used
     //      to construct the TownHall SceneObject
     townHalls: (imageJsonFile: string) => {
+        console.log(imageJsonFile);
         const objectData = {
             sprites: wade.getJson(imageJsonFile),
             gridSize: {x: 2, z: 2},
             collisionSize: {x: 2, z: 2},
             dontAddToScene: true,
-
-
         };
         const townHall = wade.iso.createObject(objectData, {x: 5, z: -2} );
         console.log("OFFSET");
+        console.log(townHall.getSprite(0));
         console.log(townHall.getSpriteOffset(0));
-        console.log(townHall);
-        console.log( townHall._spriteOffsets[0] );
+        townHall.setSpriteOffset(0, {x: 0, y: -1000} );
+        console.log(townHall.getSpriteOffset(0));
 
         return townHall;
 
