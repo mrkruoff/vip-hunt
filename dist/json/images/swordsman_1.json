@@ -4,7 +4,9 @@
     "name": "swordsman_1",
     "visible": "true",
     "image": "../js/../public/tilesets/characters/swordsman/swordsman_1_Idle_iso_se.png",
-    "size": {"x": 70, "y": 130}
+    "size": {"x": 500, "y": 500},
+    "sortPoint": {"x": 0, "y": 0},
+    "animations": { }
 
 
 

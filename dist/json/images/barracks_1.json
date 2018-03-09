@@ -3,8 +3,9 @@
     "name": "barracks_1",
     "visible": "true",
     "image": "../js/../public/sprites/buildings/barracks_1.png",
-    "size": {"x": 600, "y": 600}
-
+    "size": {"x": 600, "y": 600},
+    "sortPoint": {"x": 0, "y": 0},
+    "offset": {"x": 0, "y": -150 }
 
 
 
