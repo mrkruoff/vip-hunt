@@ -23,6 +23,8 @@ import AiGameState from '../model/state/ai-game-state';
 import Events from './events';
 import Fog from './fog';
 import Minimap from './minimap';
+import Resource from '../model/resources/resource';
+import AudioMap from './audio-map';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -47,6 +49,10 @@ const GamePlay = {
     // This function removes the global selected unit
     // from the game and any events associated with it.
     removeSelected: () => {
+        let selectedSprite = wade.app.selected.getSprite(1);
+        if(selectedSprite && selectedSprite.isVisible()) {
+            selectedSprite.setVisible(false); 
+        }
         wade.app.selected = null;
 
         //Get rid of global events specific to selected unit
@@ -67,6 +73,7 @@ const GamePlay = {
     //      AND returns an array of SceneObjects representing those unit options.
     addSelectedBuilding: (selected, displayFn) => {
         wade.app.selected = selected;
+        selected.getSprite(1).setVisible(true);
 
         // Show the unit options for the selected building,
         // and set up the click event for each.
@@ -113,6 +120,8 @@ const GamePlay = {
     //  @selected: the unit SceneObject to be selected
     addSelectedUnit: (selected) => {
         wade.app.selected = selected;
+        console.log(selected);
+        selected.getSprite(1).setVisible(true);
 
         wade.app.onIsoTerrainMouseDown = (event) => {
             // Right-click indicates move or attack
@@ -364,15 +373,26 @@ const GamePlay = {
                 var anim = attacker.getSprite(0).getCurrentAnimationName();
                 var direction = anim.substr(anim.lastIndexOf('_') + 1);
                 attacker.onAnimationEnd = (data) => {
-                    attacker.isAttacking = false; 
-                    attacker.onAnimationEnd = null;
-                    let dir = GamePlay.directionToTarget(attacker, target);
-                    attacker.getBehavior('IsoCharacter').setDirection(dir);
+                    console.log("ANIMATION DATA");
+                    console.log(data);
+                    if(data.name === 'bleed') {
+                        target.getSprite(2).setVisible(false);
+                    
+                    } else {
+                        attacker.isAttacking = false; 
+                        attacker.onAnimationEnd = null;
+                        let dir = GamePlay.directionToTarget(attacker, target);
+                        attacker.getBehavior('IsoCharacter').setDirection(dir);
+                    }
                 }
                 wade.addEventListener(attacker, 'onAnimationEnd');
                 attacker.playAnimation('Attack_iso_' + direction, 'forward');
                 console.log(targetData.hp);
                 targetData.takeDamage(attacker.data.getAttack());
+                // target.getSprite(2).setVisible(true);
+                target.playAnimation('bleed', 'forward');
+
+
             }
         };
         attacker.onObjectReached = doDamage;
@@ -718,9 +738,24 @@ const GamePlay = {
         let player = global.state.getPlayer();
         let aiUnitReps = [];
         let playerCollection = [];
-        let worker = new Worker('../js/vision.js');
-        worker.onmessage = function(e) {
+        let worker_1 = new Worker('../js/vision.js');
+        let worker_2 = new Worker('../js/vision.js');
+        let worker_3 = new Worker('../js/vision.js');
+        let worker_1_isReady = true;
+        let worker_2_isReady = true;
+        let worker_3_isReady = true;
+            
+        let processVision = function(e) {
             // Paint fog and cleared tiles
+            if(e.data.id == 1) {
+                worker_1_isReady = true;
+            }
+            if(e.data.id == 2) {
+                worker_2_isReady = true; 
+            }
+            if(e.data.id == 3) {
+                worker_3_isReady = true; 
+            }
             let paintFog = e.data.fog;
             let paintClear = e.data.clear;
             _.forEach(paintFog, (coord) => {
@@ -753,10 +788,13 @@ const GamePlay = {
             // since we don't want to have to repeat these calculations.
             Minimap.refreshPlayerVision(e.data);
         };
+
+        worker_1.onmessage = processVision;
+        worker_2.onmessage = processVision;
+        worker_3.onmessage = processVision;
         let numTiles = wade.iso.getNumTiles();
 
         while(global && global.isRunning) {
-
             playerCollection = _.concat(player.getUnits(), player.getBuildings() );
             let dataCollection = _.map(playerCollection, (data) => {
                 return {
@@ -782,32 +820,22 @@ const GamePlay = {
                     maxZ: numTiles.z,
                 },
                 aiCoords: aiUnitCoords,
+                id: 1,
             }
-
-            worker.postMessage(visionData);
-     /*       
-            // Check if any AI units are currently standing in the fog.
-            // If they are, set them to invisible.
-            // If they are not, set them to visible.
-            let aiUnits: Unit[] = global.state.getAi().getUnits();
-            let aiUnitReps = _.map(aiUnits, (unitData) => {
-                return unitData.rep;  
-            });
-            let aiUnitRepsInFog = _.intersectionWith(aiUnitReps, paintFog, (rep, coord) => {
-                return _.isEqual(rep.iso.gridCoords, coord); 
-            });
-            _.forEach(aiUnitRepsInFog, (rep) => {
-                rep.setVisible(false); 
-            })
-
-            let aiUnitRepsInClear = _.intersectionWith(aiUnitReps, paintClear,
-                                                    (rep, coord) => {
-                return _.isEqual(rep.iso.gridCoords, coord); 
-            });
-            _.forEach(aiUnitRepsInClear, (rep) => {
-                rep.setVisible(true); 
-            });
-    */
+            if(worker_1_isReady) {
+                worker_1.postMessage(visionData);
+                worker_1_isReady = false;
+            }
+            else if (worker_2_isReady) {
+                visionData.id = 2;
+                worker_2.postMessage(visionData); 
+                worker_2_isReady = false;
+            }
+            else if (worker_3_isReady) {
+                visionData.id = 3;
+                worker_3.postMessage(visionData); 
+                worker_3_isReady = false;
+            }
         
             await delay(1000); 
         }
@@ -910,6 +938,22 @@ let BuildingBuilding = {
                 building.marker = Minimap.createBuildingMarker(building.iso.gridCoords.x,
                                             building.iso.gridCoords.z, "player");
 
+                // Give the building an aura to show it is the player's;
+                let aura = new Sprite( {
+                    type: 'Sprite',
+                    sortPoint: {x: 0, y: -0.9 },
+                    layer: 25,
+                    size: {x: 500, y: 400},
+                    image: ImageMap.player_unit_marker,
+                }); 
+                aura.setVisible(false);
+                let offset = { x: 0, y: 0};
+                building.addSprite(aura, offset);
+
+                let music_id = wade.playAudio(AudioMap.building_construction_sound, false);
+                wade.setTimeout( () => {
+                    wade.stopAudio(music_id); 
+                }, 2000);
             } else {
                 // Remove the building from existence and display an error message to player
                 building.data.rep = null; // remove circular reference
@@ -1038,11 +1082,47 @@ const UnitBuilding = {
                 unit.data.id = Id.getId();
                 wade.getSceneObject('global').state.getPlayer().getUnits().push(unit.data);
 
-                //Add the unit's location to the game state map.
+                //Add the unit's location to the game state map and the minimap.
                 GamePlay.updateUnitMapLocation(unit);
-
                 unit.marker = Minimap.createUnitMarker(unit.iso.gridCoords.x,
                                                 unit.iso.gridCoords.z, "player");
+
+                let aura = new Sprite( {
+                    type: 'Sprite',
+                    sortPoint: {x: 0, y: -0.9 },
+                    layer: 25,
+                    size: {x: 250, y: 200},
+                    image: ImageMap.player_unit_marker,
+                }); 
+                aura.setVisible(false);
+                let offset = { x: 0, y: 0};
+                unit.addSprite(aura, offset);
+
+                console.log("UNIT");
+                console.log(unit);
+                // Finally, add an animation to play when a unit is hit.
+                let hitSprite = new Sprite();
+                hitSprite.setLayer(24);
+                hitSprite.setSortPoint(0, 1);
+                let animData = {
+                    type: 'Animation',
+                    name: 'bleed',
+                    startFrame: 0, 
+                    endFrame: 10,
+                    numCells: {x: 10, y: 15 },
+                    image: ImageMap.unit_hit_marker,
+                    speed: 30,
+                    looping: false,
+                    offset: {x: 0, y: 0}
+                };
+                let hitAnim = new Animation(animData);
+                hitSprite.addAnimation('bleed', hitAnim, true);
+                unit.addSprite(hitSprite);
+
+                let music_id = wade.playAudio(AudioMap.unit_construction_sound, false);
+                wade.setTimeout(() => {
+                    wade.stopAudio(music_id);
+                }, 1500);
             } else {
                 // Remove the unit from the game.
 
@@ -1079,4 +1159,24 @@ const UnitBuilding = {
     },
 };
 
-export { GamePlay, UnitBuilding, BuildingBuilding };
+const ResourceBuilding = {
+
+    constructResourceFromModel: (resource: Resource) => {
+        let r;
+
+        if (resource.getClassName() === 'Stone') {
+            r = SceneObjectConstruction.stone(JsonMap.stone);
+        } else if (resource.getClassName() === 'Wood') {
+            r = SceneObjectConstruction.wood(JsonMap.wood);
+        } else if (resource.getClassName() === 'Food') {
+            r = SceneObjectConstruction.food(JsonMap.food);
+        } else {
+            console.log('Error in constructResourceFromModel') ;
+        }
+
+        return r;
+    }
+
+}
+
+export { GamePlay, UnitBuilding, BuildingBuilding, ResourceBuilding };

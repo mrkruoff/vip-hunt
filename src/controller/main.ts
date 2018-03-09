@@ -45,7 +45,7 @@ App = function() {
         loadSpriteJson();
         loadDataJson();
         loadCostJson();
-//        loadAudio();
+        loadAudio();
 
     };
 
@@ -53,6 +53,8 @@ App = function() {
 
 function loadAudio() {
     wade.loadAudio(AudioMap.menu_music);
+    wade.loadAudio(AudioMap.building_construction_sound);
+    wade.loadAudio(AudioMap.unit_construction_sound);
 }
 
 function loadCostJson() {
@@ -102,6 +104,8 @@ function loadImages() {
     wade.loadImage(ImageMap.fog);
     wade.loadImage(ImageMap.darkness);
 
+    wade.loadImage(ImageMap.unit_hit_marker);
+    wade.loadImage(ImageMap.player_unit_marker);
     wade.loadImage(ImageMap.enemy_unit_marker);
     wade.loadImage(ImageMap.scroll);
     wade.loadImage(ImageMap.buildingIcon);

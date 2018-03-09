@@ -11,8 +11,10 @@ onmessage = function(e) {
     _.forEach(spotlights, (spotlight) => { 
         var paintArrays = Calculation.calculatePaintVision(spotlight.coords, spotlight.vision,
                 mapBounds);
-        paintFog = _.unionWith(paintFog, paintArrays.fog, _.isEqual);
-        paintClear = _.unionWith(paintClear, paintArrays.clear, _.isEqual);
+        paintFog = _.concat(paintFog, paintArrays.fog);
+        paintClear = _.concat(paintClear, paintArrays.clear);
+       // paintFog = _.unionWith(paintFog, paintArrays.fog, _.isEqual);
+       // paintClear = _.unionWith(paintClear, paintArrays.clear, _.isEqual);
     });
     paintFog = _.differenceWith(paintFog, paintClear, _.isEqual);
 
@@ -43,6 +45,7 @@ onmessage = function(e) {
         clear: paintClear,
         aiFog: aiUnitsInFog,
         aiClear: aiUnitsInClear,
+        id: e.data.id,
     };
 
     postMessage(result);

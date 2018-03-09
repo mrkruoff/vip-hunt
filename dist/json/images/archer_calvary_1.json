@@ -3,5 +3,7 @@
     "type": "sprite",
     "name": "archer_calvary_1",
     "visible": "true",
-    "image": "../js/../public/sprites/units/results_archer_1/archer_calvary_icon.png"
+    "image": "../js/../public/sprites/units/results_archer_1/archer_calvary_icon.png",
+    "pixelPerfectMouseEvents": 255
+
 }

@@ -61,9 +61,10 @@ const SceneObjectConstruction = {
             sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 2, z: 2},
             collisionSize: {x: 2, z: 2},
+            dontAddToScene: true,
 
         };
-        const barracks = wade.iso.createObject(objectData);
+        const barracks = wade.iso.createObject(objectData, {x: 5, z: -2} );
 
         return barracks;
 
@@ -77,9 +78,11 @@ const SceneObjectConstruction = {
             sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 2, z: 2},
             collisionSize: {x: 2, z: 2},
+            dontAddToScene: true,
+
 
         };
-        const stables = wade.iso.createObject(objectData);
+        const stables = wade.iso.createObject(objectData, {x: 5, z: -2} );
 
         return stables;
 
@@ -94,9 +97,11 @@ const SceneObjectConstruction = {
             sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 2, z: 2},
             collisionSize: {x: 2, z: 2},
+            dontAddToScene: true,
+
 
         };
-        const tower = wade.iso.createObject(objectData);
+        const tower = wade.iso.createObject(objectData, {x: 5, z: -2} );
 
         return tower;
 
@@ -113,7 +118,7 @@ const SceneObjectConstruction = {
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
-        const vip = wade.iso.createObject(objectData);
+        const vip = wade.iso.createObject(objectData, {x: -2, z: -2} );
         let offset = {x: 0, y: -90};
 
         let idleAnims = [
@@ -176,6 +181,28 @@ const SceneObjectConstruction = {
         addAnims(vip, deathAnims, deathNames, xCells, yCells,
                 speed, looping, startFrame, endFrame, offset);
 
+/*
+        // Finally, add an animation to play when a unit is hit.
+        let hitSprite = new Sprite();
+        hitSprite.setLayer(25);
+        hitSprite.setSortPoint(0, 1);
+        let animData = {
+            type: 'Animation',
+            name: 'bleed',
+            startFrame: 0, 
+            endFrame: 149,
+            numCells: {x: 10, y: 15 },
+            image: ImageMap.unit_hit_marker,
+            speed: 30,
+            looping: true,
+            offset: {x: 0, y: 0}
+        };
+        let hitAnim = new Animation(animData);
+        hitSprite.addAnimation('bleed', hitAnim, true);
+
+        vip.addSprite(hitSprite);
+*/
+
         return vip;
 
     },
@@ -189,9 +216,15 @@ const SceneObjectConstruction = {
             sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 2, z: 2},
             collisionSize: {x: 2, z: 2},
+            dontAddToScene: true,
+
 
         };
-        const townHall = wade.iso.createObject(objectData);
+        const townHall = wade.iso.createObject(objectData, {x: 5, z: -2} );
+        console.log("OFFSET");
+        console.log(townHall.getSpriteOffset(0));
+        console.log(townHall);
+        console.log( townHall._spriteOffsets[0] );
 
         return townHall;
 
@@ -211,7 +244,7 @@ const SceneObjectConstruction = {
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
-        const swordsman = wade.iso.createObject(objectData);
+        const swordsman = wade.iso.createObject(objectData, {x: -2, z: -2} );
         let offset = {x: 0, y: -50};
 
         let idleAnims = [
@@ -292,7 +325,7 @@ const SceneObjectConstruction = {
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
-        const archer = wade.iso.createObject(objectData);
+        const archer = wade.iso.createObject(objectData, {x: -2, z: -2} );
         let offset = {x: 0, y: -50};
         
         let idleAnims = [
@@ -371,7 +404,7 @@ const SceneObjectConstruction = {
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
-        const archerCalvary = wade.iso.createObject(objectData);
+        const archerCalvary = wade.iso.createObject(objectData, {x: -2, z: -2} );
         let offset = {x: 0, y: -100};
 
         let idleAnims = [
@@ -448,7 +481,7 @@ const SceneObjectConstruction = {
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
-        const spearCalvary = wade.iso.createObject(objectData);
+        const spearCalvary = wade.iso.createObject(objectData, {x: -2, z: -2} );
         let offset = {x: 0, y: -100};
         
         let idleAnims = [
@@ -525,7 +558,7 @@ const SceneObjectConstruction = {
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
-        const gatherer = wade.iso.createObject(objectData);
+        const gatherer = wade.iso.createObject(objectData, {x: -2, z: -2} );
         let offset = {x: 0, y: -30};
         
         let idleAnims = [
@@ -602,7 +635,7 @@ const SceneObjectConstruction = {
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
-        const drummerBoy = wade.iso.createObject(objectData);
+        const drummerBoy = wade.iso.createObject(objectData, {x: -2, z: -2} );
         let offset = {x: 0, y: -100};
 
         let idleAnims = [
@@ -673,7 +706,7 @@ const SceneObjectConstruction = {
             gridSize: {x: 1, z: 1},
             collisionSize: {x: 1, z: 1},
         };
-        const stone = wade.iso.createObject(objectData);
+        const stone = wade.iso.createObject(objectData, {x: -2, z: 5} );
 
         return stone;
     },
@@ -683,7 +716,7 @@ const SceneObjectConstruction = {
             gridSize: {x: 1, z: 1},
             collisionSize: {x: 1, z: 1},
         };
-        const wood = wade.iso.createObject(objectData);
+        const wood = wade.iso.createObject(objectData, {x: -2, z: 5} );
 
         return wood;
     },
@@ -693,7 +726,7 @@ const SceneObjectConstruction = {
             gridSize: {x: 1, z: 1},
             collisionSize: {x: 1, z: 1},
         };
-        const food = wade.iso.createObject(objectData);
+        const food = wade.iso.createObject(objectData, {x: -2, z: 5} );
 
         return food;
     },

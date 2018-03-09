@@ -40,7 +40,6 @@ const Global = {
         global.cameraSpeed = 500;
         global.zoomSpeed = 8;
         global.cameraIsMoving = false;
-        global.state = defaultGlobalState();
         global.hud = {
             //empty object to store references to other HUD elements
         };
@@ -51,71 +50,62 @@ const Global = {
 
         return global;
     },
+    // This function creates a GlobalGameState object that default to containing
+    // a 20x20 map and having a single Player and AI, each with one VIP and one
+    // TownHall each.
+    defaultGlobalState: () => {
+        const startingStone = 100000;
+        const startingWood = 100000;
+        const startingFood = 100000;
+
+        const playerVIP = VIP.fromObject(wade.getJson(JsonMap.vip_data));
+        playerVIP.id = Id.getId();
+        const playerTownHall = TownHall.fromObject(wade.getJson(JsonMap.townhall_data));
+        playerTownHall.id = Id.getId();
+        const playerState = new PlayerGameState([playerVIP], [playerTownHall],
+                            startingStone, startingWood, startingFood);
+
+        console.log(wade.getJson(JsonMap.vip_data));
+        const aiState = new AiGameState([], [], 
+                            startingStone, startingWood, startingFood);
+
+        const wood = Wood.fromObject(wade.getJson(JsonMap.wood_data));
+        wood.id = Id.getId();
+        const stone = Stone.fromObject(wade.getJson(JsonMap.stone_data));
+        stone.id = Id.getId();
+        const food = Food.fromObject(wade.getJson(JsonMap.food_data));
+        food.id = Id.getId();
+        const resources = [wood, stone, food];
+
+        let numTiles = wade.iso.getNumTiles();
+        const map = [];
+        for (let i = 0; i < numTiles.x; i++) {
+            map[i] = [];
+            for (let j = 0; j < numTiles.z; j++) {
+                map[i][j] = new Tile(Tile.EMPTY, Tile.EMPTY, Tile.EMPTY, true);
+                //The tile should know itself what its coordinates are
+                map[i][j].y = i;
+                map[i][j].x = j;
+            }
+        }
+
+        //Put the VIP and Townhall on the map
+        map[15][15].unitId = playerVIP.id;
+        map[1][5].buildingId = playerTownHall.id;
+        /*
+        map[5][15].unitId = aiVIP.id;
+        map[1][10].buildingId = aiTownHall.id;
+        */
+        map[19][16].resourceId = wood.id;
+        map[19][8].resourceId = stone.id;
+        map[3][4].resourceId = food.id;
+
+        const state = new GlobalGameState(map, resources, playerState, aiState);
+
+        return state;
+    },
 };
 
-// This function creates a GlobalGameState object that default to containing
-// a 20x20 map and having a single Player and AI, each with one VIP and one
-// TownHall each.
-function defaultGlobalState() {
-    const startingStone = 100000;
-    const startingWood = 100000;
-    const startingFood = 100000;
 
-    const playerVIP = VIP.fromObject(wade.getJson(JsonMap.vip_data));
-    playerVIP.id = Id.getId();
-    const playerTownHall = TownHall.fromObject(wade.getJson(JsonMap.townhall_data));
-    playerTownHall.id = Id.getId();
-    const playerState = new PlayerGameState([playerVIP], [playerTownHall],
-                        startingStone, startingWood, startingFood);
-
-    console.log(wade.getJson(JsonMap.vip_data));
-    /*
-    const aiVIP = VIP.fromObject(wade.getJson(JsonMap.vip_data));
-    aiVIP.id = Id.getId();
-    const aiTownHall = TownHall.fromObject(wade.getJson(JsonMap.townhall_data));
-    aiTownHall.id = Id.getId();
-    */
-    /*
-    const aiState = new AiGameState([aiVIP], [aiTownHall],
-                        startingStone, startingWood, startingFood);
-    */
-    const aiState = new AiGameState([], [], 
-                        startingStone, startingWood, startingFood);
-
-    const wood = Wood.fromObject(wade.getJson(JsonMap.wood_data));
-    wood.id = Id.getId();
-    const stone = Stone.fromObject(wade.getJson(JsonMap.stone_data));
-    stone.id = Id.getId();
-    const food = Food.fromObject(wade.getJson(JsonMap.food_data));
-    food.id = Id.getId();
-    const resources = [wood, stone, food];
-
-    let numTiles = wade.iso.getNumTiles();
-    const map = [];
-    for (let i = 0; i < numTiles.x; i++) {
-        map[i] = [];
-        for (let j = 0; j < numTiles.z; j++) {
-            map[i][j] = new Tile(Tile.EMPTY, Tile.EMPTY, Tile.EMPTY, true);
-            //The tile should know itself what its coordinates are
-            map[i][j].y = i;
-            map[i][j].x = j;
-        }
-    }
-
-    //Put the VIP and Townhall on the map
-    map[15][15].unitId = playerVIP.id;
-    map[1][5].buildingId = playerTownHall.id;
-    /*
-    map[5][15].unitId = aiVIP.id;
-    map[1][10].buildingId = aiTownHall.id;
-    */
-    map[19][16].resourceId = wood.id;
-    map[19][8].resourceId = stone.id;
-    map[3][4].resourceId = food.id;
-
-    const state = new GlobalGameState(map, resources, playerState, aiState);
-
-    return state;
-}
 
 export default Global;

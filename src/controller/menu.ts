@@ -24,7 +24,7 @@ declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
 const displayWelcome = function() {
-    // wade.playAudio(AudioMap.menu_music, true);
+    let music_id = wade.playAudio(AudioMap.menu_music, true);
     const color = 'white';
     const alignment = 'center';
 
@@ -38,7 +38,7 @@ const displayWelcome = function() {
     const newGameText = new TextSprite('New Game', '20px Verdana', color, alignment);
     this.newGameObject = new SceneObject(newGameText);
     wade.addSceneObject(this.newGameObject);
-    setupNewGame.call(this);
+    setupNewGame.call(this, music_id);
 
     // Create the Load Game text
     const loadGameText = new TextSprite('Load Game', '20px Verdana', color, alignment);
@@ -99,12 +99,13 @@ const setupSaveGame = function () {
     wade.addEventListener(this.loadGameObject, 'onClick');      
 };
 
-const setupNewGame = function() {
+const setupNewGame = function(music_id: number) {
     this.newGameObject.setPosition(0, 0);
 
     setMouseInOut(this.newGameObject);
 
     this.newGameObject.onClick = function() {
+        wade.stopAudio(music_id);
         const clearscene = true;
         // load the map
         wade.loadScene('../public/grass_map.wsc', null, function() {

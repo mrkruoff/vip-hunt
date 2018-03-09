@@ -6,10 +6,14 @@
  */
 
 
-import { GamePlay, BuildingBuilding, UnitBuilding } from './gameplay';
+import { ResourceBuilding, GamePlay, BuildingBuilding, UnitBuilding } from './gameplay';
 import Id from './id';
 import * as _ from 'lodash';
 
+import Resource from '../model/resources/resource';
+import Stone from '../model/resources/stone';
+import Wood from '../model/resources/wood';
+import Food from '../model/resources/food';
 import Barracks from '../model/buildings/barracks_buildings';
 import Building from '../model/buildings/buildings';
 import Stables from '../model/buildings/stable_buildings';
@@ -33,13 +37,116 @@ declare var wade: any;
 declare var TextSprite: any;
 declare var SceneObject: any;
 declare var Sprite: any;
-declare var Animation: any;
-declare var IsoCharacter: any;
+declare var Animation: any; declare var IsoCharacter: any;
 declare var Path: any;
 declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
+async function delay(milliseconds: number) {
+    return new Promise<void>((resolve) => {
+        wade.setTimeout(resolve, milliseconds);
+    });
+}
+
 var AiGamePlay = {
+    generateRandomResources: async () => {
+        let resources: Resource[] = wade.getSceneObject('global').state.getResources();
+        let numTiles = wade.iso.getNumTiles();
+        let tiles = numTiles.x * numTiles.z;
+        let fraction = 0.025;
+        while(true) {
+            if(!resources) {
+                break; 
+            }
+            // Construct up to 15 new resources.
+            let i = 0;
+            while(resources.length < Math.floor(fraction * tiles) && i < 15 ) {
+                i++;
+                let resource_type = Math.floor((Math.random() * 3));
+
+                // Find a random location for the resource
+                let numTiles = wade.iso.getNumTiles();
+                let x = Math.floor(Math.random() * numTiles.x);
+                let z = Math.floor(Math.random() * numTiles.z);
+
+                // Create a resource at or around that location.
+                let resource;
+                if(resource_type === 0) {
+                    resource = AiGamePlay.constructResource("Stone", x, z); 
+                } else if (resource_type === 1) {
+                    resource = AiGamePlay.constructResource("Wood", x, z); 
+                } else if (resource_type === 2) {
+                    resource = AiGamePlay.constructResource("Food", x, z);
+                }
+                else {
+                    console.log("ERROR in generating random resource!");
+                }
+            }
+            await delay(500);
+        }
+
+    },
+    constructResource: (className: string, x: number, z: number) => {
+        let state = wade.getSceneObject('global').state; 
+        let resources = state.getResources();
+        let map: Array<Tile[]> = state.getMap();
+    
+        let r: Resource;
+        // build the correct Resource model
+        if(_.isEqual(className, "Food")) {
+            r = Food.fromObject(wade.getJson(JsonMap.food_data)); 
+        } else if (_.isEqual(className, "Wood")) {
+            r = Wood.fromObject(wade.getJson(JsonMap.wood_data));
+        } else if (_.isEqual(className, "Stone")) {
+            r = Stone.fromObject(wade.getJson(JsonMap.stone_data)); 
+        } else {
+            console.error("Invalid class name used in constructResource"); 
+        }
+        r.id = Id.getId();
+
+        // Put the resource in the resource array.
+        resources.push(r);
+
+
+        let sceneResource = ResourceBuilding.constructResourceFromModel(r);
+        sceneResource.oldX = x;
+        sceneResource.oldZ = z;
+
+        // Link the data and the resource.
+        sceneResource.data = r;
+        r.rep = sceneResource;
+
+        // Try to place the building on the Visual Map where indicated.
+        let wasMoved = false;
+        let sideLength = map[0].length;
+        while(!wasMoved) {  
+            wasMoved = wade.iso.moveObjectToTile(sceneResource, x, z);
+            //Randomly shift x and z until it is placed properly.
+            let changeX = Math.floor(Math.random() * 2);
+            let shouldIncrease = Math.floor(Math.random() * 3); //more likely to increase
+            let step = Math.floor(Math.floor(Math.random() * 3)) + 1;
+            if(!shouldIncrease) {
+                step = -1 * step; 
+            }
+            if(changeX) {
+                x = (x + step) % sideLength; 
+                if(x < 0) { 
+                    x += sideLength; 
+                }
+            } else {
+                z = (z + step) % sideLength; 
+                if(z < 0) {
+                    z += sideLength; 
+                }
+            }
+        }
+
+        // Once the resource has been properly placed, update its map location in the state.
+        GamePlay.updateResourceMapLocation(sceneResource);
+
+        return r;
+    },
+
     // This function constructs a Building GameObject and returns its
     // data portion to the caller.
     //
@@ -115,9 +222,22 @@ var AiGamePlay = {
         }
         //Once the sprite is properly moved, update its map location in the state.
         // and clear its old tile
-        GamePlay.updateResourceMapLocation(sceneBuilding);
+        GamePlay.updateBuildingMapLocation(sceneBuilding);
         sceneBuilding.marker = Minimap.createBuildingMarker(sceneBuilding.iso.gridCoords.x,
                                             sceneBuilding.iso.gridCoords.z, "ai");
+
+        //Give the building a sprite to indicate it's an AI building.
+        let redCircle = new Sprite( {
+            type: 'Sprite',
+            sortPoint: {x: 0, y: -0.9 },
+            layer: 25,
+            size: {x: 3000, y: 3000},
+            image: ImageMap.enemy_unit_marker,
+        }); 
+        sceneBuilding.addSprite(redCircle, {x: 0, y: 5});
+        sceneBuilding.setSpriteOffset(1, {x:0, y: -45})
+
+        wade.addSceneObject(sceneBuilding);
 
         return b;
     },
@@ -231,6 +351,36 @@ var AiGamePlay = {
         GamePlay.attack(attacker, target);
         
     },
+    playerUnitAttack: (attackId: number, targetId: number) => {
+        let state = wade.getSceneObject('global').state;
+        let ai = state.getAi();
+        let player = state.getPlayer();
+        let attackData = _.find(player.getUnits(), (u) => {
+            return u.getId() === attackId; 
+        });
+        let targetData = _.find(ai.getUnits(), (u) => {
+            return u.getId() === targetId; 
+        });
+        // If target was not a unit, check if it was a building.
+        if( _.isNull(targetData) ) {
+            targetData = _.find(ai.getBuildings(), (b) => {
+                return b.getId() === targetId; 
+            }) ;
+        } 
+        // Regardless of whether it is a building or unit, pursue 
+        // and attack it.
+        console.log("attacking!");
+        let attacker = attackData.rep; 
+        let target = targetData.rep;
+        //Clear previous movement actions
+        attacker.getBehavior('IsoCharacter').clearDestinations();
+        GamePlay.clearPursue(attacker);
+        GamePlay.clearGather(attacker);
+        GamePlay.clearMove(attacker);
+
+        GamePlay.attack(attacker, target);
+    
+    },
     // This function constructs a Unit GameObject and returns its
     // data portion to the caller.
     //
@@ -327,7 +477,26 @@ var AiGamePlay = {
             image: ImageMap.enemy_unit_marker,
         }); 
         sceneUnit.addSprite(redCircle, {x: 0, y: 5});
-        sceneUnit.setSpriteOffset(1, {x:0, y: -45})
+        sceneUnit.setSpriteOffset(1, {x:0, y: -45});
+
+        // Finally, add an animation to play when a unit is hit.
+        let hitSprite = new Sprite();
+        hitSprite.setLayer(24);
+        hitSprite.setSortPoint(0, 1);
+        let animData = {
+            type: 'Animation',
+            name: 'bleed',
+            startFrame: 0, 
+            endFrame: 10,
+            numCells: {x: 10, y: 15 },
+            image: ImageMap.unit_hit_marker,
+            speed: 30,
+            looping: false,
+            offset: {x: 0, y: 0}
+        };
+        let hitAnim = new Animation(animData);
+        hitSprite.addAnimation('bleed', hitAnim, true);
+        sceneUnit.addSprite(hitSprite);
 
         return u;
     }
