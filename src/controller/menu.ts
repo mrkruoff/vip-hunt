@@ -11,6 +11,7 @@ import AudioMap from './audio-map';
 import Events from './events';
 import Hud from './hud';
 import NewGame from './newgame';
+import Camera from './camera';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -62,15 +63,41 @@ function setupSettings() {
 
 }
 
-function setupSaveGame() {
+const setupSaveGame = function () {
     this.loadGameObject.setPosition(0, 50);
-
     setMouseInOut(this.loadGameObject);
 
-    // this.loadGameObject.onClick = loadGame.call(this);
-    // wade.addEventListener(this.loadGameObject, 'onClick');
+    this.loadGameObject.onClick = function() {
+        let savedGame = JSON.parse(wade.retrieveLocalObject('save_game'));
+        console.log(savedGame);
+        wade.setJson('savedGameScene.wsc', savedGame);
 
-}
+        //the line below was purely for testing purposes to make sure
+        //info was correct
+        //let testing = wade.getJson('savedGameScene.json');
+
+        wade.importScene(wade.getJson('savedGameScene.wsc'), true, () => {
+            //Add basic camera settings
+            Events.addCamera();
+            Camera.setBounds();
+        
+            console.log(wade.iso.exportMap() ) ;
+        }, false, true);
+
+        /*
+        wade.loadScene('savedGameScene.wsc', true, () => {
+            wade.setMinScreenSize(20, 20);
+            wade.setMaxScreenSize(1280, 800);
+            //Add basic camera settings
+            Events.addCamera();
+            Camera.setBounds();
+            console.log(wade.iso.exportMap() ) ;
+        
+        }, true);
+        */
+    };
+    wade.addEventListener(this.loadGameObject, 'onClick');      
+};
 
 const setupNewGame = function(music_id: number) {
     this.newGameObject.setPosition(0, 0);
