@@ -404,4 +404,7 @@ function loadSpriteJson() {
     wade.loadJson(JsonMap.spear_calvary_1);
     wade.loadJson(JsonMap.drummer_boy_1);
     wade.loadJson(JsonMap.gatherer_1);
+    wade.loadJson(JsonMap.selected_marker);
+    wade.loadJson(JsonMap.enemy_marker);
+    wade.loadJson(JsonMap.bleed_marker);
 }
