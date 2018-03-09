@@ -84,7 +84,6 @@ const SceneObjectConstruction = {
             sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 2, z: 2},
             collisionSize: {x: 2, z: 2},
-            dontAddToScene: true,
 
         };
         const barracks = wade.iso.createObject(objectData, {x: 5, z: -2} );
@@ -101,7 +100,6 @@ const SceneObjectConstruction = {
             sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 2, z: 2},
             collisionSize: {x: 2, z: 2},
-            dontAddToScene: true,
 
 
         };
@@ -120,7 +118,6 @@ const SceneObjectConstruction = {
             sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 1, z: 1},
             collisionSize: {x: 1, z: 1},
-            dontAddToScene: true,
 
         };
         const tower = wade.iso.createObject(objectData, {x: 5, z: -2} );
@@ -236,7 +233,6 @@ const SceneObjectConstruction = {
             sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 2, z: 2},
             collisionSize: {x: 2, z: 2},
-            dontAddToScene: true,
         };
         const townHall = wade.iso.createObject(objectData, {x: 5, z: -2} );
         console.log("OFFSET");
