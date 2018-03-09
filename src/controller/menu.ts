@@ -76,15 +76,25 @@ const setupSaveGame = function () {
         //info was correct
         //let testing = wade.getJson('savedGameScene.json');
 
+        wade.importScene(wade.getJson('savedGameScene.wsc'), true, () => {
+            //Add basic camera settings
+            Events.addCamera();
+            Camera.setBounds();
+        
+            console.log(wade.iso.exportMap() ) ;
+        }, false, true);
+
+        /*
         wade.loadScene('savedGameScene.wsc', true, () => {
             wade.setMinScreenSize(20, 20);
             wade.setMaxScreenSize(1280, 800);
             //Add basic camera settings
             Events.addCamera();
             Camera.setBounds();
-            console.log(JSON.stringify(wade.iso.exportMap() )) ;
+            console.log(wade.iso.exportMap() ) ;
         
         }, true);
+        */
     };
     wade.addEventListener(this.loadGameObject, 'onClick');      
 };

@@ -58,7 +58,7 @@ const SceneObjectConstruction = {
     //      to construct the Barracks SceneObject
     barracks: (imageJsonFile: string) => {
         const objectData = {
-            sprites: wade.getJson(imageJsonFile),
+            sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 2, z: 2},
             collisionSize: {x: 2, z: 2},
 
@@ -74,7 +74,7 @@ const SceneObjectConstruction = {
     //      to construct the Stables SceneObject
     stables: (imageJsonFile: string) => {
         const objectData = {
-            sprites: wade.getJson(imageJsonFile),
+            sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 2, z: 2},
             collisionSize: {x: 2, z: 2},
 
@@ -91,7 +91,7 @@ const SceneObjectConstruction = {
     //      to construct the Tower SceneObject
     towers: (imageJsonFile: string) => {
         const objectData = {
-            sprites: wade.getJson(imageJsonFile),
+            sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 2, z: 2},
             collisionSize: {x: 2, z: 2},
 
@@ -108,7 +108,7 @@ const SceneObjectConstruction = {
     //      to construct the VIP SceneObject
     vip: (imageJsonFile: string) => {
         const objectData = {
-            sprites: wade.getJson(imageJsonFile),
+            sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 1, z: 1},
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
@@ -186,7 +186,7 @@ const SceneObjectConstruction = {
     //      to construct the TownHall SceneObject
     townHalls: (imageJsonFile: string) => {
         const objectData = {
-            sprites: wade.getJson(imageJsonFile),
+            sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 2, z: 2},
             collisionSize: {x: 2, z: 2},
 
@@ -206,7 +206,7 @@ const SceneObjectConstruction = {
                 6, 3, 20, true, 0, 15);
         var sprite = wade.getJson(imageJsonFile);
         const objectData = {
-            sprites: sprite,
+            sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 1, z: 1},
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
@@ -287,7 +287,7 @@ const SceneObjectConstruction = {
     //      to construct the Archer SceneObject
     archer: (imageJsonFile: string) => {
         const objectData = {
-            sprites: wade.getJson(imageJsonFile),
+            sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 1, z: 1},
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
@@ -366,7 +366,7 @@ const SceneObjectConstruction = {
     //      to construct the ArcherCalvary SceneObject
     archerCalvary: (imageJsonFile: string) => {
         const objectData = {
-            sprites: wade.getJson(imageJsonFile),
+            sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 1, z: 1},
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
@@ -520,7 +520,7 @@ const SceneObjectConstruction = {
     //      to construct the Gatherer SceneObject
     gatherer: (imageJsonFile: string) => {
         const objectData = {
-            sprites: wade.getJson(imageJsonFile),
+            sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 1, z: 1},
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
@@ -597,7 +597,7 @@ const SceneObjectConstruction = {
     //      to construct the DrummerBoy SceneObject
     drummerBoy: (imageJsonFile: string) => {
         const objectData = {
-            sprites: wade.getJson(imageJsonFile),
+            sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 1, z: 1},
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
@@ -669,7 +669,7 @@ const SceneObjectConstruction = {
     },
     stone: (imageJsonFile: string) => {
         const objectData = {
-            sprites: wade.getJson(imageJsonFile),
+            sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 1, z: 1},
             collisionSize: {x: 1, z: 1},
         };
@@ -679,7 +679,7 @@ const SceneObjectConstruction = {
     },
     wood: (imageJsonFile: string) => {
         const objectData = {
-            sprites: wade.getJson(imageJsonFile),
+            sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 1, z: 1},
             collisionSize: {x: 1, z: 1},
         };
@@ -689,7 +689,7 @@ const SceneObjectConstruction = {
     },
     food: (imageJsonFile: string) => {
         const objectData = {
-            sprites: wade.getJson(imageJsonFile),
+            sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 1, z: 1},
             collisionSize: {x: 1, z: 1},
         };

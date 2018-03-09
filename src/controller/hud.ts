@@ -376,6 +376,8 @@ const Hud = {
                 // Unhook all the circular dependencies.
                 let global = wade.getSceneObject('global').state;
 
+                
+                
                 let data = _.concat(global.getResources(),
                                    global.getAi().getUnits(),
                                    global.getAi().getBuildings(),
@@ -384,11 +386,15 @@ const Hud = {
                 console.log(data);
                 _.forEach(data, (datum) => {
                     datum.rep = null; 
-                })
+                });
+                
+                
 
                 //export and store the scene use local 
                 let exportedScence = wade.exportScene();
-                
+               /* 
+                exportedScence.sceneObjects = [];
+                */
                 exportedScence.sceneObjects = _.filter(exportedScence.sceneObjects, (obj) => {
                     return ! _.has(obj.properties, 'iso'); 
                 });
@@ -398,8 +404,8 @@ const Hud = {
                 }
                 
                 
-                console.log(exportedScence);
-                console.log( JSON.stringify(wade.iso.exportMap()));
+                console.log( JSON.stringify( exportedScence ));
+                console.log( (wade.iso.exportMap()));
                 wade.storeLocalObject('save_game', JSON.stringify(exportedScence));
 
                 //line below was for debugging/testing
