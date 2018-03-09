@@ -385,6 +385,7 @@ const Hud = {
                                    global.getPlayer().getBuildings());
                 console.log(data);
                 _.forEach(data, (datum) => {
+                    console.log(datum.rep);
                     datum.rep = null; 
                 });
                 
@@ -395,6 +396,7 @@ const Hud = {
                /* 
                 exportedScence.sceneObjects = [];
                 */
+                
                 exportedScence.sceneObjects = _.filter(exportedScence.sceneObjects, (obj) => {
                     return ! _.has(obj.properties, 'iso'); 
                 });
@@ -402,6 +404,7 @@ const Hud = {
                 exportedScence.modules = {
                     iso: wade.iso.exportMap() 
                 }
+                
                 
                 
                 console.log( JSON.stringify( exportedScence ));
