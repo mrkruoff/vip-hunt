@@ -137,9 +137,13 @@ function resourceCheck(objectname,state,isHard){
 } 
 
 const AiDec = {
-	 decisions: async (globalState, AiVip, playerVIP,isHardMode) =>{ 
+	 decisions: async (globalState,isHardMode) =>{ 
 		let aistate=globalState.getAi();
+		let playerState=globalState.getPlayer();
+		let AiVip=aistate.units[0];
+		let playerVIP=playerState.units[0];
 		let currentState="setup";
+		console.log(currentState);
 		let step=0;
 		let map=globalState.getMap();
 		let townhouse: boolean=true;
@@ -154,7 +158,8 @@ const AiDec = {
 		}
 		while(true){
 			await delay(time);
-			if(currentState=="setup"){console.log("Settingup")
+			if(currentState=="setup")
+				{console.log("Settingup")
 				if(step==0){
 					  if(resourceCheck("Barracks",aistate,isHardMode)){
 						AiGamePlay.constructBuilding("Barracks", 0, 10);
@@ -163,7 +168,7 @@ const AiDec = {
 					  }
 					  else{
 						  gathering=AiGamePlay.constructUnit("Gatherer",3,1);
-						  let resLoc=mapSearch(map,"resource");
+						  var resource=mapSearch(map,"resource");
 						  AiGamePlay.unitGather(gathering.id,resLoc);
 						  await delay(4000);
 						  
