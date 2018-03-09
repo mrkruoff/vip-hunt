@@ -389,7 +389,9 @@ const Hud = {
                     datum.rep = null; 
                 });
                 
-                
+                //don't include the menu as part of the exported scene
+                Hud.clearMenuPanel();
+                Hud.showMainPanel();                
 
                 //export and store the scene use local 
                 let exportedScence = wade.exportScene();
@@ -397,13 +399,13 @@ const Hud = {
                 exportedScence.sceneObjects = [];
                 */
                 
-                exportedScence.sceneObjects = _.filter(exportedScence.sceneObjects, (obj) => {
-                    return ! _.has(obj.properties, 'iso'); 
-                });
+               //// exportedScence.sceneObjects = _.filter(exportedScence.sceneObjects, (obj) => {
+               ////     return ! _.has(obj.properties, 'iso'); 
+               //// });
                 
-                exportedScence.modules = {
-                    iso: wade.iso.exportMap() 
-                }
+               ///// exportedScence.modules = {
+               ////     iso: wade.iso.exportMap() 
+               /// }
                 
                 
                 
