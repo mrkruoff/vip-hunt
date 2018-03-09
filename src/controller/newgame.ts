@@ -23,6 +23,8 @@ import AiGamePlay from './ai-gameplay';
 import Fog from './fog';
 import Minimap from './minimap'
 import UnitDec from './unit-ai';
+import AiDec from '../model/state/ai-dec';
+
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -73,6 +75,8 @@ const NewGame = {
         // ai unit vision, and vice versa. This will start conflicts!
         UnitDec.playerUnitsWatch();
         UnitDec.aiUnitsWatch();
+        //start AI
+        AiDec.decisions(GlobalGameState,false);
     },
 };
 
