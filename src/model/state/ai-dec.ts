@@ -8,18 +8,18 @@ declare var wade: any;
 function mapSearch(map, aString){
 	for(var i=0; i<map.length;i++){
 		var row=map[i];
-		console.log(row);
 		for(var j=0; i<row.length;j++){
 			if(row[j]!=null){
 			if(aString=="resource"){
-				console.log(row[j]);
 			if (row[j].getResourceId()>0){
-				
+				console.log(row[j]);
 				return row[j].getResourceId();
+				
 			}
 			}
 			else if(aString=="unit"){
 				if(row[j].getUnitId()>0){
+					console.log(row[j]);
 					return row[j].getUnitId();
 				}
 			}
@@ -40,17 +40,18 @@ function resourceCheck(objectname,state,isHard){
 		aiWood=aiWood*2;
 		aiFood=aiFood*2;
 	}
-	
-	var archeryCal=JsonMap.archer_calvary_cost;
-    var archer=JsonMap.archer_cost;
-    var drummer=JsonMap.drummer_boy_cost;
-    var gather=JsonMap.gatherer_cost;
-    var spearCal=JsonMap.spear_calvary_cost;
-    var swordsman=JsonMap.swordsman_cost;
-    var barracks=JsonMap.barracks_cost;
-    var stables=JsonMap.stables_cost;
-    var townhall=JsonMap.townhall_cost;
-    var tower=JsonMap.tower_cost;
+	console.log("Stone:"+aiStone+"Wood:"+aiWood+"aiFood:"+aiFood);
+	var archeryCal=wade.getJson(JsonMap.archer_calvary_cost);
+    var archer=wade.getJson(JsonMap.archer_cost);
+    var drummer=wade.getJson(JsonMap.drummer_boy_cost);
+    var gather=wade.getJson(JsonMap.gatherer_cost);
+    var spearCal=wade.getJson(JsonMap.spear_calvary_cost);
+    var swordsman=wade.getJson(JsonMap.swordsman_cost);
+    var barracks=wade.getJson(JsonMap.barracks_cost);
+    var stables=wade.getJson(JsonMap.stables_cost);
+    var townhall=wade.getJson(JsonMap.townhall_cost);
+    var tower=wade.getJson(JsonMap.tower_cost);
+	console.log(barracks["stone"]);
 	if(objectname=="ArcherCalvary"){
 		if(aiStone>=archeryCal["stone"] && aiWood >=archeryCal["wood"] && aiFood>=archeryCal["food"]){
 			return true;
@@ -170,14 +171,15 @@ const AiDec = {
 					  if(resourceCheck("Barracks",aistate,isHardMode)){
 						AiGamePlay.constructBuilding("Barracks", 0, 10);
 						barracks=true;
+						console.log("Barracks Built");
 						step++;
 					  }
 					  else{
 						  gathering=AiGamePlay.constructUnit("Gatherer",3,1);
 						  var resource=mapSearch(map,"resource");
-						  AiGamePlay.unitGather(gathering.id,resLoc);
-						  await delay(4000);
-						  
+						  AiGamePlay.unitGather(gathering.id,resource);
+						  console.log("Gathering, waiting");
+						  await delay(4000); 
 					  }
 				}
 				else if(step==1){
