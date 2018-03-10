@@ -372,12 +372,11 @@ const Hud = {
             save.onClick = (event) =>
             {
                 save.getSprite(0).setFont("16px Verdana");
+                console.log(wade.getSceneObject('global'));
 
                 // Unhook all the circular dependencies.
                 let global = wade.getSceneObject('global').state;
-
-
-
+            
                 let data = _.concat(global.getResources(),
                                     global.getAi().getUnits(),
                 global.getAi().getBuildings(),
@@ -385,13 +384,9 @@ const Hud = {
                 global.getPlayer().getBuildings());
                 console.log(data);
                 _.forEach(data, (datum) => {
-                    console.log(datum.rep);
                     datum.rep = null; 
                 });
 
-                //don't include the menu as part of the exported scene
-                Hud.clearMenuPanel();
-                Hud.showMainPanel();                
 
                 //export and store the scene use local 
                 let exportedScence = wade.exportScene();
@@ -408,16 +403,19 @@ const Hud = {
                 }
 
 
-                console.log( JSON.stringify( exportedScence ));
+                console.log( exportedScence );
                 console.log( (wade.iso.exportMap()));
                 wade.storeLocalObject('save_game', JSON.stringify(exportedScence));
 
-                //line below was for debugging/testing
-                //wade.setJson('savedGameScene.json', savedGame); 
-                //wade.loadScene('savedGameSene', true, null, true);
+                // Now step through all scene objects with the data property,
+                // and use them to reconnect the isometric SceneObjects with their data
+                let sceneObjects = wade.getSceneObjects('data');
+                console.log(sceneObjects);
 
-                Hud.showMainPanel();
-                Hud.clearMenuPanel();    
+                _.forEach(sceneObjects, (sceneObject) => {
+                    sceneObject.data.rep = sceneObject;
+                });
+
             };
 
             wade.addEventListener(quit, 'onMouseIn');
