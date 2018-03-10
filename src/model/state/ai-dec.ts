@@ -8,21 +8,27 @@ declare var wade: any;
 function mapSearch(map, aString){
 	for(var i=0; i<map.length;i++){
 		var row=map[i];
+		console.log(row);
 		for(var j=0; i<row.length;j++){
+			if(row[j]!=null){
 			if(aString=="resource"){
-			if (row[j].resourceId>0){
-				return row[j].resourceId;
+				console.log(row[j]);
+			if (row[j].getResourceId()>0){
+				
+				return row[j].getResourceId();
 			}
 			}
 			else if(aString=="unit"){
-				if(row[j].unitId>0){
-					return row[j].unitId;
+				if(row[j].getUnitId()>0){
+					return row[j].getUnitId();
 				}
+			}
 			}
 		}
 	}
 	return 0;
 };
+
 
 
 function resourceCheck(objectname,state,isHard){
