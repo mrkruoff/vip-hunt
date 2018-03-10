@@ -169,7 +169,7 @@ const AiDec = {
 		}
 		while(true){
 			await delay(time);
-			if(currentState=="setup")
+			if(aistate.getActionState()=="setup")
 				{console.log("Settingup step:"+step)
 				if(step==0){
 					  if(resourceCheck("Barracks",aistate,isHardMode)){
@@ -202,9 +202,9 @@ const AiDec = {
 					if (resLoc!=0){
 						AiGamePlay.unitGather(gathering.id,resLoc);
 					}
-					currentState="offense";}
+					aistate["actionState"]="offense";}
 				};
-			if(currentState=="offense"){console.log("Attacking");
+			if(aistate.getActionState()=="offense"){console.log("Attacking");
 				if(stable=false){
 				console.log("stable");
 				AiGamePlay.constructBuilding("Stable", 0, 15);
@@ -250,7 +250,7 @@ const AiDec = {
 				console.log("check resources if stable build calvary");
 				console.log("move units towards player");
 				};
-			if(currentState=="defense"){console.log("defending")
+			if(aistate.getActionState()=="defense"){console.log("defending")
 				for(i=0;i<aistate.units.length;i++){
 						//toDO Get VIP Cordinates
 						//AiGamePlay.unitMove(units[j].id,
