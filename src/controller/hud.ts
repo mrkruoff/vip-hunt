@@ -395,7 +395,7 @@ const Hud = {
                  */
 
                 exportedScence.sceneObjects = _.filter(exportedScence.sceneObjects, (obj) => {
-                    return ! _.has(obj.properties, 'iso'); 
+                    return ! (_.has(obj.properties, 'iso') || _.has(obj.properties, 'dontSave') ); 
                 });
 
                 exportedScence.modules = {

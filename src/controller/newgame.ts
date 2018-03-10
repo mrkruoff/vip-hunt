@@ -61,13 +61,13 @@ const NewGame = {
         wade.setLayerTransform(8, 0, 0);
         wade.setLayerTransform(9, 0, 0);
         wade.setLayerTransform(10, 0, 0);
-        createHud();                    // Requires all units/buildings to be created
+        NewGame.createHud();            // Requires all units/buildings to be created
                                         // Actually it just requires a global game state 
                                         // to have been created
 
         // Once units, buildings, and HUD are created properly,
         // set up the camera for the game.
-        setUpCamera();
+        NewGame.setUpCamera();
 
         // Initiate the fog of war.
         Fog.paintMapDarkness();
@@ -83,22 +83,49 @@ const NewGame = {
         //start AI
         // AiDec.decisions(GlobalGameState,false);
     },
+    setUpCamera: function setUpCamera() {
+        //Add basic camera settings
+        Events.addCamera();
+        Camera.setBounds();
+
+        // Once all the player units are in the scene, position the camera to focus on the 
+        // Player's VIP.
+        wade.app.onCameraMove = (event) => {
+            let coords = event.newPosition;
+            Minimap.updateCameraZone(coords);
+        }
+        Camera.focusVIP();
+    },
+    createHud: function createHud() {
+        // Create hud elements.
+        const resources = Hud.showResourcePanel();
+        const scroll = Hud.showBackground();
+
+        // Add building button for building units.
+        // Set up callbacks for building a unit using the underlying menu.
+        const main = Hud.showMainPanel();
+        main[0].onClick = function(event) {
+            //Make the clicked building disappear
+            Hud.clearMainPanel();
+
+            //Show the player new buttons for making buildings on map
+            const options = Hud.showBuildingsPanel();
+
+            // Function that takes a buildingIcon and sets its click event
+            // to build a matching building in the game world.
+            const setOnClickToBuild = (b) => {
+                const imageName = b.getSprite(0).getImageName();
+                b.onClick = BuildingBuilding.selectABuildingCallback(imageName, options);
+                wade.addEventListener(b, 'onClick');
+            };
+
+            //Process each icon to have correct events
+            _.forEach(options, setOnClickToBuild);
+        };
+        wade.addEventListener(main[0], 'onClick');
+    }
 };
 
-function setUpCamera() {
-    //Add basic camera settings
-    Events.addCamera();
-    Camera.setBounds();
-
-    // Once all the player units are in the scene, position the camera to focus on the 
-    // Player's VIP.
-    wade.app.onCameraMove = (event) => {
-        let coords = event.newPosition;
-        Minimap.updateCameraZone(coords);
-    }
-    Camera.focusVIP();
-
-}
 
 function createPlayerStartingUnits() {
     let global = wade.getSceneObject('global');
@@ -234,35 +261,5 @@ function addToScene(state: GlobalGameState) {
     });
 }
 
-function createHud() {
-
-    // Create hud elements.
-    const resources = Hud.showResourcePanel();
-    const scroll = Hud.showBackground();
-
-    // Add building button for building units.
-    // Set up callbacks for building a unit using the underlying menu.
-    const main = Hud.showMainPanel();
-    main[0].onClick = function(event) {
-        //Make the clicked building disappear
-        Hud.clearMainPanel();
-
-        //Show the player new buttons for making buildings on map
-        const options = Hud.showBuildingsPanel();
-
-        // Function that takes a buildingIcon and sets its click event
-        // to build a matching building in the game world.
-        const setOnClickToBuild = (b) => {
-            const imageName = b.getSprite(0).getImageName();
-            b.onClick = BuildingBuilding.selectABuildingCallback(imageName, options);
-            wade.addEventListener(b, 'onClick');
-        };
-
-        //Process each icon to have correct events
-        _.forEach(options, setOnClickToBuild);
-    };
-    wade.addEventListener(main[0], 'onClick');
-
-}
 
 export default NewGame;

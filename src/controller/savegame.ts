@@ -61,24 +61,47 @@ var SaveGame = {
         wade.setMinScreenSize(20, 20);
         wade.setMaxScreenSize(1280, 800);
 
-        console.log(wade.getSceneObject('global'));
-
-        // Connect all the isometric objects back to their data representations.
-        relinkDataAndIsometricObjects();
-
-        //Add basic camera settings
-        Events.addCamera();
-        Camera.setBounds();
+        // Set up the global object to recreate the HUD.
+        let global = wade.getSceneObject('global');
+        global.hud = {
+            //empty object to store references to other HUD elements
+        };
+        global.minimap = {
+        
+        };
+        console.log(global);
 
         // Set up WADE layers to display correctly.
         wade.setLayerSorting(9, 'bottomToTop');
         wade.setLayerTransform(8, 0, 0);
         wade.setLayerTransform(9, 0, 0);
         wade.setLayerTransform(10, 0, 0);
+
+
+        // Connect all the isometric objects back to their data representations.
+        relinkDataAndIsometricObjects();
+        setUpIsometricSpriteVisibility();
+
+        // If all the isometric objects are linked, we can set up the camera and hud.
+        NewGame.createHud();
+        NewGame.setUpCamera();
+
+
     
         console.log(wade.iso.exportMap() ) ;
     }
 };
+
+function setUpIsometricSpriteVisibility() {
+    let global = wade.getSceneObject('global');
+    let ai = global.state.getAi();
+
+    // Reset Ai Units/Buildings to display their markers
+    let aiObjects = _.concat(ai.getUnits(), ai.getBuildings());
+    _.forEach(aiObjects, (obj) => {
+        obj.rep.getSprite(2).setVisible(true);
+    });
+}
 
 function relinkDataAndIsometricObjects() {
     // Reinitialize the global game state so that we have access to its functions.
@@ -92,16 +115,45 @@ function relinkDataAndIsometricObjects() {
 
     let newGlobalState = new GlobalGameState(map, resources, player, ai);
     global.state = newGlobalState;
+    console.log(newGlobalState);
 
     // Now step through all scene objects with the data property,
     // and use them to reconnect the isometric SceneObjects with their data
+    let sceneObjects = wade.getSceneObjects('data');
+    console.log(sceneObjects);
 
-
+    _.forEach(sceneObjects, (sceneObject) => {
+        let data;
+        if(_.has(sceneObject.data, 'amount')) {
+            // Then the sceneObject represents a Resource
+            data = global.state.getResources();
+        
+        } else if (_.has(sceneObject.data, 'speed')) {
+            // Then the sceneObject represents a Unit
+            data = _.concat(global.state.getAi().getUnits(),
+                                global.state.getPlayer().getUnits());
+        }
+        else {
+            // Otherwise the sceneObject must be a building.
+            data = _.concat(global.state.getAi().getBuildings(),
+                           global.state.getPlayer().getBuildings());
+        }
+        // Connect the sceneObject to its data!
+        for(let i = 0; i < data.length; i++) {
+            if(sceneObject.data.id === data[i].id) {
+                sceneObject.data = data[i];
+                data[i].rep = sceneObject;
+                break;
+            }
+        }
+    });
+    console.log(sceneObjects);
+    console.log(global.state);
 }
 
 function reconstructAiGameState(ai): AiGameState {
-    let units: Units[] = reconstructUnits(ai.units);
-    let buildings: Buildings[] = reconstructBuildings(ai.buildings);
+    let units: Unit[] = reconstructUnits(ai.units);
+    let buildings: Building[] = reconstructBuildings(ai.buildings);
 
     let newAi = new AiGameState(units, buildings, ai.stone,
                                        ai.wood, ai.food);
@@ -110,8 +162,8 @@ function reconstructAiGameState(ai): AiGameState {
 }
 
 function reconstructPlayerGameState(player): PlayerGameState {
-    let units: Units[] = reconstructUnits(player.units);
-    let buildings: Buildings[] = reconstructBuildings(player.buildings);
+    let units: Unit[] = reconstructUnits(player.units);
+    let buildings: Building[] = reconstructBuildings(player.buildings);
 
     let newPlayer = new PlayerGameState(units, buildings, player.stone,
                                        player.wood, player.food);
@@ -119,7 +171,7 @@ function reconstructPlayerGameState(player): PlayerGameState {
     return newPlayer;
 }
 
-function reconstructBuildings(buildings): Buildings[] {
+function reconstructBuildings(buildings): Building[] {
     let newbuildings = [];
     for(let i = 0; i < buildings.length; i++) {
         let newBuilding;
@@ -144,7 +196,7 @@ function reconstructBuildings(buildings): Buildings[] {
     return newbuildings;
 }
 
-function reconstructUnits(units): Units[] {
+function reconstructUnits(units): Unit[] {
     let newunits = [];
     for(let i = 0; i < units.length; i++) {
         let newUnit;
