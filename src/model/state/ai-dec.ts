@@ -8,19 +8,23 @@ declare var wade: any;
 function mapSearch(map, aString){
 	for(var i=0; i<map.length;i++){
 		var row=map[i];
-		for(var j=0; i<row.length;j++){
-			if(row[j]!=null){
+		for(var j=0; j<row.length;j++){
+		if(row[j]!=null){
 			if(aString=="resource"){
 			if (row[j].getResourceId()>0){
+				console.log(i,j);
 				console.log(row[j]);
 				return row[j].getResourceId();
 				
 			}
 			}
 			else if(aString=="unit"){
-				if(row[j].getUnitId()>0){
+				console.log("Searching for unit");
+				console.log(i, j);
+				if (row[j].getUnitId() >0){
 					console.log(row[j]);
-					return row[j].getUnitId();
+					return row[j].getUnitId() ;
+				
 				}
 			}
 			}
@@ -166,7 +170,7 @@ const AiDec = {
 		while(true){
 			await delay(time);
 			if(currentState=="setup")
-				{console.log("Settingup")
+				{console.log("Settingup step:"+step)
 				if(step==0){
 					  if(resourceCheck("Barracks",aistate,isHardMode)){
 						AiGamePlay.constructBuilding("Barracks", 0, 10);
@@ -202,16 +206,20 @@ const AiDec = {
 				};
 			if(currentState=="offense"){console.log("Attacking");
 				if(stable=false){
-				AiGamePlay.constructBuilding("Stable", 0, 5);
+				console.log("stable");
+				AiGamePlay.constructBuilding("Stable", 0, 15);
 				stable=true;
 				}
 				else if(tower=false){
-					AiGamePlay.constructBuilding("Tower", 3, 0);
+					console.log("tower")
+					AiGamePlay.constructBuilding("Tower", 0, 20);
 					stable=true;
 				}
 				else{
+					console.log("Finding Enemy");
 					var enemLoc=mapSearch(map,"unit");
-					if(enemLoc!=0){
+					console.log(enemLoc);
+					if(enemLoc>0){
 						if(!(enemLoc in aistate.units)){
 							if(enemLoc==playerVIP.id){
 								//starts at 1 to avoid sending vip
