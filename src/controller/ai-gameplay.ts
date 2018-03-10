@@ -220,24 +220,13 @@ var AiGamePlay = {
             }
 
         }
+        sceneBuilding.getSprite(2).setVisible(true);
+
         //Once the sprite is properly moved, update its map location in the state.
         // and clear its old tile
         GamePlay.updateBuildingMapLocation(sceneBuilding);
         sceneBuilding.marker = Minimap.createBuildingMarker(sceneBuilding.iso.gridCoords.x,
                                             sceneBuilding.iso.gridCoords.z, "ai");
-
-        //Give the building a sprite to indicate it's an AI building.
-        let redCircle = new Sprite( {
-            type: 'Sprite',
-            sortPoint: {x: 0, y: -0.9 },
-            layer: 25,
-            size: {x: 3000, y: 3000},
-            image: ImageMap.enemy_unit_marker,
-        }); 
-        sceneBuilding.addSprite(redCircle, {x: 0, y: 5});
-        sceneBuilding.setSpriteOffset(1, {x:0, y: -45})
-
-        wade.addSceneObject(sceneBuilding);
 
         return b;
     },
@@ -460,6 +449,9 @@ var AiGamePlay = {
                 }
             }
         }
+        console.log("BUG IN SCENE UNIT");
+        sceneUnit.getSprite(2).setVisible(true);
+        console.log(sceneUnit);
         
         //Once the sprite is properly moved, update its map location in the state.
         // and clear its old tile
@@ -467,36 +459,6 @@ var AiGamePlay = {
         sceneUnit.marker = Minimap.createUnitMarker(sceneUnit.iso.gridCoords.x,
                                         sceneUnit.iso.gridCoords.z, "ai");
 
-        console.log(u);
-        //Give the unit a sprite to indicate it's an AI unit.
-        let redCircle = new Sprite( {
-            type: 'Sprite',
-            sortPoint: {x: 0, y: -0.9 },
-            layer: 25,
-            size: {x: 700, y: 700},
-            image: ImageMap.enemy_unit_marker,
-        }); 
-        sceneUnit.addSprite(redCircle, {x: 0, y: 5});
-        sceneUnit.setSpriteOffset(1, {x:0, y: -45});
-
-        // Finally, add an animation to play when a unit is hit.
-        let hitSprite = new Sprite();
-        hitSprite.setLayer(24);
-        hitSprite.setSortPoint(0, 1);
-        let animData = {
-            type: 'Animation',
-            name: 'bleed',
-            startFrame: 0, 
-            endFrame: 10,
-            numCells: {x: 10, y: 15 },
-            image: ImageMap.unit_hit_marker,
-            speed: 30,
-            looping: false,
-            offset: {x: 0, y: 0}
-        };
-        let hitAnim = new Animation(animData);
-        hitSprite.addAnimation('bleed', hitAnim, true);
-        sceneUnit.addSprite(hitSprite);
 
         return u;
     }

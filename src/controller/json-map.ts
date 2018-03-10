@@ -48,6 +48,9 @@ const JsonMap = {
     wood_data: '../js/../json/resources/wood.json',
     food_data: '../js/../json/resources/food.json',
 
+    enemy_marker: '../js/../json/images/red-circle.json',
+    selected_marker: '../js/../json/images/blue-circle.json',
+    bleed_marker: '../js/../json/images/damage.json',
 };
 
 export default JsonMap;

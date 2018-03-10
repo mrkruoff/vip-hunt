@@ -29,11 +29,6 @@ const Mouse = {
         wade.app.onIsoTerrainMouseMove = (event) => {
             let wasMoved = wade.iso.moveObjectToTile(isoSceneObject,
                 event.gridCoords.x, event.gridCoords.z);
-
-            if (wasMoved) {
-                if(! isoSceneObject.isInScene() )
-                    wade.addSceneObject(isoSceneObject);
-            }
         };
     },
 };

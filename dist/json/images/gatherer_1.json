@@ -4,6 +4,9 @@
     "name": "gatherer_1",
     "visible": "true",
     "image": "../js/../public/sprites/units/results_barbarian/gatherer_icon.png",
-    "pixelPerfectMouseEvents": 255
+    "pixelPerfectMouseEvents": 255,
+    "size": {"x": 300, "y": 300},
+    "sortPoint": {"x": 0, "y": 0},
+    "animations": { }
 
 }

@@ -1,9 +1,12 @@
 
 
 {
-    "type": "sprite",
+    "type": "Sprite",
     "name": "archer_1",
-    "visible": "true",
+    "visible": true,
     "image": "../js/../public/sprites/units/results_archer_2/archer_icon.png",
-    "pixelPerfectMouseEvents": 255
+    "pixelPerfectMouseEvents": 255,
+    "size": {"x": 300, "y": 300},
+    "sortPoint": {"x": 0, "y": 0},
+    "animations": { }
 }

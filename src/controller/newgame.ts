@@ -56,13 +56,18 @@ const NewGame = {
         createPlayerStartingUnits();   // units and buildings must be created before 
         createAiStartingUnits();       // the rest of the HUD can be created
 
-        createHud();                    // Requires all units/buildings to be created
+        // Set up WADE layers to display correctly.
+        wade.setLayerSorting(9, 'bottomToTop');
+        wade.setLayerTransform(8, 0, 0);
+        wade.setLayerTransform(9, 0, 0);
+        wade.setLayerTransform(10, 0, 0);
+        NewGame.createHud();            // Requires all units/buildings to be created
                                         // Actually it just requires a global game state 
                                         // to have been created
 
         // Once units, buildings, and HUD are created properly,
         // set up the camera for the game.
-        setUpCamera();
+        NewGame.setUpCamera();
 
         // Initiate the fog of war.
         Fog.paintMapDarkness();
@@ -76,24 +81,51 @@ const NewGame = {
         UnitDec.playerUnitsWatch();
         UnitDec.aiUnitsWatch();
         //start AI
-        AiDec.decisions(GlobalGameState,false);
+        // AiDec.decisions(GlobalGameState,false);
     },
+    setUpCamera: function setUpCamera() {
+        //Add basic camera settings
+        Events.addCamera();
+        Camera.setBounds();
+
+        // Once all the player units are in the scene, position the camera to focus on the 
+        // Player's VIP.
+        wade.app.onCameraMove = (event) => {
+            let coords = event.newPosition;
+            Minimap.updateCameraZone(coords);
+        }
+        Camera.focusVIP();
+    },
+    createHud: function createHud() {
+        // Create hud elements.
+        const resources = Hud.showResourcePanel();
+        const scroll = Hud.showBackground();
+
+        // Add building button for building units.
+        // Set up callbacks for building a unit using the underlying menu.
+        const main = Hud.showMainPanel();
+        main[0].onClick = function(event) {
+            //Make the clicked building disappear
+            Hud.clearMainPanel();
+
+            //Show the player new buttons for making buildings on map
+            const options = Hud.showBuildingsPanel();
+
+            // Function that takes a buildingIcon and sets its click event
+            // to build a matching building in the game world.
+            const setOnClickToBuild = (b) => {
+                const imageName = b.getSprite(0).getImageName();
+                b.onClick = BuildingBuilding.selectABuildingCallback(imageName, options);
+                wade.addEventListener(b, 'onClick');
+            };
+
+            //Process each icon to have correct events
+            _.forEach(options, setOnClickToBuild);
+        };
+        wade.addEventListener(main[0], 'onClick');
+    }
 };
 
-function setUpCamera() {
-    //Add basic camera settings
-    Events.addCamera();
-    Camera.setBounds();
-
-    // Once all the player units are in the scene, position the camera to focus on the 
-    // Player's VIP.
-    wade.app.onCameraMove = (event) => {
-        let coords = event.newPosition;
-        Minimap.updateCameraZone(coords);
-    }
-    Camera.focusVIP();
-
-}
 
 function createPlayerStartingUnits() {
     let global = wade.getSceneObject('global');
@@ -158,21 +190,9 @@ function addToScene(state: GlobalGameState) {
 
                 if (isPlayer) {
                     b.marker = Minimap.createBuildingMarker(b.iso.gridCoords.x, b.iso.gridCoords.z, "player");
-                    // Give the building an aura to show it is the player's;
-                    let aura = new Sprite( {
-                        type: 'Sprite',
-                        sortPoint: {x: 0, y: -0.9 },
-                        layer: 25,
-                        size: {x: 500, y: 400},
-                        image: ImageMap.player_unit_marker,
-                    }); 
-                    aura.setVisible(false);
-                    let offset = { x: 0, y: 0};
-                    b.addSprite(aura, offset);
                 } else {
                     b.marker = Minimap.createBuildingMarker(b.iso.gridCoords.x, b.iso.gridCoords.z, "ai");
                 }
-                wade.addSceneObject(b);
 
             }
             if (tile.unitId >= 0) {
@@ -205,37 +225,6 @@ function addToScene(state: GlobalGameState) {
                 if(isPlayerUnit) {
                     u.onMouseDown = GamePlay.onSelectUnit(u);
                     wade.addEventListener(u, 'onMouseDown');
-
-                    // Give the unit an aura to show it is the player's;
-                    let aura = new Sprite( {
-                        type: 'Sprite',
-                        sortPoint: {x: 0, y: -0.9 },
-                        layer: 25,
-                        size: {x: 250, y: 200},
-                        image: ImageMap.player_unit_marker,
-                    }); 
-                    aura.setVisible(false);
-                    let offset = { x: 0, y: 0};
-                    u.addSprite(aura, offset);
-
-                    // Finally, add an animation to play when a unit is hit.
-                    let hitSprite = new Sprite();
-                    hitSprite.setLayer(24);
-                    hitSprite.setSortPoint(0, 1);
-                    let animData = {
-                        type: 'Animation',
-                        name: 'bleed',
-                        startFrame: 0, 
-                        endFrame: 10,
-                        numCells: {x: 10, y: 15 },
-                        image: ImageMap.unit_hit_marker,
-                        speed: 30,
-                        looping: false,
-                        offset: {x: 0, y: 0}
-                    };
-                    let hitAnim = new Animation(animData);
-                    hitSprite.addAnimation('bleed', hitAnim, true);
-                    u.addSprite(hitSprite);
                 }
 
                 if (isPlayerUnit) {
@@ -272,40 +261,5 @@ function addToScene(state: GlobalGameState) {
     });
 }
 
-function createHud() {
-    // Set up WADE layers to display correctly.
-    wade.setLayerSorting(9, 'bottomToTop');
-    wade.setLayerTransform(8, 0, 0);
-    wade.setLayerTransform(9, 0, 0);
-    wade.setLayerTransform(10, 0, 0);
-
-    // Create hud elements.
-    const resources = Hud.showResourcePanel();
-    const scroll = Hud.showBackground();
-
-    // Add building button for building units.
-    // Set up callbacks for building a unit using the underlying menu.
-    const main = Hud.showMainPanel();
-    main[0].onClick = function(event) {
-        //Make the clicked building disappear
-        Hud.clearMainPanel();
-
-        //Show the player new buttons for making buildings on map
-        const options = Hud.showBuildingsPanel();
-
-        // Function that takes a buildingIcon and sets its click event
-        // to build a matching building in the game world.
-        const setOnClickToBuild = (b) => {
-            const imageName = b.getSprite(0).getImageName();
-            b.onClick = BuildingBuilding.selectABuildingCallback(imageName, options);
-            wade.addEventListener(b, 'onClick');
-        };
-
-        //Process each icon to have correct events
-        _.forEach(options, setOnClickToBuild);
-    };
-    wade.addEventListener(main[0], 'onClick');
-
-}
 
 export default NewGame;

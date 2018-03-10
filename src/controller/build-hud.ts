@@ -4,6 +4,7 @@
  * to build HUD elements when they did not exist previously.
  */
 
+import * as _ from 'lodash';
 import ImageMap from './image-map';
 import Names from './names';
 
@@ -72,7 +73,12 @@ const BuildHud = {
         foodCount.setName(Names.foodCount);
         foodCount.setAlignment('right', 'bottom');
 
-        return [stone, wood, food, stoneCount, woodCount, foodCount];
+        let all = [stone, wood, food, stoneCount, woodCount, foodCount];
+        _.forEach(all, (item) => {
+            item.dontSave = true;
+        });
+
+        return all;
 
     },
     // This function constructs a building icon for the HUD.
@@ -135,8 +141,13 @@ const BuildHud = {
                                 x, y, layer);
         menu.setName(Names.menuIcon);
         menu.setAlignment('left', 'bottom');
+
+        let all = [building, menu];
+        _.forEach(all, (item) => {
+            item.dontSave = true;
+        });
         
-        return [building, menu];
+        return all;
     },
     menuPanel: (layer: number) => {
         let font = "16px Verdana";
@@ -150,7 +161,12 @@ const BuildHud = {
         let quit = BuildHud.buildText("Quit", font, color, alignment, 0, 75, layer);
         quit.setName(Names.menu_quit);
 
-        return [save, resume, quit];
+        let all = [save, resume, quit];
+        _.forEach(all, (item) => {
+            item.dontSave = true;
+        });
+
+        return all;
     
     },
     winPanel: (layer: number) => {
@@ -161,7 +177,11 @@ const BuildHud = {
         let victory = BuildHud.buildText("Victory!", font, color, alignment, 0, -125, layer);
         let menu = BuildHud.buildText("Menu", font, color, alignment, 0, -25, layer);
 
-        return [victory, menu];
+        let all = [victory, menu];
+        _.forEach(all, (item) => {
+            item.dontSave = true;
+        });
+        return all;
     
     },
     lossPanel: (layer: number) => {
@@ -172,11 +192,18 @@ const BuildHud = {
         let defeat = BuildHud.buildText("Defeat...", font, color, alignment, 0, -125, layer);
         let menu = BuildHud.buildText("Menu", font, color, alignment, 0, -25, layer);
 
-        return [defeat, menu];
+        let all = [defeat, menu];
+        _.forEach(all, (item) => {
+            item.dontSave = true;
+        });
+
+        return all;
     },
     menuBackground: (layer: number) => {
         const scroll = BuildHud.buildIcon(ImageMap.scroll, 200, 500, 0, 0, layer);
         scroll.setName(Names.menu_background);
+
+        scroll.dontSave = true;
 
         return scroll;
     },
@@ -218,7 +245,11 @@ const BuildHud = {
         townHalls.setName(Names.townHallsIcon);
         townHalls.setAlignment('left', 'bottom');
 
-        return [barracks, stables, towers, townHalls];
+        let all = [barracks, stables, towers, townHalls];
+        _.forEach(all, (item) => {
+            item.dontSave = true;
+        });
+        return all;
     },
     // This function builds the barracks panel, consisting of the possible units
     // the player can build from the barracks. Currently this consists of a
@@ -238,7 +269,11 @@ const BuildHud = {
         const archer = BuildHud.buildIcon(ImageMap.archer_1, 90, 150, x, y, layer);
         archer.setAlignment('right', 'bottom');
 
-        return [swordsman, archer];
+        let all = [swordsman, archer];
+        _.forEach(all, (item) => {
+            item.dontSave = true;
+        });
+        return all;
     },
     stablesPanel: (layer: number) => {
         let y = (wade.getScreenHeight() / 2) - 200;
@@ -253,7 +288,11 @@ const BuildHud = {
                             y, layer);
         spearCalvary.setAlignment('right', 'bottom');
 
-        return [archerCalvary, spearCalvary];
+        let all = [archerCalvary, spearCalvary];
+        _.forEach(all, (item) => {
+            item.dontSave = true;
+        });
+        return all;
     },
     towerPanel: (layer: number) => {
         let y = (wade.getScreenHeight() / 2) - 200;
@@ -262,7 +301,11 @@ const BuildHud = {
         let text = BuildHud.buildText("Hi, I'm a tower!", "20px Verdana", 'black', "center",
                     x, y, layer);
         text.setAlignment('right', 'bottom');
-        return [ text ];
+        let all = [ text ];
+        _.forEach(all, (item) => {
+            item.dontSave = true;
+        });
+        return all;
     },
     townHallPanel: (layer: number) => {
         let y = (wade.getScreenHeight() / 2) - 200;
@@ -275,7 +318,11 @@ const BuildHud = {
         const drummer = BuildHud.buildIcon(ImageMap.drummer_boy_1, 35, 65, x, y, layer);
         drummer.setAlignment('right', 'bottom');
 
-        return [gatherer, drummer];
+        let all = [gatherer, drummer];
+        _.forEach(all, (item) => {
+            item.dontSave = true;
+        });
+        return all;
     },
 
     // This function builds the background panel, which is the background for the HUD
@@ -309,6 +356,8 @@ const BuildHud = {
         scroll.onMouseOut = prevent_propagation;
         wade.addEventListener(scroll, 'onMouseOut');
 
+        scroll.dontSave = true;
+
         return scroll;
 
     },
@@ -322,7 +371,12 @@ const BuildHud = {
         const amount = BuildHud.buildText(text, font, color, alignment, x, y, layer);
         amount.setAlignment('right', 'bottom');
 
-        return [amount];
+        let all = [amount];
+        _.forEach(all, (item) => {
+            item.dontSave = true;
+        });
+
+        return all;
     },
     resourceError: (layer: number) => {
         const text = "Not enough resources!";
@@ -334,8 +388,11 @@ const BuildHud = {
 
         const error = BuildHud.buildText(text, font, color, alignment, x, y, layer);
         error.setAlignment('right', 'bottom');
-
-        return [error];
+        let all = [error];
+        _.forEach(all, (item) => {
+            item.dontSave = true;
+        });
+        return all;
     }
 
 };

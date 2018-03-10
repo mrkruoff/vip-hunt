@@ -1,0 +1,21 @@
+
+{
+    "type": "Sprite",
+    "name": "damage marker",
+    "sortPoint": {"x": 0, "y": 0.5 },
+    "visible": false,
+    "pixelPerfectMouseEvents": 255,
+    "animations": {
+        "bleed": {
+            "type": "Animation",
+            "name": "bleed",
+            "startFrame": 0,
+            "endFrame": 10,
+            "numCells": {"x": 10, "y": 15},
+            "image": "../js/../public/sprites/units/red_bubbles.png",
+            "looping": false,
+            "offset": {"x": 0, "y": -20}
+        } 
+    
+    }
+}

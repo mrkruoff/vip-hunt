@@ -16,6 +16,7 @@ declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
 import ImageMap from './image-map';
+import JsonMap from './json-map';
 
 var idleNames = ['Idle_iso_n', 'Idle_iso_s', 'Idle_iso_e', 'Idle_iso_w', 
             'Idle_iso_nw', 'Idle_iso_ne', 'Idle_iso_sw', 'Idle_iso_se'
@@ -50,6 +51,29 @@ function addAnims(sceneObject, animsArray, namesArray, xCells, yCells, speed, lo
 
 }
 
+function addAnimData(spriteData, animsArray, namesArray, xCells, yCells, speed, looping, start, end, offset) {
+    for( let i = 0; i < animsArray.length; i++) {
+        let animData = {
+            type: 'Animation',
+            startFrame: start,
+            endFrame: end,
+            numCells: {x: xCells, y: yCells},
+            image: animsArray[i],
+            speed: speed,
+            looping: looping,
+            offset: offset,
+            name: namesArray[i],
+            autoResize: true,
+        }
+
+        spriteData.animations[namesArray[i]] = animData;
+    }
+
+    console.log("SPRITE DATA");
+    console.log(spriteData);
+
+}
+
 const SceneObjectConstruction = {
     // This function returns a SceneObject for the Barracks.
     //
@@ -61,9 +85,16 @@ const SceneObjectConstruction = {
             sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 2, z: 2},
             collisionSize: {x: 2, z: 2},
-            dontAddToScene: true,
 
         };
+        objectData.sprites.push(wade.getJson(JsonMap.selected_marker));
+        objectData.sprites[1].image = ImageMap.player_unit_marker;
+        objectData.sprites[1].size = {x: 700, y: 700};
+        objectData.sprites[1].offset = { x: 0, y: -100 };
+        objectData.sprites.push(wade.getJson(JsonMap.enemy_marker));
+        objectData.sprites[2].image = ImageMap.enemy_unit_marker;
+        objectData.sprites[2].size = {x: 3000, y: 3000};
+        objectData.sprites[2].offset = {x: 0, y: -300};
         const barracks = wade.iso.createObject(objectData, {x: 5, z: -2} );
 
         return barracks;
@@ -78,10 +109,17 @@ const SceneObjectConstruction = {
             sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 2, z: 2},
             collisionSize: {x: 2, z: 2},
-            dontAddToScene: true,
 
 
         };
+        objectData.sprites.push(wade.getJson(JsonMap.selected_marker));
+        objectData.sprites[1].image = ImageMap.player_unit_marker;
+        objectData.sprites[1].size = {x: 700, y: 700};
+        objectData.sprites[1].offset = { x: 0, y: -100 };
+        objectData.sprites.push(wade.getJson(JsonMap.enemy_marker));
+        objectData.sprites[2].image = ImageMap.enemy_unit_marker;
+        objectData.sprites[2].size = {x: 3000, y: 3000};
+        objectData.sprites[2].offset = {x: 0, y: -300};
         const stables = wade.iso.createObject(objectData, {x: 5, z: -2} );
 
         return stables;
@@ -95,12 +133,18 @@ const SceneObjectConstruction = {
     towers: (imageJsonFile: string) => {
         const objectData = {
             sprites: [wade.getJson(imageJsonFile)],
-            gridSize: {x: 2, z: 2},
-            collisionSize: {x: 2, z: 2},
-            dontAddToScene: true,
-
+            gridSize: {x: 1, z: 1},
+            collisionSize: {x: 1, z: 1},
 
         };
+        objectData.sprites.push(wade.getJson(JsonMap.selected_marker));
+        objectData.sprites[1].image = ImageMap.player_unit_marker;
+        objectData.sprites[1].size = {x: 700, y: 700};
+        objectData.sprites[1].offset = { x: 0, y: -100 };
+        objectData.sprites.push(wade.getJson(JsonMap.enemy_marker));
+        objectData.sprites[2].image = ImageMap.enemy_unit_marker;
+        objectData.sprites[2].size = {x: 3000, y: 3000};
+        objectData.sprites[2].offset = {x: 0, y: -300};
         const tower = wade.iso.createObject(objectData, {x: 5, z: -2} );
 
         return tower;
@@ -118,7 +162,6 @@ const SceneObjectConstruction = {
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
-        const vip = wade.iso.createObject(objectData, {x: -2, z: -2} );
         let offset = {x: 0, y: -90};
 
         let idleAnims = [
@@ -132,8 +175,7 @@ const SceneObjectConstruction = {
         let yCells = 3;
         let speed = 7;
         let looping = true;
-        addAnims(vip, idleAnims, idleNames, xCells, yCells,
-                 speed, looping, startFrame, endFrame, offset);
+        addAnimData(objectData.sprites[0], idleAnims, idleNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
 
 
         let walkAnims = [
@@ -148,8 +190,7 @@ const SceneObjectConstruction = {
         yCells = 3;
         speed = 15;
         looping = true;
-        addAnims(vip, walkAnims, walkNames, xCells, yCells,
-                speed, looping, startFrame, endFrame, offset);
+        addAnimData(objectData.sprites[0], walkAnims, walkNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
 
         let attackAnims = [
             ImageMap.vip_N_attack, ImageMap.vip_S_attack,
@@ -163,8 +204,7 @@ const SceneObjectConstruction = {
         yCells = 1;
         speed = 10;
         looping = false;
-        addAnims(vip, attackAnims, attackNames, xCells, yCells,
-                speed, looping, startFrame, endFrame, offset);
+        addAnimData(objectData.sprites[0], attackAnims, attackNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
 
         let deathAnims = [
             ImageMap.vip_N_death, ImageMap.vip_S_death,
@@ -178,8 +218,7 @@ const SceneObjectConstruction = {
         yCells = 1;
         speed = 10;
         looping = false;
-        addAnims(vip, deathAnims, deathNames, xCells, yCells,
-                speed, looping, startFrame, endFrame, offset);
+        addAnimData(objectData.sprites[0], deathAnims, deathNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
 
 /*
         // Finally, add an animation to play when a unit is hit.
@@ -203,6 +242,17 @@ const SceneObjectConstruction = {
         vip.addSprite(hitSprite);
 */
 
+        objectData.sprites[0].currentAnimation = idleNames[1];
+        objectData.sprites.push(wade.getJson(JsonMap.selected_marker));
+        objectData.sprites[1].image = ImageMap.player_unit_marker;
+        objectData.sprites[1].size = {x: 200, y: 200};
+        objectData.sprites[1].offset = {x: 0, y: 5 };
+        objectData.sprites.push(wade.getJson(JsonMap.enemy_marker));
+        objectData.sprites[2].image = ImageMap.enemy_unit_marker;
+        objectData.sprites[2].size = {x: 750, y: 750};
+        objectData.sprites[2].offset = {x: 0, y: -50 };
+        objectData.sprites.push(wade.getJson(JsonMap.bleed_marker));
+        const vip = wade.iso.createObject(objectData);
         return vip;
 
     },
@@ -212,19 +262,21 @@ const SceneObjectConstruction = {
     //  @ imageJsonFile: filepath to the JSON file that will be used
     //      to construct the TownHall SceneObject
     townHalls: (imageJsonFile: string) => {
+        console.log(imageJsonFile);
         const objectData = {
             sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 2, z: 2},
             collisionSize: {x: 2, z: 2},
-            dontAddToScene: true,
-
-
         };
+        objectData.sprites.push(wade.getJson(JsonMap.selected_marker));
+        objectData.sprites[1].image = ImageMap.player_unit_marker;
+        objectData.sprites[1].size = {x: 700, y: 700};
+        objectData.sprites[1].offset = { x: 0, y: -100 };
+        objectData.sprites.push(wade.getJson(JsonMap.enemy_marker));
+        objectData.sprites[2].image = ImageMap.enemy_unit_marker;
+        objectData.sprites[2].size = {x: 3000, y: 3000};
+        objectData.sprites[2].offset = {x: 0, y: -300};
         const townHall = wade.iso.createObject(objectData, {x: 5, z: -2} );
-        console.log("OFFSET");
-        console.log(townHall.getSpriteOffset(0));
-        console.log(townHall);
-        console.log( townHall._spriteOffsets[0] );
 
         return townHall;
 
@@ -244,7 +296,6 @@ const SceneObjectConstruction = {
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
-        const swordsman = wade.iso.createObject(objectData, {x: -2, z: -2} );
         let offset = {x: 0, y: -50};
 
         let idleAnims = [
@@ -258,8 +309,7 @@ const SceneObjectConstruction = {
         let yCells = 1;
         let speed = 10;
         let looping = true;
-        addAnims(swordsman, idleAnims, idleNames, xCells, yCells,
-                 speed, looping, startFrame, endFrame, offset);
+        addAnimData(objectData.sprites[0], idleAnims, idleNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
 
 
         let walkAnims = [
@@ -274,8 +324,7 @@ const SceneObjectConstruction = {
         yCells = 6;
         speed = 30;
         looping = true;
-        addAnims(swordsman, walkAnims, walkNames, xCells, yCells,
-                speed, looping, startFrame, endFrame, offset);
+        addAnimData(objectData.sprites[0], walkAnims, walkNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
 
         let attackAnims = [
             ImageMap.swordsman_N_attack, ImageMap.swordsman_S_attack,
@@ -289,8 +338,7 @@ const SceneObjectConstruction = {
         yCells = 6;
         speed = 15;
         looping = false;
-        addAnims(swordsman, attackAnims, attackNames, xCells, yCells,
-                speed, looping, startFrame, endFrame, offset);
+        addAnimData(objectData.sprites[0], attackAnims, attackNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
 
         let deathAnims = [
             ImageMap.swordsman_N_death, ImageMap.swordsman_S_death,
@@ -304,12 +352,21 @@ const SceneObjectConstruction = {
         yCells = 1;
         speed = 15;
         looping = false;
-        addAnims(swordsman, deathAnims, deathNames, xCells, yCells,
-                speed, looping, startFrame, endFrame, offset);
+        addAnimData(objectData.sprites[0], deathAnims, deathNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
 
 
-        swordsman.getSprite(0).setSize(30, 80);
-
+        objectData.sprites[0].currentAnimation = idleNames[1];
+        objectData.sprites.push(wade.getJson(JsonMap.selected_marker));
+        objectData.sprites[1].image = ImageMap.player_unit_marker;
+        objectData.sprites[1].size = {x: 200, y: 200};
+        objectData.sprites[1].offset = {x: 0, y: 5 };
+        objectData.sprites.push(wade.getJson(JsonMap.enemy_marker));
+        objectData.sprites[2].image = ImageMap.enemy_unit_marker;
+        objectData.sprites[2].size = {x: 750, y: 750};
+        objectData.sprites[2].offset = {x: 0, y: -50 };
+        objectData.sprites.push(wade.getJson(JsonMap.bleed_marker));
+        const swordsman = wade.iso.createObject(objectData);
+        swordsman.getSprite(0).setSize(300, 300);
 
         return swordsman;
     },
@@ -325,7 +382,6 @@ const SceneObjectConstruction = {
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
-        const archer = wade.iso.createObject(objectData, {x: -2, z: -2} );
         let offset = {x: 0, y: -50};
         
         let idleAnims = [
@@ -339,8 +395,7 @@ const SceneObjectConstruction = {
         let yCells = 1;
         let speed = 10;
         let looping = true;
-        addAnims(archer, idleAnims, idleNames, xCells, yCells,
-                 speed, looping, startFrame, endFrame, offset);
+        addAnimData(objectData.sprites[0], idleAnims, idleNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
 
 
         let walkAnims = [
@@ -355,8 +410,7 @@ const SceneObjectConstruction = {
         yCells = 6;
         speed = 30;
         looping = true;
-        addAnims(archer, walkAnims, walkNames, xCells, yCells,
-                speed, looping, startFrame, endFrame, offset);
+        addAnimData(objectData.sprites[0], walkAnims, walkNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
 
         let attackAnims = [
             ImageMap.archer_N_attack, ImageMap.archer_S_attack,
@@ -370,8 +424,7 @@ const SceneObjectConstruction = {
         yCells = 1;
         speed = 15;
         looping = false;
-        addAnims(archer, attackAnims, attackNames, xCells, yCells,
-                speed, looping, startFrame, endFrame, offset);
+        addAnimData(objectData.sprites[0], attackAnims, attackNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
 
         let deathAnims = [
             ImageMap.archer_N_death, ImageMap.archer_S_death,
@@ -385,10 +438,19 @@ const SceneObjectConstruction = {
         yCells = 1;
         speed = 15;
         looping = false;
-        addAnims(archer, deathAnims, deathNames, xCells, yCells,
-                speed, looping, startFrame, endFrame, offset);
+        addAnimData(objectData.sprites[0], deathAnims, deathNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
 
-        archer.getSprite(0).setSize(240, 320);
+        objectData.sprites[0].currentAnimation = idleNames[1];
+        objectData.sprites.push(wade.getJson(JsonMap.selected_marker));
+        objectData.sprites[1].image = ImageMap.player_unit_marker;
+        objectData.sprites[1].size = {x: 200, y: 200};
+        objectData.sprites[1].offset = {x: 0, y: 5 };
+        objectData.sprites.push(wade.getJson(JsonMap.enemy_marker));
+        objectData.sprites[2].image = ImageMap.enemy_unit_marker;
+        objectData.sprites[2].size = {x: 750, y: 750};
+        objectData.sprites[2].offset = {x: 0, y: -50 };
+        objectData.sprites.push(wade.getJson(JsonMap.bleed_marker));
+        const archer = wade.iso.createObject(objectData);
 
         return archer;
     },
@@ -404,7 +466,6 @@ const SceneObjectConstruction = {
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
-        const archerCalvary = wade.iso.createObject(objectData, {x: -2, z: -2} );
         let offset = {x: 0, y: -100};
 
         let idleAnims = [
@@ -418,8 +479,7 @@ const SceneObjectConstruction = {
         let yCells = 1;
         let speed = 10;
         let looping = true;
-        addAnims(archerCalvary, idleAnims, idleNames, xCells, yCells,
-                 speed, looping, startFrame, endFrame, offset);
+        addAnimData(objectData.sprites[0], idleAnims, idleNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
 
 
         let walkAnims = [
@@ -434,8 +494,7 @@ const SceneObjectConstruction = {
         yCells = 6;
         speed = 30;
         looping = true;
-        addAnims(archerCalvary, walkAnims, walkNames, xCells, yCells,
-                speed, looping, startFrame, endFrame, offset);
+        addAnimData(objectData.sprites[0], walkAnims, walkNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
 
         let attackAnims = [
             ImageMap.archerCalvary_N_attack, ImageMap.archerCalvary_S_attack,
@@ -449,8 +508,7 @@ const SceneObjectConstruction = {
         yCells = 6;
         speed = 15;
         looping = false;
-        addAnims(archerCalvary, attackAnims, attackNames, xCells, yCells,
-                speed, looping, startFrame, endFrame, offset);
+        addAnimData(objectData.sprites[0], attackAnims, attackNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
 
         let deathAnims = [
             ImageMap.archerCalvary_N_death, ImageMap.archerCalvary_S_death,
@@ -464,8 +522,19 @@ const SceneObjectConstruction = {
         yCells = 1;
         speed = 15;
         looping = false;
-        addAnims(archerCalvary, deathAnims, deathNames, xCells, yCells,
-                speed, looping, startFrame, endFrame, offset);
+        addAnimData(objectData.sprites[0], deathAnims, deathNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
+
+        objectData.sprites[0].currentAnimation = idleNames[1];
+        objectData.sprites.push(wade.getJson(JsonMap.selected_marker));
+        objectData.sprites[1].image = ImageMap.player_unit_marker;
+        objectData.sprites[1].size = {x: 200, y: 200};
+        objectData.sprites[1].offset = {x: 0, y: 5 };
+        objectData.sprites.push(wade.getJson(JsonMap.enemy_marker));
+        objectData.sprites[2].image = ImageMap.enemy_unit_marker;
+        objectData.sprites[2].size = {x: 750, y: 750};
+        objectData.sprites[2].offset = {x: 0, y: -50 };
+        objectData.sprites.push(wade.getJson(JsonMap.bleed_marker));
+        const archerCalvary = wade.iso.createObject(objectData);
 
         return archerCalvary;
     },
@@ -476,12 +545,11 @@ const SceneObjectConstruction = {
     //      to construct the SpearCalvary SceneObject
     spearCalvary: (imageJsonFile: string) => {
         const objectData = {
-            sprites: wade.getJson(imageJsonFile),
+            sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 1, z: 1},
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
-        const spearCalvary = wade.iso.createObject(objectData, {x: -2, z: -2} );
         let offset = {x: 0, y: -100};
         
         let idleAnims = [
@@ -495,8 +563,7 @@ const SceneObjectConstruction = {
         let yCells = 1;
         let speed = 10;
         let looping = true;
-        addAnims(spearCalvary, idleAnims, idleNames, xCells, yCells,
-                 speed, looping, startFrame, endFrame, offset);
+        addAnimData(objectData.sprites[0], idleAnims, idleNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
 
 
         let walkAnims = [
@@ -511,8 +578,7 @@ const SceneObjectConstruction = {
         yCells = 6;
         speed = 30;
         looping = true;
-        addAnims(spearCalvary, walkAnims, walkNames, xCells, yCells,
-                speed, looping, startFrame, endFrame, offset);
+        addAnimData(objectData.sprites[0], walkAnims, walkNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
 
         let attackAnims = [
             ImageMap.spearCalvary_N_attack, ImageMap.spearCalvary_S_attack,
@@ -526,8 +592,7 @@ const SceneObjectConstruction = {
         yCells = 6;
         speed = 15;
         looping = false;
-        addAnims(spearCalvary, attackAnims, attackNames, xCells, yCells,
-                speed, looping, startFrame, endFrame, offset);
+        addAnimData(objectData.sprites[0], attackAnims, attackNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
 
         let deathAnims = [
             ImageMap.spearCalvary_N_death, ImageMap.spearCalvary_S_death,
@@ -541,8 +606,19 @@ const SceneObjectConstruction = {
         yCells = 1;
         speed = 15;
         looping = false;
-        addAnims(spearCalvary, deathAnims, deathNames, xCells, yCells,
-                speed, looping, startFrame, endFrame, offset);
+        addAnimData(objectData.sprites[0], deathAnims, deathNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
+
+        objectData.sprites[0].currentAnimation = idleNames[1];
+        objectData.sprites.push(wade.getJson(JsonMap.selected_marker));
+        objectData.sprites[1].image = ImageMap.player_unit_marker;
+        objectData.sprites[1].size = {x: 200, y: 200};
+        objectData.sprites[1].offset = {x: 0, y: 5 };
+        objectData.sprites.push(wade.getJson(JsonMap.enemy_marker));
+        objectData.sprites[2].image = ImageMap.enemy_unit_marker;
+        objectData.sprites[2].size = {x: 750, y: 750};
+        objectData.sprites[2].offset = {x: 0, y: -50 };
+        objectData.sprites.push(wade.getJson(JsonMap.bleed_marker));
+        const spearCalvary = wade.iso.createObject(objectData);
 
         return spearCalvary;
     },
@@ -558,7 +634,6 @@ const SceneObjectConstruction = {
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
-        const gatherer = wade.iso.createObject(objectData, {x: -2, z: -2} );
         let offset = {x: 0, y: -30};
         
         let idleAnims = [
@@ -572,8 +647,7 @@ const SceneObjectConstruction = {
         let yCells = 4;
         let speed = 10;
         let looping = true;
-        addAnims(gatherer, idleAnims, idleNames, xCells, yCells,
-                 speed, looping, startFrame, endFrame, offset);
+        addAnimData(objectData.sprites[0], idleAnims, idleNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
 
 
         let walkAnims = [
@@ -588,8 +662,7 @@ const SceneObjectConstruction = {
         yCells = 7;
         speed = 30;
         looping = true;
-        addAnims(gatherer, walkAnims, walkNames, xCells, yCells,
-                speed, looping, startFrame, endFrame, offset);
+        addAnimData(objectData.sprites[0], walkAnims, walkNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
 
         let attackAnims = [
             ImageMap.gatherer_N_attack, ImageMap.gatherer_S_attack,
@@ -603,8 +676,7 @@ const SceneObjectConstruction = {
         yCells = 3;
         speed = 15;
         looping = false;
-        addAnims(gatherer, attackAnims, attackNames, xCells, yCells,
-                speed, looping, startFrame, endFrame, offset);
+        addAnimData(objectData.sprites[0], attackAnims, attackNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
 
         let deathAnims = [
             ImageMap.gatherer_N_death, ImageMap.gatherer_S_death,
@@ -618,9 +690,19 @@ const SceneObjectConstruction = {
         yCells = 7;
         speed = 15;
         looping = false;
-        addAnims(gatherer, deathAnims, deathNames, xCells, yCells,
-                speed, looping, startFrame, endFrame, offset);
+        addAnimData(objectData.sprites[0], deathAnims, deathNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
 
+        objectData.sprites[0].currentAnimation = idleNames[1];
+        objectData.sprites.push(wade.getJson(JsonMap.selected_marker));
+        objectData.sprites[1].image = ImageMap.player_unit_marker;
+        objectData.sprites[1].size = {x: 200, y: 200};
+        objectData.sprites[1].offset = {x: 0, y: 5 };
+        objectData.sprites.push(wade.getJson(JsonMap.enemy_marker));
+        objectData.sprites[2].image = ImageMap.enemy_unit_marker;
+        objectData.sprites[2].size = {x: 750, y: 750};
+        objectData.sprites[2].offset = {x: 0, y: -50 };
+        objectData.sprites.push(wade.getJson(JsonMap.bleed_marker));
+        const gatherer = wade.iso.createObject(objectData);
         return gatherer;
     },
     // This function returns a SceneObject for the DrummerBoy.
@@ -635,7 +717,6 @@ const SceneObjectConstruction = {
             collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
-        const drummerBoy = wade.iso.createObject(objectData, {x: -2, z: -2} );
         let offset = {x: 0, y: -100};
 
         let idleAnims = [
@@ -649,8 +730,7 @@ const SceneObjectConstruction = {
         let yCells = 1;
         let speed = 10;
         let looping = true;
-        addAnims(drummerBoy, idleAnims, idleNames, xCells, yCells,
-                 speed, looping, startFrame, endFrame, offset);
+        addAnimData(objectData.sprites[0], idleAnims, idleNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
 
 
         let walkAnims = [
@@ -665,8 +745,7 @@ const SceneObjectConstruction = {
         yCells = 6;
         speed = 30;
         looping = true;
-        addAnims(drummerBoy, walkAnims, walkNames, xCells, yCells,
-                speed, looping, startFrame, endFrame, offset);
+        addAnimData(objectData.sprites[0], walkAnims, walkNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
 
         let attackAnims = [
             ImageMap.drummerBoy_N_attack, ImageMap.drummerBoy_S_attack,
@@ -680,8 +759,7 @@ const SceneObjectConstruction = {
         yCells = 6;
         speed = 15;
         looping = false;
-        addAnims(drummerBoy, attackAnims, attackNames, xCells, yCells,
-                speed, looping, startFrame, endFrame, offset);
+        addAnimData(objectData.sprites[0], attackAnims, attackNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
 
         let deathAnims = [
             ImageMap.drummerBoy_N_death, ImageMap.drummerBoy_S_death,
@@ -695,9 +773,19 @@ const SceneObjectConstruction = {
         yCells = 1;
         speed = 15;
         looping = false;
-        addAnims(drummerBoy, deathAnims, deathNames, xCells, yCells,
-                speed, looping, startFrame, endFrame, offset);
+        addAnimData(objectData.sprites[0], deathAnims, deathNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
 
+        objectData.sprites[0].currentAnimation = idleNames[1];
+        objectData.sprites.push(wade.getJson(JsonMap.selected_marker));
+        objectData.sprites[1].image = ImageMap.player_unit_marker;
+        objectData.sprites[1].size = {x: 200, y: 200};
+        objectData.sprites[1].offset = {x: 0, y: 5 };
+        objectData.sprites.push(wade.getJson(JsonMap.enemy_marker));
+        objectData.sprites[2].image = ImageMap.enemy_unit_marker;
+        objectData.sprites[2].size = {x: 750, y: 750};
+        objectData.sprites[2].offset = {x: 0, y: -50 };
+        objectData.sprites.push(wade.getJson(JsonMap.bleed_marker));
+        const drummerBoy = wade.iso.createObject(objectData);
         return drummerBoy;
     },
     stone: (imageJsonFile: string) => {

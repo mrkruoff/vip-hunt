@@ -375,8 +375,8 @@ const GamePlay = {
                 attacker.onAnimationEnd = (data) => {
                     console.log("ANIMATION DATA");
                     console.log(data);
+                    target.getSprite(3).setVisible(false);
                     if(data.name === 'bleed') {
-                        target.getSprite(2).setVisible(false);
                     
                     } else {
                         attacker.isAttacking = false; 
@@ -389,7 +389,7 @@ const GamePlay = {
                 attacker.playAnimation('Attack_iso_' + direction, 'forward');
                 console.log(targetData.hp);
                 targetData.takeDamage(attacker.data.getAttack());
-                // target.getSprite(2).setVisible(true);
+                target.getSprite(3).setVisible(true);
                 target.playAnimation('bleed', 'forward');
 
 
@@ -770,7 +770,10 @@ const GamePlay = {
             let fogPairs = _.zip(aiUnitReps, aiFog);
             _.forEach(fogPairs, (pair) => {
                 if(pair[1]) {
-                    pair[0].setVisible(false);  
+                    pair[0].getSprite(0).setVisible(false);  
+                    pair[0].getSprite(1).setVisible(false);  
+                    pair[0].getSprite(2).setVisible(false);  
+                    pair[0].getSprite(3).setVisible(false);  
                     pair[0].marker.setVisible(false);
                 } 
             });
@@ -779,7 +782,8 @@ const GamePlay = {
             let clearPairs = _.zip(aiUnitReps, aiClear);
             _.forEach(clearPairs, (pair) => {
                 if(pair[1]) {
-                    pair[0].setVisible(true); 
+                    pair[0].getSprite(0).setVisible(true); 
+                    pair[0].getSprite(2).setVisible(true); 
                     pair[0].marker.setVisible(true);
                 } 
             });
@@ -938,18 +942,6 @@ let BuildingBuilding = {
                 building.marker = Minimap.createBuildingMarker(building.iso.gridCoords.x,
                                             building.iso.gridCoords.z, "player");
 
-                // Give the building an aura to show it is the player's;
-                let aura = new Sprite( {
-                    type: 'Sprite',
-                    sortPoint: {x: 0, y: -0.9 },
-                    layer: 25,
-                    size: {x: 500, y: 400},
-                    image: ImageMap.player_unit_marker,
-                }); 
-                aura.setVisible(false);
-                let offset = { x: 0, y: 0};
-                building.addSprite(aura, offset);
-
                 let music_id = wade.playAudio(AudioMap.building_construction_sound, false);
                 wade.setTimeout( () => {
                     wade.stopAudio(music_id); 
@@ -1087,37 +1079,7 @@ const UnitBuilding = {
                 unit.marker = Minimap.createUnitMarker(unit.iso.gridCoords.x,
                                                 unit.iso.gridCoords.z, "player");
 
-                let aura = new Sprite( {
-                    type: 'Sprite',
-                    sortPoint: {x: 0, y: -0.9 },
-                    layer: 25,
-                    size: {x: 250, y: 200},
-                    image: ImageMap.player_unit_marker,
-                }); 
-                aura.setVisible(false);
-                let offset = { x: 0, y: 0};
-                unit.addSprite(aura, offset);
 
-                console.log("UNIT");
-                console.log(unit);
-                // Finally, add an animation to play when a unit is hit.
-                let hitSprite = new Sprite();
-                hitSprite.setLayer(24);
-                hitSprite.setSortPoint(0, 1);
-                let animData = {
-                    type: 'Animation',
-                    name: 'bleed',
-                    startFrame: 0, 
-                    endFrame: 10,
-                    numCells: {x: 10, y: 15 },
-                    image: ImageMap.unit_hit_marker,
-                    speed: 30,
-                    looping: false,
-                    offset: {x: 0, y: 0}
-                };
-                let hitAnim = new Animation(animData);
-                hitSprite.addAnimation('bleed', hitAnim, true);
-                unit.addSprite(hitSprite);
 
                 let music_id = wade.playAudio(AudioMap.unit_construction_sound, false);
                 wade.setTimeout(() => {

@@ -1,0 +1,8 @@
+{
+    "type": "Sprite",
+    "name": "blue circle",
+    "visible": false,
+    "image": "add in program",
+    "pixelPerfectMouseEvents": 255,
+    "sortPoint": {"x": 0, "y": -0.9}
+}

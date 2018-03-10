@@ -47,6 +47,9 @@ App = function() {
         loadCostJson();
         loadAudio();
 
+        wade.loadImage('../js/tilesets/characters/sheep/whitesheep_Idle_iso_se.png');
+        wade.loadImage('../js/tilesets/characters/swordsman/swordsman_1_Idle_iso_se.png');
+        wade.loadImage('../js/tilesets/outdoor_objects.png');
     };
 
 };
@@ -401,4 +404,7 @@ function loadSpriteJson() {
     wade.loadJson(JsonMap.spear_calvary_1);
     wade.loadJson(JsonMap.drummer_boy_1);
     wade.loadJson(JsonMap.gatherer_1);
+    wade.loadJson(JsonMap.selected_marker);
+    wade.loadJson(JsonMap.enemy_marker);
+    wade.loadJson(JsonMap.bleed_marker);
 }
