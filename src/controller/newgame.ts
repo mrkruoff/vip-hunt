@@ -81,7 +81,7 @@ const NewGame = {
         UnitDec.playerUnitsWatch();
         UnitDec.aiUnitsWatch();
         //start AI
-        // AiDec.decisions(GlobalGameState,false);
+        AiDec.decisions(wade.getSceneObject('global').state,false);
     },
     setUpCamera: function setUpCamera() {
         //Add basic camera settings
