@@ -86,6 +86,8 @@ var SaveGame = {
         setUpIsometricSpriteVisibility();
         setUpIsometricSpriteMinimapMarkers();
         setUpPlayerSelectClickEvents();
+        resetUnitActivity();
+        resetUnitSpriteSizes();
 
         // If all the isometric objects are linked, we can set up the camera and hud.
         NewGame.createHud();
@@ -104,6 +106,37 @@ var SaveGame = {
         console.log(wade.iso.exportMap() ) ;
     }
 };
+
+function resetUnitSpriteSizes() {
+    let state = wade.getSceneObject('global').state;
+    let units = _.concat(state.getAi().getUnits(), state.getPlayer().getUnits());
+    _.forEach(units, (datum) => {
+        let unitSceneObject = datum.rep; 
+        let playerSprite = unitSceneObject.getSprite(1);
+        playerSprite.setSize(200, 200);
+        unitSceneObject.setSpriteOffset(1, {x: 0, y: 5});
+        let enemySprite = unitSceneObject.getSprite(2);
+        enemySprite.setSize(750, 750);
+        unitSceneObject.setSpriteOffset(2, {x: 0, y: -50});
+    });
+
+
+}
+
+function resetUnitActivity() {
+    let state = wade.getSceneObject('global').state;
+    let units = _.concat(state.getAi().getUnits(), state.getPlayer().getUnits());
+    _.forEach(units, (datum) => {
+        let unitSceneObject = datum.rep; 
+        unitSceneObject.active = false;
+        unitSceneObject.shouldPursue = false;
+        unitSceneObject.isAttacking = false;
+        unitSceneObject.shouldGather = false;
+        unitSceneObject.isGathering = false;
+        datum.isMoving = false;
+    })
+
+}
 
 function setUpPlayerSelectClickEvents() {
     let state = wade.getSceneObject('global').state;
