@@ -56,6 +56,11 @@ const NewGame = {
         createPlayerStartingUnits();   // units and buildings must be created before 
         createAiStartingUnits();       // the rest of the HUD can be created
 
+        // Set up WADE layers to display correctly.
+        wade.setLayerSorting(9, 'bottomToTop');
+        wade.setLayerTransform(8, 0, 0);
+        wade.setLayerTransform(9, 0, 0);
+        wade.setLayerTransform(10, 0, 0);
         createHud();                    // Requires all units/buildings to be created
                                         // Actually it just requires a global game state 
                                         // to have been created
@@ -230,11 +235,6 @@ function addToScene(state: GlobalGameState) {
 }
 
 function createHud() {
-    // Set up WADE layers to display correctly.
-    wade.setLayerSorting(9, 'bottomToTop');
-    wade.setLayerTransform(8, 0, 0);
-    wade.setLayerTransform(9, 0, 0);
-    wade.setLayerTransform(10, 0, 0);
 
     // Create hud elements.
     const resources = Hud.showResourcePanel();

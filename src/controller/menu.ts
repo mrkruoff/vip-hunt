@@ -12,6 +12,7 @@ import Events from './events';
 import Hud from './hud';
 import NewGame from './newgame';
 import Camera from './camera';
+import SaveGame from './savegame';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -44,7 +45,7 @@ const displayWelcome = function() {
     const loadGameText = new TextSprite('Load Game', '20px Verdana', color, alignment);
     this.loadGameObject = new SceneObject(loadGameText);
     wade.addSceneObject(this.loadGameObject);
-    setupSaveGame.call(this);
+    setupSaveGame.call(this, music_id);
 
     // Create the settings text
     const settingsText = new TextSprite('Settings', '20px Verdana', color, alignment);
@@ -63,11 +64,12 @@ function setupSettings() {
 
 }
 
-const setupSaveGame = function () {
+const setupSaveGame = function (music_id: number) {
     this.loadGameObject.setPosition(0, 50);
     setMouseInOut(this.loadGameObject);
 
     this.loadGameObject.onClick = function() {
+        wade.stopAudio(music_id);
         let savedGame = JSON.parse(wade.retrieveLocalObject('save_game'));
         console.log(savedGame);
         wade.setJson('savedGameScene.wsc', savedGame);
@@ -77,11 +79,7 @@ const setupSaveGame = function () {
         //let testing = wade.getJson('savedGameScene.json');
 
         wade.importScene(wade.getJson('savedGameScene.wsc'), true, () => {
-            //Add basic camera settings
-            Events.addCamera();
-            Camera.setBounds();
-        
-            console.log(wade.iso.exportMap() ) ;
+            SaveGame.initialize();
         }, false, true);
 
         /*

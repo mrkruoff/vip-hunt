@@ -24,7 +24,7 @@ class Tile {
 
         //Check to see that the tile is correctly occupied
         if(this.buildingId > 0) {
-            if(this.resourceId > 0 || this.buildingId > 0) {
+            if(this.resourceId > 0 || this.unitId > 0) {
                 throw Error("Tile is occupied by building and something else")
             }
 
