@@ -69,7 +69,6 @@ var SaveGame = {
         global.minimap = {
         
         };
-        console.log(global);
 
         // Set up WADE layers to display correctly.
         wade.setLayerSorting(9, 'bottomToTop');
@@ -77,20 +76,169 @@ var SaveGame = {
         wade.setLayerTransform(9, 0, 0);
         wade.setLayerTransform(10, 0, 0);
 
+        Hud.showMinimap();      // Show minimap so new units and buildings can 
+                                // be created
+        setUpFog();
+        syncMiniFogToFog();
 
         // Connect all the isometric objects back to their data representations.
         relinkDataAndIsometricObjects();
         setUpIsometricSpriteVisibility();
+        setUpIsometricSpriteMinimapMarkers();
+        setUpPlayerSelectClickEvents();
+        resetUnitActivity();
+        resetUnitSpriteSizes();
 
         // If all the isometric objects are linked, we can set up the camera and hud.
         NewGame.createHud();
         NewGame.setUpCamera();
 
+        GamePlay.refreshPlayerVision();
 
-    
+
+        AiGamePlay.generateRandomResources();
+        // Start background thread that checks for when player units enter 
+        // ai unit vision, and vice versa. This will start conflicts!
+        UnitDec.playerUnitsWatch();
+        UnitDec.aiUnitsWatch();
+
+        console.log(global);
         console.log(wade.iso.exportMap() ) ;
     }
 };
+
+function resetUnitSpriteSizes() {
+    let state = wade.getSceneObject('global').state;
+    let units = _.concat(state.getAi().getUnits(), state.getPlayer().getUnits());
+    _.forEach(units, (datum) => {
+        let unitSceneObject = datum.rep; 
+        let playerSprite = unitSceneObject.getSprite(1);
+        playerSprite.setSize(200, 200);
+        unitSceneObject.setSpriteOffset(1, {x: 0, y: 5});
+        let enemySprite = unitSceneObject.getSprite(2);
+        enemySprite.setSize(750, 750);
+        unitSceneObject.setSpriteOffset(2, {x: 0, y: -50});
+    });
+
+
+}
+
+function resetUnitActivity() {
+    let state = wade.getSceneObject('global').state;
+    let units = _.concat(state.getAi().getUnits(), state.getPlayer().getUnits());
+    _.forEach(units, (datum) => {
+        let unitSceneObject = datum.rep; 
+        unitSceneObject.active = false;
+        unitSceneObject.shouldPursue = false;
+        unitSceneObject.isAttacking = false;
+        unitSceneObject.shouldGather = false;
+        unitSceneObject.isGathering = false;
+        datum.isMoving = false;
+    })
+
+}
+
+function setUpPlayerSelectClickEvents() {
+    let state = wade.getSceneObject('global').state;
+    _.forEach(state.getPlayer().getUnits(), (unit) => {
+        let sceneobject = unit.rep; 
+        sceneobject.onMouseDown = GamePlay.onSelectUnit(sceneobject);
+        wade.addEventListener(sceneobject, 'onMouseDown');
+    });
+
+    _.forEach(state.getPlayer().getBuildings(), (building) => {
+        let sceneobject = building.rep;
+        const imageName = sceneobject.getSprite(0).getImageName();
+        let displayFn;
+        if (imageName === ImageMap.barracks_1) {
+            displayFn = Hud.showBarracksPanel;
+        } else if (imageName === ImageMap.stables_1) {
+            displayFn = Hud.showStablesPanel;
+        } else if (imageName === ImageMap.towers_1) {
+            displayFn = Hud.showTowerPanel;
+        } else if (imageName === ImageMap.town_halls_1) {
+            displayFn = Hud.showTownHallPanel;
+        } else {
+            throw new Error("Unrecognized building image in setUpPlayerSelectClickEvents"); 
+        }
+        sceneobject.onMouseDown = GamePlay.onSelectBuilding(sceneobject, displayFn);
+        wade.addEventListener(sceneobject, 'onMouseDown');
+    });
+}
+
+function setUpIsometricSpriteMinimapMarkers() {
+    let state = wade.getSceneObject('global').state;
+
+    // Restore unit markers
+    _.forEach(state.getPlayer().getUnits(), (unit) => {
+        let sceneobject = unit.rep;
+        let coords = sceneobject.iso.gridCoords;
+        sceneobject.marker = Minimap.createUnitMarker(coords.x, coords.z, "player");
+    });
+    _.forEach(state.getAi().getUnits(), (unit) => {
+        let sceneobject = unit.rep;
+        let coords = sceneobject.iso.gridCoords;
+        sceneobject.marker = Minimap.createUnitMarker(coords.x, coords.z, "ai");
+    });
+
+    // Restore building markers
+    _.forEach(state.getPlayer().getBuildings(), (building) => {
+        let sceneobject = building.rep;
+        let coords = sceneobject.iso.gridCoords;
+        sceneobject.marker = Minimap.createBuildingMarker(coords.x, coords.z, "player");
+    
+    });
+    _.forEach(state.getAi().getBuildings(), (building) => {
+        let sceneobject = building.rep;
+        let coords = sceneobject.iso.gridCoords;
+        sceneobject.marker = Minimap.createBuildingMarker(coords.x, coords.z, "ai");
+    
+    });
+
+}
+
+function setUpFog() {
+    let numTiles = wade.iso.getNumTiles();
+    for(let x = 0; x < numTiles.x; x++) {
+        for(let z = 0; z < numTiles.z; z++) {
+            let sprite = wade.iso.getTransitionSprite(x, z);
+            sprite.setLayer(22);
+            if(sprite.getImageName() === ImageMap.fog) {
+                sprite.discovered = true; 
+            }
+            else if (sprite.getImageName() === ImageMap.darkness) {
+                sprite.discovered = false; 
+            }
+            else {
+                throw new Error("Unexpected transition sprite in map fog!"); 
+            }
+        }
+    }
+}
+
+function syncMiniFogToFog() {
+    let miniFog = wade.getSceneObject('global').minimap.fogLayer;
+    let numTiles = wade.iso.getNumTiles();
+
+    for(let x = 0; x < numTiles.x; x++ ) {
+        for(let z = 0; z < numTiles.z; z++) {
+            let sprite = wade.iso.getTransitionSprite(x, z);
+            if(sprite.getImageName() === ImageMap.fog) {
+                miniFog[x][z].getSprite(0).setVisible(false);
+                miniFog[x][z].getSprite(1).setVisible(true);
+            }
+            else if (sprite.getImageName() === ImageMap.darkness) {
+                miniFog[x][z].getSprite(0).setVisible(true);
+                miniFog[x][z].getSprite(1).setVisible(false);
+            }
+            else {
+                throw new Error("Unexpected transition sprite in map fog!"); 
+            }
+        }
+    }
+
+
+}
 
 function setUpIsometricSpriteVisibility() {
     let global = wade.getSceneObject('global');

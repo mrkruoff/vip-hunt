@@ -29,6 +29,7 @@ let Minimap = {
         minimap.setPosition( (wade.getScreenWidth() / 2) - 150, (wade.getScreenHeight()/2) - 100);
         minimap.setAlignment('right', 'bottom');
         wade.addSceneObject(minimap);
+        minimap.dontSave = true;
         return minimap;
     },
     createDarknessLayer: () => {
@@ -64,6 +65,7 @@ let Minimap = {
                 darkness.setAlignment('right', 'bottom');
 
                 wade.addSceneObject(darkness);
+                darkness.dontSave = true;
                 layer[x].push(darkness);
 
                 // The darkness scene object should know what its tile location is.
@@ -115,6 +117,7 @@ let Minimap = {
         }
         zone.setPosition(origin.x, origin.y);
         wade.addSceneObject(zone);
+        zone.dontSave = true;
 
         return zone;
     
@@ -181,6 +184,7 @@ let Minimap = {
         building.setPosition(position);
 
         wade.addSceneObject(building);
+        building.dontSave = true;
 
         return building;
     },
@@ -202,6 +206,7 @@ let Minimap = {
         unit.setPosition(position);
 
         wade.addSceneObject(unit);
+        unit.dontSave = true;
 
         return unit;
     },

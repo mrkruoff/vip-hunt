@@ -210,6 +210,7 @@ const BuildHud = {
     // This function builds the buildings Panel, consisting of the possible buildings that
     // the player can build in the game. Currently this consists of a barracks, stables,
     // towers, and town hall
+    // console.log(global);
     //
     // parameters:
     //  @ layer: the WADE layer to draw the panel on.

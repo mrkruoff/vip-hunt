@@ -8,21 +8,31 @@ declare var wade: any;
 function mapSearch(map, aString){
 	for(var i=0; i<map.length;i++){
 		var row=map[i];
-		for(var j=0; i<row.length;j++){
+		for(var j=0; j<row.length;j++){
+		if(row[j]!=null){
 			if(aString=="resource"){
-			if (row[j].resourceId>0){
-				return row[j].resourceId;
+			if (row[j].getResourceId()>0){
+				console.log(i,j);
+				console.log(row[j]);
+				return row[j].getResourceId();
+				
 			}
 			}
 			else if(aString=="unit"){
-				if(row[j].unitId>0){
-					return row[j].unitId;
+				console.log("Searching for unit");
+				console.log(i, j);
+				if (row[j].getUnitId() >0){
+					console.log(row[j]);
+					return row[j].getUnitId() ;
+				
 				}
+			}
 			}
 		}
 	}
 	return 0;
 };
+
 
 
 function resourceCheck(objectname,state,isHard){
@@ -34,17 +44,18 @@ function resourceCheck(objectname,state,isHard){
 		aiWood=aiWood*2;
 		aiFood=aiFood*2;
 	}
-	
-	var archeryCal=JsonMap.archer_calvary_cost;
-    var archer=JsonMap.archer_cost;
-    var drummer=JsonMap.drummer_boy_cost;
-    var gather=JsonMap.gatherer_cost;
-    var spearCal=JsonMap.spear_calvary_cost;
-    var swordsman=JsonMap.swordsman_cost;
-    var barracks=JsonMap.barracks_cost;
-    var stables=JsonMap.stables_cost;
-    var townhall=JsonMap.townhall_cost;
-    var tower=JsonMap.tower_cost;
+	console.log("Stone:"+aiStone+"Wood:"+aiWood+"aiFood:"+aiFood);
+	var archeryCal=wade.getJson(JsonMap.archer_calvary_cost);
+    var archer=wade.getJson(JsonMap.archer_cost);
+    var drummer=wade.getJson(JsonMap.drummer_boy_cost);
+    var gather=wade.getJson(JsonMap.gatherer_cost);
+    var spearCal=wade.getJson(JsonMap.spear_calvary_cost);
+    var swordsman=wade.getJson(JsonMap.swordsman_cost);
+    var barracks=wade.getJson(JsonMap.barracks_cost);
+    var stables=wade.getJson(JsonMap.stables_cost);
+    var townhall=wade.getJson(JsonMap.townhall_cost);
+    var tower=wade.getJson(JsonMap.tower_cost);
+	console.log(barracks["stone"]);
 	if(objectname=="ArcherCalvary"){
 		if(aiStone>=archeryCal["stone"] && aiWood >=archeryCal["wood"] && aiFood>=archeryCal["food"]){
 			return true;
@@ -158,20 +169,21 @@ const AiDec = {
 		}
 		while(true){
 			await delay(time);
-			if(currentState=="setup")
-				{console.log("Settingup")
+			if(aistate.getActionState()=="setup")
+				{console.log("Settingup step:"+step)
 				if(step==0){
 					  if(resourceCheck("Barracks",aistate,isHardMode)){
 						AiGamePlay.constructBuilding("Barracks", 0, 10);
 						barracks=true;
+						console.log("Barracks Built");
 						step++;
 					  }
 					  else{
 						  gathering=AiGamePlay.constructUnit("Gatherer",3,1);
 						  var resource=mapSearch(map,"resource");
-						  AiGamePlay.unitGather(gathering.id,resLoc);
-						  await delay(4000);
-						  
+						  AiGamePlay.unitGather(gathering.id,resource);
+						  console.log("Gathering, waiting");
+						  await delay(4000); 
 					  }
 				}
 				else if(step==1){
@@ -190,20 +202,24 @@ const AiDec = {
 					if (resLoc!=0){
 						AiGamePlay.unitGather(gathering.id,resLoc);
 					}
-					currentState="offense";}
+					aistate["actionState"]="offense";}
 				};
-			if(currentState=="offense"){console.log("Attacking");
+			if(aistate.getActionState()=="offense"){console.log("Attacking");
 				if(stable=false){
-				AiGamePlay.constructBuilding("Stable", 0, 5);
+				console.log("stable");
+				AiGamePlay.constructBuilding("Stable", 0, 15);
 				stable=true;
 				}
 				else if(tower=false){
-					AiGamePlay.constructBuilding("Tower", 3, 0);
+					console.log("tower")
+					AiGamePlay.constructBuilding("Tower", 0, 20);
 					stable=true;
 				}
 				else{
+					console.log("Finding Enemy");
 					var enemLoc=mapSearch(map,"unit");
-					if(enemLoc!=0){
+					console.log(enemLoc);
+					if(enemLoc>0){
 						if(!(enemLoc in aistate.units)){
 							if(enemLoc==playerVIP.id){
 								//starts at 1 to avoid sending vip
@@ -234,7 +250,7 @@ const AiDec = {
 				console.log("check resources if stable build calvary");
 				console.log("move units towards player");
 				};
-			if(currentState=="defense"){console.log("defending")
+			if(aistate.getActionState()=="defense"){console.log("defending")
 				for(i=0;i<aistate.units.length;i++){
 						//toDO Get VIP Cordinates
 						//AiGamePlay.unitMove(units[j].id,

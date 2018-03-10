@@ -9,6 +9,7 @@ class AiGameState {
     stone: number;
     wood: number;
     food: number;
+	actionState: string;
     units: Unit[];
     buildings: Building[];
 
@@ -17,6 +18,7 @@ class AiGameState {
         this.wood = wood;
         this.food = food;
         this.units = units;
+		this.actionState="setup";
         this.buildings = buildings;
     }
 
@@ -27,11 +29,17 @@ class AiGameState {
     getUnits() {
         return this.units;
     }
+	
+	getActionState(){
+		
+		return this.actionState;
+	}
 
     static defaultAiGameState(vipFac, townhallFac) : AiGameState {
         const stone = 500;
         const wood = 400;
         const food = 0;
+		const actionState="setup";
 
         const units = [ vipFac() ];
 
