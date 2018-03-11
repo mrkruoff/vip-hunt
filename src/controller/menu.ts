@@ -88,10 +88,17 @@ const setupSettings = function (music_id: number) {
     this.settingsObject.onClick = function() {
     wade.loadImage('../js/../public/sprites/menu/settingsBackground.png');
 
+            //wade.clearScene();
+
+        this.defaultTextSprite = new TextSprite('Default 500', '32px Arial', 'black', 'center', -5);
+        this.defaultTextObject = new SceneObject(this.defaultTextSprite);
+        this.defaultTextObject.setPosition(0, -100);
+        wade.addSceneObject(this.defaultTextObject);
 
         var settingsSprite = new Sprite('../js/../public/sprites/menu/settingsBackground.png', -1);
         var settingsObject = new SceneObject(settingsSprite);
         wade.addSceneObject(settingsObject);
+
 
 
     //wade.clearScene();
