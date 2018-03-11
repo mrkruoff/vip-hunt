@@ -264,12 +264,13 @@ var AiGamePlay = {
             //If something is there, get as close as possible to it.
             const objects = wade.iso.getObjectsInTile(x, z);
             unitSceneObject.getBehavior('IsoCharacter').goToObject(objects[0]);
+            GamePlay.move(unitSceneObject, {x: x, z: z});
         } else {
             // If nothing is there, move there directly. 
             unitSceneObject.getBehavior('IsoCharacter').setDestination({x: x, z: z});
+            //Keep track of the movements in the internal game state.
+            GamePlay.move(unitSceneObject, {x: x, z: z});
         }
-        //Keep track of the movements in the internal game state.
-        GamePlay.move(unitSceneObject);
     
     },
     // This function sends the unit with a given id to the resource 
@@ -295,7 +296,7 @@ var AiGamePlay = {
 
         gatherer.getBehavior('IsoCharacter').clearDestinations();
         gatherer.getBehavior('IsoCharacter').goToObject(resource);
-        GamePlay.move(gatherer);
+        GamePlay.move(gatherer, resource.iso.gridCoords);
 
         gatherer.onObjectReached = GamePlay.gather(gatherer, resource, "Ai");
          

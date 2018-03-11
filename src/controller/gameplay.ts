@@ -182,7 +182,7 @@ const GamePlay = {
                             GamePlay.clearGather(selected);
 
                             selected.getBehavior('IsoCharacter').goToObject(resource);
-                            GamePlay.move(selected);
+                            GamePlay.move(selected, resource.iso.gridCoords);
                             selected.onObjectReached = GamePlay.gather(selected, resource, "Player");
 
                         } else {
@@ -199,7 +199,7 @@ const GamePlay = {
                     GamePlay.clearGather(selected); // stop gathering
                     selected.getBehavior('IsoCharacter').clearDestinations();
                     selected.getBehavior('IsoCharacter').setDestination(event.gridCoords);
-                    GamePlay.move(selected);
+                    GamePlay.move(selected, event.gridCoords);
                 }
             } else if (event.button === Mouse.left) {
                 //Left click always leads to deselection and return
@@ -226,15 +226,28 @@ const GamePlay = {
     //
     // parameters:
     //  @ unit: The unit SceneObject that is moving
-    move: async function(unit) {
+    move: async function(unit, targetCoords) {
         //Once the move is complete, there is no more reason to
         // keep tracking the location.
         unit.data.isMoving = true;
         let fogLayer = wade.getSceneObject('global').minimap.fogLayer;
+
+        function distanceBetween(sceneObject, coords) {
+            let sceneCoords = sceneObject.iso.gridCoords;
+            let dx = sceneCoords.x - coords.x; 
+            let dz = sceneCoords.z - coords.z; 
+            let d = Math.sqrt(Math.pow(dx, 2) + Math.pow(dz, 2)); 
+
+            return d;
+        }
         unit.onMoveComplete = function stopMoving(event) {
-            unit.data.isMoving = false;
-            let position = fogLayer[unit.iso.gridCoords.x][unit.iso.gridCoords.z].getPosition();
-            unit.marker.setPosition(position.x, position.y);
+            // End the movement when the distance is 0
+            if(distanceBetween(unit, targetCoords) < 1) {
+                unit.data.isMoving = false;
+                let position = fogLayer[unit.iso.gridCoords.x][unit.iso.gridCoords.z].getPosition();
+                unit.marker.setPosition(position.x, position.y);
+            }
+
         };
         unit.data.isMoving = true;
 
