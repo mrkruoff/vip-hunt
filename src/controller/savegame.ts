@@ -63,6 +63,7 @@ async function delay(milliseconds: number) {
 
 // Got some nice callback hell for the gameplay music! Yeeaaaah.
 function playGameMusic() {
+    wade.playAudio(AudioMap.surreptitious, false, async () => {
         wade.setTimeout(() => {
             wade.playAudio(AudioMap.haunting, false, async () => {
                 wade.setTimeout(() => {
@@ -81,6 +82,7 @@ function playGameMusic() {
                 }, 30000);
             });
         }, 30000);
+    });
 }
 
 var SaveGame = {

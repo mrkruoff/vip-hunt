@@ -35,25 +35,28 @@ async function delay(milliseconds: number) {
 
 
 let music_id = -1;
+let keepPlaying = true;
 const displayWelcome = async function() {
     function playMenuMusic() {
-        music_id = wade.playAudio(AudioMap.familiar_roads, false, async () => {
-            wade.setTimeout(() => {
-                music_id = wade.playAudio(AudioMap.deserve_to_be, false, async () => {
-                    wade.setTimeout(() => {
+        if(keepPlaying) {
+            music_id = wade.playAudio(AudioMap.familiar_roads, false, async () => {
+                wade.setTimeout(() => {
+                    if(keepPlaying) {
                         music_id = wade.playAudio(AudioMap.menu_music, false, async () => {
                             wade.setTimeout(() => {
-                                music_id = wade.playAudio(AudioMap.from_here, false, async () => {
-                                    wade.setTimeout(() => {
-                                        playMenuMusic(); 
-                                    }, 4000);
-                                });
+                                if(keepPlaying) {
+                                    music_id = wade.playAudio(AudioMap.from_here, false, async () => {
+                                        wade.setTimeout(() => {
+                                            playMenuMusic(); 
+                                        }, 4000);
+                                    });
+                                }
                             }, 4000);
                         });
-                    }, 4000);
-                });
-            }, 4000)
-        });
+                    }
+                }, 4000)
+            });
+        }
     }
     playMenuMusic();
     const color = 'white';
@@ -100,6 +103,7 @@ const setupSaveGame = function () {
 
     this.loadGameObject.onClick = function() {
         wade.stopAudio(music_id);
+        keepPlaying = false;
         let savedGame = JSON.parse(wade.retrieveLocalObject('save_game'));
         wade.setJson('savedGameScene.wsc', savedGame);
 
@@ -122,6 +126,7 @@ const setupNewGame = function() {
 
     this.newGameObject.onClick = function() {
         wade.stopAudio(music_id);
+        keepPlaying = false;
         const clearscene = true;
         // load the map
         /*
