@@ -304,6 +304,7 @@ var AiGamePlay = {
     // This function sends the unit with the given id to the 
     // target and attacks the target WHILE following it.
     unitAttack: (attackId: number, targetId: number) => {
+        console.log(attackId + " is attacking " + targetId + "!");
 
         let state = wade.getSceneObject('global').state;
         let ai = state.getAi();
@@ -325,8 +326,13 @@ var AiGamePlay = {
 
         // Regardless of whether it is a building or unit, pursue 
         // and attack it.
+        console.log("attacker");
         let attacker = attackData.rep; 
+        console.log(attacker);
+
+        console.log("target");
         let target = targetData.rep;
+        console.log(target)
         //Clear previous movement actions
         attacker.getBehavior('IsoCharacter').clearDestinations();
         GamePlay.clearPursue(attacker);
