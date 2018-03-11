@@ -24,8 +24,34 @@ declare var Path: any;
 declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
-const displayWelcome = function() {
-    let music_id = wade.playAudio(AudioMap.menu_music, true);
+// This function sets up an asynchronouse delay that allows for
+// delayed while loops
+//Based on https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-7.html which gives an example of the delay function.
+async function delay(milliseconds: number) {
+    return new Promise<void>((resolve) => {
+        wade.setTimeout(resolve, milliseconds);
+    });
+}
+
+
+const displayWelcome = async function() {
+    let music_id = -1;
+    function playMenuMusic() {
+        music_id = wade.playAudio(AudioMap.familiar_roads, false, async () => {
+            await delay(4000);
+            music_id = wade.playAudio(AudioMap.deserve_to_be, false, async () => {
+                await delay(4000);
+                music_id = wade.playAudio(AudioMap.menu_music, false, async () => {
+                    await delay(4000); 
+                    music_id = wade.playAudio(AudioMap.from_here, false, async () => {
+                        await delay(4000);
+                        playMenuMusic(); 
+                    });
+                });
+            });
+        });
+    }
+    playMenuMusic();
     const color = 'white';
     const alignment = 'center';
 

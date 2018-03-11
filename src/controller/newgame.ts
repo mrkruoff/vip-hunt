@@ -24,6 +24,7 @@ import Fog from './fog';
 import Minimap from './minimap'
 import UnitDec from './unit-ai';
 import AiDec from '../model/state/ai-dec';
+import AudioMap from './audio-map';
 
 
 declare var wade: any;
@@ -42,9 +43,30 @@ async function delay(milliseconds: number) {
     });
 }
 
+function playGameMusic() {
+    wade.playAudio(AudioMap.surreptitious, false, async () => {
+        await delay(30000); 
+        wade.playAudio(AudioMap.haunting, false, async () => {
+            await delay(30000); 
+            wade.playAudio(AudioMap.menu_music, false, async () => {
+                await delay(30000); 
+                wade.playAudio(AudioMap.from_here, false, async () => {
+                    await delay(30000); 
+                    wade.playAudio(AudioMap.retribution, false, async () => {
+                        await delay(10000); 
+                        playGameMusic();
+                    });
+                });
+            });
+        });
+    });
+
+}
+
 const NewGame = {
     // Initializes a new game
     initialize: async () => {
+        playGameMusic();
         wade.setMinScreenSize(20, 20);
         wade.setMaxScreenSize(1280, 800);
 

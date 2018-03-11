@@ -34,6 +34,7 @@ import Building from '../model/buildings/buildings';
 import Stables from '../model/buildings/stable_buildings';
 import Tower from '../model/buildings/tower_buildings';
 import TownHall from '../model/buildings/townhall_buildings';
+import AudioMap from './audio-map';
 
 import Food from '../model/resources/food';
 import Wood from '../model/resources/wood';
@@ -54,10 +55,34 @@ declare var Path: any;
 declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
+async function delay(milliseconds: number) {
+    return new Promise<void>((resolve) => {
+        wade.setTimeout(resolve, milliseconds);
+    });
+}
 
+function playGameMusic() {
+    wade.playAudio(AudioMap.surreptitious, false, async () => {
+        await delay(30000); 
+        wade.playAudio(AudioMap.haunting, false, async () => {
+            await delay(30000); 
+            wade.playAudio(AudioMap.menu_music, false, async () => {
+                await delay(30000); 
+                wade.playAudio(AudioMap.from_here, false, async () => {
+                    await delay(30000); 
+                    wade.playAudio(AudioMap.retribution, false, async () => {
+                        await delay(10000); 
+                        playGameMusic();
+                    });
+                });
+            });
+        });
+    });
+}
 
 var SaveGame = {
     initialize: async () => {
+        playGameMusic();
         wade.setMinScreenSize(20, 20);
         wade.setMaxScreenSize(1280, 800);
 
