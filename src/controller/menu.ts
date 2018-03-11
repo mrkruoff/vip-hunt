@@ -24,8 +24,34 @@ declare var Path: any;
 declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
-const displayWelcome = function() {
-    let music_id = wade.playAudio(AudioMap.menu_music, true);
+// This function sets up an asynchronouse delay that allows for
+// delayed while loops
+//Based on https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-7.html which gives an example of the delay function.
+async function delay(milliseconds: number) {
+    return new Promise<void>((resolve) => {
+        wade.setTimeout(resolve, milliseconds);
+    });
+}
+
+
+const displayWelcome = async function() {
+    let music_id = -1;
+    function playMenuMusic() {
+        music_id = wade.playAudio(AudioMap.familiar_roads, false, async () => {
+            await delay(4000);
+            music_id = wade.playAudio(AudioMap.deserve_to_be, false, async () => {
+                await delay(4000);
+                music_id = wade.playAudio(AudioMap.menu_music, false, async () => {
+                    await delay(4000); 
+                    music_id = wade.playAudio(AudioMap.from_here, false, async () => {
+                        await delay(4000);
+                        playMenuMusic(); 
+                    });
+                });
+            });
+        });
+    }
+    playMenuMusic();
     const color = 'white';
     const alignment = 'center';
 
@@ -71,7 +97,6 @@ const setupSaveGame = function (music_id: number) {
     this.loadGameObject.onClick = function() {
         wade.stopAudio(music_id);
         let savedGame = JSON.parse(wade.retrieveLocalObject('save_game'));
-        console.log(savedGame);
         wade.setJson('savedGameScene.wsc', savedGame);
 
         //the line below was purely for testing purposes to make sure
@@ -82,17 +107,6 @@ const setupSaveGame = function (music_id: number) {
             SaveGame.initialize();
         }, false, true);
 
-        /*
-        wade.loadScene('savedGameScene.wsc', true, () => {
-            wade.setMinScreenSize(20, 20);
-            wade.setMaxScreenSize(1280, 800);
-            //Add basic camera settings
-            Events.addCamera();
-            Camera.setBounds();
-            console.log(wade.iso.exportMap() ) ;
-        
-        }, true);
-        */
     };
     wade.addEventListener(this.loadGameObject, 'onClick');      
 };

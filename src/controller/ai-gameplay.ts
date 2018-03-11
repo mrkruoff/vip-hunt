@@ -238,13 +238,10 @@ var AiGamePlay = {
     //  @ x: the x-coordinate of the tile to move to.
     //  @ y: the y-coordinate of the tile to move to.
     unitMove: (id: number, x:number, z: number) => {
-
-        console.log(id);
         let state = wade.getSceneObject('global').state;
         let ai = state.getAi();
         let map = state.getMap();
 
-        console.log(ai.getUnits());
         let unitData = _.find(ai.getUnits(), (u) => {
             return u.getId() === id; 
         });
@@ -307,6 +304,7 @@ var AiGamePlay = {
     // This function sends the unit with the given id to the 
     // target and attacks the target WHILE following it.
     unitAttack: (attackId: number, targetId: number) => {
+        console.log(attackId + " is attacking " + targetId + "!");
 
         let state = wade.getSceneObject('global').state;
         let ai = state.getAi();
@@ -328,9 +326,13 @@ var AiGamePlay = {
 
         // Regardless of whether it is a building or unit, pursue 
         // and attack it.
-        console.log("attacking!");
+        console.log("attacker");
         let attacker = attackData.rep; 
+        console.log(attacker);
+
+        console.log("target");
         let target = targetData.rep;
+        console.log(target)
         //Clear previous movement actions
         attacker.getBehavior('IsoCharacter').clearDestinations();
         GamePlay.clearPursue(attacker);
@@ -358,7 +360,6 @@ var AiGamePlay = {
         } 
         // Regardless of whether it is a building or unit, pursue 
         // and attack it.
-        console.log("attacking!");
         let attacker = attackData.rep; 
         let target = targetData.rep;
         //Clear previous movement actions
@@ -449,9 +450,7 @@ var AiGamePlay = {
                 }
             }
         }
-        console.log("BUG IN SCENE UNIT");
         sceneUnit.getSprite(2).setVisible(true);
-        console.log(sceneUnit);
         
         //Once the sprite is properly moved, update its map location in the state.
         // and clear its old tile

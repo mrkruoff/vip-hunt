@@ -56,8 +56,15 @@ App = function() {
 
 function loadAudio() {
     wade.loadAudio(AudioMap.menu_music);
+    wade.loadAudio(AudioMap.deserve_to_be);
+    wade.loadAudio(AudioMap.from_here);
+    wade.loadAudio(AudioMap.familiar_roads);
     wade.loadAudio(AudioMap.building_construction_sound);
     wade.loadAudio(AudioMap.unit_construction_sound);
+    wade.loadAudio(AudioMap.retribution);
+    wade.loadAudio(AudioMap.surreptitious);
+    wade.loadAudio(AudioMap.forest);
+    wade.loadAudio(AudioMap.haunting);
 }
 
 function loadCostJson() {

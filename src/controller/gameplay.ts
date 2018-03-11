@@ -120,7 +120,6 @@ const GamePlay = {
     //  @selected: the unit SceneObject to be selected
     addSelectedUnit: (selected) => {
         wade.app.selected = selected;
-        console.log(selected);
         selected.getSprite(1).setVisible(true);
 
         wade.app.onIsoTerrainMouseDown = (event) => {
@@ -151,8 +150,7 @@ const GamePlay = {
 
                     if (enemy) {
                         //If an enemy was found, attack it.
-                        console.log('Found enemy!');
-                            // Clear any previous movements
+                        // Clear any previous movements
                         GamePlay.clearPursue(selected);
                         GamePlay.clearGather(selected);
 
@@ -179,8 +177,7 @@ const GamePlay = {
 
                         if (resource) {
                             //If resource was found, go try to gather it.
-                            console.log(resource);
-                                // Clear any previous movements
+                            // Clear any previous movements
                             GamePlay.clearPursue(selected);
                             GamePlay.clearGather(selected);
 
@@ -373,8 +370,6 @@ const GamePlay = {
                 var anim = attacker.getSprite(0).getCurrentAnimationName();
                 var direction = anim.substr(anim.lastIndexOf('_') + 1);
                 attacker.onAnimationEnd = (data) => {
-                    console.log("ANIMATION DATA");
-                    console.log(data);
                     target.getSprite(3).setVisible(false);
                     if(data.name === 'bleed') {
                     
@@ -387,7 +382,6 @@ const GamePlay = {
                 }
                 wade.addEventListener(attacker, 'onAnimationEnd');
                 attacker.playAnimation('Attack_iso_' + direction, 'forward');
-                console.log(targetData.hp);
                 targetData.takeDamage(attacker.data.getAttack());
                 target.getSprite(3).setVisible(true);
                 target.playAnimation('bleed', 'forward');
@@ -522,7 +516,6 @@ const GamePlay = {
                 // If the gatherer isn't currently in the middle
                 // of gathering, start gathering resources
                 if(! gatherer.isGathering) {
-                    console.log(targetData.amount);
                     targetData.takeGather(gatherer.data.getGather());;
                     if (_.isEqual(owner, "Player") ) {
                         GamePlay.applyGatherToPlayer(gatherer.data.getGather(),
@@ -551,7 +544,6 @@ const GamePlay = {
                     GamePlay.clearUnitActions(gatherer);
                     GamePlay.clearGather(gatherer);
                     GamePlay.deleteGameObject(target);
-                    console.log(gatherer.getSprite(0).getCurrentAnimation());
                     gatherer.getBehavior('IsoCharacter').setDirection('s');
                 }
             }
@@ -653,7 +645,6 @@ const GamePlay = {
                 wade.removeSceneObject(sceneObject.marker);
             }
             wade.iso.deleteObject(sceneObject);
-            console.log(global.state);
         } 
         catch(error) {
             //Do nothing if there's an error. It probably isn't fatal 
@@ -679,7 +670,6 @@ const GamePlay = {
         sceneObject.oldZ = sceneObject.iso.gridCoords.z;
         sceneObject.oldX = sceneObject.iso.gridCoords.x;
 
-        console.log({x: sceneObject.oldX, z: sceneObject.oldZ});
     },
     // This function takes a building SceneObject and uses its location on the
     // Visual Map to update its location in the internal State Map.
@@ -983,7 +973,6 @@ const UnitBuilding = {
     //  @ options: an array of SceneObjects representing all the
     //      possible units that ocould be built.
     selectAUnitCallback: (imageName: string, options) => {
-        console.log(imageName);
         let callback;
         if (imageName === ImageMap.swordsman_1) {
             callback = UnitBuilding.unitConstruction(options, Construction.swordsman,

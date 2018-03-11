@@ -73,8 +73,6 @@ let Minimap = {
                 darkness.z = z;
 
                 darkness.onClick = (event) => {
-                    console.log(event);
-                    console.log(darkness);
                     if(event.button === Mouse.left) {
                         let position = wade.iso.getFlatWorldCoordinates(darkness.x, darkness.z);
                         position.z = wade.getCameraPosition().z;
