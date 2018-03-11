@@ -34,21 +34,25 @@ async function delay(milliseconds: number) {
 }
 
 
+let music_id = -1;
 const displayWelcome = async function() {
-    let music_id = -1;
     function playMenuMusic() {
         music_id = wade.playAudio(AudioMap.familiar_roads, false, async () => {
-            await delay(4000);
-            music_id = wade.playAudio(AudioMap.deserve_to_be, false, async () => {
-                await delay(4000);
-                music_id = wade.playAudio(AudioMap.menu_music, false, async () => {
-                    await delay(4000); 
-                    music_id = wade.playAudio(AudioMap.from_here, false, async () => {
-                        await delay(4000);
-                        playMenuMusic(); 
-                    });
+            wade.setTimeout(() => {
+                music_id = wade.playAudio(AudioMap.deserve_to_be, false, async () => {
+                    wade.setTimeout(() => {
+                        music_id = wade.playAudio(AudioMap.menu_music, false, async () => {
+                            wade.setTimeout(() => {
+                                music_id = wade.playAudio(AudioMap.from_here, false, async () => {
+                                    wade.setTimeout(() => {
+                                        playMenuMusic(); 
+                                    }, 4000);
+                                });
+                            }, 4000);
+                        });
+                    }, 4000);
                 });
-            });
+            }, 4000)
         });
     }
     playMenuMusic();
@@ -65,13 +69,13 @@ const displayWelcome = async function() {
     const newGameText = new TextSprite('New Game', '20px Verdana', color, alignment);
     this.newGameObject = new SceneObject(newGameText);
     wade.addSceneObject(this.newGameObject);
-    setupNewGame.call(this, music_id);
+    setupNewGame.call(this);
 
     // Create the Load Game text
     const loadGameText = new TextSprite('Load Game', '20px Verdana', color, alignment);
     this.loadGameObject = new SceneObject(loadGameText);
     wade.addSceneObject(this.loadGameObject);
-    setupSaveGame.call(this, music_id);
+    setupSaveGame.call(this);
 
     // Create the settings text
     const settingsText = new TextSprite('Settings', '20px Verdana', color, alignment);
@@ -90,7 +94,7 @@ function setupSettings() {
 
 }
 
-const setupSaveGame = function (music_id: number) {
+const setupSaveGame = function () {
     this.loadGameObject.setPosition(0, 50);
     setMouseInOut(this.loadGameObject);
 
@@ -111,7 +115,7 @@ const setupSaveGame = function (music_id: number) {
     wade.addEventListener(this.loadGameObject, 'onClick');      
 };
 
-const setupNewGame = function(music_id: number) {
+const setupNewGame = function() {
     this.newGameObject.setPosition(0, 0);
 
     setMouseInOut(this.newGameObject);

@@ -43,24 +43,26 @@ async function delay(milliseconds: number) {
     });
 }
 
+// Got some nice callback hell for the gameplay music! Yeeaaaah.
 function playGameMusic() {
-    wade.playAudio(AudioMap.surreptitious, false, async () => {
-        await delay(30000); 
-        wade.playAudio(AudioMap.haunting, false, async () => {
-            await delay(30000); 
-            wade.playAudio(AudioMap.menu_music, false, async () => {
-                await delay(30000); 
-                wade.playAudio(AudioMap.from_here, false, async () => {
-                    await delay(30000); 
-                    wade.playAudio(AudioMap.retribution, false, async () => {
-                        await delay(10000); 
-                        playGameMusic();
+        wade.setTimeout(() => {
+            wade.playAudio(AudioMap.haunting, false, async () => {
+                wade.setTimeout(() => {
+                    wade.playAudio(AudioMap.menu_music, false, async () => {
+                        wade.setTimeout(() => {
+                            wade.playAudio(AudioMap.from_here, false, async () => {
+                                wade.playAudio(AudioMap.retribution, false, async () => {
+                                    wade.setTimeout(() => {
+                                        playGameMusic();
+                                    }, 10000);
+                                });
+                            });
+                        
+                        }, 30000);
                     });
-                });
+                }, 30000);
             });
-        });
-    });
-
+        }, 30000);
 }
 
 const NewGame = {
