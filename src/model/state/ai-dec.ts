@@ -33,7 +33,16 @@ function mapSearch(map, aString){
 	return 0;
 };
 
-
+function chooseUnit(name, state){
+	var units=state.getUnits();
+	for(var i=0;i<units.length;i++){
+	if(units[i].getClassName()==name && units[i]["hp"]>0){
+			return units[i].getId();
+		}
+	}
+	
+	return false; 
+};
 
 function resourceCheck(objectname,state,isHard){
 	var aiStone=state["stone"];
@@ -250,12 +259,7 @@ const AiDec = {
 				console.log("check resources if stable build calvary");
 				console.log("move units towards player");
 				};
-			if(aistate.getActionState()=="defense"){console.log("defending")
-				for(i=0;i<aistate.units.length;i++){
-						//toDO Get VIP Cordinates
-						//AiGamePlay.unitMove(units[j].id,
-					}
-				};			
+		
 		}
 		 
 	 },
