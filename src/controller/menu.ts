@@ -81,14 +81,26 @@ const displayWelcome = async function() {
 
 };
 
-function setupSettings() {
+const setupSettings = function (music_id: number) {
     this.settingsObject.setPosition(0, 100);
     setMouseInOut(this.settingsObject);
 
+    this.settingsObject.onClick = function() {
+    wade.loadImage('../js/../public/sprites/menu/settingsBackground.png');
+
+
+        var settingsSprite = new Sprite('../js/../public/sprites/menu/settingsBackground.png', -1);
+        var settingsObject = new SceneObject(settingsSprite);
+        wade.addSceneObject(settingsObject);
+
+
+    //wade.clearScene();
     // this.settingsObject.onClick = settings.call(this);
     // wade.addEventListener(this.loadGameObject, 'onClick');
 
-}
+};
+ wade.addEventListener(this.settingsObject, 'onClick');
+};
 
 const setupSaveGame = function (music_id: number) {
     this.loadGameObject.setPosition(0, 50);
