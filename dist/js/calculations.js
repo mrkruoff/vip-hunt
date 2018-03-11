@@ -9,7 +9,7 @@ var Calculation = {
             return d;
         };
 
-        if(dist(attackerData.coords, targetData.coords) < attackerData.vision - 1) {
+        if(Math.floor(dist(attackerData.coords, targetData.coords)) < attackerData.vision) {
             return true; 
         }
 
