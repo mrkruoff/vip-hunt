@@ -5,32 +5,35 @@ import JsonMap from "../../controller/json-map";
 
 declare var wade: any;
 
-function mapSearch(map, aString){
+function mapSearch(map, aString,playerState){
 	for(var i=0; i<map.length;i++){
 		var row=map[i];
 		for(var j=0; j<row.length;j++){
 		if(row[j]!=null){
 			if(aString=="resource"){
 			if (row[j].getResourceId()>0){
-				console.log(i,j);
-				console.log(row[j]);
 				return row[j].getResourceId();
 				
 			}
 			}
 			else if(aString=="unit"){
 				console.log("Searching for unit");
-				console.log(i, j);
-				if (row[j].getUnitId() >0){
-					console.log(row[j]);
-					return row[j].getUnitId() ;
-				
+				if (row[j].getUnitId() >=0){
+					var playerUnits=playerState.getUnits();
+					console.log(playerUnits);
+					for(var k=0;k<playerUnits.length;k++)
+					{	console.log(playerUnits[k].getId()+" " +row[j].getUnitId());
+						if(playerUnits[k].getId()==row[j].getUnitId()){
+							return row[j].getUnitId()
+							} ;
+					}
+					
 				}
 			}
 			}
 		}
 	}
-	return 0;
+	return false;
 };
 
 function chooseUnit(name, state){
@@ -40,9 +43,19 @@ function chooseUnit(name, state){
 			return units[i].getId();
 		}
 	}
-	
 	return false; 
 };
+
+function chooseBuilding(name, state){
+	var buildings=state.getBuildings();
+	for(var i=0;i<buildings.length;i++){
+	if(buildings[i].getClassName()==name && buildings[i]["hp"]>0){
+			return buildings[i].getId();
+		}
+	}
+	return false; 
+};
+
 
 function resourceCheck(objectname,state,isHard){
 	var aiStone=state["stone"];
@@ -160,16 +173,16 @@ const AiDec = {
 	 decisions: async (globalState,isHardMode) =>{ 
 		let aistate=globalState.getAi();
 		let playerState=globalState.getPlayer();
-		let AiVip=aistate.units[0];
-		let playerVIP=playerState.units[0];
+		let AiVip=chooseUnit("VIP",aistate);
+		console.log("AiVIP:"+AiVip);
+		let playerVIP=chooseUnit("VIP",playerState);
+		console.log("PlayerVIP:"+playerVIP);
 		let currentState="setup";
 		console.log(currentState);
 		let step=0;
+		let stable=false;
+		let tower=false;
 		let map=globalState.getMap();
-		let townhouse: boolean=true;
-		let barracks: boolean=false;
-		let stable: boolean=false;
-		let tower: boolean=false;
 		let sword: any;
 		let gathering: any;
 		let time: number=2000;
@@ -179,73 +192,71 @@ const AiDec = {
 		while(true){
 			await delay(time);
 			if(aistate.getActionState()=="setup")
-				{console.log("Settingup step:"+step)
-				if(step==0){
-					  if(resourceCheck("Barracks",aistate,isHardMode)){
+				{console.log("Settingup step")
+				if(chooseBuilding("Barracks",aistate)==false){
 						AiGamePlay.constructBuilding("Barracks", 0, 10);
-						barracks=true;
 						console.log("Barracks Built");
-						step++;
-					  }
-					  else{
-						  gathering=AiGamePlay.constructUnit("Gatherer",3,1);
-						  var resource=mapSearch(map,"resource");
-						  AiGamePlay.unitGather(gathering.id,resource);
-						  console.log("Gathering, waiting");
-						  await delay(4000); 
-					  }
 				}
-				else if(step==1){
+				else if(chooseUnit("Swordsman",aistate)==false || chooseUnit("Gatherer",aistate)==false){
 					if(resourceCheck("Swordsman",aistate,isHardMode)){
 						sword=AiGamePlay.constructUnit("Swordsman", 2, 1);
 					}
 					if(resourceCheck("Gatherer",aistate,isHardMode)){					
 						gathering=AiGamePlay.constructUnit("Gatherer",3,1);
-						step++;
 					}
 				}
 				else{
 					AiGamePlay.unitMove(sword.id,1,2);
-					AiGamePlay.unitMove(AiVip.id,0,2);
-					var resLoc=mapSearch(map,"resource");
+					AiGamePlay.unitMove(AiVip,0,2);
+					var resLoc=mapSearch(map,"resource",playerState);
 					if (resLoc!=0){
 						AiGamePlay.unitGather(gathering.id,resLoc);
 					}
 					aistate["actionState"]="offense";}
 				};
 			if(aistate.getActionState()=="offense"){console.log("Attacking");
-				if(stable=false){
+				if(stable==false){
 				console.log("stable");
-				AiGamePlay.constructBuilding("Stable", 0, 15);
+				AiGamePlay.constructBuilding("Stables", 0, 15);
 				stable=true;
 				}
-				else if(tower=false){
+				else if(tower==false){
 					console.log("tower")
 					AiGamePlay.constructBuilding("Tower", 0, 20);
-					stable=true;
+					tower=true;
 				}
 				else{
 					console.log("Finding Enemy");
-					var enemLoc=mapSearch(map,"unit");
-					console.log(enemLoc);
-					if(enemLoc>0){
-						if(!(enemLoc in aistate.units)){
-							if(enemLoc==playerVIP.id){
+					var enemLoc=mapSearch(map,"unit",playerState);
+					console.log("enem Location id:"+enemLoc);
+					var units=aistate.getUnits();
+					if(enemLoc>=0){
+							if(enemLoc==playerVIP){
 								//starts at 1 to avoid sending vip
-								for(var i=1;i<aistate.units.length;i++){
-									if(aistate.units.length>4){
-									AiGamePlay.unitAttack(aistate.units[i],enemLoc);
-									};
+								for(var i=0;i<units.length;i++){
+									if(units[i].getId()!=chooseUnit("VIP",aistate)){
+									if(units.length>4){
+									console.log("Unit ID:"+units[i].getId());
+									AiGamePlay.unitAttack(units[i].getId(),enemLoc);
+									console.log("Attacking VIP");
+									}
+									}
 								}
 							}
 							else{
 								if(aistate.units.length>4)
 								{
-									var singleAttack=mapSearch(map,"unit");
-									AiGamePlay.unitAttack(aistate.units[4], singleAttack);
+									var singleAttack=mapSearch(map,"unit",playerState);
+									var swordsman=chooseUnit("Swordsman",aistate);
+									if(swordsman!=false){
+									console.log(swordsman,singleAttack);
+									if(singleAttack!=false){
+									AiGamePlay.unitAttack(swordsman, singleAttack);}
+									console.log("Attacking Non-Vip");
+									}
 								}
 							}
-						}
+						
 					}
 					if(aistate.units.length<10){
 						//resourcecheck
