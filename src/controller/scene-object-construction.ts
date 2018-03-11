@@ -157,7 +157,7 @@ const SceneObjectConstruction = {
         const objectData = {
             sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 1, z: 1},
-            collisionSize: {x: 1, z: 1},
+            // collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
         let offset = {x: 0, y: -90};
@@ -290,7 +290,7 @@ const SceneObjectConstruction = {
         const objectData = {
             sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 1, z: 1},
-            collisionSize: {x: 1, z: 1},
+            // collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
         let offset = {x: 0, y: -50};
@@ -376,7 +376,7 @@ const SceneObjectConstruction = {
         const objectData = {
             sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 1, z: 1},
-            collisionSize: {x: 1, z: 1},
+            // collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
         let offset = {x: 0, y: -50};
@@ -460,7 +460,7 @@ const SceneObjectConstruction = {
         const objectData = {
             sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 1, z: 1},
-            collisionSize: {x: 1, z: 1},
+            // collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
         let offset = {x: 0, y: -100};
@@ -544,7 +544,7 @@ const SceneObjectConstruction = {
         const objectData = {
             sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 1, z: 1},
-            collisionSize: {x: 1, z: 1},
+            // collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
         let offset = {x: 0, y: -100};
@@ -628,7 +628,7 @@ const SceneObjectConstruction = {
         const objectData = {
             sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 1, z: 1},
-            collisionSize: {x: 1, z: 1},
+            // collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
         let offset = {x: 0, y: -30};
@@ -711,7 +711,7 @@ const SceneObjectConstruction = {
         const objectData = {
             sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 1, z: 1},
-            collisionSize: {x: 1, z: 1},
+            // collisionSize: {x: 1, z: 1},
             behaviors: [IsoCharacter],
         };
         let offset = {x: 0, y: -100};
