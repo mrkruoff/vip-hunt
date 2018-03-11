@@ -23,8 +23,6 @@ const Camera = {
         // Get the player's vip sceneobject and use its position to set the 
         // camera's position.
         let player = wade.getSceneObject('global').state.getPlayer();
-        console.log("PLAYER UNITS");
-        console.log(player.getUnits());
         let vip = _.find(player.getUnits(), (unitData) => {
             return _.isEqual(unitData.getClassName(),  "VIP");
         });

@@ -162,12 +162,10 @@ function addToScene(state: GlobalGameState) {
                         return b.id === tile.buildingId;
                     });
                 }
-                console.log(building);
 
                 // Once we have the building, we can paint it on the appropriate
                 // grid position with the appropriate image
                 const b = BuildingBuilding.constructBuildingFromModel(building);
-                console.log(b);
                 b.data = building;
                 building.rep = b; // circular reference
                 wade.iso.moveObjectToTile(b, tile.x, tile.y);
@@ -208,7 +206,6 @@ function addToScene(state: GlobalGameState) {
                     isPlayerUnit = false;
                 }
 
-                console.log(unit);
 
                 // Once we have the unit, we can paint it on the appropriate
                 // grid position with the appropriate image
@@ -240,7 +237,6 @@ function addToScene(state: GlobalGameState) {
                     return r.getId() === tile.resourceId;
                 });
 
-                console.log(resource);
 
                 // Once we have the resource, we can paint it on the appropriate
                 // grid position with the correct image

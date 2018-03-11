@@ -119,8 +119,6 @@ function resetUnitSpriteSizes() {
         enemySprite.setSize(750, 750);
         unitSceneObject.setSpriteOffset(2, {x: 0, y: -50});
     });
-
-
 }
 
 function resetUnitActivity() {

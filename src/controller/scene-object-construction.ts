@@ -69,8 +69,6 @@ function addAnimData(spriteData, animsArray, namesArray, xCells, yCells, speed, 
         spriteData.animations[namesArray[i]] = animData;
     }
 
-    console.log("SPRITE DATA");
-    console.log(spriteData);
 
 }
 
@@ -262,7 +260,6 @@ const SceneObjectConstruction = {
     //  @ imageJsonFile: filepath to the JSON file that will be used
     //      to construct the TownHall SceneObject
     townHalls: (imageJsonFile: string) => {
-        console.log(imageJsonFile);
         const objectData = {
             sprites: [wade.getJson(imageJsonFile)],
             gridSize: {x: 2, z: 2},

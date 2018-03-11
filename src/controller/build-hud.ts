@@ -203,6 +203,11 @@ const BuildHud = {
         const scroll = BuildHud.buildIcon(ImageMap.scroll, 200, 500, 0, 0, layer);
         scroll.setName(Names.menu_background);
 
+        scroll.onMouseDown = prevent_propagation;
+        wade.addEventListener(scroll, 'onMouseDown');
+        scroll.onClick = prevent_propagation;
+        wade.addEventListener(scroll, 'onClick');
+        
         scroll.dontSave = true;
 
         return scroll;
@@ -210,7 +215,6 @@ const BuildHud = {
     // This function builds the buildings Panel, consisting of the possible buildings that
     // the player can build in the game. Currently this consists of a barracks, stables,
     // towers, and town hall
-    // console.log(global);
     //
     // parameters:
     //  @ layer: the WADE layer to draw the panel on.

@@ -17,6 +17,7 @@ import ImageMap from './image-map';
 import Minimap from './minimap';
 
 declare var window: any;
+declare var location: any;
 declare var wade: any;
 declare var TextSprite: any;
 declare var SceneObject: any;
@@ -79,7 +80,6 @@ const Hud = {
             maxY: 10
         }
         let terrainSprites = wade.getSpritesInArea(worldArea, 30, true);
-        console.log(terrainSprites);
 
         let new_index = 0;
         let chunkSize = 50;
@@ -97,7 +97,6 @@ const Hud = {
                 end = terrainSprites.length; 
             }
             for(let index = spriteIndex; index < end; index++) {
-                console.log("Painted sprite " + index.toString());
                 let sprite = terrainSprites[index]; 
                 let position = sprite.getPosition();
                 position.x /= 1;
@@ -331,8 +330,6 @@ const Hud = {
             wade.getSceneObject(Names.menu_quit).setVisible(true);
         } else {
 
-
-
             global.hud.menu = BuildHud.menuPanel(9);
 
             let save = global.hud.menu[0];
@@ -372,7 +369,6 @@ const Hud = {
             save.onClick = (event) =>
             {
                 save.getSprite(0).setFont("16px Verdana");
-                console.log(wade.getSceneObject('global'));
 
                 // Unhook all the circular dependencies.
                 let global = wade.getSceneObject('global').state;
@@ -382,7 +378,6 @@ const Hud = {
                 global.getAi().getBuildings(),
                 global.getPlayer().getUnits(),
                 global.getPlayer().getBuildings());
-                console.log(data);
                 _.forEach(data, (datum) => {
                     datum.rep = null; 
                 });
@@ -401,16 +396,11 @@ const Hud = {
                 exportedScence.modules = {
                     iso: wade.iso.exportMap() 
                 }
-
-
-                console.log( exportedScence );
-                console.log( (wade.iso.exportMap()));
                 wade.storeLocalObject('save_game', JSON.stringify(exportedScence));
 
                 // Now step through all scene objects with the data property,
                 // and use them to reconnect the isometric SceneObjects with their data
                 let sceneObjects = wade.getSceneObjects('data');
-                console.log(sceneObjects);
 
                 _.forEach(sceneObjects, (sceneObject) => {
                     sceneObject.data.rep = sceneObject;
@@ -426,7 +416,7 @@ const Hud = {
             quit.onClick = (event)=>
             {
                 quit.getSprite(0).setFont("16px Verdana");
-                close();
+                location.reload();
             };
 
             wade.addEventListener(resume_1, 'onClick');
@@ -542,7 +532,6 @@ const Hud = {
     //      function. Call Hud.showResourcePanel() to do this.
     updateResourcePanel: () => {
         const player = wade.getSceneObject('global').state.getPlayer();
-        console.log(wade.getSceneObject(Names.stoneCount));
         const stoneCount = wade.getSceneObject(Names.stoneCount).getSprite(0);
         stoneCount.setText(player.stone.toString());
         const woodCount = wade.getSceneObject(Names.woodCount).getSprite(0);

@@ -238,13 +238,10 @@ var AiGamePlay = {
     //  @ x: the x-coordinate of the tile to move to.
     //  @ y: the y-coordinate of the tile to move to.
     unitMove: (id: number, x:number, z: number) => {
-
-        console.log(id);
         let state = wade.getSceneObject('global').state;
         let ai = state.getAi();
         let map = state.getMap();
 
-        console.log(ai.getUnits());
         let unitData = _.find(ai.getUnits(), (u) => {
             return u.getId() === id; 
         });
@@ -328,7 +325,6 @@ var AiGamePlay = {
 
         // Regardless of whether it is a building or unit, pursue 
         // and attack it.
-        console.log("attacking!");
         let attacker = attackData.rep; 
         let target = targetData.rep;
         //Clear previous movement actions
@@ -358,7 +354,6 @@ var AiGamePlay = {
         } 
         // Regardless of whether it is a building or unit, pursue 
         // and attack it.
-        console.log("attacking!");
         let attacker = attackData.rep; 
         let target = targetData.rep;
         //Clear previous movement actions
@@ -449,9 +444,7 @@ var AiGamePlay = {
                 }
             }
         }
-        console.log("BUG IN SCENE UNIT");
         sceneUnit.getSprite(2).setVisible(true);
-        console.log(sceneUnit);
         
         //Once the sprite is properly moved, update its map location in the state.
         // and clear its old tile

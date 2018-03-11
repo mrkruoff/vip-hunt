@@ -71,7 +71,6 @@ const setupSaveGame = function (music_id: number) {
     this.loadGameObject.onClick = function() {
         wade.stopAudio(music_id);
         let savedGame = JSON.parse(wade.retrieveLocalObject('save_game'));
-        console.log(savedGame);
         wade.setJson('savedGameScene.wsc', savedGame);
 
         //the line below was purely for testing purposes to make sure
@@ -82,17 +81,6 @@ const setupSaveGame = function (music_id: number) {
             SaveGame.initialize();
         }, false, true);
 
-        /*
-        wade.loadScene('savedGameScene.wsc', true, () => {
-            wade.setMinScreenSize(20, 20);
-            wade.setMaxScreenSize(1280, 800);
-            //Add basic camera settings
-            Events.addCamera();
-            Camera.setBounds();
-            console.log(wade.iso.exportMap() ) ;
-        
-        }, true);
-        */
     };
     wade.addEventListener(this.loadGameObject, 'onClick');      
 };
