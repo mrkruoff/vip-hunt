@@ -58,7 +58,7 @@ const displayWelcome = async function() {
             });
         }
     }
-    playMenuMusic();
+    // playMenuMusic();
     const color = 'white';
     const alignment = 'center';
 

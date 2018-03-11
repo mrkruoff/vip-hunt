@@ -420,6 +420,22 @@ const GamePlay = {
             }
             await delay(time);
 
+            // Calculate whether the attacker should continue pursuing the target
+            // If the target is not in a clear square on the map, then clearly
+            //      the player cannot see the target, so it should stop chasing.
+            //      This case does not apply at all to when the attacker is an
+            //      AI unit.
+            // ELSE if the target is not within the attacker's vision range, the 
+            // attacker should stop attacking.
+            let targetCoords = target.iso.gridCoords;
+            let fogged = wade.iso.getTransitionSprite(targetCoords.x, targetCoords.z).isVisible();
+            if( fogged ) {
+                GamePlay.clearUnitActions(attacker); 
+            } 
+            else if( GamePlay.distance(attacker, target) > attacker.data.vision) {
+                GamePlay.clearUnitActions(attacker);
+            }
+
             //Stop pursuing and remove target once it is dead.
             if (targetData.hp <= 0) {
                 attacker.isAttacking = false;

@@ -75,12 +75,14 @@ const UnitDec = {
         let playerUnits: Unit[] = global.state.getPlayer().getUnits();
         let aiUnits: Unit[] = global.state.getAi().getUnits();
         let worker = new Worker('../js/aiWatch.js');
+        let workerReady = true;
         worker.onmessage = function(e) {
             console.log(e.data); 
             let attackInstructions = e.data;
             _.forEach(attackInstructions, (instruction) => {
                 AiGamePlay.unitAttack(instruction.attacker, instruction.target); 
             });
+            workerReady = true;
         };
 
         while(global && global.isRunning) {
@@ -118,6 +120,7 @@ const UnitDec = {
             }
 
             worker.postMessage(data);
+            workerReady = false;
         
         
             await delay(1000);
