@@ -173,7 +173,7 @@ let Minimap = {
             sprite = new Sprite(ImageMap.minimap_blue_square, 9);
         }
         sprite.setSize(100/20, 100/20);
-        sprite.setSortPoint(0, 0);
+        sprite.setSortPoint(0, -0.1);
 
         let fogLayer = wade.getSceneObject('global').minimap.fogLayer;
         let building = new SceneObject(sprite);
@@ -196,7 +196,7 @@ let Minimap = {
             sprite = new Sprite(ImageMap.minimap_blue_circle, 9);
         }
         sprite.setSize(100/20, 100/20);
-        sprite.setSortPoint(0, 0);
+        sprite.setSortPoint(0, -0.1);
         let fogLayer = wade.getSceneObject('global').minimap.fogLayer;
         let unit = new SceneObject(sprite);
         unit.setAlignment('right', 'bottom');
