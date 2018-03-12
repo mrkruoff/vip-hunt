@@ -17,12 +17,11 @@ function mapSearch(map, aString,playerState){
 			}
 			}
 			else if(aString=="unit"){
-				console.log("Searching for unit");
 				if (row[j].getUnitId() >=0){
 					var playerUnits=playerState.getUnits();
-					console.log(playerUnits);
+				
 					for(var k=0;k<playerUnits.length;k++)
-					{	console.log(playerUnits[k].getId()+" " +row[j].getUnitId());
+					{	
 						if(playerUnits[k].getId()==row[j].getUnitId()){
 							return row[j].getUnitId()
 							} ;
@@ -80,7 +79,18 @@ function resourceCheck(objectname,state,isHard){
 	console.log(barracks["stone"]);
 	if(objectname=="ArcherCalvary"){
 		if(aiStone>=archeryCal["stone"] && aiWood >=archeryCal["wood"] && aiFood>=archeryCal["food"]){
+			if(isHard){
+			 state["stone"]=state["stone"]-archeryCal["stone"]/2;
+			 state["wood"]=state["wood"]-archeryCal["wood"]/2;
+			 state["food"]=state["food"]-archeryCal["food"]/2;
+			 return true;
+			}
+			else{
+			 state["stone"]=state["stone"]-archeryCal["stone"]; 
+			 state["wood"]=state["wood"]-archeryCal["wood"] ;
+			 state["food"]=state["food"]-archeryCal["food"] ;
 			return true;
+			}
 		}
 		else{
 			return false;
@@ -89,7 +99,18 @@ function resourceCheck(objectname,state,isHard){
 	}
 	else if(objectname=="SpearCalvary"){
 		if(aiStone>=spearCal["stone"] && aiWood >=spearCal["wood"] && aiFood>=spearCal["food"]){
+			if(isHard){
+			 state["stone"]=state["stone"]-spearCal["stone"] /2;
+			 state["wood"]=state["wood"]- spearCal["wood"]/2;
+			 state["food"]=state["food"]- spearCal["food"]/2;
+			 return true;
+			}
+			else{
+			 state["stone"]=state["stone"]-spearCal["stone"] ;
+			 state["wood"]=state["wood"]-spearCal["wood"];
+			 state["food"]=state["food"]- spearCal["food"];
 			return true;
+			}
 		}
 		else{
 			return false;
@@ -98,7 +119,18 @@ function resourceCheck(objectname,state,isHard){
 	}
 	else if(objectname=="Swordsman"){
 		if(aiStone>=swordsman["stone"] && aiWood >=swordsman["wood"] && aiFood>=swordsman["food"]){
+			if(isHard){
+			 state["stone"]=state["stone"]- swordsman["stone"]/2;
+			 state["wood"]=state["wood"]- swordsman["wood"]/2;
+			 state["food"]=state["food"]- swordsman["food"]/2;
+			 return true;
+			}
+			else{
+			 state["stone"]=state["stone"]-swordsman["stone"] ;
+			 state["wood"]=state["wood"]- swordsman["wood"];
+			 state["food"]=state["food"]- swordsman["food"];
 			return true;
+			}
 		}
 		else{
 			return false;
@@ -107,7 +139,18 @@ function resourceCheck(objectname,state,isHard){
 	}
 	else if(objectname=="Gatherer"){
 		if(aiStone>=gather["stone"] && aiWood >=gather["wood"] && aiFood>=gather["food"]){
+			if(isHard){
+			 state["stone"]=state["stone"]- gather["stone"]/2;
+			 state["wood"]=state["wood"]- gather["wood"]/2;
+			 state["food"]=state["food"]- gather["food"]/2;
+			 return true;
+			}
+			else{
+			 state["stone"]=state["stone"]-gather["stone"] ;
+			 state["wood"]=state["wood"]-gather["wood"] ;
+			 state["food"]=state["food"]-gather["food"] ;
 			return true;
+			}
 		}
 		else{
 			return false;
@@ -116,7 +159,18 @@ function resourceCheck(objectname,state,isHard){
 	}
 	else if(objectname=="Archer"){
 		if(aiStone>=archer["stone"] && aiWood >=archer["wood"] && aiFood>=archer["food"]){
+			if(isHard){
+			 state["stone"]=state["stone"]- archer["stone"]/2;
+			 state["wood"]=state["wood"]- archer["wood"]/2;
+			 state["food"]=state["food"]- archer["food"]/2;
+			 return true;
+			}
+			else{
+			 state["stone"]=state["stone"]-archer["stone"] ;
+			 state["wood"]=state["wood"]- archer["wood"];
+			 state["food"]=state["food"]- archer["food"];
 			return true;
+			}
 		}
 		else{
 			return false;
@@ -124,7 +178,18 @@ function resourceCheck(objectname,state,isHard){
 	}
 	else if(objectname=="Barracks"){
 		if(aiStone>=barracks["stone"] && aiWood >=barracks["wood"] && aiFood>=barracks["food"]){
+			if(isHard){
+			 state["stone"]=state["stone"]- barracks["stone"]/2;
+			 state["wood"]=state["wood"]-barracks["wood"]/2;
+			 state["food"]=state["food"]- barracks["food"]/2;
+			 return true;
+			}
+			else{
+			 state["stone"]=state["stone"]- barracks["stone"];
+			 state["wood"]=state["wood"]- barracks["wood"];
+			 state["food"]=state["food"]-barracks["food"] ;
 			return true;
+			}
 		}
 		else{
 			return false;
@@ -132,7 +197,18 @@ function resourceCheck(objectname,state,isHard){
 	}
 	else if(objectname=="Stables"){
 		if(aiStone>=stables["stone"] && aiWood >=stables["wood"] && aiFood>=stables["food"]){
+			if(isHard){
+			 state["stone"]=state["stone"]- stables["stone"]/2;
+			 state["wood"]=state["wood"]- stables["wood"]/2;
+			 state["food"]=state["food"]- stables["food"]/2;
+			 return true;
+			}
+			else{
+			 state["stone"]=state["stone"]- stables["stone"];
+			 state["wood"]=state["wood"]- stables["wood"];
+			 state["food"]=state["food"]-stables["food"];
 			return true;
+			}
 		}
 		else{
 			return false;
@@ -140,7 +216,18 @@ function resourceCheck(objectname,state,isHard){
 	}
 	else if(objectname=="TownHall"){
 		if(aiStone>=townhall["stone"] && aiWood >=townhall["wood"] && aiFood>=townhall["food"]){
+			if(isHard){
+			 state["stone"]=state["stone"]- townhall["stone"]/2;
+			 state["wood"]=state["wood"]- townhall["wood"]/2;
+			 state["food"]=state["food"]- townhall["food"]/2;
+			 return true;
+			}
+			else{
+			 state["stone"]=state["stone"]- townhall["stone"];
+			 state["wood"]=state["wood"]- townhall["wood"];
+			 state["food"]=state["food"]-townhall["food"] ;
 			return true;
+			}
 		}
 		else{
 			return false;
@@ -148,7 +235,18 @@ function resourceCheck(objectname,state,isHard){
 	}
 	else if(objectname=="Tower"){
 		if(aiStone>=tower["stone"] && aiWood >=tower["wood"] && aiFood>=tower["food"]){
+			 if(isHard){
+			 state["stone"]=state["stone"]-tower["stone"]/2;
+			 state["wood"]=state["stone"]- tower["wood"]/2;
+			 state["food"]=state["stone"]- tower["food"]/2;
+			 return true;
+			}
+			else{
+			 state["stone"]=state["stone"]- tower["stone"];
+			 state["wood"]=state["stone"]- tower["wood"];
+			 state["food"]=state["stone"]- tower["food"];
 			return true;
+			}
 		}
 		else{
 			return false;
@@ -185,96 +283,259 @@ const AiDec = {
 		let map=globalState.getMap();
 		let sword: any;
 		let gathering: any;
-		let time: number=2000;
+		let time: number=4000;
 		if(isHardMode){
-			time=1000;
+			time=2000;
 		}
 		while(true){
 			await delay(time);
-			if(aistate.getActionState()=="setup")
-				{console.log("Settingup step")
+			if(aistate.getActionState()=="setup"){
+				console.log("Settingup step")
 				if(chooseBuilding("Barracks",aistate)==false){
-						AiGamePlay.constructBuilding("Barracks", 0, 10);
+						AiGamePlay.constructBuilding("Barracks", 40, 10);
 						console.log("Barracks Built");
 				}
 				else if(chooseUnit("Swordsman",aistate)==false || chooseUnit("Gatherer",aistate)==false){
+					if(chooseUnit("Swordsman",aistate)==false){
 					if(resourceCheck("Swordsman",aistate,isHardMode)){
-						sword=AiGamePlay.constructUnit("Swordsman", 2, 1);
+						sword=AiGamePlay.constructUnit("Swordsman", 42, 5);
 					}
-					if(resourceCheck("Gatherer",aistate,isHardMode)){					
-						gathering=AiGamePlay.constructUnit("Gatherer",3,1);
+					}
+					else if(chooseUnit("Gatherer",aistate)==false){
+					 if(resourceCheck("Gatherer",aistate,isHardMode)){					
+						gathering=AiGamePlay.constructUnit("Gatherer",43,1);
+					}
 					}
 				}
 				else{
-					AiGamePlay.unitMove(sword.id,1,2);
-					AiGamePlay.unitMove(AiVip,0,2);
+					AiGamePlay.unitMove(sword.id,44,5);
+					AiGamePlay.unitMove(AiVip,44,6);
 					var resLoc=mapSearch(map,"resource",playerState);
 					if (resLoc!=0){
 						AiGamePlay.unitGather(gathering.id,resLoc);
 					}
 					aistate["actionState"]="offense";}
 				};
-			if(aistate.getActionState()=="offense"){console.log("Attacking");
-				if(stable==false){
-				console.log("stable");
-				AiGamePlay.constructBuilding("Stables", 0, 15);
-				stable=true;
+			if(aistate.getActionState()=="offense"){
+				console.log("Attacking");
+				if(chooseBuilding("Stables",aistate)==false){
+				if(resourceCheck("Stables",aistate,isHardMode)==false){
+					aistate["actionState"]="gather";
 				}
-				else if(tower==false){
+				else{
+				console.log("stable");
+				AiGamePlay.constructBuilding("Stables", 40, 5);}
+				}
+				else if(chooseBuilding("Tower",aistate)==false){
+				if(resourceCheck("Tower",aistate, isHardMode)==false){
+					aistate["actionState"]="gather";
+					
+				}
+				else{
 					console.log("tower")
-					AiGamePlay.constructBuilding("Tower", 0, 20);
-					tower=true;
+				AiGamePlay.constructBuilding("Tower", 40, 10);
+				}
+				}
+				else if(chooseBuilding("Barracks",aistate)==false){
+					if(resourceCheck("Barracks",aistate,isHardMode)==false){
+						aistate["actionState"]="gather";
+					}
+					else{
+					console.log("Barracks")
+					AiGamePlay.constructBuilding("Barracks", 40, 15);
+					}
+				}
+				else if(chooseBuilding("TownHall",aistate)==false){
+					if(resourceCheck("TownHall",aistate,isHardMode)==false){
+						aistate["actionState"]="gather";
+					}
+					else{
+					console.log("TownHall")
+					AiGamePlay.constructBuilding("TownHall", 39, 8);
+					}
 				}
 				else{
 					console.log("Finding Enemy");
 					var enemLoc=mapSearch(map,"unit",playerState);
 					console.log("enem Location id:"+enemLoc);
 					var units=aistate.getUnits();
-					if(enemLoc>=0){
+					if(units.length<4){
+						console.log("Need MOre Units");
+						if(resourceCheck("Archer",aistate,isHardMode)==false){
+						aistate["actionState"]="gather";
+						}
+						else{
+							var archer=AiGamePlay.constructUnit("Archer", 42, 5);
+							AiGamePlay.unitMove(archer.getId(),44,5);
+						}
+
+					}
+					else if(enemLoc>=0){
+						console.log("Enemy Found");
+						if(isHardMode){
+							console.log("Hard Mode");
 							if(enemLoc==playerVIP){
-								//starts at 1 to avoid sending vip
 								for(var i=0;i<units.length;i++){
-									if(units[i].getId()!=chooseUnit("VIP",aistate)){
-									if(units.length>4){
+									if(units[i].getId()!=chooseUnit("VIP",aistate)&&units[i].getId()!=chooseUnit("Archer",aistate)){
+									if(units.length>8){
 									console.log("Unit ID:"+units[i].getId());
 									AiGamePlay.unitAttack(units[i].getId(),enemLoc);
 									console.log("Attacking VIP");
+									}
+									else{
+										if(resourceCheck("ArcherCalvary",aistate,isHardMode)==false){
+										aistate["actionState"]="gather";
+										}
+										else{
+										var archerCal=AiGamePlay.constructUnit("ArcherCalvary", 42, 5);
+										
+										}	
+										if(resourceCheck("SpearCalvary",aistate,isHardMode)==false){
+										aistate["actionState"]="gather";
+										}
+										else{
+										var spearCal=AiGamePlay.constructUnit("SpearCalvary",39,7)		
+										}	
+
+								
 									}
 									}
 								}
 							}
 							else{
-								if(aistate.units.length>4)
+								if(units.length>=4)
 								{
-									var singleAttack=mapSearch(map,"unit",playerState);
-									var swordsman=chooseUnit("Swordsman",aistate);
-									if(swordsman!=false){
-									console.log(swordsman,singleAttack);
-									if(singleAttack!=false){
-									AiGamePlay.unitAttack(swordsman, singleAttack);}
-									console.log("Attacking Non-Vip");
+									if(chooseUnit("ArcherCalvary",aistate)==false){
+										console.log("Building ArcherCal");
+										if(resourceCheck("ArcherCalvary",aistate,isHardMode)==false){
+										aistate["actionState"]="gather";
+										}
+										else{
+										console.log("ArcherCalvary");
+										AiGamePlay.constructUnit("ArcherCalvary", 39,7 );}
 									}
+									else if(chooseUnit("SpearCalvary",aistate)==false){
+										console.log("Building SpearCal");
+										if(resourceCheck("SpearCalvary",aistate, isHardMode)==false){
+										aistate["actionState"]="gather";		
+										}
+										else{
+										console.log("SpearCalvary");
+										AiGamePlay.constructUnit("SpearCalvary", 42, 5);}
+									}
+									else{
+									console.log("Lets Attack");
+									var singleAttack=mapSearch(map,"unit",playerState);
+									console.log(singleAttack);
+									var unittosend=Math.floor(Math.random() * (units.length - 1) + 1);
+									console.log(units[unittosend].getId());
+									if(singleAttack>=0){
+									console.log("sendingAttack");
+									AiGamePlay.unitAttack(units[unittosend].getId(), singleAttack);
+									if(resourceCheck("ArcherCalvary",aistate,isHardMode)==false){
+									aistate["actionState"]="gather";
+									}
+									else{
+									console.log("ArcherCalvary");
+									AiGamePlay.constructUnit("ArcherCalvary", 36,7 );}
+									if(resourceCheck("SpearCalvary",aistate, isHardMode)==false){
+									aistate["actionState"]="gather";		
+									}
+									else{
+									console.log("SpearCalvary");
+									AiGamePlay.constructUnit("SpearCalvary", 41, 5);}
+									await delay(1500);
+										}
+									}
+							}
+								else{
+									if(resourceCheck("Swordsman",aistate,isHardMode)==false){
+										aistate["actionState"]="gather";
+										}
+										else{
+										var spearCal=AiGamePlay.constructUnit("Swordsman",38,5)		
+										}	
+									
+									
+									
+								}
+								}
+							}
+						else{
+							console.log("Easy Mode");
+								if(units.length>=4)
+								{
+									if(chooseUnit("ArcherCalvary",aistate)==false){
+										console.log("Building ArcherCal");
+										if(resourceCheck("ArcherCalvary",aistate,isHardMode)==false){
+										aistate["actionState"]="gather";
+										}
+										else{
+										console.log("ArcherCalvary");
+										AiGamePlay.constructUnit("ArcherCalvary", 39,7 );}
+									}
+									else if(chooseUnit("SpearCalvary",aistate)==false){
+										console.log("Building SpearCal");
+										if(resourceCheck("SpearCalvary",aistate, isHardMode)==false){
+										aistate["actionState"]="gather";		
+										}
+										else{
+										console.log("SpearCalvary");
+										AiGamePlay.constructUnit("SpearCalvary", 42, 5);}
+									}
+									else{
+									console.log("Lets Attack");
+									var singleAttack=mapSearch(map,"unit",playerState);
+									console.log(singleAttack);
+									var unittosend=Math.floor(Math.random() * (units.length - 1) + 1);
+									console.log(units[unittosend].getId());
+									if(singleAttack>=0){
+									console.log("sendingAttack");
+									AiGamePlay.unitAttack(units[unittosend].getId(), singleAttack);
+									await delay(2500);
+										}
+									}
+							}
+								else{
+									if(resourceCheck("Swordsman",aistate,isHardMode)==false){
+										aistate["actionState"]="gather";
+										}
+										else{
+										var spearCal=AiGamePlay.constructUnit("Swordsman",38,5)		
+										}	
+									
+									
+									
+								}
+
 								}
 							}
 						
 					}
-					if(aistate.units.length<10){
-						//resourcecheck
-						var tempUnit=AiGamePlay.constructUnit("SpearCalvary",3,1);
-						AiGamePlay.unitMove(tempUnit.id,4,2);
-						tempUnit=AiGamePlay.constructUnit("ArcherCalvary",3,1);
-						AiGamePlay.unitMove(tempUnit.id,5,3);
-						
-					}
-				}
-				console.log("check resources if stable build calvary");
-				console.log("move units towards player");
+
 				};
+			 
+			if(aistate.getActionState()=="gather"){
+				console.log("Gather");
+				var resLoc=mapSearch(map,"resource",playerState);
+				var gatherUnit=chooseUnit("Gatherer", aistate);
+				if (gatherUnit==false){					
+				 gatherUnit=AiGamePlay.constructUnit("Gatherer",43,1);
+				 	if (resLoc!=0){
+					AiGamePlay.unitGather(gatherUnit.getId(),resLoc);
+					await delay(2500);
+				}
+				}
+				else{
+					AiGamePlay.unitGather(gatherUnit,resLoc);
+					await delay(2500);
+				}
+				aistate["actionState"]="offense";
+			}; 
+				
+			};
 		
-		}
-		 
-	 },
-	
+		},
 	
 };
 
