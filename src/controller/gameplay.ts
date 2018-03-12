@@ -254,6 +254,8 @@ const GamePlay = {
         const time = 250;
         while (unit.data.isMoving) {
             await delay(time);
+
+            // Update map location.
             GamePlay.updateUnitMapLocation(unit);
             let position = fogLayer[unit.iso.gridCoords.x][unit.iso.gridCoords.z].getPosition();
             unit.marker.setPosition(position.x, position.y);
@@ -398,8 +400,6 @@ const GamePlay = {
                 targetData.takeDamage(attacker.data.getAttack());
                 target.getSprite(3).setVisible(true);
                 target.playAnimation('bleed', 'forward');
-
-
             }
         };
         attacker.onObjectReached = doDamage;
@@ -752,6 +752,32 @@ const GamePlay = {
         GamePlay.clearMove(unitSceneObject);
         unitSceneObject.getBehavior('IsoCharacter').clearDestinations();
     },
+    refreshAiVisibility: async () => {
+        let global = wade.getSceneObject('global');
+        let ai = global.state.getAi();
+        while(global.isRunning) {
+            _.forEach(ai.getUnits(), (u) => {
+                let unit = u.rep; 
+                // Check if location is fogged or not. If it is, hide the unit
+                let fog = wade.iso.getTransitionSprite(unit.iso.gridCoords.z, unit.iso.gridCoords.z);
+                if(fog.isVisible() ) {
+                    unit.getSprite(0).setVisible(false);  
+                    unit.getSprite(1).setVisible(false);
+                    unit.getSprite(2).setVisible(false);
+                    unit.getSprite(3).setVisible(false);
+                    unit.marker.setVisible(false);
+                } else {
+                    unit.getSprite(0).setVisible(true);  
+                    unit.getSprite(2).setVisible(true);
+                    unit.marker.setVisible(true);
+                }
+            });
+
+            await delay(1000);
+        }
+
+        console.log("REFRESH AI VISIBILITY IS OVER");
+    },
     refreshPlayerVision: async () => {
         let global = wade.getSceneObject('global');
         let player = global.state.getPlayer();
@@ -784,6 +810,7 @@ const GamePlay = {
                 Fog.setFogVisibility(coord.x, coord.z, false);
             });
 
+            /*
             // Set Ai Unit visiblity
             let aiFog = e.data.aiFog;
             let fogPairs = _.zip(aiUnitReps, aiFog);
@@ -806,6 +833,7 @@ const GamePlay = {
                     pair[0].marker.setVisible(true);
                 } 
             });
+            */
             
             // Use these calculations to update the minimap 
             // since we don't want to have to repeat these calculations.

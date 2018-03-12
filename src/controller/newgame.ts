@@ -99,6 +99,7 @@ const NewGame = {
         // Initiate the fog of war.
         Fog.paintMapDarkness();
         GamePlay.refreshPlayerVision();
+        GamePlay.refreshAiVisibility();
        
         // Initiate random generation of resources during the game.
         AiGamePlay.generateRandomResources(); 

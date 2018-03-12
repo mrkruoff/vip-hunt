@@ -20,6 +20,7 @@ onmessage = function(e) {
 
     var aiCoords = e.data.aiCoords;
 
+    /*
     // Determine which ai units are in fog or in the clear
     var aiUnitsInFog = _.map(aiCoords, (coord) => {
         if(_.some(paintFog, (fogCoord) => {
@@ -39,12 +40,13 @@ onmessage = function(e) {
             return false;
         }
     });
+    */
 
     var result = {
         fog: paintFog,
         clear: paintClear,
-        aiFog: aiUnitsInFog,
-        aiClear: aiUnitsInClear,
+        // aiFog: aiUnitsInFog,
+        // aiClear: aiUnitsInClear,
         id: e.data.id,
     };
 
