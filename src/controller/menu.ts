@@ -83,17 +83,46 @@ const displayWelcome = async function() {
 
 const setupSettings = function (music_id: number) {
     this.settingsObject.setPosition(0, 100);
+    
+
     setMouseInOut(this.settingsObject);
 
     this.settingsObject.onClick = function() {
+
+        this.loadGameObject.setVisible(false);
+    this.setupNewGameObject.setVisible(false);
+
+    
     wade.loadImage('../js/../public/sprites/menu/settingsBackground.png');
 
             //wade.clearScene();
 
-        this.defaultTextSprite = new TextSprite('Default 500', '32px Arial', 'black', 'center', -5);
+        this.slowTextSprite = new TextSprite('Slow', '32px Arial', 'black', 'center', -5);
+        this.slowTextObject = new SceneObject(this.slowTextSprite);
+        this.slowTextObject.setPosition(0, 0);
+        wade.addSceneObject(this.slowTextObject);
+
+
+
+
+        this.fastTextSprite = new TextSprite('Fast', '32px Arial', 'black', 'center', -5);
+        this.fastTextObject = new SceneObject(this.fastTextSprite);
+        this.fastTextObject.setPosition(0, 50);
+        wade.addSceneObject(this.fastTextObject);
+
+
+        this.defaultTextSprite = new TextSprite('Default', '32px Arial', 'black', 'center', -5);
         this.defaultTextObject = new SceneObject(this.defaultTextSprite);
-        this.defaultTextObject.setPosition(0, -100);
+        this.defaultTextObject.setPosition(0, 100);
         wade.addSceneObject(this.defaultTextObject);
+
+            this.defaultTextObject.onMouseIn = (event)=>{
+                this.defaultTextObject.setColor("red");
+            };
+
+
+
+
 
         var settingsSprite = new Sprite('../js/../public/sprites/menu/settingsBackground.png', -1);
         var settingsObject = new SceneObject(settingsSprite);
@@ -104,6 +133,10 @@ const setupSettings = function (music_id: number) {
     //wade.clearScene();
     // this.settingsObject.onClick = settings.call(this);
     // wade.addEventListener(this.loadGameObject, 'onClick');
+
+
+       ///// loadGameObject.setVisible("true");
+  /////  setupNewGameObject.setVisible("true");
 
 };
  wade.addEventListener(this.settingsObject, 'onClick');
