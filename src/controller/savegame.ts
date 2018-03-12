@@ -124,6 +124,7 @@ var SaveGame = {
         NewGame.setUpCamera();
 
         GamePlay.refreshPlayerVision();
+        GamePlay.refreshAiVisibility();
 
 
         AiGamePlay.generateRandomResources();

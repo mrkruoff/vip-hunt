@@ -759,7 +759,7 @@ const GamePlay = {
             _.forEach(ai.getUnits(), (u) => {
                 let unit = u.rep; 
                 // Check if location is fogged or not. If it is, hide the unit
-                let fog = wade.iso.getTransitionSprite(unit.iso.gridCoords.z, unit.iso.gridCoords.z);
+                let fog = wade.iso.getTransitionSprite(unit.iso.gridCoords.x, unit.iso.gridCoords.z);
                 if(fog.isVisible() ) {
                     unit.getSprite(0).setVisible(false);  
                     unit.getSprite(1).setVisible(false);
@@ -773,7 +773,7 @@ const GamePlay = {
                 }
             });
 
-            await delay(1000);
+            await delay(750);
         }
 
         console.log("REFRESH AI VISIBILITY IS OVER");
@@ -810,30 +810,6 @@ const GamePlay = {
                 Fog.setFogVisibility(coord.x, coord.z, false);
             });
 
-            /*
-            // Set Ai Unit visiblity
-            let aiFog = e.data.aiFog;
-            let fogPairs = _.zip(aiUnitReps, aiFog);
-            _.forEach(fogPairs, (pair) => {
-                if(pair[1]) {
-                    pair[0].getSprite(0).setVisible(false);  
-                    pair[0].getSprite(1).setVisible(false);  
-                    pair[0].getSprite(2).setVisible(false);  
-                    pair[0].getSprite(3).setVisible(false);  
-                    pair[0].marker.setVisible(false);
-                } 
-            });
-
-            let aiClear = e.data.aiClear;
-            let clearPairs = _.zip(aiUnitReps, aiClear);
-            _.forEach(clearPairs, (pair) => {
-                if(pair[1]) {
-                    pair[0].getSprite(0).setVisible(true); 
-                    pair[0].getSprite(2).setVisible(true); 
-                    pair[0].marker.setVisible(true);
-                } 
-            });
-            */
             
             // Use these calculations to update the minimap 
             // since we don't want to have to repeat these calculations.
