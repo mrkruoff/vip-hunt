@@ -66,7 +66,7 @@ const Global = {
                             startingStone, startingWood, startingFood);
 
         const aiState = new AiGameState([], [], 
-                            startingStone, startingWood, startingFood);
+                            1000, 1000, 1000);
 
         const resources = [];
 
@@ -82,9 +82,11 @@ const Global = {
             }
         }
 
-        //Put the VIP and Townhall on the map
-        map[15][15].unitId = playerVIP.id;
-        map[1][5].buildingId = playerTownHall.id;
+        //Put the VIP and Townhall in the middle of the map
+        let x = Math.floor(numTiles.x / 2 );
+        let z = Math.floor(numTiles.z / 2 );
+        map[x][z].unitId = playerVIP.id;
+        map[x + 3][z + 3].buildingId = playerTownHall.id;
 
         const state = new GlobalGameState(map, resources, playerState, aiState);
 

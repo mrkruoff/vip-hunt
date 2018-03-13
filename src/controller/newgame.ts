@@ -164,8 +164,40 @@ function createPlayerStartingUnits() {
 
 
 function createAiStartingUnits() {
-    let AiVip = AiGamePlay.constructUnit("VIP", 15, 5);
-    let AiTownHall = AiGamePlay.constructBuilding("TownHall", 10, 1 );
+    let numTiles = wade.iso.getNumTiles();
+    let corner = Math.floor( Math.random() * 4 );
+    let x;
+    let z;
+    let offset = 7;
+    switch (corner) {
+        case 0:
+            x = numTiles.x - offset;
+            z = numTiles.z - offset;
+            console.log("TOP CORNER");
+            break;
+        case 1:
+            x = numTiles.x - offset;
+            z = offset;
+            console.log("RIGHT CORNER");
+            break;
+
+        case 2:
+            x = offset;
+            z = numTiles.z - offset;
+            console.log("LEFT CORNER");
+            break;
+
+        case 3:
+            x = offset;
+            z = offset;
+            console.log("BOTTOM CORNER");
+
+        default:
+            console.error(corner + " is an invalid corner in createAiStartingUnits!");
+    }
+
+    let AiVip = AiGamePlay.constructUnit("VIP", x, z);
+    let AiTownHall = AiGamePlay.constructBuilding("TownHall", x, z );
 }
 
 

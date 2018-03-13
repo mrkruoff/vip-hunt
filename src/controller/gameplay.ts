@@ -385,7 +385,9 @@ const GamePlay = {
                 var anim = attacker.getSprite(0).getCurrentAnimationName();
                 var direction = anim.substr(anim.lastIndexOf('_') + 1);
                 attacker.onAnimationEnd = (data) => {
-                    target.getSprite(3).setVisible(false);
+                    if(target.getSprite(3) ) {
+                        target.getSprite(3).setVisible(false);
+                    }
                     if(data.name === 'bleed') {
                     
                     } else {
@@ -398,8 +400,10 @@ const GamePlay = {
                 wade.addEventListener(attacker, 'onAnimationEnd');
                 attacker.playAnimation('Attack_iso_' + direction, 'forward');
                 targetData.takeDamage(attacker.data.getAttack());
-                target.getSprite(3).setVisible(true);
-                target.playAnimation('bleed', 'forward');
+                if(target.getSprite(3)) {
+                    target.getSprite(3).setVisible(true);
+                    target.playAnimation('bleed', 'forward');
+                }
             }
         };
         attacker.onObjectReached = doDamage;
@@ -830,14 +834,6 @@ const GamePlay = {
                 };
             });
 
-            let aiUnits: Unit[] = global.state.getAi().getUnits();
-            aiUnitReps = _.map(aiUnits, (unitData) => {
-                return unitData.rep;  
-            });
-            let aiUnitCoords = _.map(aiUnitReps, (unitRep) => {
-                return unitRep.iso.gridCoords; 
-            });
-
             let visionData = {
                 spotlightArray: dataCollection,
                 mapBounds: {
@@ -846,7 +842,6 @@ const GamePlay = {
                     minZ: 0,
                     maxZ: numTiles.z,
                 },
-                aiCoords: aiUnitCoords,
                 id: 1,
             }
             if(worker_1_isReady) {
