@@ -202,6 +202,7 @@ const BuildHud = {
     menuBackground: (layer: number) => {
         const scroll = BuildHud.buildIcon(ImageMap.scroll, 200, 500, 0, 0, layer);
         scroll.setName(Names.menu_background);
+        scroll.getSprite(0).usePixelPerfectMouseEvents(255);
 
         scroll.onMouseDown = prevent_propagation;
         wade.addEventListener(scroll, 'onMouseDown');

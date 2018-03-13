@@ -197,7 +197,7 @@ function createAiStartingUnits() {
     }
 
     let AiVip = AiGamePlay.constructUnit("VIP", x, z);
-    let AiTownHall = AiGamePlay.constructBuilding("TownHall", x, z );
+    let AiTownHall = AiGamePlay.constructBuilding("TownHall", x + 3, z + 3 );
 }
 
 

@@ -823,7 +823,7 @@ const SceneObjectConstruction = {
 
         grazeAnims = [
             ImageMap.sheep_NE_graze,
-            ImageMap.sheep_SW_graze
+            ImageMap.sheep_NW_graze
         ]
         grazeNames = [
             "Graze_iso_NW", "Graze_iso_NE" 
