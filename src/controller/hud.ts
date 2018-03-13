@@ -524,6 +524,28 @@ const Hud = {
 
         return global.hud.resources;
     },
+    showUnitData: (unit) => {
+        const global = wade.getSceneObject('global'); 
+        if (global.hud.stats) {
+            // If the global hud is already showing stats, clear it away (destroy it).
+            _.forEach(global.hud.stats, (icon) => {
+                wade.removeSceneObject(icon);
+            });
+            global.hud.stats = null;
+        }
+        global.hud.stats = BuildHud.unitStats(unit, 9);
+    },
+    showBuildingData: (building) => {
+        const global = wade.getSceneObject('global'); 
+        if (global.hud.stats) {
+            // If the global hud is already showing stats, clear it away (destroy it).
+            _.forEach(global.hud.stats, (icon) => {
+                wade.removeSceneObject(icon);
+            });
+            global.hud.stats = null;
+        }
+        global.hud.stats = BuildHud.buildingStats(building, 9); 
+    },
     // This function updates the Resource Panel SceneObjects to reflect
     // the Player's amounts of stone, wood, and food.
     //
@@ -578,6 +600,27 @@ const Hud = {
             global.hud.stats = null;
         }
     },
+    clearUnitData: () => {
+        const global = wade.getSceneObject('global');
+        if (global.hud.stats) {
+            // If the global hud is already showing stats, clear it away (destroy it).
+            _.forEach(global.hud.stats, (icon) => {
+                wade.removeSceneObject(icon);
+            });
+            global.hud.stats = null;
+        }
+    },
+    clearBuildingData: () => {
+        const global = wade.getSceneObject('global');
+        if (global.hud.stats) {
+            // If the global hud is already showing stats, clear it away (destroy it).
+            _.forEach(global.hud.stats, (icon) => {
+                wade.removeSceneObject(icon);
+            });
+            global.hud.stats = null;
+        }
+    },
+
 
 };
 

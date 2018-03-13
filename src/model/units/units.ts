@@ -66,6 +66,10 @@ class Unit implements IIdentifiable {
         return this.attack; 
     }
 
+    getHp() {
+        return this.hp; 
+    }
+
 }
 
 export default Unit;

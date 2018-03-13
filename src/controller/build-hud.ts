@@ -366,6 +366,41 @@ const BuildHud = {
         return scroll;
 
     },
+    unitStats: (unitSceneObject, layer: number) => {
+        const font = '12px Verdana';
+        const color = 'black';
+        const alignment = 'center';
+        const y = (wade.getScreenHeight() / 2) - 210;
+        const x = (-1 * wade.getScreenWidth() / 2) + 100;
+
+        const text = 'health: ' + unitSceneObject.data.getHp();
+        const health = BuildHud.buildText(text, font, color, alignment, x, y, layer);
+        health.setAlignment('right', 'bottom');
+
+        let all = [health];
+        _.forEach(all, (item) => {
+            item.dontSave = true;
+        });
+        return all;
+    
+    },
+    buildingStats: (buildingSceneObject, layer: number) => {
+        const font = '12px Verdana';
+        const color = 'black';
+        const alignment = 'center';
+        const y = (wade.getScreenHeight() / 2) - 210;
+        const x = (-1 * wade.getScreenWidth() / 2) + 100;
+
+        const text = 'health: ' + buildingSceneObject.data.getHp();
+        const health = BuildHud.buildText(text, font, color, alignment, x, y, layer);
+        health.setAlignment('right', 'bottom');
+
+        let all = [health];
+        _.forEach(all, (item) => {
+            item.dontSave = true;
+        });
+        return all;
+    },
     resourceStats: (resourceSceneObject, layer: number) => {
         const text = 'amount: ' + resourceSceneObject.data.getAmount().toString();
         const font = '12px Verdana';

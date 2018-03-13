@@ -81,6 +81,8 @@ var AiGamePlay = {
                 else {
                     console.log("ERROR in generating random resource!");
                 }
+                resource.rep.onMouseDown = GamePlay.onSelectResource(resource.rep);
+                wade.addEventListener(resource.rep, 'onMouseDown');
             }
             await delay(500);
         }

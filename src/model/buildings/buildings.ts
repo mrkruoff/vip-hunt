@@ -38,6 +38,9 @@ class Building implements IIdentifiable {
         return this.id;
     }
 
+    getHp(): number {
+        return this.hp; 
+    }
 
 }
 

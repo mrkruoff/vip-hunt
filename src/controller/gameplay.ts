@@ -75,6 +75,8 @@ const GamePlay = {
         wade.app.selected = selected;
         selected.getSprite(1).setVisible(true);
 
+        Hud.showBuildingData(selected);
+
         // Show the unit options for the selected building,
         // and set up the click event for each.
         const unitOptions = displayFn();
@@ -88,6 +90,7 @@ const GamePlay = {
         // If empty terrain is clicked, deselect the building.
         wade.app.onIsoTerrainMouseDown = (event) => {
             Hud.showMainPanel();
+            Hud.clearBuildingData();
             Hud.clearBarracksPanel();
             Hud.clearStablesPanel();
             Hud.clearTowerPanel();
@@ -121,6 +124,8 @@ const GamePlay = {
     addSelectedUnit: (selected) => {
         wade.app.selected = selected;
         selected.getSprite(1).setVisible(true);
+
+        Hud.showUnitData(selected);
 
         wade.app.onIsoTerrainMouseDown = (event) => {
             // Right-click indicates move or attack
@@ -209,6 +214,7 @@ const GamePlay = {
             } else if (event.button === Mouse.left) {
                 //Left click always leads to deselection and return
                 // to main menu
+                Hud.clearUnitData();
                 GamePlay.removeSelected();
                 Hud.showMainPanel();
                 wade.app.onIsoTerrainMouseDown = null;
@@ -332,13 +338,15 @@ const GamePlay = {
     },
     onSelectResource: (resource) => {
         return (event) => {
-            Hud.clearBuildingsPanel();
-            Hud.clearMainPanel();
-            Hud.clearBarracksPanel();
-            Hud.clearTowerPanel();
-            Hud.clearTownHallPanel();
+            console.log(event);
 
             if (event.button === Mouse.left) {
+                Hud.clearBuildingsPanel();
+                Hud.clearMainPanel();
+                Hud.clearBarracksPanel();
+                Hud.clearTowerPanel();
+                Hud.clearTownHallPanel();
+                Hud.clearStablesPanel();
                 if (GamePlay.getSelected()) {
                     GamePlay.removeSelected();
                 }
@@ -556,6 +564,12 @@ const GamePlay = {
                 // of gathering, start gathering resources
                 if(! gatherer.isGathering) {
                     targetData.takeGather(gatherer.data.getGather());;
+
+                    // If the target is currently also selected, update the resource
+                    // panel.
+                    if(targetData.rep === GamePlay.getSelected() ) {
+                        Hud.showResourceData(targetData.rep);
+                    }
                     if (_.isEqual(owner, "Player") ) {
                         GamePlay.applyGatherToPlayer(gatherer.data.getGather(),
                                                     targetData.getClassName());
