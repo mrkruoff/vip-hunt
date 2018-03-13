@@ -34,11 +34,16 @@ const ImageMap = {
     vip_1: '../js/../public/sprites/units/results_knight/vip_icon.png',
     stone: '../js/../public/sprites/resources/stone.png',
     food: '../js/../public/sprites/resources/food.png',
-    wood: '../js/../public/sprites/resources/wood.png',
+    wood: '../js/../public/sprites/resources/tree.png',
 
     stoneIcon: '../js/../public/sprites/resources/stone.png',
     woodIcon: '../js/../public/sprites/resources/wood.png',
     foodIcon: '../js/../public/sprites/resources/food.png',
+
+    sheep_NW_graze: '../js/../public/tilesets/characters/sheep/whitesheep_Graze_iso_nw.png',
+    sheep_NE_graze: '../js/../public/tilesets/characters/sheep/whitesheep_Graze_iso_ne.png',
+    sheep_SE_graze: '../js/../public/tilesets/characters/sheep/whitesheep_Graze_iso_se.png',
+    sheep_SW_graze: '../js/../public/tilesets/characters/sheep/whitesheep_Graze_iso_sw.png',
 
     swordsman_N_idle: '../js/../public/sprites/units/results_warrior_1/idleN.png',
     swordsman_S_idle: '../js/../public/sprites/units/results_warrior_1/idleS.png',

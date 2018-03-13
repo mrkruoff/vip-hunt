@@ -138,6 +138,14 @@ function loadImages() {
     wade.loadImage(ImageMap.wood);
     wade.loadImage(ImageMap.stone);
 
+    let sheep_animations = [
+        ImageMap.sheep_NW_graze,
+        ImageMap.sheep_NE_graze,
+        ImageMap.sheep_SW_graze,
+        ImageMap.sheep_SE_graze
+    ];
+    wade.loadImages(sheep_animations);
+
     let swordsman_animations = [
         ImageMap.swordsman_N_idle,
         ImageMap.swordsman_S_idle,

@@ -6,6 +6,7 @@
     "image": "../js/../public/sprites/resources/food.png",
     "size": {"x": 70, "y": 130},
     "pixelPerfectMouseEvents": 255,
-    "sortPoint": {"x": 0, "y": 0}
+    "sortPoint": {"x": 0, "y": 0},
+    "animations": { }
 }
 

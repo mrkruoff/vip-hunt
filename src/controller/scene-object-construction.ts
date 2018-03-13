@@ -777,6 +777,9 @@ const SceneObjectConstruction = {
             gridSize: {x: 1, z: 1},
             collisionSize: {x: 1, z: 1},
         };
+        objectData.sprites[0].size = {x: 100, y: 150};
+        objectData.sprites[0].offset = {x: 0, y: -50 };
+        objectData.sprites[0].sortPoint = {x: 0, y: 0.25 };
         const stone = wade.iso.createObject(objectData, {x: -2, z: 5} );
 
         return stone;
@@ -787,6 +790,9 @@ const SceneObjectConstruction = {
             gridSize: {x: 1, z: 1},
             collisionSize: {x: 1, z: 1},
         };
+        objectData.sprites[0].size = {x: 250, y: 400};
+        objectData.sprites[0].offset = {x: 0, y: -170 };
+        objectData.sprites[0].sortPoint = {x: 0, y: 0.25 };
         const wood = wade.iso.createObject(objectData, {x: -2, z: 5} );
 
         return wood;
@@ -797,6 +803,46 @@ const SceneObjectConstruction = {
             gridSize: {x: 1, z: 1},
             collisionSize: {x: 1, z: 1},
         };
+        objectData.sprites[0].size = {x: 120, y: 120};
+
+        let grazeAnims = [
+            ImageMap.sheep_SW_graze,
+            ImageMap.sheep_SE_graze
+        ]
+        let grazeNames = [
+            "Graze_iso_SW", "Graze_iso_SE" 
+        ]
+        let offset = {x: 0, y: -40};
+        let startFrame = 0;
+        let endFrame = 47;
+        let xCells = 6;
+        let yCells = 8;
+        let speed = 8;
+        let looping = true;
+        addAnimData(objectData.sprites[0], grazeAnims, grazeNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
+
+        grazeAnims = [
+            ImageMap.sheep_NE_graze,
+            ImageMap.sheep_SW_graze
+        ]
+        grazeNames = [
+            "Graze_iso_NW", "Graze_iso_NE" 
+        ]
+        offset = {x: 0, y: -40};
+        startFrame = 0;
+        endFrame = 47;
+        xCells = 8;
+        yCells = 6;
+        speed = 8;
+        looping = true;
+        addAnimData(objectData.sprites[0], grazeAnims, grazeNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
+
+        grazeNames = [  
+            "Graze_iso_SW", "Graze_iso_SE",
+            "Graze_iso_NW", "Graze_iso_NE" 
+        ]
+        let startingIndex = Math.floor( Math.random() * 4 )
+        objectData.sprites[0].currentAnimation = grazeNames[startingIndex];
         const food = wade.iso.createObject(objectData, {x: -2, z: 5} );
 
         return food;
