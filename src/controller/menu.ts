@@ -87,41 +87,73 @@ const setupSettings = function (music_id: number) {
 
     setMouseInOut(this.settingsObject);
 
+
+
     this.settingsObject.onClick = function() {
 
-        this.loadGameObject.setVisible(false);
-    this.setupNewGameObject.setVisible(false);
+       // this.loadGameObject.setVisible(false);
+       /// this.setupNewGameObject.setVisible(false);
 
-    
-    wade.loadImage('../js/../public/sprites/menu/settingsBackground.png');
+    this.settingsSprite = new Sprite('../js/../public/sprites/menu/settingsBackground.png');
+    this.settingsObject = new SceneObject(this.settingsSprite);
+    wade.addSceneObject(this.settingsObject);
+    this.settingsObject.setVisible(true);
+
+
+    /////wade.loadImage('../js/../public/sprites/menu/settingsBackground.png');
 
             //wade.clearScene();
 
-        this.slowTextSprite = new TextSprite('Slow', '32px Arial', 'black', 'center', -5);
+        this.slowTextSprite = new TextSprite('Slow', '32px Arial', 'black', 'left', -5);
         this.slowTextObject = new SceneObject(this.slowTextSprite);
-        this.slowTextObject.setPosition(0, 0);
+        this.slowTextObject.setPosition(-200, 0);
         wade.addSceneObject(this.slowTextObject);
+        this.slowTextObject.setVisible(true);
 
+        setMouseInOutSettings(this.slowTextObject);
 
+        this.slowTextObject.onClick = () => {
+         wade.removeSceneObject(settingsObject);
+         this.settingsSprite.fadeOut();
+         this.slowTextSprite.fadeOut();
+         this.fastTextSprite.fadeOut();
+         this.defaultTextSprite.fadeOut();
 
-
-        this.fastTextSprite = new TextSprite('Fast', '32px Arial', 'black', 'center', -5);
-        this.fastTextObject = new SceneObject(this.fastTextSprite);
-        this.fastTextObject.setPosition(0, 50);
-        wade.addSceneObject(this.fastTextObject);
-
-
-        this.defaultTextSprite = new TextSprite('Default', '32px Arial', 'black', 'center', -5);
-        this.defaultTextObject = new SceneObject(this.defaultTextSprite);
-        this.defaultTextObject.setPosition(0, 100);
-        wade.addSceneObject(this.defaultTextObject);
-
-            this.defaultTextObject.onMouseIn = (event)=>{
-                this.defaultTextObject.setColor("red");
+                //wade.removeSceneObject(this.settingsObject);
+               // this.settingsObject.setVisible(false);
+                //wade.clearScene();
+                //wade.getSceneObject(this.slowTextObject).setVisible(false);                
+                //this.settingsObject.setVisible(false);
             };
 
 
+            wade.addEventListener(this.slowTextObject, 'onClick');
 
+
+
+          /////  this.slowTextObject.onMouseIn = (event)=>{
+          /////      this.slowTextObject.setColor("red");
+          /////  };
+
+        this.fastTextSprite = new TextSprite('Fast', '32px Arial', 'black', 'left', -5);
+        this.fastTextObject = new SceneObject(this.fastTextSprite);
+        this.fastTextObject.setPosition(-200, 50);
+        wade.addSceneObject(this.fastTextObject);
+
+
+        setMouseInOutSettings(this.fastTextObject);
+
+        this.defaultTextSprite = new TextSprite('Default', '32px Arial', 'black', 'left', -5);
+        this.defaultTextObject = new SceneObject(this.defaultTextSprite);
+        this.defaultTextObject.setPosition(-200, 100);
+        wade.addSceneObject(this.defaultTextObject);
+
+            //this.defaultTextObject.onMouseIn = (event)=>{
+            //    this.defaultTextObject.setColor("red");
+           // };
+
+
+        setMouseInOutSettings(this.defaultTextObject);
 
 
         var settingsSprite = new Sprite('../js/../public/sprites/menu/settingsBackground.png', -1);
@@ -201,6 +233,15 @@ function setMouseInOut(textObject: any) {
     wade.addEventListener(textObject, 'onMouseIn');
 
     textObject.onMouseOut = changeColor(textObject, 'white');
+    wade.addEventListener(textObject, 'onMouseOut');
+}
+
+
+function setMouseInOutSettings(textObject: any) {
+    textObject.onMouseIn = changeColor(textObject, 'red');
+    wade.addEventListener(textObject, 'onMouseIn');
+
+    textObject.onMouseOut = changeColor(textObject, 'black');
     wade.addEventListener(textObject, 'onMouseOut');
 }
 
