@@ -941,7 +941,10 @@ let BuildingBuilding = {
             wade.app.onIsoTerrainMouseMove = null;
             optionsPanel.icon = null;
             //Remove this very event listener
-            wade.app.onIsoTerrainMouseDown = null;
+            wade.app.onIsoTerrainMouseDown = (event) => {
+                Hud.showMainPanel();
+                Hud.clearBuildingsPanel();
+            };
 
             if( GamePlay.enoughPlayerResources(costsFile)) {
                 // Set the new building up for gameplay callbacks
@@ -1076,7 +1079,13 @@ const UnitBuilding = {
             optionsPanel.icon = null;
 
             //Remove this very event listener from the global scope
-            wade.app.onIsoTerrainMouseDown = null;
+            wade.app.onIsoTerrainMouseDown = (event) => {
+                Hud.clearStablesPanel();
+                Hud.clearTowerPanel();
+                Hud.clearTownHallPanel();
+                Hud.clearBarracksPanel();
+                Hud.showMainPanel();
+            };
 
             if(GamePlay.enoughPlayerResources(costsFile) ) {
                 //Set up the newly constructed unit for gameplay
