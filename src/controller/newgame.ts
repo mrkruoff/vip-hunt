@@ -139,6 +139,12 @@ const NewGame = {
             //Show the player new buttons for making buildings on map
             const options = Hud.showBuildingsPanel();
 
+            wade.app.onIsoTerrainMouseDown = (event) => {
+                wade.app.onIsoTerrainMouseDown = null;
+                Hud.clearBuildingsPanel();
+                Hud.showMainPanel();
+            }
+
             // Function that takes a buildingIcon and sets its click event
             // to build a matching building in the game world.
             const setOnClickToBuild = (b) => {
@@ -191,6 +197,7 @@ function createAiStartingUnits() {
             x = offset;
             z = offset;
             console.log("BOTTOM CORNER");
+            break;
 
         default:
             console.error(corner + " is an invalid corner in createAiStartingUnits!");
