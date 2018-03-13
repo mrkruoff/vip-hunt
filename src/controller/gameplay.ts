@@ -401,14 +401,11 @@ const GamePlay = {
                     if(target.getSprite(3) ) {
                         target.getSprite(3).setVisible(false);
                     }
-                    if(data.name === 'bleed') {
-                    
-                    } else {
-                        attacker.isAttacking = false; 
-                        attacker.onAnimationEnd = null;
-                        let dir = GamePlay.directionToTarget(attacker, target);
-                        attacker.getBehavior('IsoCharacter').setDirection(dir);
-                    }
+
+                    attacker.isAttacking = false; 
+                    attacker.onAnimationEnd = null;
+                    let dir = GamePlay.directionToTarget(attacker, target);
+                    attacker.getBehavior('IsoCharacter').setDirection(dir);
                 }
                 wade.addEventListener(attacker, 'onAnimationEnd');
                 attacker.playAnimation('Attack_iso_' + direction, 'forward');
@@ -416,6 +413,19 @@ const GamePlay = {
                 if(target.getSprite(3)) {
                     target.getSprite(3).setVisible(true);
                     target.playAnimation('bleed', 'forward');
+                }
+
+                // If the attacked unit is also the player's selected unit, update its
+                // display of health
+                if(targetData.rep === GamePlay.getSelected() ) {
+                    let display;
+                    if(_.has(targetData, 'speed')) {
+                        display = Hud.showUnitData;
+                    }
+                    else {
+                        display = Hud.showBuildingData;
+                    }
+                    display(targetData.rep);
                 }
             }
         };
