@@ -45,6 +45,7 @@ function addAnims(sceneObject, animsArray, namesArray, xCells, yCells, speed, lo
             speed: speed,
             looping: looping,
             offset: offset,
+            autoResize: false,
         });
         sceneObject.getSprite(0).addAnimation(namesArray[i], anim);
     }
@@ -63,7 +64,7 @@ function addAnimData(spriteData, animsArray, namesArray, xCells, yCells, speed, 
             looping: looping,
             offset: offset,
             name: namesArray[i],
-            autoResize: true,
+            autoResize: false,
         }
 
         spriteData.animations[namesArray[i]] = animData;
@@ -161,6 +162,7 @@ const SceneObjectConstruction = {
             behaviors: [IsoCharacter],
         };
         let offset = {x: 0, y: -90};
+        objectData.sprites[0].size = {x: 500, y: 500};
 
         let idleAnims = [
             ImageMap.vip_N_idle, ImageMap.vip_S_idle, ImageMap.vip_E_idle,
@@ -218,27 +220,6 @@ const SceneObjectConstruction = {
         looping = false;
         addAnimData(objectData.sprites[0], deathAnims, deathNames, xCells, yCells, speed, looping, startFrame, endFrame, offset); 
 
-/*
-        // Finally, add an animation to play when a unit is hit.
-        let hitSprite = new Sprite();
-        hitSprite.setLayer(25);
-        hitSprite.setSortPoint(0, 1);
-        let animData = {
-            type: 'Animation',
-            name: 'bleed',
-            startFrame: 0, 
-            endFrame: 149,
-            numCells: {x: 10, y: 15 },
-            image: ImageMap.unit_hit_marker,
-            speed: 30,
-            looping: true,
-            offset: {x: 0, y: 0}
-        };
-        let hitAnim = new Animation(animData);
-        hitSprite.addAnimation('bleed', hitAnim, true);
-
-        vip.addSprite(hitSprite);
-*/
 
         objectData.sprites[0].currentAnimation = idleNames[1];
         objectData.sprites.push(wade.getJson(JsonMap.selected_marker));
@@ -294,6 +275,7 @@ const SceneObjectConstruction = {
             behaviors: [IsoCharacter],
         };
         let offset = {x: 0, y: -50};
+        objectData.sprites[0].size = {x: 400, y: 400};
 
         let idleAnims = [
             ImageMap.swordsman_N_idle, ImageMap.swordsman_S_idle, ImageMap.swordsman_E_idle,
@@ -363,7 +345,6 @@ const SceneObjectConstruction = {
         objectData.sprites[2].offset = {x: 0, y: -50 };
         objectData.sprites.push(wade.getJson(JsonMap.bleed_marker));
         const swordsman = wade.iso.createObject(objectData);
-        swordsman.getSprite(0).setSize(300, 300);
 
         return swordsman;
     },
@@ -380,6 +361,7 @@ const SceneObjectConstruction = {
             behaviors: [IsoCharacter],
         };
         let offset = {x: 0, y: -50};
+        objectData.sprites[0].size = {x: 400, y: 400};
         
         let idleAnims = [
             ImageMap.archer_N_idle, ImageMap.archer_S_idle, ImageMap.archer_E_idle,
@@ -464,6 +446,7 @@ const SceneObjectConstruction = {
             behaviors: [IsoCharacter],
         };
         let offset = {x: 0, y: -100};
+        objectData.sprites[0].size = {x: 500, y: 500};
 
         let idleAnims = [
             ImageMap.archerCalvary_N_idle, ImageMap.archerCalvary_S_idle, ImageMap.archerCalvary_E_idle,
@@ -548,6 +531,7 @@ const SceneObjectConstruction = {
             behaviors: [IsoCharacter],
         };
         let offset = {x: 0, y: -100};
+        objectData.sprites[0].size = {x: 500, y: 500};
         
         let idleAnims = [
             ImageMap.spearCalvary_N_idle, ImageMap.spearCalvary_S_idle, ImageMap.spearCalvary_E_idle,
@@ -632,6 +616,7 @@ const SceneObjectConstruction = {
             behaviors: [IsoCharacter],
         };
         let offset = {x: 0, y: -30};
+        objectData.sprites[0].size = {x: 400, y: 400};
         
         let idleAnims = [
             ImageMap.gatherer_N_idle, ImageMap.gatherer_S_idle, ImageMap.gatherer_E_idle,
@@ -715,6 +700,7 @@ const SceneObjectConstruction = {
             behaviors: [IsoCharacter],
         };
         let offset = {x: 0, y: -100};
+        objectData.sprites[0].size = {x: 400, y: 400};
 
         let idleAnims = [
             ImageMap.drummerBoy_N_idle, ImageMap.drummerBoy_S_idle, ImageMap.drummerBoy_E_idle,

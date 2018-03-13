@@ -182,8 +182,13 @@ const GamePlay = {
                             GamePlay.clearGather(selected);
 
                             selected.getBehavior('IsoCharacter').goToObject(resource);
-                            GamePlay.move(selected, resource.iso.gridCoords);
-                            selected.onObjectReached = GamePlay.gather(selected, resource, "Player");
+                            if(GamePlay.distance(selected, resource) < 2 ) {
+                                console.log("I'M NOT GOING TO MOVE. JUST GATHER");
+                                GamePlay.gather(selected, resource, "Player")(null);
+                            } else  {
+                                GamePlay.move(selected, resource.iso.gridCoords);
+                                selected.onObjectReached = GamePlay.gather(selected, resource, "Player");
+                            }
 
                         } else {
                             // If no resource (and no enemy building) was there, deselect unit
@@ -546,6 +551,7 @@ const GamePlay = {
             gatherer.shouldGather = true;
             gatherer.isGathering = false;
             while (gatherer.shouldGather) {
+                console.log("ITERATION 1");
                 // If the gatherer isn't currently in the middle
                 // of gathering, start gathering resources
                 if(! gatherer.isGathering) {
@@ -579,7 +585,9 @@ const GamePlay = {
                     GamePlay.deleteGameObject(target);
                     gatherer.getBehavior('IsoCharacter').setDirection('s');
                 }
+
             }
+            console.log("GATHERING IS OVER");
         };
     },
     applyGatherToPlayer: (gather: number, resource: string) => {
@@ -1085,6 +1093,9 @@ const UnitBuilding = {
                 Hud.clearTownHallPanel();
                 Hud.clearBarracksPanel();
                 Hud.showMainPanel();
+                if(GamePlay.getSelected() ) {
+                    GamePlay.removeSelected();
+                }
             };
 
             if(GamePlay.enoughPlayerResources(costsFile) ) {
