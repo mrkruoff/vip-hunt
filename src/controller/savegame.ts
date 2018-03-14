@@ -335,7 +335,7 @@ function reconstructAiGameState(ai): AiGameState {
     let buildings: Building[] = reconstructBuildings(ai.buildings);
 
     let newAi = new AiGameState(units, buildings, ai.stone,
-                                       ai.wood, ai.food);
+                                       ai.wood, ai.food, ai.actionState);
 
     return newAi;
 }
