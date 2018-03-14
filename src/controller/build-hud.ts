@@ -225,12 +225,22 @@ const BuildHud = {
         const buttonWidth = 50;
         const buttonHeight = 50;
 
+        let font = "12px Verdana";
+        let color = 'black';
+        let alignment = 'center';
+
         let x = (-1 * wade.getScreenWidth() / 2) + 100;
         let y = (wade.getScreenHeight() / 2) - 100;
         const barracks = BuildHud.buildIcon(ImageMap.barracks_1, buttonWidth, buttonHeight,
                 x, y, layer);
         barracks.setName(Names.barracksIcon);
         barracks.setAlignment('left', 'bottom');
+        let cost = wade.getJson(JsonMap.barracks_cost);
+        let text = "stone: " + cost.stone + "\n wood: " + cost.wood +
+                                "\n food: " + cost.food;
+        let barracksCost = BuildHud.buildText(text, font, color, alignment, x, y + 30,
+                                            layer);
+        barracksCost.setAlignment('left', 'bottom');
 
         x = (-1 * wade.getScreenWidth() / 2) + 200;
         y = (wade.getScreenHeight() / 2) - 100;
@@ -238,6 +248,12 @@ const BuildHud = {
                 x, y, layer);
         stables.setName(Names.stablesIcon);
         stables.setAlignment('left', 'bottom');
+        cost = wade.getJson(JsonMap.stables_cost);
+        text = "stone: " + cost.stone + "\n wood: " + cost.wood +
+                                "\n food: " + cost.food;
+        let stablesCost = BuildHud.buildText(text, font, color, alignment, x, y + 30,
+                                            layer);
+        stablesCost.setAlignment('left', 'bottom');
 
         x = (-1 * wade.getScreenWidth() / 2) + 200;
         y = (wade.getScreenHeight() / 2) - 200;
@@ -245,6 +261,12 @@ const BuildHud = {
                 x, y, layer);
         towers.setName(Names.towersIcon);
         towers.setAlignment('left', 'bottom');
+        cost = wade.getJson(JsonMap.tower_cost);
+        text = "stone: " + cost.stone + "\n wood: " + cost.wood +
+                                "\n food: " + cost.food;
+        let towerCost = BuildHud.buildText(text, font, color, alignment, x, y + 30,
+                                            layer);
+        towerCost.setAlignment('left', 'bottom');
 
         x = (-1 * wade.getScreenWidth() / 2) + 100;
         y = (wade.getScreenHeight() / 2) - 200;
@@ -252,8 +274,18 @@ const BuildHud = {
                 buttonHeight, x, y, layer);
         townHalls.setName(Names.townHallsIcon);
         townHalls.setAlignment('left', 'bottom');
+        cost = wade.getJson(JsonMap.townhall_cost);
+        text = "stone: " + cost.stone + "\n wood: " + cost.wood +
+                                "\n food: " + cost.food;
+        let townHallCost = BuildHud.buildText(text, font, color, alignment, x, y + 30,
+                                            layer);
+        townHallCost.setAlignment('left', 'bottom');
 
-        let all = [barracks, stables, towers, townHalls];
+        let all = [
+            barracks, stables, towers, townHalls,
+            barracksCost, stablesCost, towerCost, townHallCost
+        ];
+
         _.forEach(all, (item) => {
             item.dontSave = true;
         });

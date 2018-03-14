@@ -212,10 +212,9 @@ const Hud = {
     clearBuildingsPanel: () => {
         const global = wade.getSceneObject('global');
         if (global.hud.buildings) {
-            wade.getSceneObject(Names.barracksIcon).setVisible(false);
-            wade.getSceneObject(Names.stablesIcon).setVisible(false);
-            wade.getSceneObject(Names.towersIcon).setVisible(false);
-            wade.getSceneObject(Names.townHallsIcon).setVisible(false);
+            _.forEach(global.hud.buildings, (building) => {
+                building.setVisible(false); 
+            });
         }
     },
     // This function clears the Main Panel, which contains things like
@@ -277,10 +276,10 @@ const Hud = {
     showBuildingsPanel: () => {
         const global = wade.getSceneObject('global');
         if (global.hud.buildings) {
-            wade.getSceneObject(Names.barracksIcon).setVisible(true);
-            wade.getSceneObject(Names.stablesIcon).setVisible(true);
-            wade.getSceneObject(Names.towersIcon).setVisible(true);
-            wade.getSceneObject(Names.townHallsIcon).setVisible(true);
+            _.forEach(global.hud.buildings, (building) => {
+                building.setVisible(true);
+            
+            });
         } else {
             global.hud.buildings = BuildHud.buildingsPanel(9);
         }
