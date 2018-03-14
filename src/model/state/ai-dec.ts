@@ -12,9 +12,10 @@ function mapSearch(map, aString,playerState){
 		if(row[j]!=null){
 			if(aString=="resource"){
 			if (row[j].getResourceId()>0){
+				
 				return row[j].getResourceId();
 				
-			}
+				}
 			}
 			else if(aString=="unit"){
 				if (row[j].getUnitId() >=0){
@@ -44,6 +45,23 @@ function chooseUnit(name, state){
 	}
 	return false; 
 };
+
+
+function findStart(map,state){
+	var buildings=state.getBuildings();
+	var thall=buildings[0];
+	for(var i=0;i<map.length;i++){
+		var row=map[i];
+		for(var j=0; j<row.length;j++){
+			if(row[j].getBuildingId()==thall.getId()){
+				return [i,j];
+			}
+		}
+	}
+}
+
+
+
 
 function chooseBuilding(name, state){
 	var buildings=state.getBuildings();
@@ -275,12 +293,20 @@ const AiDec = {
 		console.log("AiVIP:"+AiVip);
 		let playerVIP=chooseUnit("VIP",playerState);
 		console.log("PlayerVIP:"+playerVIP);
-		let currentState="setup";
-		console.log(currentState);
 		let step=0;
 		let stable=false;
 		let tower=false;
 		let map=globalState.getMap();
+		console.log(findStart(map, aistate));
+		let startCord=findStart(map,aistate);
+		let xcord=startCord[0];
+		let zcord=startCord[1];
+		if(xcord==46){
+			xcord=34;
+		}
+		if(zcord==46){
+			zcord=34;	
+		}
 		let sword: any;
 		let gathering: any;
 		let time: number=4000;
@@ -292,29 +318,31 @@ const AiDec = {
 			if(aistate.getActionState()=="setup"){
 				console.log("Settingup step")
 				if(chooseBuilding("Barracks",aistate)==false){
-						AiGamePlay.constructBuilding("Barracks", 40, 10);
+						AiGamePlay.constructBuilding("Barracks",startCord[1],xcord+3);
 						console.log("Barracks Built");
 				}
 				else if(chooseUnit("Swordsman",aistate)==false || chooseUnit("Gatherer",aistate)==false){
 					if(chooseUnit("Swordsman",aistate)==false){
 					if(resourceCheck("Swordsman",aistate,isHardMode)){
-						sword=AiGamePlay.constructUnit("Swordsman", 42, 5);
+						sword=AiGamePlay.constructUnit("Swordsman", startCord[1],xcord+4 );
 					}
 					}
 					else if(chooseUnit("Gatherer",aistate)==false){
 					 if(resourceCheck("Gatherer",aistate,isHardMode)){					
-						gathering=AiGamePlay.constructUnit("Gatherer",43,1);
+						gathering=AiGamePlay.constructUnit("Gatherer",startCord[1],xcord+1);
 					}
 					}
 				}
 				else{
-					AiGamePlay.unitMove(sword.id,44,5);
-					AiGamePlay.unitMove(AiVip,44,6);
+					AiGamePlay.unitMove(sword.id,startCord[1],xcord);
+					AiGamePlay.unitMove(AiVip,startCord[1],xcord);
 					var resLoc=mapSearch(map,"resource",playerState);
 					if (resLoc!=0){
 						AiGamePlay.unitGather(gathering.id,resLoc);
 					}
-					aistate["actionState"]="offense";}
+					aistate["actionState"]="offense";
+					console.log(aistate);
+					console.log(globalState["ai_state"]);}
 				};
 			if(aistate.getActionState()=="offense"){
 				console.log("Attacking");
@@ -324,7 +352,7 @@ const AiDec = {
 				}
 				else{
 				console.log("stable");
-				AiGamePlay.constructBuilding("Stables", 40, 5);}
+				AiGamePlay.constructBuilding("Stables", startCord[1],xcord+6);}
 				}
 				else if(chooseBuilding("Tower",aistate)==false){
 				if(resourceCheck("Tower",aistate, isHardMode)==false){
@@ -333,7 +361,8 @@ const AiDec = {
 				}
 				else{
 					console.log("tower")
-				AiGamePlay.constructBuilding("Tower", 40, 10);
+				AiGamePlay.constructBuilding("Tower", startCord[1],xcord+9);
+				await delay(5000)
 				}
 				}
 				else if(chooseBuilding("Barracks",aistate)==false){
@@ -342,7 +371,7 @@ const AiDec = {
 					}
 					else{
 					console.log("Barracks")
-					AiGamePlay.constructBuilding("Barracks", 40, 15);
+					AiGamePlay.constructBuilding("Barracks", startCord[1], xcord+3);
 					}
 				}
 				else if(chooseBuilding("TownHall",aistate)==false){
@@ -351,7 +380,7 @@ const AiDec = {
 					}
 					else{
 					console.log("TownHall")
-					AiGamePlay.constructBuilding("TownHall", 39, 8);
+					AiGamePlay.constructBuilding("TownHall", startCord[1], xcord);
 					}
 				}
 				else{
@@ -365,8 +394,8 @@ const AiDec = {
 						aistate["actionState"]="gather";
 						}
 						else{
-							var archer=AiGamePlay.constructUnit("Archer", 42, 5);
-							AiGamePlay.unitMove(archer.getId(),44,5);
+							var archer=AiGamePlay.constructUnit("Archer", startCord[1], xcord+1);
+							AiGamePlay.unitMove(archer.getId(), startCord[1],xcord);
 						}
 
 					}
@@ -387,14 +416,14 @@ const AiDec = {
 										aistate["actionState"]="gather";
 										}
 										else{
-										var archerCal=AiGamePlay.constructUnit("ArcherCalvary", 42, 5);
+										var archerCal=AiGamePlay.constructUnit("ArcherCalvary", startCord[1], xcord+7);
 										
 										}	
 										if(resourceCheck("SpearCalvary",aistate,isHardMode)==false){
 										aistate["actionState"]="gather";
 										}
 										else{
-										var spearCal=AiGamePlay.constructUnit("SpearCalvary",39,7)		
+										var spearCal=AiGamePlay.constructUnit("SpearCalvary", startCord[1],xcord+8)		
 										}	
 
 								
@@ -412,7 +441,7 @@ const AiDec = {
 										}
 										else{
 										console.log("ArcherCalvary");
-										AiGamePlay.constructUnit("ArcherCalvary", 39,7 );}
+										AiGamePlay.constructUnit("ArcherCalvary", startCord[1], xcord+7 );}
 									}
 									else if(chooseUnit("SpearCalvary",aistate)==false){
 										console.log("Building SpearCal");
@@ -421,7 +450,7 @@ const AiDec = {
 										}
 										else{
 										console.log("SpearCalvary");
-										AiGamePlay.constructUnit("SpearCalvary", 42, 5);}
+										AiGamePlay.constructUnit("SpearCalvary", startCord[1], xcord+8);}
 									}
 									else{
 									console.log("Lets Attack");
@@ -437,13 +466,13 @@ const AiDec = {
 									}
 									else{
 									console.log("ArcherCalvary");
-									AiGamePlay.constructUnit("ArcherCalvary", 36,7 );}
+									AiGamePlay.constructUnit("ArcherCalvary", startCord[1], xcord+7 );}
 									if(resourceCheck("SpearCalvary",aistate, isHardMode)==false){
 									aistate["actionState"]="gather";		
 									}
 									else{
 									console.log("SpearCalvary");
-									AiGamePlay.constructUnit("SpearCalvary", 41, 5);}
+									AiGamePlay.constructUnit("SpearCalvary", startCord[1], xcord+8);}
 									await delay(1500);
 										}
 									}
@@ -453,7 +482,7 @@ const AiDec = {
 										aistate["actionState"]="gather";
 										}
 										else{
-										var spearCal=AiGamePlay.constructUnit("Swordsman",38,5)		
+										var spearCal=AiGamePlay.constructUnit("Swordsman", startCord[1],xcord+4)		
 										}	
 									
 									
@@ -472,7 +501,7 @@ const AiDec = {
 										}
 										else{
 										console.log("ArcherCalvary");
-										AiGamePlay.constructUnit("ArcherCalvary", 39,7 );}
+										AiGamePlay.constructUnit("ArcherCalvary", startCord[1], xcord+7 );}
 									}
 									else if(chooseUnit("SpearCalvary",aistate)==false){
 										console.log("Building SpearCal");
@@ -481,7 +510,7 @@ const AiDec = {
 										}
 										else{
 										console.log("SpearCalvary");
-										AiGamePlay.constructUnit("SpearCalvary", 42, 5);}
+										AiGamePlay.constructUnit("SpearCalvary", startCord[1], xcord+8);}
 									}
 									else{
 									console.log("Lets Attack");
@@ -492,7 +521,7 @@ const AiDec = {
 									if(singleAttack>=0){
 									console.log("sendingAttack");
 									AiGamePlay.unitAttack(units[unittosend].getId(), singleAttack);
-									await delay(2500);
+									await delay(4000);
 										}
 									}
 							}
@@ -501,7 +530,7 @@ const AiDec = {
 										aistate["actionState"]="gather";
 										}
 										else{
-										var spearCal=AiGamePlay.constructUnit("Swordsman",38,5)		
+										var spearCal=AiGamePlay.constructUnit("Swordsman", startCord[1],xcord+4)		
 										}	
 									
 									
@@ -520,15 +549,22 @@ const AiDec = {
 				var resLoc=mapSearch(map,"resource",playerState);
 				var gatherUnit=chooseUnit("Gatherer", aistate);
 				if (gatherUnit==false){					
-				 gatherUnit=AiGamePlay.constructUnit("Gatherer",43,1);
+				 gatherUnit=AiGamePlay.constructUnit("Gatherer", startCord[1],xcord+1);
 				 	if (resLoc!=0){
 					AiGamePlay.unitGather(gatherUnit.getId(),resLoc);
-					await delay(2500);
+					aistate["stone"]+=250;
+					aistate["wood"]+=250;
+					aistate["food"]+=250;
+					await delay(10000);
+					
 				}
 				}
 				else{
 					AiGamePlay.unitGather(gatherUnit,resLoc);
-					await delay(2500);
+					aistate["stone"]+=250;
+					aistate["wood"]+=250;
+					aistate["food"]+=250;
+					await delay(10000);
 				}
 				aistate["actionState"]="offense";
 			}; 
