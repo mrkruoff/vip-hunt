@@ -413,8 +413,7 @@ const Hud = {
                 quit.getSprite(0).setFont("16px Verdana");
             };
             wade.addEventListener(save, 'onMouseOut');
-            quit.onClick = (event)=>
-            {
+            quit.onClick = (event) => {
                 quit.getSprite(0).setFont("16px Verdana");
                 location.reload();
             };
@@ -428,10 +427,12 @@ const Hud = {
         }
 
     },
+
     // This function shows and returns a reference to the Barracks Panel SceneObjects.
     //
     // returns:
     //  reference to an array containing the Panel's various SceneObjects
+    
     showBarracksPanel: () => {
         const global = wade.getSceneObject('global');
         if (global.hud.barracks) {
