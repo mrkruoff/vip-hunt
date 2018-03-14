@@ -13,12 +13,12 @@ class AiGameState {
     units: Unit[];
     buildings: Building[];
 
-    constructor( units: Unit[], buildings: Building[], stone, wood, food) {
+    constructor( units: Unit[], buildings: Building[], stone, wood, food, actionState) {
         this.stone = stone;
         this.wood = wood;
         this.food = food;
         this.units = units;
-		this.actionState="setup";
+		this.actionState=actionState;
         this.buildings = buildings;
     }
 
@@ -47,7 +47,7 @@ class AiGameState {
         // where the townhall or vip actually are. Is that a flaw?
         const buildings = [ townhallFac() ];
 
-        return new AiGameState(units, buildings, stone, wood, food);
+        return new AiGameState(units, buildings, stone, wood, food, actionState);
 
 
     }
