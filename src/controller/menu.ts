@@ -55,6 +55,8 @@ const displayWelcome = async function() {
     const color = 'white';
     const alignment = 'center';
 
+   //////#### let global = wade.getSceneObject('global');
+
     //Create the welcome text
     const welcomeText = new TextSprite('Welcome to Potayto-Potahto!', '32px Verdana', color, alignment);
     this.welcomeObject = new SceneObject(welcomeText);
@@ -91,49 +93,32 @@ const setupSettings = function (music_id: number) {
 
     this.settingsObject.onClick = function() {
 
-       // this.loadGameObject.setVisible(false);
-       /// this.setupNewGameObject.setVisible(false);
+    //let global = wade.getSceneObject('global');
 
     this.settingsSprite = new Sprite('../js/../public/sprites/menu/settingsBackground.png');
     this.settingsObject = new SceneObject(this.settingsSprite);
     wade.addSceneObject(this.settingsObject);
     this.settingsObject.setVisible(true);
 
-
-    /////wade.loadImage('../js/../public/sprites/menu/settingsBackground.png');
-
-            //wade.clearScene();
-
         this.slowTextSprite = new TextSprite('Slow', '32px Arial', 'black', 'left', -5);
         this.slowTextObject = new SceneObject(this.slowTextSprite);
         this.slowTextObject.setPosition(-200, 0);
         wade.addSceneObject(this.slowTextObject);
-        this.slowTextObject.setVisible(true);
+       // this.slowTextObject.setVisible(true);
 
         setMouseInOutSettings(this.slowTextObject);
-
+        let global1 = wade.getSceneObject('global');
         this.slowTextObject.onClick = () => {
+        //let global = wade.getSceneObject('global');
+        //global.cameraSpeed =200;
          wade.removeSceneObject(settingsObject);
-         this.settingsSprite.fadeOut();
-         this.slowTextSprite.fadeOut();
-         this.fastTextSprite.fadeOut();
-         this.defaultTextSprite.fadeOut();
-
-                //wade.removeSceneObject(this.settingsObject);
-               // this.settingsObject.setVisible(false);
-                //wade.clearScene();
-                //wade.getSceneObject(this.slowTextObject).setVisible(false);                
-                //this.settingsObject.setVisible(false);
+         this.settingsSprite.fadeOut(.5);
+         this.slowTextSprite.fadeOut(.5);
+         this.fastTextSprite.fadeOut(.5);
+         this.defaultTextSprite.fadeOut(.5);
             };
 
-
-            wade.addEventListener(this.slowTextObject, 'onClick');
-
-
-
-          /////  this.slowTextObject.onMouseIn = (event)=>{
-          /////      this.slowTextObject.setColor("red");
-          /////  };
+        wade.addEventListener(this.slowTextObject, 'onClick');
 
         this.fastTextSprite = new TextSprite('Fast', '32px Arial', 'black', 'left', -5);
         this.fastTextObject = new SceneObject(this.fastTextSprite);
@@ -143,17 +128,34 @@ const setupSettings = function (music_id: number) {
 
         setMouseInOutSettings(this.fastTextObject);
 
+        this.fastTextObject.onClick = () => {
+//        global.cameraSpeed =950;
+         wade.removeSceneObject(settingsObject);
+         this.settingsSprite.fadeOut(.5);
+         this.slowTextSprite.fadeOut(.5);
+         this.fastTextSprite.fadeOut(.5);
+         this.defaultTextSprite.fadeOut(.5);
+            };
+
+        wade.addEventListener(this.fastTextObject, 'onClick');
+
+
         this.defaultTextSprite = new TextSprite('Default', '32px Arial', 'black', 'left', -5);
         this.defaultTextObject = new SceneObject(this.defaultTextSprite);
         this.defaultTextObject.setPosition(-200, 100);
         wade.addSceneObject(this.defaultTextObject);
 
-            //this.defaultTextObject.onMouseIn = (event)=>{
-            //    this.defaultTextObject.setColor("red");
-           // };
-
-
         setMouseInOutSettings(this.defaultTextObject);
+
+        this.defaultTextObject.onClick = () => {
+         wade.removeSceneObject(settingsObject);
+         this.settingsSprite.fadeOut(.5);
+         this.slowTextSprite.fadeOut(.5);
+         this.fastTextSprite.fadeOut(.5);
+         this.defaultTextSprite.fadeOut(.5);
+            };
+
+        wade.addEventListener(this.defaultTextObject, 'onClick');
 
 
         var settingsSprite = new Sprite('../js/../public/sprites/menu/settingsBackground.png', -1);
