@@ -34,6 +34,7 @@ async function delay(milliseconds: number) {
 }
 
 let cameraSpeed = 500;
+let aiIsHard = false;
 
 const displayWelcome = async function() {
     let music_id = -1;
@@ -101,7 +102,7 @@ const setupSettings = function (music_id: number) {
         wade.addSceneObject(this.settingsObject);
         this.settingsObject.setVisible(true);
 
-        this.slowTextSprite = new TextSprite('Slow', '32px Arial', 'black', 'left', -5);
+        this.slowTextSprite = new TextSprite('Slow', '16px Arial', 'black', 'left', -5);
         this.slowTextObject = new SceneObject(this.slowTextSprite);
         this.slowTextObject.setPosition(-200, 0);
         wade.addSceneObject(this.slowTextObject);
@@ -111,16 +112,13 @@ const setupSettings = function (music_id: number) {
         let global1 = wade.getSceneObject('global');
         this.slowTextObject.onClick = () => {
             cameraSpeed = 200;
-            wade.removeSceneObject(settingsObject);
-            this.settingsSprite.fadeOut(.5);
-            this.slowTextSprite.fadeOut(.5);
-            this.fastTextSprite.fadeOut(.5);
-            this.defaultTextSprite.fadeOut(.5);
+            clearSettings.call(this);
+            return true;
         };
 
         wade.addEventListener(this.slowTextObject, 'onClick');
 
-        this.fastTextSprite = new TextSprite('Fast', '32px Arial', 'black', 'left', -5);
+        this.fastTextSprite = new TextSprite('Fast', '16px Arial', 'black', 'left', -5);
         this.fastTextObject = new SceneObject(this.fastTextSprite);
         this.fastTextObject.setPosition(-200, 50);
         wade.addSceneObject(this.fastTextObject);
@@ -130,17 +128,14 @@ const setupSettings = function (music_id: number) {
 
         this.fastTextObject.onClick = () => {
             cameraSpeed = 950;
-            wade.removeSceneObject(settingsObject);
-            this.settingsSprite.fadeOut(.5);
-            this.slowTextSprite.fadeOut(.5);
-            this.fastTextSprite.fadeOut(.5);
-            this.defaultTextSprite.fadeOut(.5);
+            clearSettings.call(this);
+            return true;
         };
 
         wade.addEventListener(this.fastTextObject, 'onClick');
 
 
-        this.defaultTextSprite = new TextSprite('Default', '32px Arial', 'black', 'left', -5);
+        this.defaultTextSprite = new TextSprite('Default', '16px Arial', 'black', 'left', -5);
         this.defaultTextObject = new SceneObject(this.defaultTextSprite);
         this.defaultTextObject.setPosition(-200, 100);
         wade.addSceneObject(this.defaultTextObject);
@@ -149,19 +144,48 @@ const setupSettings = function (music_id: number) {
 
         this.defaultTextObject.onClick = () => {
             cameraSpeed = 500;
+            clearSettings.call(this);
+            return true;
+        };
+
+        wade.addEventListener(this.defaultTextObject, 'onClick');
+
+        this.easyTextSprite = new TextSprite('Easy', '16px Arial', 'black', 'left', -5);
+        this.easyTextObject = new SceneObject(this.easyTextSprite);
+        this.easyTextObject.setPosition(100, 0);
+        wade.addSceneObject(this.easyTextObject);
+        setMouseInOutSettings(this.easyTextObject);
+        this.easyTextObject.onClick = () => {
+            aiIsHard = false; 
+            clearSettings.call(this);
+        };
+        wade.addEventListener(this.easyTextObject, 'onClick');
+
+        this.hardTextSprite = new TextSprite('Hard', '16px Arial', 'black', 'left', -5);
+        this.hardTextObject = new SceneObject(this.hardTextSprite);
+        this.hardTextObject.setPosition(100, 50);
+        wade.addSceneObject(this.hardTextObject);
+        setMouseInOutSettings(this.hardTextObject);
+        this.hardTextObject.onClick = () => {
+            aiIsHard = true; 
+            clearSettings.call(this);
+        };
+        wade.addEventListener(this.hardTextObject, 'onClick');
+
+        var settingsSprite = new Sprite('../js/../public/sprites/menu/settingsBackground.png', -1);
+        var settingsObject = new SceneObject(settingsSprite);
+        wade.addSceneObject(settingsObject);
+        setMouseInOutSettings(this.hardTextObject);
+
+        function clearSettings() { 
             wade.removeSceneObject(settingsObject);
             this.settingsSprite.fadeOut(.5);
             this.slowTextSprite.fadeOut(.5);
             this.fastTextSprite.fadeOut(.5);
             this.defaultTextSprite.fadeOut(.5);
-        };
-
-        wade.addEventListener(this.defaultTextObject, 'onClick');
-
-
-        var settingsSprite = new Sprite('../js/../public/sprites/menu/settingsBackground.png', -1);
-        var settingsObject = new SceneObject(settingsSprite);
-        wade.addSceneObject(settingsObject);
+            this.easyTextSprite.fadeOut(0.5);
+            this.hardTextSprite.fadeOut(0.5);
+        }
 
 
 
@@ -214,7 +238,7 @@ const setupNewGame = function(music_id: number) {
          */
 
         wade.loadScene('../public/large_grass_map.wsc', null, function() {
-            NewGame.initialize(cameraSpeed);
+            NewGame.initialize(cameraSpeed, aiIsHard);
         }, clearscene);
 
     };

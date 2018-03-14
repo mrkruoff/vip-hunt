@@ -65,7 +65,7 @@ function playGameMusic() {
 
 const NewGame = {
     // Initializes a new game
-    initialize: async (cameraSpeed: number) => {
+    initialize: async (cameraSpeed: number, aiIsHard: boolean) => {
         playGameMusic();
         wade.setMinScreenSize(20, 20);
         wade.setMaxScreenSize(1280, 800);
@@ -103,7 +103,7 @@ const NewGame = {
         UnitDec.playerUnitsWatch();
         UnitDec.aiUnitsWatch();
         //start AI
-        AiDec.decisions(wade.getSceneObject('global').state,false);
+        AiDec.decisions(wade.getSceneObject('global').state, aiIsHard);
     },
     setUpCamera: function setUpCamera() {
         //Add basic camera settings
