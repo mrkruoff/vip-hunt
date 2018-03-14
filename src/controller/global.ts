@@ -66,7 +66,7 @@ const Global = {
                             startingStone, startingWood, startingFood);
 
         const aiState = new AiGameState([], [], 
-                            1000, 1000, 1000);
+                            1000, 1000, 1000, "setup");
 
         const resources = [];
 
