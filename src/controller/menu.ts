@@ -33,6 +33,7 @@ async function delay(milliseconds: number) {
     });
 }
 
+let cameraSpeed = 500;
 
 const displayWelcome = async function() {
     let music_id = -1;
@@ -55,7 +56,7 @@ const displayWelcome = async function() {
     const color = 'white';
     const alignment = 'center';
 
-   //////#### let global = wade.getSceneObject('global');
+    //////#### let global = wade.getSceneObject('global');
 
     //Create the welcome text
     const welcomeText = new TextSprite('Welcome to Potayto-Potahto!', '32px Verdana', color, alignment);
@@ -85,7 +86,7 @@ const displayWelcome = async function() {
 
 const setupSettings = function (music_id: number) {
     this.settingsObject.setPosition(0, 100);
-    
+
 
     setMouseInOut(this.settingsObject);
 
@@ -93,30 +94,29 @@ const setupSettings = function (music_id: number) {
 
     this.settingsObject.onClick = function() {
 
-    //let global = wade.getSceneObject('global');
+        //let global = wade.getSceneObject('global');
 
-    this.settingsSprite = new Sprite('../js/../public/sprites/menu/settingsBackground.png');
-    this.settingsObject = new SceneObject(this.settingsSprite);
-    wade.addSceneObject(this.settingsObject);
-    this.settingsObject.setVisible(true);
+        this.settingsSprite = new Sprite('../js/../public/sprites/menu/settingsBackground.png');
+        this.settingsObject = new SceneObject(this.settingsSprite);
+        wade.addSceneObject(this.settingsObject);
+        this.settingsObject.setVisible(true);
 
         this.slowTextSprite = new TextSprite('Slow', '32px Arial', 'black', 'left', -5);
         this.slowTextObject = new SceneObject(this.slowTextSprite);
         this.slowTextObject.setPosition(-200, 0);
         wade.addSceneObject(this.slowTextObject);
-       // this.slowTextObject.setVisible(true);
+        // this.slowTextObject.setVisible(true);
 
         setMouseInOutSettings(this.slowTextObject);
         let global1 = wade.getSceneObject('global');
         this.slowTextObject.onClick = () => {
-        //let global = wade.getSceneObject('global');
-        //global.cameraSpeed =200;
-         wade.removeSceneObject(settingsObject);
-         this.settingsSprite.fadeOut(.5);
-         this.slowTextSprite.fadeOut(.5);
-         this.fastTextSprite.fadeOut(.5);
-         this.defaultTextSprite.fadeOut(.5);
-            };
+            cameraSpeed = 200;
+            wade.removeSceneObject(settingsObject);
+            this.settingsSprite.fadeOut(.5);
+            this.slowTextSprite.fadeOut(.5);
+            this.fastTextSprite.fadeOut(.5);
+            this.defaultTextSprite.fadeOut(.5);
+        };
 
         wade.addEventListener(this.slowTextObject, 'onClick');
 
@@ -129,13 +129,13 @@ const setupSettings = function (music_id: number) {
         setMouseInOutSettings(this.fastTextObject);
 
         this.fastTextObject.onClick = () => {
-//        global.cameraSpeed =950;
-         wade.removeSceneObject(settingsObject);
-         this.settingsSprite.fadeOut(.5);
-         this.slowTextSprite.fadeOut(.5);
-         this.fastTextSprite.fadeOut(.5);
-         this.defaultTextSprite.fadeOut(.5);
-            };
+            cameraSpeed = 950;
+            wade.removeSceneObject(settingsObject);
+            this.settingsSprite.fadeOut(.5);
+            this.slowTextSprite.fadeOut(.5);
+            this.fastTextSprite.fadeOut(.5);
+            this.defaultTextSprite.fadeOut(.5);
+        };
 
         wade.addEventListener(this.fastTextObject, 'onClick');
 
@@ -148,12 +148,13 @@ const setupSettings = function (music_id: number) {
         setMouseInOutSettings(this.defaultTextObject);
 
         this.defaultTextObject.onClick = () => {
-         wade.removeSceneObject(settingsObject);
-         this.settingsSprite.fadeOut(.5);
-         this.slowTextSprite.fadeOut(.5);
-         this.fastTextSprite.fadeOut(.5);
-         this.defaultTextSprite.fadeOut(.5);
-            };
+            cameraSpeed = 500;
+            wade.removeSceneObject(settingsObject);
+            this.settingsSprite.fadeOut(.5);
+            this.slowTextSprite.fadeOut(.5);
+            this.fastTextSprite.fadeOut(.5);
+            this.defaultTextSprite.fadeOut(.5);
+        };
 
         wade.addEventListener(this.defaultTextObject, 'onClick');
 
@@ -164,16 +165,16 @@ const setupSettings = function (music_id: number) {
 
 
 
-    //wade.clearScene();
-    // this.settingsObject.onClick = settings.call(this);
-    // wade.addEventListener(this.loadGameObject, 'onClick');
+        //wade.clearScene();
+        // this.settingsObject.onClick = settings.call(this);
+        // wade.addEventListener(this.loadGameObject, 'onClick');
 
 
-       ///// loadGameObject.setVisible("true");
-  /////  setupNewGameObject.setVisible("true");
+        ///// loadGameObject.setVisible("true");
+        /////  setupNewGameObject.setVisible("true");
 
-};
- wade.addEventListener(this.settingsObject, 'onClick');
+    };
+    wade.addEventListener(this.settingsObject, 'onClick');
 };
 
 const setupSaveGame = function (music_id: number) {
@@ -207,15 +208,15 @@ const setupNewGame = function(music_id: number) {
         const clearscene = true;
         // load the map
         /*
-        wade.loadScene('../public/scene1.wsc', null, function() {
-            NewGame.initialize();
-        }, clearscene);
-        */
-        
+           wade.loadScene('../public/scene1.wsc', null, function() {
+           NewGame.initialize();
+           }, clearscene);
+         */
+
         wade.loadScene('../public/large_grass_map.wsc', null, function() {
-            NewGame.initialize();
+            NewGame.initialize(cameraSpeed);
         }, clearscene);
-        
+
     };
     wade.addEventListener(this.newGameObject, 'onClick');
 };
