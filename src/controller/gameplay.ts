@@ -1037,26 +1037,26 @@ const UnitBuilding = {
     //      possible units that ocould be built.
     selectAUnitCallback: (imageName: string, options) => {
         let callback;
-        if (imageName === ImageMap.swordsman_1) {
+        if (imageName === ImageMap.sword) {
             callback = UnitBuilding.unitConstruction(options, Construction.swordsman,
                                 JsonMap.swordsman_1, JsonMap.swordsman_data, JsonMap.swordsman_cost);
 
-        } else if (imageName === ImageMap.archer_1) {
+        } else if (imageName === ImageMap.bow2) {
             callback = UnitBuilding.unitConstruction(options, Construction.archer,
                                 JsonMap.archer_1, JsonMap.archer_data, JsonMap.archer_cost);
 
-        } else if (imageName === ImageMap.gatherer_1) {
+        } else if (imageName === ImageMap.fist) {
             callback = UnitBuilding.unitConstruction(options, Construction.gatherer,
                                 JsonMap.gatherer_1, JsonMap.gatherer_data, JsonMap.gatherer_cost);
 
-        } else if (imageName === ImageMap.spear_calvary_1) {
+        } else if (imageName === ImageMap.axe) {
             callback = UnitBuilding.unitConstruction(options, Construction.spearCalvary,
                                 JsonMap.spear_calvary_1, JsonMap.spear_calvary_data, JsonMap.spear_calvary_cost);
 
-        } else if (imageName === ImageMap.archer_calvary_1) {
+        } else if (imageName === ImageMap.bow) {
             callback = UnitBuilding.unitConstruction(options, Construction.archerCalvary,
                                 JsonMap.archer_calvary_1, JsonMap.archer_calvary_data, JsonMap.archer_calvary_cost);
-        } else if (imageName === ImageMap.drummer_boy_1) {
+        } else if (imageName === ImageMap.hammer) {
             callback = UnitBuilding.unitConstruction(options, Construction.drummerBoy,
                                 JsonMap.drummer_boy_1, JsonMap.drummer_boy_data, JsonMap.drummer_boy_cost);
         }
@@ -1116,6 +1116,7 @@ const UnitBuilding = {
                 Hud.clearTowerPanel();
                 Hud.clearTownHallPanel();
                 Hud.clearBarracksPanel();
+                Hud.clearBuildingData();
                 Hud.showMainPanel();
                 if(GamePlay.getSelected() ) {
                     GamePlay.removeSelected();

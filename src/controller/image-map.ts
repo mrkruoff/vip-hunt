@@ -7,6 +7,8 @@
 
 // The root directory is the html folder. But because the Javascript is in the  /js folder, we must prepend ../js/ to all the image URLs.
 const ImageMap = {
+
+
     minimap_white_outline: '../js/../public/sprites/minimap/thick-white-square-outline.png',
     minimap_blue_square: '../js/../public/sprites/minimap/blue-square.png',
     minimap_blue_circle: '../js/../public/sprites/minimap/blue-circle.png',
@@ -30,6 +32,13 @@ const ImageMap = {
     gatherer_1: '../js/../public/sprites/units/results_barbarian/gatherer_icon.png',
     spear_calvary_1: '../js/../public/sprites/units/results_warrior_3/spear_calvary_icon.png',
     archer_calvary_1: '../js/../public/sprites/units/results_archer_1/archer_calvary_icon.png',
+    sword: '../js/../public/sprites/units/sword.png',
+    bow: '../js/../public/sprites/units/bow.png',
+    bow2: '../js/../public/sprites/units/bow2.png',
+    axe: '../js/../public/sprites/units/axe.png',
+    fist: '../js/../public/sprites/units/fist.png',
+    hammer: '../js/../public/sprites/units/hammer.png',
+
     drummer_boy_1: '../js/../public/sprites/units/results_warrior_2/drummer_icon.png',
     vip_1: '../js/../public/sprites/units/results_knight/vip_icon.png',
     stone: '../js/../public/sprites/resources/stone.png',

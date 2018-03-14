@@ -102,6 +102,13 @@ function loadDataJson() {
 
 function loadImages() {
     // load images
+    wade.loadImage(ImageMap.sword);
+    wade.loadImage(ImageMap.bow);
+    wade.loadImage(ImageMap.bow2);
+    wade.loadImage(ImageMap.axe);
+    wade.loadImage(ImageMap.fist);
+    wade.loadImage(ImageMap.hammer);
+
     wade.loadImage(ImageMap.minimap_red_square);
     wade.loadImage(ImageMap.minimap_red_circle);
     wade.loadImage(ImageMap.minimap_blue_square);

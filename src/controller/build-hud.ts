@@ -305,7 +305,7 @@ const BuildHud = {
 
         let y = (wade.getScreenHeight() / 2) - 200;
         let x = -50;
-        const swordsman = BuildHud.buildIcon(ImageMap.swordsman_1, 35, 65, x, y, layer);
+        const swordsman = BuildHud.buildIcon(ImageMap.sword, 50, 50, x, y, layer);
         swordsman.setName(Names.swordsmanIcon);
         swordsman.setAlignment('right', 'bottom');
 
@@ -318,7 +318,7 @@ const BuildHud = {
 
         y = y;
         x = x + 150;
-        const archer = BuildHud.buildIcon(ImageMap.archer_1, 90, 150, x, y, layer);
+        const archer = BuildHud.buildIcon(ImageMap.bow2, 50, 50, x, y, layer);
         archer.setAlignment('right', 'bottom');
         cost = wade.getJson(JsonMap.archer_cost);
         text = "stone: " + cost.stone + "\n wood: " + cost.wood +
@@ -340,7 +340,7 @@ const BuildHud = {
 
         let y = (wade.getScreenHeight() / 2) - 200;
         let x = -50;
-        const archerCalvary = BuildHud.buildIcon(ImageMap.archer_calvary_1, 90, 150, x,
+        const archerCalvary = BuildHud.buildIcon(ImageMap.bow, 120, 80, x,
                         y, layer);
         archerCalvary.setAlignment('right', 'bottom');
         let cost = wade.getJson(JsonMap.archer_calvary_cost);
@@ -352,8 +352,9 @@ const BuildHud = {
     
         y = y;
         x = x + 150;
-        const spearCalvary = BuildHud.buildIcon(ImageMap.spear_calvary_1, 90, 150, x,
+        const spearCalvary = BuildHud.buildIcon(ImageMap.axe, 70, 70, x,
                             y, layer);
+        spearCalvary.setRotation(-1 * Math.PI / 2);
         spearCalvary.setAlignment('right', 'bottom');
         cost = wade.getJson(JsonMap.spear_calvary_cost);
         text = "stone: " + cost.stone + "\n wood: " + cost.wood +
@@ -388,7 +389,7 @@ const BuildHud = {
         let alignment = 'center';
         let y = (wade.getScreenHeight() / 2) - 200;
         let x = -50;
-        const gatherer = BuildHud.buildIcon(ImageMap.gatherer_1, 35, 65, x, y, layer);
+        const gatherer = BuildHud.buildIcon(ImageMap.fist, 50, 50, x, y, layer);
         gatherer.setAlignment('right', 'bottom');
         let cost = wade.getJson(JsonMap.gatherer_cost);
         let text = "stone: " + cost.stone + "\n wood: " + cost.wood +
@@ -399,7 +400,8 @@ const BuildHud = {
 
         y = y;
         x = x + 150;
-        const drummer = BuildHud.buildIcon(ImageMap.drummer_boy_1, 35, 65, x, y, layer);
+        const drummer = BuildHud.buildIcon(ImageMap.hammer, 100, 50, x, y, layer);
+        drummer.setRotation(-1 * Math.PI / 2);
         drummer.setAlignment('right', 'bottom');
         cost = wade.getJson(JsonMap.drummer_boy_cost);
         text = "stone: " + cost.stone + "\n wood: " + cost.wood +
