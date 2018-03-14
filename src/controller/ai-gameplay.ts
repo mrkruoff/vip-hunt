@@ -32,6 +32,7 @@ import Unit from '../model/units/units';
 import VIP from '../model/units/VIP_unit';
 import ImageMap from './image-map';
 import Minimap from './minimap';
+import Mouse from './mouse';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -223,6 +224,20 @@ var AiGamePlay = {
 
         }
         sceneBuilding.getSprite(2).setVisible(true);
+        // Make sure right-clicking scene building will lead to an attack.
+        sceneBuilding.onMouseDown = (event) => {
+            let selected = GamePlay.getSelected();
+            console.log("Clicked a sceneBuilding!");
+            if(event.button === Mouse.right && selected ) {
+                if( _.has(selected.data, 'speed' )) {
+                    console.log("ATTACKING BUILDING");
+                    GamePlay.clearUnitActions(selected);
+                    GamePlay.attack(selected, sceneBuilding); 
+                    return true;
+                } 
+            }
+        };
+        wade.addEventListener(sceneBuilding, 'onMouseDown');
 
         //Once the sprite is properly moved, update its map location in the state.
         // and clear its old tile
@@ -461,6 +476,20 @@ var AiGamePlay = {
         sceneUnit.marker = Minimap.createUnitMarker(sceneUnit.iso.gridCoords.x,
                                         sceneUnit.iso.gridCoords.z, "ai");
 
+        // Make sure right-clicking scene unit will lead to an attack.
+        sceneUnit.onMouseDown = (event) => {
+            let selected = GamePlay.getSelected();
+            console.log("Clicked a sceneUnit!");
+            if(event.button === Mouse.right && selected ) {
+                if( _.has(selected.data, 'speed')) {
+                    console.log("ATTACKING UNIT");
+                    GamePlay.clearUnitActions(selected);
+                    GamePlay.attack(selected, sceneUnit); 
+                    return true;
+                } 
+            }
+        };
+        wade.addEventListener(sceneUnit, 'onMouseDown');
 
         return u;
     }

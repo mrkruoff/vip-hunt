@@ -339,6 +339,8 @@ const GamePlay = {
     onSelectResource: (resource) => {
         return (event) => {
             console.log(event);
+            console.log("Clicked a resource!");
+            let selected = GamePlay.getSelected();
 
             if (event.button === Mouse.left) {
                 Hud.clearBuildingsPanel();
@@ -354,6 +356,22 @@ const GamePlay = {
                 GamePlay.addSelectedResource(resource);
 
                 return true;
+            }
+            else if (event.button === Mouse.right && selected ) {
+                console.log("SHOULD GATHER");
+                if( _.has(selected.data, 'speed' )) {
+                    console.log("Gathering a Resource");
+                    GamePlay.clearUnitActions(selected);
+                    selected.getBehavior('IsoCharacter').goToObject(resource);
+                    if(GamePlay.distance(selected, resource) < 2 ) {
+                        console.log("I'M NOT GOING TO MOVE. JUST GATHER");
+                        GamePlay.gather(selected, resource, "Player")(null);
+                    } else  {
+                        GamePlay.move(selected, resource.iso.gridCoords);
+                        selected.onObjectReached = GamePlay.gather(selected, resource, "Player");
+                    }
+                    return true;
+                } 
             }
         };
     },
