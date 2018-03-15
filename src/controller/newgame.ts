@@ -70,13 +70,13 @@ function playGameMusic() {
 
 const NewGame = {
     // Initializes a new game
-    initialize: async () => {
+    initialize: async (cameraSpeed: number, aiIsHard: boolean) => {
         playGameMusic();
         wade.setMinScreenSize(20, 20);
         wade.setMaxScreenSize(1280, 800);
 
         //Set up global settings and sync with scene.
-        Global.createGlobalSettings();
+        Global.createGlobalSettings(cameraSpeed);
         const minimap = Hud.showMinimap(); // minimap must be created before units 
                                            // can be created.
 
@@ -109,7 +109,7 @@ const NewGame = {
         UnitDec.playerUnitsWatch();
         UnitDec.aiUnitsWatch();
         //start AI
-        AiDec.decisions(wade.getSceneObject('global').state,false);
+        AiDec.decisions(wade.getSceneObject('global').state, aiIsHard);
     },
     setUpCamera: function setUpCamera() {
         //Add basic camera settings

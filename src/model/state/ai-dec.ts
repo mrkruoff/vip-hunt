@@ -287,6 +287,12 @@ function resourceCheck(objectname,state,isHard){
 
 const AiDec = {
 	 decisions: async (globalState,isHardMode) =>{ 
+        if(isHardMode) {
+            console.log("HARD MOOOODDDE"); 
+        }
+        else {
+            console.log("easy mode"); 
+        }
 		let aistate=globalState.getAi();
 		let playerState=globalState.getPlayer();
 		let AiVip=chooseUnit("VIP",aistate);
