@@ -339,7 +339,7 @@ const AiDec = {
 					AiGamePlay.unitMove(AiVip,startCord[1],xcord);
 					var resLoc=mapSearch(map,"resource",playerState);
 					if (resLoc!=0){
-						AiGamePlay.unitGather(gathering.id,resLoc);
+						AiGamePlay.unitGather(units[2].getId(),resLoc);
 					}
 					aistate["actionState"]="offense";
 					console.log(aistate);
