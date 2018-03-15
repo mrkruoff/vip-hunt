@@ -33,13 +33,14 @@ const Global = {
     // settings and will contain the global game state. It wll also contain
     // references to hud elements so the game can determine whether they've been
     // created or not.
-    createGlobalSettings: (cameraSpeed: number) => {
+    createGlobalSettings: (cameraSpeed: number, aiIsHard: boolean) => {
         const global = new SceneObject();
         global.setName('global');
         wade.addSceneObject(global);
         global.cameraSpeed = cameraSpeed;
         global.zoomSpeed = 8;
         global.cameraIsMoving = false;
+        global.aiIsHard = aiIsHard;
         global.hud = {
             //empty object to store references to other HUD elements
         };

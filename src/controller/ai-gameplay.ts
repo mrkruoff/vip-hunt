@@ -52,6 +52,7 @@ async function delay(milliseconds: number) {
 var AiGamePlay = {
     generateRandomResources: async () => {
         let resources: Resource[] = wade.getSceneObject('global').state.getResources();
+        let map = wade.getSceneObject('global').state.getMap();
         let numTiles = wade.iso.getNumTiles();
         let tiles = numTiles.x * numTiles.z;
         let fraction = 0.025;
@@ -70,20 +71,25 @@ var AiGamePlay = {
                 let x = Math.floor(Math.random() * numTiles.x);
                 let z = Math.floor(Math.random() * numTiles.z);
 
-                // Create a resource at or around that location.
-                let resource;
-                if(resource_type === 0) {
-                    resource = AiGamePlay.constructResource("Stone", x, z); 
-                } else if (resource_type === 1) {
-                    resource = AiGamePlay.constructResource("Wood", x, z); 
-                } else if (resource_type === 2) {
-                    resource = AiGamePlay.constructResource("Food", x, z);
+                // If the location has no unit or building, you can build on it.
+                let occupied = ( wade.iso.checkCollisionsAtTile(x, z) ) &&
+                                map[z][x].isEmpty();
+                if ( !occupied) {
+                    // Create a resource at or around that location.
+                    let resource;
+                    if(resource_type === 0) {
+                        resource = AiGamePlay.constructResource("Stone", x, z); 
+                    } else if (resource_type === 1) {
+                        resource = AiGamePlay.constructResource("Wood", x, z); 
+                    } else if (resource_type === 2) {
+                        resource = AiGamePlay.constructResource("Food", x, z);
+                    }
+                    else {
+                        console.log("ERROR in generating random resource!");
+                    }
+                    resource.rep.onMouseDown = GamePlay.onSelectResource(resource.rep);
+                    wade.addEventListener(resource.rep, 'onMouseDown');
                 }
-                else {
-                    console.log("ERROR in generating random resource!");
-                }
-                resource.rep.onMouseDown = GamePlay.onSelectResource(resource.rep);
-                wade.addEventListener(resource.rep, 'onMouseDown');
             }
             await delay(500);
         }

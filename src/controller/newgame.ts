@@ -76,7 +76,7 @@ const NewGame = {
         wade.setMaxScreenSize(1280, 800);
 
         //Set up global settings and sync with scene.
-        Global.createGlobalSettings(cameraSpeed);
+        Global.createGlobalSettings(cameraSpeed, aiIsHard);
         const minimap = Hud.showMinimap(); // minimap must be created before units 
                                            // can be created.
 

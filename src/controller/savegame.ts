@@ -136,7 +136,7 @@ var SaveGame = {
         console.log(global);
         console.log(wade.iso.exportMap() ) ;
 
-        AiDec.decisions(wade.getSceneObject('global').state,false);
+        AiDec.decisions(global.state, global.aiIsHard);
     }
 };
 

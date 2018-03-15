@@ -56,6 +56,12 @@ class Tile {
         this.resourceId = id;    
     }
 
+    isEmpty() { 
+        return this.unitId === Tile.EMPTY &&
+            this.buildingId === Tile.EMPTY &&
+            this.resourceId === Tile.EMPTY;
+    }
+
     static defaultTile() : Tile {
         const unit = Tile.EMPTY;
         const building = Tile.EMPTY;
