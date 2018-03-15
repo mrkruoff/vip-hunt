@@ -287,12 +287,6 @@ function resourceCheck(objectname,state,isHard){
 
 const AiDec = {
 	 decisions: async (globalState,isHardMode) =>{ 
-        if(isHardMode) {
-            console.log("HARD MOOOODDDE"); 
-        }
-        else {
-            console.log("easy mode"); 
-        }
 		let aistate=globalState.getAi();
 		let playerState=globalState.getPlayer();
 		let AiVip=chooseUnit("VIP",aistate);
@@ -340,7 +334,8 @@ const AiDec = {
 					}
 				}
 				else{
-					AiGamePlay.unitMove(sword.id,startCord[1],xcord);
+					var units=aistate.getUnits();
+					AiGamePlay.unitMove(units[1].getId(),startCord[1],xcord);
 					AiGamePlay.unitMove(AiVip,startCord[1],xcord);
 					var resLoc=mapSearch(map,"resource",playerState);
 					if (resLoc!=0){
