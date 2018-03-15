@@ -314,6 +314,12 @@ const AiDec = {
 			time=2000;
 		}
 		while(true){
+            if(isHardMode) {
+                console.log("IS HARD MODE"); 
+            }
+            else {
+                console.log("IS EASY MODE"); 
+            }
 			await delay(time);
 			if(aistate.getActionState()=="setup"){
 				console.log("Settingup step")
