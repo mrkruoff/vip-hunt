@@ -372,6 +372,7 @@ const Hud = {
                 let waitSprite = new TextSprite("Please wait...", "16px Verdana",
                                                "black", "center", 9);
                 let waitObject = new SceneObject(waitSprite);
+                waitObject.dontSave = true;
                 waitObject.setPosition(0, -100);
                 waitObject.onAddToScene = (event) => {
                     setTimeout( () => {
