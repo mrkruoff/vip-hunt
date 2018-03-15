@@ -55,9 +55,9 @@ const Global = {
     // a 20x20 map and having a single Player and AI, each with one VIP and one
     // TownHall each.
     defaultGlobalState: () => {
-        const startingStone = 1000;
-        const startingWood = 1000;
-        const startingFood = 1000;
+        const startingStone = 200;
+        const startingWood = 200;
+        const startingFood = 200;
 
         const playerVIP = VIP.fromObject(wade.getJson(JsonMap.vip_data));
         playerVIP.id = Id.getId();
