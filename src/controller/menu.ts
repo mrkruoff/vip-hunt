@@ -104,7 +104,7 @@ const setupSettings = function (music_id: number) {
 
         this.slowTextSprite = new TextSprite('Slow', '16px Arial', 'black', 'left', -5);
         this.slowTextObject = new SceneObject(this.slowTextSprite);
-        this.slowTextObject.setPosition(-200, 0);
+        this.slowTextObject.setPosition(-130, 0);
         wade.addSceneObject(this.slowTextObject);
         // this.slowTextObject.setVisible(true);
 
@@ -120,7 +120,7 @@ const setupSettings = function (music_id: number) {
 
         this.fastTextSprite = new TextSprite('Fast', '16px Arial', 'black', 'left', -5);
         this.fastTextObject = new SceneObject(this.fastTextSprite);
-        this.fastTextObject.setPosition(-200, 50);
+        this.fastTextObject.setPosition(-130, 50);
         wade.addSceneObject(this.fastTextObject);
 
 
@@ -137,7 +137,7 @@ const setupSettings = function (music_id: number) {
 
         this.defaultTextSprite = new TextSprite('Default', '16px Arial', 'black', 'left', -5);
         this.defaultTextObject = new SceneObject(this.defaultTextSprite);
-        this.defaultTextObject.setPosition(-200, 100);
+        this.defaultTextObject.setPosition(-130, 100);
         wade.addSceneObject(this.defaultTextObject);
 
         setMouseInOutSettings(this.defaultTextObject);
