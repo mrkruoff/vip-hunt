@@ -369,42 +369,55 @@ const Hud = {
             {
                 save.getSprite(0).setFont("16px Verdana");
 
-                // Unhook all the circular dependencies.
-                let global = wade.getSceneObject('global').state;
-            
-                let data = _.concat(global.getResources(),
-                                    global.getAi().getUnits(),
-                global.getAi().getBuildings(),
-                global.getPlayer().getUnits(),
-                global.getPlayer().getBuildings());
-                _.forEach(data, (datum) => {
-                    datum.rep = null; 
-                });
+                let waitSprite = new TextSprite("Please wait...", "16px Verdana",
+                                               "black", "center", 9);
+                let waitObject = new SceneObject(waitSprite);
+                waitObject.setPosition(0, -100);
+                waitObject.onAddToScene = (event) => {
+                    setTimeout( () => {
+                        // Unhook all the circular dependencies.
+                        let global = wade.getSceneObject('global').state;
+                    
+                        let data = _.concat(global.getResources(),
+                                            global.getAi().getUnits(),
+                        global.getAi().getBuildings(),
+                        global.getPlayer().getUnits(),
+                        global.getPlayer().getBuildings());
+                        _.forEach(data, (datum) => {
+                            datum.rep = null; 
+                        });
 
 
-                //export and store the scene use local 
-                let exportedScence = wade.exportScene();
-                /* 
-                   exportedScence.sceneObjects = [];
-                 */
+                        //export and store the scene use local 
+                        let exportedScence = wade.exportScene();
+                        /* 
+                           exportedScence.sceneObjects = [];
+                         */
 
-                exportedScence.sceneObjects = _.filter(exportedScence.sceneObjects, (obj) => {
-                    return ! (_.has(obj.properties, 'iso') || _.has(obj.properties, 'dontSave') ); 
-                });
+                        exportedScence.sceneObjects = _.filter(exportedScence.sceneObjects, (obj) => {
+                            return ! (_.has(obj.properties, 'iso') || _.has(obj.properties, 'dontSave') ); 
+                        });
 
-                exportedScence.modules = {
-                    iso: wade.iso.exportMap() 
+                        exportedScence.modules = {
+                            iso: wade.iso.exportMap() 
+                        }
+                        wade.storeLocalObject('save_game', JSON.stringify(exportedScence));
+
+                        // Now step through all scene objects with the data property,
+                        // and use them to reconnect the isometric SceneObjects with their data
+                        let sceneObjects = wade.getSceneObjects('data');
+
+                        _.forEach(sceneObjects, (sceneObject) => {
+                            sceneObject.data.rep = sceneObject;
+                        });
+
+                        wade.removeSceneObject(waitObject);
+                        console.log("OBJECT SAVED!");
+                    
+                    }, 2000);
                 }
-                wade.storeLocalObject('save_game', JSON.stringify(exportedScence));
-
-                // Now step through all scene objects with the data property,
-                // and use them to reconnect the isometric SceneObjects with their data
-                let sceneObjects = wade.getSceneObjects('data');
-
-                _.forEach(sceneObjects, (sceneObject) => {
-                    sceneObject.data.rep = sceneObject;
-                });
-
+                wade.addEventListener(waitObject, 'onAddToScene');
+                wade.addSceneObject(waitObject);
             };
 
             wade.addEventListener(quit, 'onMouseIn');
