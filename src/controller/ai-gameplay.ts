@@ -72,8 +72,8 @@ var AiGamePlay = {
                 let z = Math.floor(Math.random() * numTiles.z);
 
                 // If the location has no unit or building, you can build on it.
-                let occupied = ( wade.iso.checkCollisionsAtTile(x, z) ) &&
-                                map[z][x].isEmpty();
+                let occupied = wade.iso.checkCollisionsAtTile(x, z) ||
+                                ( !map[z][x].isEmpty() );
                 if ( !occupied) {
                     // Create a resource at or around that location.
                     let resource;
@@ -207,7 +207,11 @@ var AiGamePlay = {
         // IF THIS FAILS IT WAS BECAUSE OF A COLLISION.
         let wasMoved = false;
         let sideLength = map[0].length;
-        while(!wasMoved) {  
+        let occupied = wade.iso.checkCollisionsAtTile(x, z) ||
+                        ( !map[z][x].isEmpty() );
+        while(!wasMoved || occupied) {  
+            occupied = wade.iso.checkCollisionsAtTile(x, z) ||
+                        ( !map[z][x].isEmpty() );
             wasMoved = wade.iso.moveObjectToTile(sceneBuilding, x, z);
             //Randomly shift x and z until it is placed properly.
             let changeX = Math.floor(Math.random() * 2);
@@ -453,7 +457,11 @@ var AiGamePlay = {
         //Place the unit where indicated. IF THIS FAILS IT WAS BECAUSE OF A COLLISION.
         let wasMoved = false;
         let sideLength = map[0].length;
-        while(!wasMoved) {  
+        let occupied = wade.iso.checkCollisionsAtTile(x, z) ||
+                        ( !map[z][x].isEmpty() );
+        while(!wasMoved || occupied) {  
+            occupied = wade.iso.checkCollisionsAtTile(x, z) || 
+                        ( !map[z][x].isEmpty() );
             wasMoved = wade.iso.moveObjectToTile(sceneUnit, x, z);
             //Randomly shift x and z until it is placed properly.
             let changeX = Math.floor(Math.random() * 2);
