@@ -67,7 +67,7 @@ const displayWelcome = async function() {
     //////#### let global = wade.getSceneObject('global');
 
     //Create the welcome text
-    const welcomeText = new TextSprite('Welcome to Potayto-Potahto!', '32px Verdana', color, alignment);
+    const welcomeText = new TextSprite('King Hunt', '40px Verdana', color, alignment);
     this.welcomeObject = new SceneObject(welcomeText);
     wade.addSceneObject(this.welcomeObject);
     this.welcomeObject.setPosition(0, -100);
@@ -110,6 +110,9 @@ const setupSettings = function (music_id: number) {
         this.settingsObject.setVisible(true);
 
         this.slowTextSprite = new TextSprite('Slow', '16px Arial', 'black', 'left', -5);
+        if(cameraSpeed === 200) {
+            this.slowTextSprite.setFont("24px Arial"); 
+        }
         this.slowTextObject = new SceneObject(this.slowTextSprite);
         this.slowTextObject.setPosition(-130, 0);
         wade.addSceneObject(this.slowTextObject);
@@ -126,6 +129,9 @@ const setupSettings = function (music_id: number) {
         wade.addEventListener(this.slowTextObject, 'onClick');
 
         this.fastTextSprite = new TextSprite('Fast', '16px Arial', 'black', 'left', -5);
+        if(cameraSpeed === 950) {
+            this.fastTextSprite.setFont("24px Arial"); 
+        }
         this.fastTextObject = new SceneObject(this.fastTextSprite);
         this.fastTextObject.setPosition(-130, 50);
         wade.addSceneObject(this.fastTextObject);
@@ -143,6 +149,9 @@ const setupSettings = function (music_id: number) {
 
 
         this.defaultTextSprite = new TextSprite('Default', '16px Arial', 'black', 'left', -5);
+        if(cameraSpeed === 500) {
+            this.defaultTextSprite.setFont("24px Arial"); 
+        }
         this.defaultTextObject = new SceneObject(this.defaultTextSprite);
         this.defaultTextObject.setPosition(-130, 100);
         wade.addSceneObject(this.defaultTextObject);
@@ -158,6 +167,9 @@ const setupSettings = function (music_id: number) {
         wade.addEventListener(this.defaultTextObject, 'onClick');
 
         this.easyTextSprite = new TextSprite('Easy', '16px Arial', 'black', 'left', -5);
+        if(aiIsHard === false) {
+            this.easyTextSprite.setFont("24px Arial"); 
+        }
         this.easyTextObject = new SceneObject(this.easyTextSprite);
         this.easyTextObject.setPosition(100, 0);
         wade.addSceneObject(this.easyTextObject);
@@ -169,6 +181,9 @@ const setupSettings = function (music_id: number) {
         wade.addEventListener(this.easyTextObject, 'onClick');
 
         this.hardTextSprite = new TextSprite('Hard', '16px Arial', 'black', 'left', -5);
+        if(aiIsHard === true) {
+            this.hardTextSprite.setFont("24px Arial"); 
+        }
         this.hardTextObject = new SceneObject(this.hardTextSprite);
         this.hardTextObject.setPosition(100, 50);
         wade.addSceneObject(this.hardTextObject);
