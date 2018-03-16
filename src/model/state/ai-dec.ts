@@ -344,7 +344,7 @@ const AiDec = {
 					aistate["actionState"]="offense";
 					console.log(aistate);
 					console.log(globalState["ai_state"]);
-					if(isHardMode==false){await delay(20000);}
+					await delay(20000);
 					}
 				};
 			if(aistate.getActionState()=="offense"){
@@ -365,7 +365,9 @@ const AiDec = {
 				else{
 					console.log("tower")
 				AiGamePlay.constructBuilding("Tower", startCord[1],xcord+9);
-				if(isHardMode==false){await delay(20000);}
+				await delay(20000);
+				if(isHardMode){await delay(20000);}
+
 				}
 				}
 				else if(chooseBuilding("Barracks",aistate)==false){
