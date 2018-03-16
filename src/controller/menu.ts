@@ -8,10 +8,10 @@
 import * as _ from 'lodash';
 
 import AudioMap from './audio-map';
+import Camera from './camera';
 import Events from './events';
 import Hud from './hud';
 import NewGame from './newgame';
-import Camera from './camera';
 import SaveGame from './savegame';
 
 declare var wade: any;
@@ -40,23 +40,23 @@ let music_id = -1;
 let keepPlaying = true;
 const displayWelcome = async function() {
     function playMenuMusic() {
-        if(keepPlaying) {
+        if (keepPlaying) {
             music_id = wade.playAudio(AudioMap.familiar_roads, false, async () => {
                 wade.setTimeout(() => {
-                    if(keepPlaying) {
+                    if (keepPlaying) {
                         music_id = wade.playAudio(AudioMap.menu_music, false, async () => {
                             wade.setTimeout(() => {
-                                if(keepPlaying) {
+                                if (keepPlaying) {
                                     music_id = wade.playAudio(AudioMap.from_here, false, async () => {
                                         wade.setTimeout(() => {
-                                            playMenuMusic(); 
+                                            playMenuMusic();
                                         }, 4000);
                                     });
                                 }
                             }, 4000);
                         });
                     }
-                }, 4000)
+                }, 4000);
             });
         }
     }
@@ -92,13 +92,10 @@ const displayWelcome = async function() {
 
 };
 
-const setupSettings = function (music_id: number) {
+const setupSettings = function(music_id: number) {
     this.settingsObject.setPosition(0, 100);
 
-
     setMouseInOut(this.settingsObject);
-
-
 
     this.settingsObject.onClick = function() {
 
@@ -110,8 +107,8 @@ const setupSettings = function (music_id: number) {
         this.settingsObject.setVisible(true);
 
         this.slowTextSprite = new TextSprite('Slow', '16px Arial', 'black', 'left', -5);
-        if(cameraSpeed === 200) {
-            this.slowTextSprite.setFont("24px Arial"); 
+        if (cameraSpeed === 200) {
+            this.slowTextSprite.setFont('24px Arial');
         }
         this.slowTextObject = new SceneObject(this.slowTextSprite);
         this.slowTextObject.setPosition(-130, 0);
@@ -119,7 +116,7 @@ const setupSettings = function (music_id: number) {
         // this.slowTextObject.setVisible(true);
 
         setMouseInOutSettings(this.slowTextObject);
-        let global1 = wade.getSceneObject('global');
+        const global1 = wade.getSceneObject('global');
         this.slowTextObject.onClick = () => {
             cameraSpeed = 200;
             clearSettings.call(this);
@@ -129,13 +126,12 @@ const setupSettings = function (music_id: number) {
         wade.addEventListener(this.slowTextObject, 'onClick');
 
         this.fastTextSprite = new TextSprite('Fast', '16px Arial', 'black', 'left', -5);
-        if(cameraSpeed === 950) {
-            this.fastTextSprite.setFont("24px Arial"); 
+        if (cameraSpeed === 950) {
+            this.fastTextSprite.setFont('24px Arial');
         }
         this.fastTextObject = new SceneObject(this.fastTextSprite);
         this.fastTextObject.setPosition(-130, 50);
         wade.addSceneObject(this.fastTextObject);
-
 
         setMouseInOutSettings(this.fastTextObject);
 
@@ -147,10 +143,9 @@ const setupSettings = function (music_id: number) {
 
         wade.addEventListener(this.fastTextObject, 'onClick');
 
-
         this.defaultTextSprite = new TextSprite('Default', '16px Arial', 'black', 'left', -5);
-        if(cameraSpeed === 500) {
-            this.defaultTextSprite.setFont("24px Arial"); 
+        if (cameraSpeed === 500) {
+            this.defaultTextSprite.setFont('24px Arial');
         }
         this.defaultTextObject = new SceneObject(this.defaultTextSprite);
         this.defaultTextObject.setPosition(-130, 100);
@@ -167,39 +162,39 @@ const setupSettings = function (music_id: number) {
         wade.addEventListener(this.defaultTextObject, 'onClick');
 
         this.easyTextSprite = new TextSprite('Easy', '16px Arial', 'black', 'left', -5);
-        if(aiIsHard === false) {
-            this.easyTextSprite.setFont("24px Arial"); 
+        if (aiIsHard === false) {
+            this.easyTextSprite.setFont('24px Arial');
         }
         this.easyTextObject = new SceneObject(this.easyTextSprite);
         this.easyTextObject.setPosition(100, 0);
         wade.addSceneObject(this.easyTextObject);
         setMouseInOutSettings(this.easyTextObject);
         this.easyTextObject.onClick = () => {
-            aiIsHard = false; 
+            aiIsHard = false;
             clearSettings.call(this);
         };
         wade.addEventListener(this.easyTextObject, 'onClick');
 
         this.hardTextSprite = new TextSprite('Hard', '16px Arial', 'black', 'left', -5);
-        if(aiIsHard === true) {
-            this.hardTextSprite.setFont("24px Arial"); 
+        if (aiIsHard === true) {
+            this.hardTextSprite.setFont('24px Arial');
         }
         this.hardTextObject = new SceneObject(this.hardTextSprite);
         this.hardTextObject.setPosition(100, 50);
         wade.addSceneObject(this.hardTextObject);
         setMouseInOutSettings(this.hardTextObject);
         this.hardTextObject.onClick = () => {
-            aiIsHard = true; 
+            aiIsHard = true;
             clearSettings.call(this);
         };
         wade.addEventListener(this.hardTextObject, 'onClick');
 
-        var settingsSprite = new Sprite('../js/../public/sprites/menu/settingsBackground.png', -1);
-        var settingsObject = new SceneObject(settingsSprite);
+        const settingsSprite = new Sprite('../js/../public/sprites/menu/settingsBackground.png', -1);
+        const settingsObject = new SceneObject(settingsSprite);
         wade.addSceneObject(settingsObject);
         setMouseInOutSettings(this.hardTextObject);
 
-        function clearSettings() { 
+        function clearSettings() {
             wade.removeSceneObject(settingsObject);
             this.settingsSprite.fadeOut(.5);
             this.slowTextSprite.fadeOut(.5);
@@ -209,12 +204,9 @@ const setupSettings = function (music_id: number) {
             this.hardTextSprite.fadeOut(0.5);
         }
 
-
-
         //wade.clearScene();
         // this.settingsObject.onClick = settings.call(this);
         // wade.addEventListener(this.loadGameObject, 'onClick');
-
 
         ///// loadGameObject.setVisible("true");
         /////  setupNewGameObject.setVisible("true");
@@ -223,14 +215,14 @@ const setupSettings = function (music_id: number) {
     wade.addEventListener(this.settingsObject, 'onClick');
 };
 
-const setupSaveGame = function () {
+const setupSaveGame = function() {
     this.loadGameObject.setPosition(0, 50);
     setMouseInOut(this.loadGameObject);
 
     this.loadGameObject.onClick = function() {
         wade.stopAudio(music_id);
         keepPlaying = false;
-        let savedGame = JSON.parse(wade.retrieveLocalObject('save_game'));
+        const savedGame = JSON.parse(wade.retrieveLocalObject('save_game'));
         wade.setJson('savedGameScene.wsc', savedGame);
 
         //the line below was purely for testing purposes to make sure
@@ -242,7 +234,7 @@ const setupSaveGame = function () {
         }, false, true);
 
     };
-    wade.addEventListener(this.loadGameObject, 'onClick');      
+    wade.addEventListener(this.loadGameObject, 'onClick');
 };
 
 const setupNewGame = function() {
@@ -286,7 +278,6 @@ function setMouseInOut(textObject: any) {
     textObject.onMouseOut = changeColor(textObject, 'white');
     wade.addEventListener(textObject, 'onMouseOut');
 }
-
 
 function setMouseInOutSettings(textObject: any) {
     textObject.onMouseIn = changeColor(textObject, 'red');

@@ -6,9 +6,8 @@
 
 import * as _ from 'lodash';
 import ImageMap from './image-map';
-import Names from './names';
 import JsonMap from './json-map';
-
+import Names from './names';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -75,7 +74,7 @@ const BuildHud = {
         foodCount.setName(Names.foodCount);
         foodCount.setAlignment('right', 'bottom');
 
-        let all = [stone, wood, food, stoneCount, woodCount, foodCount];
+        const all = [stone, wood, food, stoneCount, woodCount, foodCount];
         _.forEach(all, (item) => {
             item.dontSave = true;
         });
@@ -137,64 +136,64 @@ const BuildHud = {
         building.setAlignment('left', 'bottom');
 
         // Add Pause-Menu icon to screen.
-        let x = (-1 * wade.getScreenWidth() / 2) + 200;
-        let y = (wade.getScreenHeight() / 2) - 100;
-        const menu = BuildHud.buildText("Menu", "16px Verdana", "black", "center",
+        const x = (-1 * wade.getScreenWidth() / 2) + 200;
+        const y = (wade.getScreenHeight() / 2) - 100;
+        const menu = BuildHud.buildText('Menu', '16px Verdana', 'black', 'center',
                                 x, y, layer);
         menu.setName(Names.menuIcon);
         menu.setAlignment('left', 'bottom');
 
-        let all = [building, menu];
+        const all = [building, menu];
         _.forEach(all, (item) => {
             item.dontSave = true;
         });
-        
+
         return all;
     },
     menuPanel: (layer: number) => {
-        let font = "16px Verdana";
-        let color = "black";
-        let alignment = 'center';
+        const font = '16px Verdana';
+        const color = 'black';
+        const alignment = 'center';
 
-        let save = BuildHud.buildText("Save", font, color, alignment, 0, -125, layer);
+        const save = BuildHud.buildText('Save', font, color, alignment, 0, -125, layer);
         save.setName(Names.menu_save);
-        let resume = BuildHud.buildText("Resume", font, color, alignment, 0, -25, layer);
+        const resume = BuildHud.buildText('Resume', font, color, alignment, 0, -25, layer);
         resume.setName(Names.menu_resume);
-        let quit = BuildHud.buildText("Quit", font, color, alignment, 0, 75, layer);
+        const quit = BuildHud.buildText('Quit', font, color, alignment, 0, 75, layer);
         quit.setName(Names.menu_quit);
 
-        let all = [save, resume, quit];
+        const all = [save, resume, quit];
         _.forEach(all, (item) => {
             item.dontSave = true;
         });
 
         return all;
-    
+
     },
     winPanel: (layer: number) => {
-        let font = "16px Verdana";
-        let color = "black";
-        let alignment = 'center';
+        const font = '16px Verdana';
+        const color = 'black';
+        const alignment = 'center';
 
-        let victory = BuildHud.buildText("Victory!", font, color, alignment, 0, -125, layer);
-        let menu = BuildHud.buildText("Menu", font, color, alignment, 0, -25, layer);
+        const victory = BuildHud.buildText('Victory!', font, color, alignment, 0, -125, layer);
+        const menu = BuildHud.buildText('Menu', font, color, alignment, 0, -25, layer);
 
-        let all = [victory, menu];
+        const all = [victory, menu];
         _.forEach(all, (item) => {
             item.dontSave = true;
         });
         return all;
-    
+
     },
     lossPanel: (layer: number) => {
-        let font = "16px Verdana";
-        let color = "black";
-        let alignment = 'center';
+        const font = '16px Verdana';
+        const color = 'black';
+        const alignment = 'center';
 
-        let defeat = BuildHud.buildText("Defeat...", font, color, alignment, 0, -125, layer);
-        let menu = BuildHud.buildText("Menu", font, color, alignment, 0, -25, layer);
+        const defeat = BuildHud.buildText('Defeat...', font, color, alignment, 0, -125, layer);
+        const menu = BuildHud.buildText('Menu', font, color, alignment, 0, -25, layer);
 
-        let all = [defeat, menu];
+        const all = [defeat, menu];
         _.forEach(all, (item) => {
             item.dontSave = true;
         });
@@ -210,7 +209,7 @@ const BuildHud = {
         wade.addEventListener(scroll, 'onMouseDown');
         scroll.onClick = prevent_propagation;
         wade.addEventListener(scroll, 'onClick');
-        
+
         scroll.dontSave = true;
 
         return scroll;
@@ -225,9 +224,9 @@ const BuildHud = {
         const buttonWidth = 50;
         const buttonHeight = 50;
 
-        let font = "12px Verdana";
-        let color = 'black';
-        let alignment = 'center';
+        const font = '12px Verdana';
+        const color = 'black';
+        const alignment = 'center';
 
         let x = (-1 * wade.getScreenWidth() / 2) + 100;
         let y = (wade.getScreenHeight() / 2) - 100;
@@ -236,9 +235,9 @@ const BuildHud = {
         barracks.setName(Names.barracksIcon);
         barracks.setAlignment('left', 'bottom');
         let cost = wade.getJson(JsonMap.barracks_cost);
-        let text = "stone: " + cost.stone + "\n wood: " + cost.wood +
-                                "\n food: " + cost.food;
-        let barracksCost = BuildHud.buildText(text, font, color, alignment, x, y + 30,
+        let text = 'stone: ' + cost.stone + '\n wood: ' + cost.wood +
+                                '\n food: ' + cost.food;
+        const barracksCost = BuildHud.buildText(text, font, color, alignment, x, y + 30,
                                             layer);
         barracksCost.setAlignment('left', 'bottom');
 
@@ -249,9 +248,9 @@ const BuildHud = {
         stables.setName(Names.stablesIcon);
         stables.setAlignment('left', 'bottom');
         cost = wade.getJson(JsonMap.stables_cost);
-        text = "stone: " + cost.stone + "\n wood: " + cost.wood +
-                                "\n food: " + cost.food;
-        let stablesCost = BuildHud.buildText(text, font, color, alignment, x, y + 30,
+        text = 'stone: ' + cost.stone + '\n wood: ' + cost.wood +
+                                '\n food: ' + cost.food;
+        const stablesCost = BuildHud.buildText(text, font, color, alignment, x, y + 30,
                                             layer);
         stablesCost.setAlignment('left', 'bottom');
 
@@ -262,9 +261,9 @@ const BuildHud = {
         towers.setName(Names.towersIcon);
         towers.setAlignment('left', 'bottom');
         cost = wade.getJson(JsonMap.tower_cost);
-        text = "stone: " + cost.stone + "\n wood: " + cost.wood +
-                                "\n food: " + cost.food;
-        let towerCost = BuildHud.buildText(text, font, color, alignment, x, y + 30,
+        text = 'stone: ' + cost.stone + '\n wood: ' + cost.wood +
+                                '\n food: ' + cost.food;
+        const towerCost = BuildHud.buildText(text, font, color, alignment, x, y + 30,
                                             layer);
         towerCost.setAlignment('left', 'bottom');
 
@@ -275,15 +274,15 @@ const BuildHud = {
         townHalls.setName(Names.townHallsIcon);
         townHalls.setAlignment('left', 'bottom');
         cost = wade.getJson(JsonMap.townhall_cost);
-        text = "stone: " + cost.stone + "\n wood: " + cost.wood +
-                                "\n food: " + cost.food;
-        let townHallCost = BuildHud.buildText(text, font, color, alignment, x, y + 30,
+        text = 'stone: ' + cost.stone + '\n wood: ' + cost.wood +
+                                '\n food: ' + cost.food;
+        const townHallCost = BuildHud.buildText(text, font, color, alignment, x, y + 30,
                                             layer);
         townHallCost.setAlignment('left', 'bottom');
 
-        let all = [
+        const all = [
             barracks, stables, towers, townHalls,
-            barracksCost, stablesCost, towerCost, townHallCost
+            barracksCost, stablesCost, towerCost, townHallCost,
         ];
 
         _.forEach(all, (item) => {
@@ -298,10 +297,9 @@ const BuildHud = {
     // parameters:
     //  @ layer: the WADE layer on which to draw the panel.
     barracksPanel: (layer: number) => {
-        let font = "12px Verdana";
-        let color = 'black';
-        let alignment = 'center';
-
+        const font = '12px Verdana';
+        const color = 'black';
+        const alignment = 'center';
 
         let y = (wade.getScreenHeight() / 2) - 200;
         let x = -50;
@@ -310,9 +308,9 @@ const BuildHud = {
         swordsman.setAlignment('right', 'bottom');
 
         let cost = wade.getJson(JsonMap.swordsman_cost);
-        let text = "stone: " + cost.stone + "\n wood: " + cost.wood +
-                                "\n food: " + cost.food;
-        let swordsmanCost = BuildHud.buildText(text, font, color, alignment, x, y + 100,
+        let text = 'stone: ' + cost.stone + '\n wood: ' + cost.wood +
+                                '\n food: ' + cost.food;
+        const swordsmanCost = BuildHud.buildText(text, font, color, alignment, x, y + 100,
                                             layer);
         swordsmanCost.setAlignment('right', 'bottom');
 
@@ -321,22 +319,22 @@ const BuildHud = {
         const archer = BuildHud.buildIcon(ImageMap.bow2, 50, 50, x, y, layer);
         archer.setAlignment('right', 'bottom');
         cost = wade.getJson(JsonMap.archer_cost);
-        text = "stone: " + cost.stone + "\n wood: " + cost.wood +
-                                "\n food: " + cost.food;
-        let archerCost = BuildHud.buildText(text, font, color, alignment, x, y + 100,
+        text = 'stone: ' + cost.stone + '\n wood: ' + cost.wood +
+                                '\n food: ' + cost.food;
+        const archerCost = BuildHud.buildText(text, font, color, alignment, x, y + 100,
                                             layer);
         archerCost.setAlignment('right', 'bottom');
 
-        let all = [swordsman, archer, swordsmanCost, archerCost];
+        const all = [swordsman, archer, swordsmanCost, archerCost];
         _.forEach(all, (item) => {
             item.dontSave = true;
         });
         return all;
     },
     stablesPanel: (layer: number) => {
-        let font = "12px Verdana";
-        let color = 'black';
-        let alignment = 'center';
+        const font = '12px Verdana';
+        const color = 'black';
+        const alignment = 'center';
 
         let y = (wade.getScreenHeight() / 2) - 200;
         let x = -50;
@@ -344,12 +342,12 @@ const BuildHud = {
                         y, layer);
         archerCalvary.setAlignment('right', 'bottom');
         let cost = wade.getJson(JsonMap.archer_calvary_cost);
-        let text = "stone: " + cost.stone + "\n wood: " + cost.wood +
-                                "\n food: " + cost.food;
-        let archerCalvaryCost = BuildHud.buildText(text, font, color, alignment, x, y + 100,
+        let text = 'stone: ' + cost.stone + '\n wood: ' + cost.wood +
+                                '\n food: ' + cost.food;
+        const archerCalvaryCost = BuildHud.buildText(text, font, color, alignment, x, y + 100,
                                             layer);
         archerCalvaryCost.setAlignment('right', 'bottom');
-    
+
         y = y;
         x = x + 150;
         const spearCalvary = BuildHud.buildIcon(ImageMap.axe, 70, 70, x,
@@ -357,44 +355,44 @@ const BuildHud = {
         spearCalvary.setRotation(-1 * Math.PI / 2);
         spearCalvary.setAlignment('right', 'bottom');
         cost = wade.getJson(JsonMap.spear_calvary_cost);
-        text = "stone: " + cost.stone + "\n wood: " + cost.wood +
-                                "\n food: " + cost.food;
-        let spearCalvaryCost = BuildHud.buildText(text, font, color, alignment, x, y + 100,
+        text = 'stone: ' + cost.stone + '\n wood: ' + cost.wood +
+                                '\n food: ' + cost.food;
+        const spearCalvaryCost = BuildHud.buildText(text, font, color, alignment, x, y + 100,
                                             layer);
         spearCalvaryCost.setAlignment('right', 'bottom');
 
-        let all = [archerCalvary, spearCalvary, archerCalvaryCost, spearCalvaryCost];
+        const all = [archerCalvary, spearCalvary, archerCalvaryCost, spearCalvaryCost];
         _.forEach(all, (item) => {
             item.dontSave = true;
         });
         return all;
     },
     towerPanel: (layer: number) => {
-        let y = (wade.getScreenHeight() / 2) - 200;
-        let x = 50;
+        const y = (wade.getScreenHeight() / 2) - 200;
+        const x = 50;
 
-        let text = BuildHud.buildText("Hi, I'm a tower!", "20px Verdana", 'black', "center",
+        const text = BuildHud.buildText("Hi, I'm a tower!", '20px Verdana', 'black', 'center',
                     x, y, layer);
         text.setAlignment('right', 'bottom');
-        let all = [ text ];
+        const all = [ text ];
         _.forEach(all, (item) => {
             item.dontSave = true;
         });
         return all;
     },
     townHallPanel: (layer: number) => {
-        let font = "12px Verdana";
-        let color = 'black';
+        const font = '12px Verdana';
+        const color = 'black';
 
-        let alignment = 'center';
+        const alignment = 'center';
         let y = (wade.getScreenHeight() / 2) - 200;
         let x = -50;
         const gatherer = BuildHud.buildIcon(ImageMap.fist, 50, 50, x, y, layer);
         gatherer.setAlignment('right', 'bottom');
         let cost = wade.getJson(JsonMap.gatherer_cost);
-        let text = "stone: " + cost.stone + "\n wood: " + cost.wood +
-                                "\n food: " + cost.food;
-        let gathererCost = BuildHud.buildText(text, font, color, alignment, x, y + 100,
+        let text = 'stone: ' + cost.stone + '\n wood: ' + cost.wood +
+                                '\n food: ' + cost.food;
+        const gathererCost = BuildHud.buildText(text, font, color, alignment, x, y + 100,
                                             layer);
         gathererCost.setAlignment('right', 'bottom');
 
@@ -404,13 +402,13 @@ const BuildHud = {
         drummer.setRotation(-1 * Math.PI / 2);
         drummer.setAlignment('right', 'bottom');
         cost = wade.getJson(JsonMap.drummer_boy_cost);
-        text = "stone: " + cost.stone + "\n wood: " + cost.wood +
-                                "\n food: " + cost.food;
-        let drummerBoyCost = BuildHud.buildText(text, font, color, alignment, x, y + 100,
+        text = 'stone: ' + cost.stone + '\n wood: ' + cost.wood +
+                                '\n food: ' + cost.food;
+        const drummerBoyCost = BuildHud.buildText(text, font, color, alignment, x, y + 100,
                                             layer);
         drummerBoyCost.setAlignment('right', 'bottom');
 
-        let all = [gatherer, drummer, gathererCost, drummerBoyCost];
+        const all = [gatherer, drummer, gathererCost, drummerBoyCost];
         _.forEach(all, (item) => {
             item.dontSave = true;
         });
@@ -429,9 +427,9 @@ const BuildHud = {
         scroll.setName(Names.hudBackground);
         scroll.setAlignment('right', 'bottom');
 
-        // The background should prevent propagation of all MOUSE events to the map 
+        // The background should prevent propagation of all MOUSE events to the map
         // beneath it.
-        // HOWEVER, allow onMouseMove and onMouseWheel so that mouse can control camera near 
+        // HOWEVER, allow onMouseMove and onMouseWheel so that mouse can control camera near
         // bottom of the screen and zooming is still possible.
         scroll.onClick = prevent_propagation;
         wade.addEventListener(scroll, 'onClick');
@@ -462,14 +460,14 @@ const BuildHud = {
 
         const text = 'health: ' + unitSceneObject.data.getHp();
         const health = BuildHud.buildText(text, font, color, alignment, x, y, layer);
-        health.setAlignment('right', 'bottom');
+        health.setAlignment('left', 'bottom');
 
-        let all = [health];
+        const all = [health];
         _.forEach(all, (item) => {
             item.dontSave = true;
         });
         return all;
-    
+
     },
     buildingStats: (buildingSceneObject, layer: number) => {
         const font = '12px Verdana';
@@ -480,9 +478,9 @@ const BuildHud = {
 
         const text = 'health: ' + buildingSceneObject.data.getHp();
         const health = BuildHud.buildText(text, font, color, alignment, x, y, layer);
-        health.setAlignment('right', 'bottom');
+        health.setAlignment('left', 'bottom');
 
-        let all = [health];
+        const all = [health];
         _.forEach(all, (item) => {
             item.dontSave = true;
         });
@@ -496,9 +494,9 @@ const BuildHud = {
         const y = (wade.getScreenHeight() / 2) - 210;
         const x = (-1 * wade.getScreenWidth() / 2) + 100;
         const amount = BuildHud.buildText(text, font, color, alignment, x, y, layer);
-        amount.setAlignment('right', 'bottom');
+        amount.setAlignment('left', 'bottom');
 
-        let all = [amount];
+        const all = [amount];
         _.forEach(all, (item) => {
             item.dontSave = true;
         });
@@ -506,8 +504,8 @@ const BuildHud = {
         return all;
     },
     resourceError: (layer: number) => {
-        const text = "Not enough resources!";
-        const font = "18px Verdana";
+        const text = 'Not enough resources!';
+        const font = '18px Verdana';
         const color = 'red';
         const alignment = 'center';
         const y = (wade.getScreenHeight() / 2) - 210;
@@ -515,18 +513,18 @@ const BuildHud = {
 
         const error = BuildHud.buildText(text, font, color, alignment, x, y, layer);
         error.setAlignment('right', 'bottom');
-        let all = [error];
+        const all = [error];
         _.forEach(all, (item) => {
             item.dontSave = true;
         });
         return all;
-    }
+    },
 
 };
 
-var prevent_propagation = (event) => {
+const prevent_propagation = (event) => {
     return true;
 
-}
+};
 
 export default BuildHud;

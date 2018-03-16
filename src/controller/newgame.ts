@@ -7,25 +7,24 @@
 import * as _ from 'lodash';
 import Building from '../model/buildings/buildings';
 import Resource from '../model/resources/resource';
+import AiDec from '../model/state/ai-dec';
 import GlobalGameState from '../model/state/global-game-state';
 import Unit from '../model/units/units';
+import AiGamePlay from './ai-gameplay';
+import AudioMap from './audio-map';
 import Camera from './camera';
 import Construction from './construction';
 import Events from './events';
-import { ResourceBuilding, UnitBuilding, BuildingBuilding, GamePlay } from './gameplay';
+import Fog from './fog';
+import { BuildingBuilding, GamePlay, ResourceBuilding, UnitBuilding } from './gameplay';
 import Global from './global';
 import Hud from './hud';
 import ImageMap from './image-map';
 import JsonMap from './json-map';
+import Minimap from './minimap';
 import Mouse from './mouse';
 import SceneObjectConstruction from './scene-object-construction';
-import AiGamePlay from './ai-gameplay';
-import Fog from './fog';
-import Minimap from './minimap'
 import UnitDec from './unit-ai';
-import AiDec from '../model/state/ai-dec';
-import AudioMap from './audio-map';
-
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -58,7 +57,7 @@ function playGameMusic() {
                                     }, 10000);
                                 });
                             });
-                        
+
                         }, 30000);
                     });
                 }, 30000);
@@ -77,10 +76,10 @@ const NewGame = {
 
         //Set up global settings and sync with scene.
         Global.createGlobalSettings(cameraSpeed, aiIsHard);
-        const minimap = Hud.showMinimap(); // minimap must be created before units 
+        const minimap = Hud.showMinimap(); // minimap must be created before units
                                            // can be created.
 
-        createPlayerStartingUnits();   // units and buildings must be created before 
+        createPlayerStartingUnits();   // units and buildings must be created before
         createAiStartingUnits();       // the rest of the HUD can be created
 
         // Set up WADE layers to display correctly.
@@ -89,7 +88,7 @@ const NewGame = {
         wade.setLayerTransform(9, 0, 0);
         wade.setLayerTransform(10, 0, 0);
         NewGame.createHud();            // Requires all units/buildings to be created
-                                        // Actually it just requires a global game state 
+                                        // Actually it just requires a global game state
                                         // to have been created
 
         // Once units, buildings, and HUD are created properly,
@@ -100,11 +99,11 @@ const NewGame = {
         Fog.paintMapDarkness();
         GamePlay.refreshPlayerVision();
         GamePlay.refreshAiVisibility();
-       
-        // Initiate random generation of resources during the game.
-        AiGamePlay.generateRandomResources(); 
 
-        // Start background thread that checks for when player units enter 
+        // Initiate random generation of resources during the game.
+        AiGamePlay.generateRandomResources();
+
+        // Start background thread that checks for when player units enter
         // ai unit vision, and vice versa. This will start conflicts!
         UnitDec.playerUnitsWatch();
         UnitDec.aiUnitsWatch();
@@ -116,12 +115,12 @@ const NewGame = {
         Events.addCamera();
         Camera.setBounds();
 
-        // Once all the player units are in the scene, position the camera to focus on the 
+        // Once all the player units are in the scene, position the camera to focus on the
         // Player's VIP.
         wade.app.onCameraMove = (event) => {
-            let coords = event.newPosition;
+            const coords = event.newPosition;
             Minimap.updateCameraZone(coords);
-        }
+        };
         Camera.focusVIP();
     },
     createHud: function createHud() {
@@ -143,7 +142,7 @@ const NewGame = {
                 wade.app.onIsoTerrainMouseDown = null;
                 Hud.clearBuildingsPanel();
                 Hud.showMainPanel();
-            }
+            };
 
             // Function that takes a buildingIcon and sets its click event
             // to build a matching building in the game world.
@@ -157,56 +156,52 @@ const NewGame = {
             _.forEach(options, setOnClickToBuild);
         };
         wade.addEventListener(main[0], 'onClick');
-    }
+    },
 };
 
-
 function createPlayerStartingUnits() {
-    let global = wade.getSceneObject('global');
+    const global = wade.getSceneObject('global');
     global.state = Global.defaultGlobalState();
     addToScene(global.state);
 }
 
-
-
 function createAiStartingUnits() {
-    let numTiles = wade.iso.getNumTiles();
-    let corner = Math.floor( Math.random() * 4 );
+    const numTiles = wade.iso.getNumTiles();
+    const corner = Math.floor( Math.random() * 4 );
     let x;
     let z;
-    let offset = 7;
+    const offset = 7;
     switch (corner) {
         case 0:
             x = numTiles.x - offset;
             z = numTiles.z - offset;
-            console.log("TOP CORNER");
+            console.log('TOP CORNER');
             break;
         case 1:
             x = numTiles.x - offset;
             z = offset;
-            console.log("RIGHT CORNER");
+            console.log('RIGHT CORNER');
             break;
 
         case 2:
             x = offset;
             z = numTiles.z - offset;
-            console.log("LEFT CORNER");
+            console.log('LEFT CORNER');
             break;
 
         case 3:
             x = offset;
             z = offset;
-            console.log("BOTTOM CORNER");
+            console.log('BOTTOM CORNER');
             break;
 
         default:
-            console.error(corner + " is an invalid corner in createAiStartingUnits!");
+            console.error(corner + ' is an invalid corner in createAiStartingUnits!');
     }
 
-    let AiVip = AiGamePlay.constructUnit("VIP", x, z);
-    let AiTownHall = AiGamePlay.constructBuilding("TownHall", x + 3, z + 3 );
+    const AiVip = AiGamePlay.constructUnit('VIP', x, z);
+    const AiTownHall = AiGamePlay.constructBuilding('TownHall', x + 3, z + 3 );
 }
-
 
 // This funcion takes a GlobalGameState and attempts to add every Unit, Building,
 // and Resource in its map, to the WADE Scene. This should only be used with a
@@ -254,9 +249,9 @@ function addToScene(state: GlobalGameState) {
                 wade.addEventListener(b, 'onMouseDown');
 
                 if (isPlayer) {
-                    b.marker = Minimap.createBuildingMarker(b.iso.gridCoords.x, b.iso.gridCoords.z, "player");
+                    b.marker = Minimap.createBuildingMarker(b.iso.gridCoords.x, b.iso.gridCoords.z, 'player');
                 } else {
-                    b.marker = Minimap.createBuildingMarker(b.iso.gridCoords.x, b.iso.gridCoords.z, "ai");
+                    b.marker = Minimap.createBuildingMarker(b.iso.gridCoords.x, b.iso.gridCoords.z, 'ai');
                 }
 
             }
@@ -273,7 +268,6 @@ function addToScene(state: GlobalGameState) {
                     isPlayerUnit = false;
                 }
 
-
                 // Once we have the unit, we can paint it on the appropriate
                 // grid position with the appropriate image
                 const u = UnitBuilding.constructUnitFromModel(unit);
@@ -286,15 +280,15 @@ function addToScene(state: GlobalGameState) {
 
                 //Then we attach the appropriate callbacks for a constructed unit.
                 // But ONLY if it is a player unit
-                if(isPlayerUnit) {
+                if (isPlayerUnit) {
                     u.onMouseDown = GamePlay.onSelectUnit(u);
                     wade.addEventListener(u, 'onMouseDown');
                 }
 
                 if (isPlayerUnit) {
-                    u.marker = Minimap.createUnitMarker(u.iso.gridCoords.x, u.iso.gridCoords.z, "player");
+                    u.marker = Minimap.createUnitMarker(u.iso.gridCoords.x, u.iso.gridCoords.z, 'player');
                 } else {
-                    u.marker = Minimap.createUnitMarker(u.iso.gridCoords.x, u.iso.gridCoords.z, "ai");
+                    u.marker = Minimap.createUnitMarker(u.iso.gridCoords.x, u.iso.gridCoords.z, 'ai');
                 }
 
             }
@@ -303,7 +297,6 @@ function addToScene(state: GlobalGameState) {
                 const resource = _.find(state.getResources(), (r) => {
                     return r.getId() === tile.resourceId;
                 });
-
 
                 // Once we have the resource, we can paint it on the appropriate
                 // grid position with the correct image
@@ -323,6 +316,5 @@ function addToScene(state: GlobalGameState) {
         });
     });
 }
-
 
 export default NewGame;

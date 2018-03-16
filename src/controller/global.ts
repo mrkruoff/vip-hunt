@@ -45,7 +45,7 @@ const Global = {
             //empty object to store references to other HUD elements
         };
         global.minimap = {
-        
+
         };
         global.isRunning = true;
 
@@ -66,12 +66,12 @@ const Global = {
         const playerState = new PlayerGameState([playerVIP], [playerTownHall],
                             startingStone, startingWood, startingFood);
 
-        const aiState = new AiGameState([], [], 
-                            1000, 1000, 1000, "setup");
+        const aiState = new AiGameState([], [],
+                            1000, 1000, 1000, 'setup');
 
         const resources = [];
 
-        let numTiles = wade.iso.getNumTiles();
+        const numTiles = wade.iso.getNumTiles();
         const map = [];
         for (let i = 0; i < numTiles.x; i++) {
             map[i] = [];
@@ -84,8 +84,8 @@ const Global = {
         }
 
         //Put the VIP and Townhall in the middle of the map
-        let x = Math.floor(numTiles.x / 2 );
-        let z = Math.floor(numTiles.z / 2 );
+        const x = Math.floor(numTiles.x / 2 );
+        const z = Math.floor(numTiles.z / 2 );
         map[x][z].unitId = playerVIP.id;
         map[x + 3][z + 3].buildingId = playerTownHall.id;
 
@@ -94,7 +94,5 @@ const Global = {
         return state;
     },
 };
-
-
 
 export default Global;

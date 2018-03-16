@@ -7,24 +7,24 @@
 
 import * as _ from 'lodash';
 import IIdentifiable from '../interfaces/identifiable';
+import Building from '../model/buildings/buildings';
 import Tile from '../model/map/tile';
+import Resource from '../model/resources/resource';
+import AiGameState from '../model/state/ai-game-state';
+import GlobalGameState from '../model/state/global-game-state';
+import PlayerGameState from '../model/state/player-game-state';
+import Unit from '../model/units/units';
+import AudioMap from './audio-map';
 import Construction from './construction';
+import Events from './events';
+import Fog from './fog';
 import Hud from './hud';
 import Id from './id';
 import ImageMap from './image-map';
 import JsonMap from './json-map';
-import Mouse from './mouse';
-import Unit from '../model/units/units';
-import Building from '../model/buildings/buildings';
-import SceneObjectConstruction from './scene-object-construction';
-import PlayerGameState from '../model/state/player-game-state';
-import GlobalGameState from '../model/state/global-game-state';
-import AiGameState from '../model/state/ai-game-state';
-import Events from './events';
-import Fog from './fog';
 import Minimap from './minimap';
-import Resource from '../model/resources/resource';
-import AudioMap from './audio-map';
+import Mouse from './mouse';
+import SceneObjectConstruction from './scene-object-construction';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -49,9 +49,9 @@ const GamePlay = {
     // This function removes the global selected unit
     // from the game and any events associated with it.
     removeSelected: () => {
-        let selectedSprite = wade.app.selected.getSprite(1);
-        if(selectedSprite && selectedSprite.isVisible()) {
-            selectedSprite.setVisible(false); 
+        const selectedSprite = wade.app.selected.getSprite(1);
+        if (selectedSprite && selectedSprite.isVisible()) {
+            selectedSprite.setVisible(false);
         }
         wade.app.selected = null;
 
@@ -187,12 +187,12 @@ const GamePlay = {
                             GamePlay.clearGather(selected);
 
                             selected.getBehavior('IsoCharacter').goToObject(resource);
-                            if(GamePlay.distance(selected, resource) < 2 ) {
+                            if (GamePlay.distance(selected, resource) < 2 ) {
                                 console.log("I'M NOT GOING TO MOVE. JUST GATHER");
-                                GamePlay.gather(selected, resource, "Player")(null);
+                                GamePlay.gather(selected, resource, 'Player')(null);
                             } else  {
                                 GamePlay.move(selected, resource.iso.gridCoords);
-                                selected.onObjectReached = GamePlay.gather(selected, resource, "Player");
+                                selected.onObjectReached = GamePlay.gather(selected, resource, 'Player');
                             }
 
                         } else {
@@ -229,7 +229,7 @@ const GamePlay = {
         unit.onObjectReached = null;
     },
     clearMove: (unit) => {
-        unit.data.isMoving = false; 
+        unit.data.isMoving = false;
     },
     // This function tracks an object while it is moving and updates
     // its location on the internal state map with the location on the
@@ -237,25 +237,25 @@ const GamePlay = {
     //
     // parameters:
     //  @ unit: The unit SceneObject that is moving
-    move: async function(unit, targetCoords) {
+    async move(unit, targetCoords) {
         //Once the move is complete, there is no more reason to
         // keep tracking the location.
         unit.data.isMoving = true;
-        let fogLayer = wade.getSceneObject('global').minimap.fogLayer;
+        const fogLayer = wade.getSceneObject('global').minimap.fogLayer;
 
         function distanceBetween(sceneObject, coords) {
-            let sceneCoords = sceneObject.iso.gridCoords;
-            let dx = sceneCoords.x - coords.x; 
-            let dz = sceneCoords.z - coords.z; 
-            let d = Math.sqrt(Math.pow(dx, 2) + Math.pow(dz, 2)); 
+            const sceneCoords = sceneObject.iso.gridCoords;
+            const dx = sceneCoords.x - coords.x;
+            const dz = sceneCoords.z - coords.z;
+            const d = Math.sqrt(Math.pow(dx, 2) + Math.pow(dz, 2));
 
             return d;
         }
         unit.onMoveComplete = function stopMoving(event) {
             // End the movement when the distance is 0
-            if(distanceBetween(unit, targetCoords) < 1) {
+            if (distanceBetween(unit, targetCoords) < 1) {
                 unit.data.isMoving = false;
-                let position = fogLayer[unit.iso.gridCoords.x][unit.iso.gridCoords.z].getPosition();
+                const position = fogLayer[unit.iso.gridCoords.x][unit.iso.gridCoords.z].getPosition();
                 unit.marker.setPosition(position.x, position.y);
             }
 
@@ -268,7 +268,7 @@ const GamePlay = {
 
             // Update map location.
             GamePlay.updateUnitMapLocation(unit);
-            let position = fogLayer[unit.iso.gridCoords.x][unit.iso.gridCoords.z].getPosition();
+            const position = fogLayer[unit.iso.gridCoords.x][unit.iso.gridCoords.z].getPosition();
             unit.marker.setPosition(position.x, position.y);
         }
     },
@@ -339,8 +339,8 @@ const GamePlay = {
     onSelectResource: (resource) => {
         return (event) => {
             console.log(event);
-            console.log("Clicked a resource!");
-            let selected = GamePlay.getSelected();
+            console.log('Clicked a resource!');
+            const selected = GamePlay.getSelected();
 
             if (event.button === Mouse.left) {
                 Hud.clearBuildingsPanel();
@@ -356,22 +356,21 @@ const GamePlay = {
                 GamePlay.addSelectedResource(resource);
 
                 return true;
-            }
-            else if (event.button === Mouse.right && selected ) {
-                console.log("SHOULD GATHER");
-                if( _.has(selected.data, 'speed' )) {
-                    console.log("Gathering a Resource");
+            } else if (event.button === Mouse.right && selected ) {
+                console.log('SHOULD GATHER');
+                if ( _.has(selected.data, 'speed' )) {
+                    console.log('Gathering a Resource');
                     GamePlay.clearUnitActions(selected);
                     selected.getBehavior('IsoCharacter').goToObject(resource);
-                    if(GamePlay.distance(selected, resource) < 2 ) {
+                    if (GamePlay.distance(selected, resource) < 2 ) {
                         console.log("I'M NOT GOING TO MOVE. JUST GATHER");
-                        GamePlay.gather(selected, resource, "Player")(null);
+                        GamePlay.gather(selected, resource, 'Player')(null);
                     } else  {
                         GamePlay.move(selected, resource.iso.gridCoords);
-                        selected.onObjectReached = GamePlay.gather(selected, resource, "Player");
+                        selected.onObjectReached = GamePlay.gather(selected, resource, 'Player');
                     }
                     return true;
-                } 
+                }
             }
         };
     },
@@ -402,45 +401,44 @@ const GamePlay = {
     //      'data' property.
     //  @ target: target unit or building SceneObject that contains state in its
     //      'data' property.
-    attack: async function(attacker, target) {
-        let fogLayer = wade.getSceneObject('global').minimap.fogLayer;
+    async attack(attacker, target) {
+        const fogLayer = wade.getSceneObject('global').minimap.fogLayer;
         const targetData = target.data;
         attacker.isAttacking = false;
 
         // Set the callback: when the attacker reaches the target, do damage.
-        let doDamage = function(event) {
+        const doDamage = function(event) {
             // Deal damage only in intervals.
             // shouldAttack's value will switch based on the loop below
             if (attacker.shouldAttack && target && targetData) {
                 attacker.isAttacking = true;
-                var anim = attacker.getSprite(0).getCurrentAnimationName();
-                var direction = anim.substr(anim.lastIndexOf('_') + 1);
+                const anim = attacker.getSprite(0).getCurrentAnimationName();
+                const direction = anim.substr(anim.lastIndexOf('_') + 1);
                 attacker.onAnimationEnd = (data) => {
-                    if(target.getSprite(3) ) {
+                    if (target.getSprite(3) ) {
                         target.getSprite(3).setVisible(false);
                     }
 
-                    attacker.isAttacking = false; 
+                    attacker.isAttacking = false;
                     attacker.onAnimationEnd = null;
-                    let dir = GamePlay.directionToTarget(attacker, target);
+                    const dir = GamePlay.directionToTarget(attacker, target);
                     attacker.getBehavior('IsoCharacter').setDirection(dir);
-                }
+                };
                 wade.addEventListener(attacker, 'onAnimationEnd');
                 attacker.playAnimation('Attack_iso_' + direction, 'forward');
                 targetData.takeDamage(attacker.data.getAttack());
-                if(target.getSprite(3)) {
+                if (target.getSprite(3)) {
                     target.getSprite(3).setVisible(true);
                     target.playAnimation('bleed', 'forward');
                 }
 
                 // If the attacked unit is also the player's selected unit, update its
                 // display of health
-                if(targetData.rep === GamePlay.getSelected() ) {
+                if (targetData.rep === GamePlay.getSelected() ) {
                     let display;
-                    if(_.has(targetData, 'speed')) {
+                    if (_.has(targetData, 'speed')) {
                         display = Hud.showUnitData;
-                    }
-                    else {
+                    } else {
                         display = Hud.showBuildingData;
                     }
                     display(targetData.rep);
@@ -459,22 +457,20 @@ const GamePlay = {
             attacker.shouldAttack = (i % attackFreq) === 0;
             i++;
 
-            // use attacker.data.range + 1 because the map is square, so 
+            // use attacker.data.range + 1 because the map is square, so
             // diagonal distances are technically longer.
-            if(GamePlay.distance(attacker, target) >= attacker.data.range + 1 ) {
+            if (GamePlay.distance(attacker, target) >= attacker.data.range + 1 ) {
                 attacker.getBehavior('IsoCharacter').goToObject(target);
-            }
-            // Only go to the target if it is out of range
-            else if(target && !attacker.isAttacking) {
+            } else if (target && !attacker.isAttacking) {
                 // If the target is in range, face the target and damage it.
-                let dir = GamePlay.directionToTarget(attacker, target);
+                const dir = GamePlay.directionToTarget(attacker, target);
                 attacker.getBehavior('IsoCharacter').clearDestinations();
                 attacker.getBehavior('IsoCharacter').setDirection(dir);
                 doDamage(null);
             } else {
                 //If we got here, something went wrong.
                 await delay(1000);
-                attacker.isAttacking = false; 
+                attacker.isAttacking = false;
             }
             await delay(time);
 
@@ -483,14 +479,13 @@ const GamePlay = {
             //      the player cannot see the target, so it should stop chasing.
             //      This case does not apply at all to when the attacker is an
             //      AI unit.
-            // ELSE if the target is not within the attacker's vision range, the 
+            // ELSE if the target is not within the attacker's vision range, the
             // attacker should stop attacking.
-            let targetCoords = target.iso.gridCoords;
-            let fogged = wade.iso.getTransitionSprite(targetCoords.x, targetCoords.z).isVisible();
-            if( fogged ) {
-                GamePlay.clearUnitActions(attacker); 
-            } 
-            else if( GamePlay.distance(attacker, target) > attacker.data.vision) {
+            const targetCoords = target.iso.gridCoords;
+            const fogged = wade.iso.getTransitionSprite(targetCoords.x, targetCoords.z).isVisible();
+            if ( fogged ) {
+                GamePlay.clearUnitActions(attacker);
+            } else if ( GamePlay.distance(attacker, target) > attacker.data.vision) {
                 GamePlay.clearUnitActions(attacker);
             }
 
@@ -502,17 +497,16 @@ const GamePlay = {
                 GamePlay.clearPursue(attacker);
                 GamePlay.clearUnitActions(target);
 
-                var anim = target.getSprite(0).getCurrentAnimationName();
-                var direction = anim.substr(anim.lastIndexOf('_') + 1);
+                const anim = target.getSprite(0).getCurrentAnimationName();
+                const direction = anim.substr(anim.lastIndexOf('_') + 1);
                 target.onAnimationEnd = (data) => {
                     //Once the animation is over, delete the object
-                    if(_.isEqual(target.data.getClassName(), "VIP") ) {
+                    if (_.isEqual(target.data.getClassName(), 'VIP') ) {
                         GamePlay.gameOver(target.data.getId());
+                    } else {
+                        GamePlay.deleteGameObject(target);
                     }
-                    else {
-                        GamePlay.deleteGameObject(target);            
-                    }
-                }
+                };
                 wade.addEventListener(target, 'onAnimationEnd');
                 target.playAnimation('Death_iso_' + direction);
                 attacker.getBehavior('IsoCharacter').setDirection('s');
@@ -520,85 +514,85 @@ const GamePlay = {
 
             // Update the attacking unit's location.
             GamePlay.updateUnitMapLocation(attacker);
-            let position = fogLayer[attacker.iso.gridCoords.x][attacker.iso.gridCoords.z].getPosition();
+            const position = fogLayer[attacker.iso.gridCoords.x][attacker.iso.gridCoords.z].getPosition();
             attacker.marker.setPosition(position.x, position.y);
         }
     },
     gameOver: async (id: number) => {
-        let global = wade.getSceneObject('global');
-        let state: GlobalGameState = global.state;
-        let ai: AiGameState = state.getAi();
-        let player: PlayerGameState = state.getPlayer();
+        const global = wade.getSceneObject('global');
+        const state: GlobalGameState = global.state;
+        const ai: AiGameState = state.getAi();
+        const player: PlayerGameState = state.getPlayer();
 
         global.isRunning = false;
         await delay(1000);
-        
-        if( _.some(ai.getUnits(), (unit) => {
-            return _.isEqual(unit.getId(), id); 
+
+        if ( _.some(ai.getUnits(), (unit) => {
+            return _.isEqual(unit.getId(), id);
         })  ) {
             Hud.showWinPanel();
         } else {
-            Hud.showLossPanel(); 
+            Hud.showLossPanel();
         }
         wade.pauseSimulation();
         Events.disableAllEvents();
     },
     directionToTarget: (attacker, target) => {
-        let hyp = GamePlay.distance(attacker, target);
-        let adj = target.iso.gridCoords.x - attacker.iso.gridCoords.x;
-        let dz = target.iso.gridCoords.z - attacker.iso.gridCoords.z;
+        const hyp = GamePlay.distance(attacker, target);
+        const adj = target.iso.gridCoords.x - attacker.iso.gridCoords.x;
+        const dz = target.iso.gridCoords.z - attacker.iso.gridCoords.z;
 
         let theta = ( Math.acos(adj / hyp) );
         if (dz < 0 )  {
-            theta = (2*Math.PI - theta);
+            theta = (2 * Math.PI - theta);
         }
-        if( theta <= (Math.PI / 8) || theta >= (15*Math.PI / 8)  ) {
-            return 'ne'; 
-        } else if (theta <= (3*Math.PI) / 8 ) {
-            return 'n'; 
-        } else if (theta <= (5*Math.PI / 8) ) {
-            return 'nw'; 
-        } else if (theta <= ( 7*Math.PI / 8) ) { 
-            return 'w'; 
-        } else if (theta <= (9*Math.PI / 8) ) {
-            return 'sw'; 
-        } else if (theta <= (11*Math.PI / 8) ) {
-            return 's'; 
-        } else if (theta <= (13*Math.PI / 8 ) ) {
-            return 'se'; 
+        if ( theta <= (Math.PI / 8) || theta >= (15 * Math.PI / 8)  ) {
+            return 'ne';
+        } else if (theta <= (3 * Math.PI) / 8 ) {
+            return 'n';
+        } else if (theta <= (5 * Math.PI / 8) ) {
+            return 'nw';
+        } else if (theta <= ( 7 * Math.PI / 8) ) {
+            return 'w';
+        } else if (theta <= (9 * Math.PI / 8) ) {
+            return 'sw';
+        } else if (theta <= (11 * Math.PI / 8) ) {
+            return 's';
+        } else if (theta <= (13 * Math.PI / 8 ) ) {
+            return 'se';
         } else {
-            return 'e'; 
+            return 'e';
         }
     },
     distance: (sceneObject1, sceneObject2) => {
-        //Since both are isometric scene objects, both parameters have 
+        //Since both are isometric scene objects, both parameters have
         // a SceneObject.iso.gridCoords property
-        let dx = sceneObject1.iso.gridCoords.x - sceneObject2.iso.gridCoords.x;
-        let dz = sceneObject1.iso.gridCoords.z - sceneObject2.iso.gridCoords.z;
-        let d = Math.sqrt(Math.pow(dx, 2) + Math.pow(dz, 2)); 
+        const dx = sceneObject1.iso.gridCoords.x - sceneObject2.iso.gridCoords.x;
+        const dz = sceneObject1.iso.gridCoords.z - sceneObject2.iso.gridCoords.z;
+        const d = Math.sqrt(Math.pow(dx, 2) + Math.pow(dz, 2));
 
         return d;
-    
+
     },
-    gather: function(gatherer, target, owner: string) {
+    gather(gatherer, target, owner: string) {
         return async function(event) {
             const time = 1000;
             const targetData = target.data;
             gatherer.shouldGather = true;
             gatherer.isGathering = false;
             while (gatherer.shouldGather) {
-                console.log("ITERATION 1");
+                console.log('ITERATION 1');
                 // If the gatherer isn't currently in the middle
                 // of gathering, start gathering resources
-                if(! gatherer.isGathering) {
-                    targetData.takeGather(gatherer.data.getGather());;
+                if (! gatherer.isGathering) {
+                    targetData.takeGather(gatherer.data.getGather());
 
                     // If the target is currently also selected, update the resource
                     // panel.
-                    if(targetData.rep === GamePlay.getSelected() ) {
+                    if (targetData.rep === GamePlay.getSelected() ) {
                         Hud.showResourceData(targetData.rep);
                     }
-                    if (_.isEqual(owner, "Player") ) {
+                    if (_.isEqual(owner, 'Player') ) {
                         GamePlay.applyGatherToPlayer(gatherer.data.getGather(),
                                                     targetData.getClassName());
                         Hud.updateResourcePanel();
@@ -607,10 +601,10 @@ const GamePlay = {
                                                     targetData.getClassName());
                     }
                     gatherer.isGathering = true;
-                    var anim = gatherer.getSprite(0).getCurrentAnimationName();
-                    var dir = anim.substr(anim.lastIndexOf('_') + 1);
+                    const anim = gatherer.getSprite(0).getCurrentAnimationName();
+                    const dir = anim.substr(anim.lastIndexOf('_') + 1);
                     gatherer.onAnimationEnd = (data) => {
-                        gatherer.isGathering = false; 
+                        gatherer.isGathering = false;
                         gatherer.onAnimationEnd = null;
                         gatherer.getBehavior('IsoCharacter').setDirection(dir);
                     };
@@ -629,7 +623,7 @@ const GamePlay = {
                 }
 
             }
-            console.log("GATHERING IS OVER");
+            console.log('GATHERING IS OVER');
         };
     },
     applyGatherToPlayer: (gather: number, resource: string) => {
@@ -720,17 +714,16 @@ const GamePlay = {
             // remove the minimap marker and delete the SceneObject itself.
             sceneObject.data.isMoving = false; // end the moving cycle
             delete sceneObject.data;
-            if(sceneObject === GamePlay.getSelected() ) {
+            if (sceneObject === GamePlay.getSelected() ) {
                 GamePlay.removeSelected();
                 Hud.showMainPanel();
             }
-            if(_.has(sceneObject, 'marker') ) {
+            if (_.has(sceneObject, 'marker') ) {
                 wade.removeSceneObject(sceneObject.marker);
             }
             wade.iso.deleteObject(sceneObject);
-        } 
-        catch(error) {
-            //Do nothing if there's an error. It probably isn't fatal 
+        } catch (error) {
+            //Do nothing if there's an error. It probably isn't fatal
             console.log(error);
         }
     },
@@ -783,18 +776,18 @@ const GamePlay = {
         map[sceneObject.iso.gridCoords.z][sceneObject.iso.gridCoords.x].resourceId = sceneObject.data.getId();
     },
     enoughPlayerResources: (costsFile: string): boolean => {
-        let player: PlayerGameState = wade.getSceneObject('global').state.getPlayer();
+        const player: PlayerGameState = wade.getSceneObject('global').state.getPlayer();
 
         //Check that each resource in the costs file is greater than the player's actual cost.
-        let costs = wade.getJson(costsFile);
+        const costs = wade.getJson(costsFile);
         let enough = true;
-        if(_.has(costs, 'stone')) {
+        if (_.has(costs, 'stone')) {
             enough = (player.stone >= costs.stone) && enough;
         }
-        if(_.has(costs, 'wood')) {
+        if (_.has(costs, 'wood')) {
             enough = (player.wood >= costs.wood) && enough;
         }
-        if(_.has(costs, 'food')) {
+        if (_.has(costs, 'food')) {
             enough = (player.food >= costs.food) && enough;
         }
 
@@ -807,21 +800,21 @@ const GamePlay = {
         unitSceneObject.getBehavior('IsoCharacter').clearDestinations();
     },
     refreshAiVisibility: async () => {
-        let global = wade.getSceneObject('global');
-        let ai = global.state.getAi();
-        while(global.isRunning) {
+        const global = wade.getSceneObject('global');
+        const ai = global.state.getAi();
+        while (global.isRunning) {
             _.forEach(ai.getUnits(), (u) => {
-                let unit = u.rep; 
+                const unit = u.rep;
                 // Check if location is fogged or not. If it is, hide the unit
-                let fog = wade.iso.getTransitionSprite(unit.iso.gridCoords.x, unit.iso.gridCoords.z);
-                if(fog.isVisible() ) {
-                    unit.getSprite(0).setVisible(false);  
+                const fog = wade.iso.getTransitionSprite(unit.iso.gridCoords.x, unit.iso.gridCoords.z);
+                if (fog.isVisible() ) {
+                    unit.getSprite(0).setVisible(false);
                     unit.getSprite(1).setVisible(false);
                     unit.getSprite(2).setVisible(false);
                     unit.getSprite(3).setVisible(false);
                     unit.marker.setVisible(false);
                 } else {
-                    unit.getSprite(0).setVisible(true);  
+                    unit.getSprite(0).setVisible(true);
                     unit.getSprite(2).setVisible(true);
                     unit.marker.setVisible(true);
                 }
@@ -830,33 +823,33 @@ const GamePlay = {
             await delay(750);
         }
 
-        console.log("REFRESH AI VISIBILITY IS OVER");
+        console.log('REFRESH AI VISIBILITY IS OVER');
     },
     refreshPlayerVision: async () => {
-        let global = wade.getSceneObject('global');
-        let player = global.state.getPlayer();
-        let aiUnitReps = [];
+        const global = wade.getSceneObject('global');
+        const player = global.state.getPlayer();
+        const aiUnitReps = [];
         let playerCollection = [];
-        let worker_1 = new Worker('../js/vision.js');
-        let worker_2 = new Worker('../js/vision.js');
-        let worker_3 = new Worker('../js/vision.js');
+        const worker_1 = new Worker('../js/vision.js');
+        const worker_2 = new Worker('../js/vision.js');
+        const worker_3 = new Worker('../js/vision.js');
         let worker_1_isReady = true;
         let worker_2_isReady = true;
         let worker_3_isReady = true;
-            
-        let processVision = function(e) {
+
+        const processVision = function(e) {
             // Paint fog and cleared tiles
-            if(e.data.id == 1) {
+            if (e.data.id == 1) {
                 worker_1_isReady = true;
             }
-            if(e.data.id == 2) {
-                worker_2_isReady = true; 
+            if (e.data.id == 2) {
+                worker_2_isReady = true;
             }
-            if(e.data.id == 3) {
-                worker_3_isReady = true; 
+            if (e.data.id == 3) {
+                worker_3_isReady = true;
             }
-            let paintFog = e.data.fog;
-            let paintClear = e.data.clear;
+            const paintFog = e.data.fog;
+            const paintClear = e.data.clear;
             _.forEach(paintFog, (coord) => {
                 Fog.setFogVisibility(coord.x, coord.z, true);
             });
@@ -864,8 +857,7 @@ const GamePlay = {
                 Fog.setFogVisibility(coord.x, coord.z, false);
             });
 
-            
-            // Use these calculations to update the minimap 
+            // Use these calculations to update the minimap
             // since we don't want to have to repeat these calculations.
             Minimap.refreshPlayerVision(e.data);
         };
@@ -873,18 +865,18 @@ const GamePlay = {
         worker_1.onmessage = processVision;
         worker_2.onmessage = processVision;
         worker_3.onmessage = processVision;
-        let numTiles = wade.iso.getNumTiles();
+        const numTiles = wade.iso.getNumTiles();
 
-        while(global && global.isRunning) {
+        while (global && global.isRunning) {
             playerCollection = _.concat(player.getUnits(), player.getBuildings() );
-            let dataCollection = _.map(playerCollection, (data) => {
+            const dataCollection = _.map(playerCollection, (data) => {
                 return {
-                    coords: data.rep.iso.gridCoords,                
+                    coords: data.rep.iso.gridCoords,
                     vision: data.vision,
                 };
             });
 
-            let visionData = {
+            const visionData = {
                 spotlightArray: dataCollection,
                 mapBounds: {
                     minX: 0,
@@ -893,28 +885,26 @@ const GamePlay = {
                     maxZ: numTiles.z,
                 },
                 id: 1,
-            }
-            if(worker_1_isReady) {
+            };
+            if (worker_1_isReady) {
                 worker_1.postMessage(visionData);
                 worker_1_isReady = false;
-            }
-            else if (worker_2_isReady) {
+            } else if (worker_2_isReady) {
                 visionData.id = 2;
-                worker_2.postMessage(visionData); 
+                worker_2.postMessage(visionData);
                 worker_2_isReady = false;
-            }
-            else if (worker_3_isReady) {
+            } else if (worker_3_isReady) {
                 visionData.id = 3;
-                worker_3.postMessage(visionData); 
+                worker_3.postMessage(visionData);
                 worker_3_isReady = false;
             }
-        
-            await delay(1000); 
+
+            await delay(1000);
         }
     },
 };
 
-let BuildingBuilding = {
+const BuildingBuilding = {
     // This function uses the name of an image to select the correct
     // SceneObject Building to create.
     //
@@ -996,7 +986,7 @@ let BuildingBuilding = {
                 Hud.clearBuildingsPanel();
             };
 
-            if( GamePlay.enoughPlayerResources(costsFile)) {
+            if ( GamePlay.enoughPlayerResources(costsFile)) {
                 // Set the new building up for gameplay callbacks
                 building.onMouseDown = GamePlay.onSelectBuilding(building, displayFn);
                 wade.addEventListener(building, 'onMouseDown');
@@ -1011,11 +1001,11 @@ let BuildingBuilding = {
                 GamePlay.updateBuildingMapLocation(building);
 
                 building.marker = Minimap.createBuildingMarker(building.iso.gridCoords.x,
-                                            building.iso.gridCoords.z, "player");
+                                            building.iso.gridCoords.z, 'player');
 
-                let music_id = wade.playAudio(AudioMap.building_construction_sound, false);
+                const music_id = wade.playAudio(AudioMap.building_construction_sound, false);
                 wade.setTimeout( () => {
-                    wade.stopAudio(music_id); 
+                    wade.stopAudio(music_id);
                 }, 2000);
             } else {
                 // Remove the building from existence and display an error message to player
@@ -1041,7 +1031,7 @@ let BuildingBuilding = {
             b = SceneObjectConstruction.towers(JsonMap.towers_1);
         }
         return b;
-    }
+    },
 
 };
 
@@ -1136,12 +1126,12 @@ const UnitBuilding = {
                 Hud.clearBarracksPanel();
                 Hud.clearBuildingData();
                 Hud.showMainPanel();
-                if(GamePlay.getSelected() ) {
+                if (GamePlay.getSelected() ) {
                     GamePlay.removeSelected();
                 }
             };
 
-            if(GamePlay.enoughPlayerResources(costsFile) ) {
+            if (GamePlay.enoughPlayerResources(costsFile) ) {
                 //Set up the newly constructed unit for gameplay
                 unit.onMouseDown = GamePlay.onSelectUnit(unit);
                 wade.addEventListener(unit, 'onMouseDown');
@@ -1157,11 +1147,9 @@ const UnitBuilding = {
                 //Add the unit's location to the game state map and the minimap.
                 GamePlay.updateUnitMapLocation(unit);
                 unit.marker = Minimap.createUnitMarker(unit.iso.gridCoords.x,
-                                                unit.iso.gridCoords.z, "player");
+                                                unit.iso.gridCoords.z, 'player');
 
-
-
-                let music_id = wade.playAudio(AudioMap.unit_construction_sound, false);
+                const music_id = wade.playAudio(AudioMap.unit_construction_sound, false);
                 wade.setTimeout(() => {
                     wade.stopAudio(music_id);
                 }, 1500);
@@ -1217,8 +1205,8 @@ const ResourceBuilding = {
         }
 
         return r;
-    }
+    },
 
-}
+};
 
 export { GamePlay, UnitBuilding, BuildingBuilding, ResourceBuilding };

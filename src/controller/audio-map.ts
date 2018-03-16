@@ -17,7 +17,7 @@ const AudioMap = {
     haunting: '../js/../public/audio/music/TheHaunting_ambient.mp3',
 
     building_construction_sound: '../js/../public/audio/sounds/construction/building_construction.wav',
-    unit_construction_sound: '../js/../public/audio/sounds/infantry/training.flac'
+    unit_construction_sound: '../js/../public/audio/sounds/infantry/training.flac',
 
 };
 

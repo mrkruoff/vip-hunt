@@ -10,11 +10,11 @@
 
 import * as _ from 'lodash';
 import BuildHud from './build-hud';
-import Names from './names';
 import Events from './events';
-import * as Menu from './menu';
 import ImageMap from './image-map';
+import * as Menu from './menu';
 import Minimap from './minimap';
+import Names from './names';
 
 declare var window: any;
 declare var location: any;
@@ -29,12 +29,12 @@ declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
 function cleanScene() {
-    let sceneObjects = wade.getSceneObjects(false);
+    const sceneObjects = wade.getSceneObjects(false);
 
     _.forEach(sceneObjects, (obj) => {
         //Clean up all circular references.
-        if(_.has(obj, 'data') ) {
-            obj.data.rep = null; 
+        if (_.has(obj, 'data') ) {
+            obj.data.rep = null;
             delete obj.data;
         }
     });
@@ -49,18 +49,17 @@ async function delay(milliseconds: number) {
 const Hud = {
     showMinimap: () => {
         // paint the minimap terrain layer
-        let background = Minimap.createBackground();
+        const background = Minimap.createBackground();
 
         // Paint the minimap initial fog
-        let fogLayer = Minimap.createDarknessLayer();
+        const fogLayer = Minimap.createDarknessLayer();
 
-        // Player and Ai Unit/Building icons will be build with the units/buildings 
+        // Player and Ai Unit/Building icons will be build with the units/buildings
         // and updated when they move or are deleted.
 
-        let cameraZone = Minimap.createCameraZone();
+        const cameraZone = Minimap.createCameraZone();
 
-
-        let global = wade.getSceneObject('global');
+        const global = wade.getSceneObject('global');
         global.minimap.background = background;
         global.minimap.fogLayer = fogLayer;
         global.minimap.cameraZone = cameraZone;
@@ -68,59 +67,58 @@ const Hud = {
     },
     showMinimap2: () => {
         // while(true) {
-        let transparent = new Sprite();
+        const transparent = new Sprite();
         transparent.setDrawFunction(function() {});
         transparent.setSize(5000, 5000);
         transparent.drawToImage('test.png', true);
 
-        let worldArea = {
+        const worldArea = {
             minX: -5000,
             maxX: 5000,
             minY: -5000,
-            maxY: 10
-        }
-        let terrainSprites = wade.getSpritesInArea(worldArea, 30, true);
+            maxY: 10,
+        };
+        const terrainSprites = wade.getSpritesInArea(worldArea, 30, true);
 
-        let new_index = 0;
-        let chunkSize = 50;
+        const new_index = 0;
+        const chunkSize = 50;
         function paintSomeTerrain(spriteIndex) {
-            let transform = {
+            const transform = {
                 horizontalScale: 1,
                 horizontalSkew: 0,
                 verticalSkew: 0,
                 verticalScale: 1,
                 horizontalTranslate: 0,
-                verticalTranslate: 0
-            }
+                verticalTranslate: 0,
+            };
             let end = spriteIndex + chunkSize;
             if (end > terrainSprites.length) {
-                end = terrainSprites.length; 
+                end = terrainSprites.length;
             }
-            for(let index = spriteIndex; index < end; index++) {
-                let sprite = terrainSprites[index]; 
-                let position = sprite.getPosition();
+            for (let index = spriteIndex; index < end; index++) {
+                const sprite = terrainSprites[index];
+                const position = sprite.getPosition();
                 position.x /= 1;
                 position.y /= 1;
                 sprite.drawToImage('test.png', false, position,
-                                   transform, null, null); 
+                                   transform, null, null);
             }
             spriteIndex = end;
             if (spriteIndex < terrainSprites.length - 1) {
-                let paint = function(i) {
-                    return function () {
+                const paint = function(i) {
+                    return function() {
                         paintSomeTerrain(i);
-                    }
-                }
-                wade.setTimeout(paint(spriteIndex), 20); 
-            }
-            else {
-                console.log("WE ARE DONE"); 
-                let mapSprite = new Sprite('test.png', 20);
-                let minimap = new SceneObject(mapSprite);
+                    };
+                };
+                wade.setTimeout(paint(spriteIndex), 20);
+            } else {
+                console.log('WE ARE DONE');
+                const mapSprite = new Sprite('test.png', 20);
+                const minimap = new SceneObject(mapSprite);
                 wade.addSceneObject(minimap);
                 minimap.setPosition(0, 0);
             }
-        };
+        }
         paintSomeTerrain(new_index);
         /*
            _.forEach(terrainSprites, (sprite) => {
@@ -128,7 +126,7 @@ const Hud = {
            position.x *= 20.1;
            position.y *= 20.1;
            sprite.drawToImage('test' + i.toString() + '.png', false, position,
-           transform, null, null); 
+           transform, null, null);
            });
 
            let fogSprites = wade.getSpritesInArea(worldArea, 22, true);
@@ -137,7 +135,7 @@ const Hud = {
            position.x *= 20.1;
            position.y *= 20.1;
            sprite.drawToImage('test' + i.toString() + '.png', false, position,
-           transform, null, null); 
+           transform, null, null);
            });
 
            let mapSprite = new Sprite('test' + i.toString() + '.png', 9);
@@ -149,59 +147,58 @@ const Hud = {
         //}
     },
     showWinPanel: () => {
-        let options = BuildHud.winPanel(9);
+        const options = BuildHud.winPanel(9);
 
-        let menu = options[1];
+        const menu = options[1];
         menu.onClick = (data) => {
             cleanScene();
             wade.clearScene();
             wade.resumeSimulation();
             window.location.reload();
 
-            return true; 
-        }
+            return true;
+        };
         wade.addEventListener(menu, 'onClick');
         menu.onMouseIn = (event) => {
-            menu.getSprite(0).setFont("20px Verdana"); 
-        }
+            menu.getSprite(0).setFont('20px Verdana');
+        };
         wade.addEventListener(menu, 'onMouseIn');
         menu.onMouseOut = (event) => {
-            menu.getSprite(0).setFont("16px Verdana"); 
-        }
+            menu.getSprite(0).setFont('16px Verdana');
+        };
         wade.addEventListener(menu, 'onMouseOut');
 
-
-        let background = BuildHud.menuBackground(10);
+        const background = BuildHud.menuBackground(10);
 
     },
     showLossPanel: () => {
-        let options = BuildHud.lossPanel(9);
+        const options = BuildHud.lossPanel(9);
 
-        let menu = options[1];
+        const menu = options[1];
         menu.onClick = (data) => {
             cleanScene();
             wade.clearScene();
             wade.resumeSimulation();
             window.location.reload();
 
-            return true; 
-        }
+            return true;
+        };
         wade.addEventListener(menu, 'onClick');
         menu.onMouseIn = (event) => {
-            menu.getSprite(0).setFont("20px Verdana"); 
-        }
+            menu.getSprite(0).setFont('20px Verdana');
+        };
         wade.addEventListener(menu, 'onMouseIn');
         menu.onMouseOut = (event) => {
-            menu.getSprite(0).setFont("16px Verdana"); 
-        }
+            menu.getSprite(0).setFont('16px Verdana');
+        };
         wade.addEventListener(menu, 'onMouseOut');
 
-        let background = BuildHud.menuBackground(10);
+        const background = BuildHud.menuBackground(10);
     },
     clearMenuPanel: () => {
-        const global = wade.getSceneObject('global'); 
+        const global = wade.getSceneObject('global');
         if (global.hud.menu) {
-            wade.getSceneObject(Names.menu_background).setVisible(false); 
+            wade.getSceneObject(Names.menu_background).setVisible(false);
             wade.getSceneObject(Names.menu_save).setVisible(false);
             wade.getSceneObject(Names.menu_resume).setVisible(false);
             wade.getSceneObject(Names.menu_quit).setVisible(false);
@@ -213,7 +210,7 @@ const Hud = {
         const global = wade.getSceneObject('global');
         if (global.hud.buildings) {
             _.forEach(global.hud.buildings, (building) => {
-                building.setVisible(false); 
+                building.setVisible(false);
             });
         }
     },
@@ -232,9 +229,8 @@ const Hud = {
         const global = wade.getSceneObject('global');
         if (global.hud.barracks) {
             _.forEach(global.hud.barracks, (icon) => {
-                icon.setVisible(false); 
-            }); 
-
+                icon.setVisible(false);
+            });
 
             wade.getSceneObject(Names.swordsmanIcon).setVisible(false);
         }
@@ -278,7 +274,7 @@ const Hud = {
         if (global.hud.buildings) {
             _.forEach(global.hud.buildings, (building) => {
                 building.setVisible(true);
-            
+
             });
         } else {
             global.hud.buildings = BuildHud.buildingsPanel(9);
@@ -297,33 +293,33 @@ const Hud = {
             wade.getSceneObject(Names.menuIcon).setVisible(true);
         } else {
             global.hud.main = BuildHud.mainPanel(9);
-            let menu = global.hud.main[1];
+            const menu = global.hud.main[1];
             menu.onMouseIn = (event) => {
-                menu.getSprite(0).setFont("20px Verdana"); 
-            }
+                menu.getSprite(0).setFont('20px Verdana');
+            };
             wade.addEventListener(menu, 'onMouseIn');
 
             menu.onMouseOut = (event) => {
-                menu.getSprite(0).setFont("16px Verdana"); 
-            }
+                menu.getSprite(0).setFont('16px Verdana');
+            };
             wade.addEventListener(menu, 'onMouseOut');
 
             // Set up menu button click event: pause and show menu
             menu.onClick = (event) => {
-                menu.getSprite(0).setFont("16px Verdana");
-                wade.pauseSimulation(null); 
+                menu.getSprite(0).setFont('16px Verdana');
+                wade.pauseSimulation(null);
                 Hud.clearMainPanel();
                 Hud.showMenuPanel();
-            }
+            };
             wade.addEventListener(menu, 'onClick');
         }
 
         return global.hud.main;
     },
     showMenuPanel: () => {
-        const global = wade.getSceneObject('global'); 
-        if(global.hud.menu) {
-            wade.getSceneObject(Names.menu_background).setVisible(true); 
+        const global = wade.getSceneObject('global');
+        if (global.hud.menu) {
+            wade.getSceneObject(Names.menu_background).setVisible(true);
             wade.getSceneObject(Names.menu_save).setVisible(true);
             wade.getSceneObject(Names.menu_resume).setVisible(true);
             wade.getSceneObject(Names.menu_quit).setVisible(true);
@@ -331,103 +327,101 @@ const Hud = {
 
             global.hud.menu = BuildHud.menuPanel(9);
 
-            let save = global.hud.menu[0];
+            const save = global.hud.menu[0];
 
-            let resume_1 = global.hud.menu[1];
-            let quit = global.hud.menu[2];
+            const resume_1 = global.hud.menu[1];
+            const quit = global.hud.menu[2];
 
-            resume_1.onMouseIn = (event)=> {
-                resume_1.getSprite(0).setFont("20px Verdana");
-            }
-
-            save.onMouseIn = (event)=>{
-                save.getSprite(0).setFont("20px Verdana");
+            resume_1.onMouseIn = (event) => {
+                resume_1.getSprite(0).setFont('20px Verdana');
             };
 
-            quit.onMouseIn = (event)=>{
-                quit.getSprite(0).setFont("20px Verdana");
+            save.onMouseIn = (event) => {
+                save.getSprite(0).setFont('20px Verdana');
+            };
+
+            quit.onMouseIn = (event) => {
+                quit.getSprite(0).setFont('20px Verdana');
             };
 
             wade.addEventListener(resume_1, 'onMouseIn');
-            resume_1.onMouseOut =  (event)=> {
-                resume_1.getSprite(0).setFont("16px Verdana");
+            resume_1.onMouseOut =  (event) => {
+                resume_1.getSprite(0).setFont('16px Verdana');
             };
             wade.addEventListener(resume_1, 'onMouseOut');
-            resume_1.onClick =  (event)=> {
-                resume_1.getSprite(0).setFont("16px Verdana");
+            resume_1.onClick =  (event) => {
+                resume_1.getSprite(0).setFont('16px Verdana');
                 wade.resumeSimulation(null);
                 Hud.showMainPanel();
                 Hud.clearMenuPanel();
             };
 
             wade.addEventListener(save, 'onMouseIn');
-            save.onMouseOut = (event)=> {
-                save.getSprite(0).setFont("16px Verdana");
+            save.onMouseOut = (event) => {
+                save.getSprite(0).setFont('16px Verdana');
             };
             wade.addEventListener(save, 'onMouseOut');
-            save.onClick = (event) =>
-            {
-                save.getSprite(0).setFont("16px Verdana");
+            save.onClick = (event) => {
+                save.getSprite(0).setFont('16px Verdana');
 
-                let waitSprite = new TextSprite("Please wait...", "16px Verdana",
-                                               "black", "center", 9);
-                let waitObject = new SceneObject(waitSprite);
+                const waitSprite = new TextSprite('Please wait...', '16px Verdana',
+                                               'black', 'center', 9);
+                const waitObject = new SceneObject(waitSprite);
                 waitObject.dontSave = true;
                 waitObject.setPosition(0, -100);
                 waitObject.onAddToScene = (event) => {
                     setTimeout( () => {
                         // Unhook all the circular dependencies.
-                        let global = wade.getSceneObject('global').state;
-                    
-                        let data = _.concat(global.getResources(),
+                        const global = wade.getSceneObject('global').state;
+
+                        const data = _.concat(global.getResources(),
                                             global.getAi().getUnits(),
                         global.getAi().getBuildings(),
                         global.getPlayer().getUnits(),
                         global.getPlayer().getBuildings());
                         _.forEach(data, (datum) => {
-                            datum.rep = null; 
+                            datum.rep = null;
                         });
 
-
-                        //export and store the scene use local 
-                        let exportedScence = wade.exportScene();
-                        /* 
+                        //export and store the scene use local
+                        const exportedScence = wade.exportScene();
+                        /*
                            exportedScence.sceneObjects = [];
                          */
 
                         exportedScence.sceneObjects = _.filter(exportedScence.sceneObjects, (obj) => {
-                            return ! (_.has(obj.properties, 'iso') || _.has(obj.properties, 'dontSave') ); 
+                            return ! (_.has(obj.properties, 'iso') || _.has(obj.properties, 'dontSave') );
                         });
 
                         exportedScence.modules = {
-                            iso: wade.iso.exportMap() 
-                        }
+                            iso: wade.iso.exportMap(),
+                        };
                         wade.storeLocalObject('save_game', JSON.stringify(exportedScence));
 
                         // Now step through all scene objects with the data property,
                         // and use them to reconnect the isometric SceneObjects with their data
-                        let sceneObjects = wade.getSceneObjects('data');
+                        const sceneObjects = wade.getSceneObjects('data');
 
                         _.forEach(sceneObjects, (sceneObject) => {
                             sceneObject.data.rep = sceneObject;
                         });
 
                         wade.removeSceneObject(waitObject);
-                        console.log("OBJECT SAVED!");
-                    
+                        console.log('OBJECT SAVED!');
+
                     }, 2000);
-                }
+                };
                 wade.addEventListener(waitObject, 'onAddToScene');
                 wade.addSceneObject(waitObject);
             };
 
             wade.addEventListener(quit, 'onMouseIn');
-            quit.onMouseOut = (event)=> {
-                quit.getSprite(0).setFont("16px Verdana");
+            quit.onMouseOut = (event) => {
+                quit.getSprite(0).setFont('16px Verdana');
             };
             wade.addEventListener(save, 'onMouseOut');
             quit.onClick = (event) => {
-                quit.getSprite(0).setFont("16px Verdana");
+                quit.getSprite(0).setFont('16px Verdana');
                 location.reload();
             };
 
@@ -435,7 +429,7 @@ const Hud = {
             wade.addEventListener(save, 'onClick');
             wade.addEventListener(quit, 'onClick');
 
-            let background = BuildHud.menuBackground(10);
+            const background = BuildHud.menuBackground(10);
             global.hud.menu.push(background);
         }
 
@@ -445,12 +439,12 @@ const Hud = {
     //
     // returns:
     //  reference to an array containing the Panel's various SceneObjects
-    
+
     showBarracksPanel: () => {
         const global = wade.getSceneObject('global');
         if (global.hud.barracks) {
             _.forEach(global.hud.barracks, (icon) => {
-                icon.setVisible(true); 
+                icon.setVisible(true);
             });
         } else {
             global.hud.barracks = BuildHud.barracksPanel(9);
@@ -460,60 +454,60 @@ const Hud = {
     },
     showStablesPanel: () => {
         const global = wade.getSceneObject('global');
-        if(global.hud.stables) {
+        if (global.hud.stables) {
             _.forEach(global.hud.stables, (icon) => {
-                icon.setVisible(true); 
+                icon.setVisible(true);
             });
         } else {
-            global.hud.stables = BuildHud.stablesPanel(9); 
+            global.hud.stables = BuildHud.stablesPanel(9);
         }
         return global.hud.stables;
 
     },
     clearStablesPanel: () => {
         const global = wade.getSceneObject('global');
-        if(global.hud.stables) {
+        if (global.hud.stables) {
             _.forEach(global.hud.stables, (icon) => {
-                icon.setVisible(false); 
+                icon.setVisible(false);
             });
         }
 
     },
     showTownHallPanel: () => {
         const global = wade.getSceneObject('global');
-        if(global.hud.townhall) {
+        if (global.hud.townhall) {
             _.forEach(global.hud.townhall, (icon) => {
-                icon.setVisible(true); 
-            });    
+                icon.setVisible(true);
+            });
         } else {
-            global.hud.townhall = BuildHud.townHallPanel(9); 
+            global.hud.townhall = BuildHud.townHallPanel(9);
         }
         return global.hud.townhall;
     },
     clearTownHallPanel: () => {
         const global = wade.getSceneObject('global');
-        if(global.hud.townhall) {
+        if (global.hud.townhall) {
             _.forEach(global.hud.townhall, (icon) => {
-                icon.setVisible(false); 
+                icon.setVisible(false);
             });
         }
     },
     showTowerPanel: () => {
         const global = wade.getSceneObject('global');
-        if(global.hud.tower) {
+        if (global.hud.tower) {
             _.forEach(global.hud.tower, (icon) => {
-                icon.setVisible(true); 
+                icon.setVisible(true);
             });
         } else {
-            global.hud.tower = BuildHud.towerPanel(9); 
+            global.hud.tower = BuildHud.towerPanel(9);
         }
         return global.hud.tower;
     },
     clearTowerPanel: () => {
         const global = wade.getSceneObject('global');
-        if(global.hud.tower) {
+        if (global.hud.tower) {
             _.forEach(global.hud.tower, (icon) => {
-                icon.setVisible(false); 
+                icon.setVisible(false);
             });
         }
 
@@ -539,7 +533,7 @@ const Hud = {
         return global.hud.resources;
     },
     showUnitData: (unit) => {
-        const global = wade.getSceneObject('global'); 
+        const global = wade.getSceneObject('global');
         if (global.hud.stats) {
             // If the global hud is already showing stats, clear it away (destroy it).
             _.forEach(global.hud.stats, (icon) => {
@@ -550,7 +544,7 @@ const Hud = {
         global.hud.stats = BuildHud.unitStats(unit, 9);
     },
     showBuildingData: (building) => {
-        const global = wade.getSceneObject('global'); 
+        const global = wade.getSceneObject('global');
         if (global.hud.stats) {
             // If the global hud is already showing stats, clear it away (destroy it).
             _.forEach(global.hud.stats, (icon) => {
@@ -558,7 +552,7 @@ const Hud = {
             });
             global.hud.stats = null;
         }
-        global.hud.stats = BuildHud.buildingStats(building, 9); 
+        global.hud.stats = BuildHud.buildingStats(building, 9);
     },
     // This function updates the Resource Panel SceneObjects to reflect
     // the Player's amounts of stone, wood, and food.
@@ -588,11 +582,11 @@ const Hud = {
     },
     showResourceError: () => {
         const global = wade.getSceneObject('global');
-        if(global.hud.resource_error) {
-            // If global hud is already showing resource error, clear it. 
+        if (global.hud.resource_error) {
+            // If global hud is already showing resource error, clear it.
             _.forEach(global.hud.resource_error, (icon) => {
-                wade.removeSceneObject(icon); 
-            } )
+                wade.removeSceneObject(icon);
+            } );
             global.hud.resource_error = null;
         }
 
@@ -634,7 +628,6 @@ const Hud = {
             global.hud.stats = null;
         }
     },
-
 
 };
 

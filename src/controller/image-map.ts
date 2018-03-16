@@ -8,7 +8,6 @@
 // The root directory is the html folder. But because the Javascript is in the  /js folder, we must prepend ../js/ to all the image URLs.
 const ImageMap = {
 
-
     minimap_white_outline: '../js/../public/sprites/minimap/thick-white-square-outline.png',
     minimap_blue_square: '../js/../public/sprites/minimap/blue-square.png',
     minimap_blue_circle: '../js/../public/sprites/minimap/blue-circle.png',
@@ -87,7 +86,6 @@ const ImageMap = {
     swordsman_SE_death: '../js/../public/sprites/units/results_warrior_1/deathSE.png',
     swordsman_SW_death: '../js/../public/sprites/units/results_warrior_1/deathSW.png',
 
-
     archer_N_idle: '../js/../public/sprites/units/results_archer_2/idleN.png',
     archer_S_idle: '../js/../public/sprites/units/results_archer_2/idleS.png',
     archer_E_idle: '../js/../public/sprites/units/results_archer_2/idleE.png',
@@ -120,7 +118,6 @@ const ImageMap = {
     archer_NW_death: '../js/../public/sprites/units/results_archer_2/deathNW.png',
     archer_SE_death: '../js/../public/sprites/units/results_archer_2/deathSE.png',
     archer_SW_death: '../js/../public/sprites/units/results_archer_2/deathSW.png',
-
 
     archerCalvary_N_idle: '../js/../public/sprites/units/results_archer_1/idleN.png',
     archerCalvary_S_idle: '../js/../public/sprites/units/results_archer_1/idleS.png',
@@ -155,7 +152,6 @@ const ImageMap = {
     archerCalvary_SE_death: '../js/../public/sprites/units/results_archer_1/deathSE.png',
     archerCalvary_SW_death: '../js/../public/sprites/units/results_archer_1/deathSW.png',
 
-
     spearCalvary_N_idle: '../js/../public/sprites/units/results_warrior_3/idleN.png',
     spearCalvary_S_idle: '../js/../public/sprites/units/results_warrior_3/idleS.png',
     spearCalvary_E_idle: '../js/../public/sprites/units/results_warrior_3/idleE.png',
@@ -188,7 +184,6 @@ const ImageMap = {
     spearCalvary_NW_death: '../js/../public/sprites/units/results_warrior_3/deathNW.png',
     spearCalvary_SE_death: '../js/../public/sprites/units/results_warrior_3/deathSE.png',
     spearCalvary_SW_death: '../js/../public/sprites/units/results_warrior_3/deathSW.png',
-
 
     gatherer_N_idle: '../js/../public/sprites/units/results_barbarian/idleN.png',
     gatherer_S_idle: '../js/../public/sprites/units/results_barbarian/idleS.png',
@@ -255,8 +250,6 @@ const ImageMap = {
     drummerBoy_NW_death: '../js/../public/sprites/units/results_warrior_2/deathNW.png',
     drummerBoy_SE_death: '../js/../public/sprites/units/results_warrior_2/deathSE.png',
     drummerBoy_SW_death: '../js/../public/sprites/units/results_warrior_2/deathSW.png',
-
-
 
     vip_N_idle: '../js/../public/sprites/units/results_knight/idleN.png',
     vip_S_idle: '../js/../public/sprites/units/results_knight/idleS.png',

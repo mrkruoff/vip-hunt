@@ -5,8 +5,8 @@
  * to do something in the game as the user is playing.
  */
 
-import Keys from './keys';
 import * as _ from 'lodash';
+import Keys from './keys';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -20,21 +20,21 @@ declare var TilemapCharacter: any;
 
 const Camera = {
     focusVIP: () => {
-        // Get the player's vip sceneobject and use its position to set the 
+        // Get the player's vip sceneobject and use its position to set the
         // camera's position.
-        let player = wade.getSceneObject('global').state.getPlayer();
-        let vip = _.find(player.getUnits(), (unitData) => {
-            return _.isEqual(unitData.getClassName(),  "VIP");
+        const player = wade.getSceneObject('global').state.getPlayer();
+        const vip = _.find(player.getUnits(), (unitData) => {
+            return _.isEqual(unitData.getClassName(),  'VIP');
         });
         if (vip) {
-            let vipRep = vip.rep; 
-            let position = vipRep.getPosition();
+            const vipRep = vip.rep;
+            const position = vipRep.getPosition();
             position.z = wade.getCameraPosition().z;
             wade.setCameraPosition(position);
         } else {
-            console.log("NO VIP FOUND");
+            console.log('NO VIP FOUND');
         }
-    
+
     },
     // This function sets the bounds for the camera to ensure the
     // player can't move it to the 'infinte darkness' portion of the world.
@@ -205,7 +205,7 @@ const Camera = {
     //  @ keyCode: the code of a key that the player pressed down
     keyDown: (keyCode: number) => {
         // Stop moving the camera if any opposing movement keys are pressed.
-        if(Camera.opposingKeysPressed() ) {
+        if (Camera.opposingKeysPressed() ) {
             Camera.stop();
             return;
         }
@@ -214,12 +214,12 @@ const Camera = {
         if (Camera.isMoving() ) {
             Camera.stop();
         }
-        
+
         // Move the camera according to the currently pressed keys
         // Could consider replacing all this with checks to see if any two pairs of keys
         // are currently down. Not sure if it would work though.
         if (keyCode === Keys.up() ) {
-            if(wade.isKeyDown(Keys.left() ) ) {
+            if (wade.isKeyDown(Keys.left() ) ) {
                 Camera.moveToNW();
             } else if ( wade.isKeyDown(Keys.right() ) ) {
                 Camera.moveToNE();
@@ -227,7 +227,7 @@ const Camera = {
                 Camera.moveToTop();
             }
         } else if (keyCode === Keys.down() ) {
-            if(wade.isKeyDown(Keys.left() ) ) {
+            if (wade.isKeyDown(Keys.left() ) ) {
                 Camera.moveToSW();
             } else if (wade.isKeyDown(Keys.right() ) ) {
                 Camera.moveToSE();
@@ -235,18 +235,18 @@ const Camera = {
                 Camera.moveToBottom();
             }
         } else if (keyCode === Keys.left() ) {
-            if(wade.isKeyDown(Keys.up()) ) {
+            if (wade.isKeyDown(Keys.up()) ) {
                 Camera.moveToNW();
             } else if (wade.isKeyDown(Keys.down()) ) {
-                Camera.moveToSW(); 
+                Camera.moveToSW();
             } else {
                 Camera.moveToLeft();
             }
         } else if (keyCode === Keys.right() ) {
-            if(wade.isKeyDown(Keys.up()) ) {
+            if (wade.isKeyDown(Keys.up()) ) {
                 Camera.moveToNE();
             } else if (wade.isKeyDown(Keys.down()) ) {
-                Camera.moveToSE(); 
+                Camera.moveToSE();
             } else {
                 Camera.moveToRight();
             }
@@ -272,10 +272,10 @@ const Camera = {
 
         // If there are still some Camera keys pressed, then we must continue
         // moving in that specified direction
-        if( wade.isKeyDown(Keys.up() ) ) {
+        if ( wade.isKeyDown(Keys.up() ) ) {
             Camera.moveToTop();
         } else if (wade.isKeyDown(Keys.down() ) ) {
-            Camera.moveToBottom(); 
+            Camera.moveToBottom();
         } else if (wade.isKeyDown(Keys.left() ) ) {
             Camera.moveToLeft();
         } else if (wade.isKeyDown(Keys.right() ) ) {
@@ -284,13 +284,13 @@ const Camera = {
             // If none of the Camera keys are pressed, stop moving
             Camera.stop();
         }
-        
+
     },
     opposingKeysPressed: (): boolean => {
-        if(wade.isKeyDown(Keys.left()) && wade.isKeyDown(Keys.right() ) ) {
+        if (wade.isKeyDown(Keys.left()) && wade.isKeyDown(Keys.right() ) ) {
             return true;
         }
-        if(wade.isKeyDown(Keys.up()) && wade.isKeyDown(Keys.down() ) ) {
+        if (wade.isKeyDown(Keys.up()) && wade.isKeyDown(Keys.down() ) ) {
             return true;
         }
     },
@@ -299,7 +299,7 @@ const Camera = {
                 !wade.isKeyDown(Keys.down() ) &&
                 !wade.isKeyDown(Keys.left() ) &&
                 !wade.isKeyDown(Keys.right() );
-    }
+    },
 };
 
 export default Camera;

@@ -27,7 +27,7 @@ App = function() {
         //Allow diagonal and straight movement in the game
         wade.iso.init({movementDirection: 'both'});
 
-        // Initialize the screen min and max screen height/width to 
+        // Initialize the screen min and max screen height/width to
         // control screen size appearance
         // wade.setMinScreenSize(600, 375);
         // wade.setMaxScreenSize(1280, 800);
@@ -145,15 +145,15 @@ function loadImages() {
     wade.loadImage(ImageMap.wood);
     wade.loadImage(ImageMap.stone);
 
-    let sheep_animations = [
+    const sheep_animations = [
         ImageMap.sheep_NW_graze,
         ImageMap.sheep_NE_graze,
         ImageMap.sheep_SW_graze,
-        ImageMap.sheep_SE_graze
+        ImageMap.sheep_SE_graze,
     ];
     wade.loadImages(sheep_animations);
 
-    let swordsman_animations = [
+    const swordsman_animations = [
         ImageMap.swordsman_N_idle,
         ImageMap.swordsman_S_idle,
         ImageMap.swordsman_E_idle,
@@ -188,8 +188,8 @@ function loadImages() {
         ImageMap.swordsman_SW_death,
     ];
     wade.loadImages(swordsman_animations);
-    
-    let archer_animations = [
+
+    const archer_animations = [
         ImageMap.archer_N_idle,
         ImageMap.archer_S_idle,
         ImageMap.archer_E_idle,
@@ -225,8 +225,7 @@ function loadImages() {
     ];
     wade.loadImages(archer_animations);
 
-
-    let archerCalvary_animations = [
+    const archerCalvary_animations = [
         ImageMap.archerCalvary_N_idle,
         ImageMap.archerCalvary_S_idle,
         ImageMap.archerCalvary_E_idle,
@@ -262,8 +261,7 @@ function loadImages() {
     ];
     wade.loadImages(archerCalvary_animations);
 
-
-    let spearCalvary_animations = [
+    const spearCalvary_animations = [
         ImageMap.spearCalvary_N_idle,
         ImageMap.spearCalvary_S_idle,
         ImageMap.spearCalvary_E_idle,
@@ -298,8 +296,8 @@ function loadImages() {
         ImageMap.spearCalvary_SW_death,
     ];
     wade.loadImages(spearCalvary_animations);
-    
-    let gatherer_animations = [
+
+    const gatherer_animations = [
         ImageMap.gatherer_N_idle,
         ImageMap.gatherer_S_idle,
         ImageMap.gatherer_E_idle,
@@ -335,8 +333,7 @@ function loadImages() {
     ];
     wade.loadImages(gatherer_animations);
 
-
-    let drummerBoy_animations = [
+    const drummerBoy_animations = [
         ImageMap.drummerBoy_N_idle,
         ImageMap.drummerBoy_S_idle,
         ImageMap.drummerBoy_E_idle,
@@ -372,8 +369,7 @@ function loadImages() {
     ];
     wade.loadImages(drummerBoy_animations);
 
-
-    let vip_animations = [
+    const vip_animations = [
         ImageMap.vip_N_idle,
         ImageMap.vip_S_idle,
         ImageMap.vip_E_idle,

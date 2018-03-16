@@ -52,11 +52,11 @@ const Events = {
         wade.app.onMouseWheel = null;
     },
     disableAllEvents: () => {
-        wade.app.onKeyDown = null; 
+        wade.app.onKeyDown = null;
         wade.app.onKeyUp = null;
         wade.app.onMouseMove = null;
         wade.app.onMouseWheel = null;
-    }
+    },
 };
 
 export default Events;
