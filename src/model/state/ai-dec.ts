@@ -366,7 +366,7 @@ const AiDec = {
 					console.log("tower")
 				AiGamePlay.constructBuilding("Tower", startCord[1],xcord+9);
 				await delay(20000);
-				if(isHardMode){await delay(20000);}
+				if(isHardMode){await delay(70000);}
 
 				}
 				}
