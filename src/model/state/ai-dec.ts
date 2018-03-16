@@ -398,7 +398,7 @@ const AiDec = {
 						if(resourceCheck("Archer",aistate,isHardMode)==false){
 						aistate["actionState"]="gather";
 						}
-						else{
+						else if(units.length<15){
 							var archer=AiGamePlay.constructUnit("Archer", startCord[1], xcord+1);
 							AiGamePlay.unitMove(archer.getId(), startCord[1],xcord);
 						}
@@ -420,40 +420,38 @@ const AiDec = {
 										if(resourceCheck("ArcherCalvary",aistate,isHardMode)==false){
 										aistate["actionState"]="gather";
 										}
-										else{
+										else if(units.length<15){
 										var archerCal=AiGamePlay.constructUnit("ArcherCalvary", startCord[1], xcord+7);
-										
 										}	
 										if(resourceCheck("SpearCalvary",aistate,isHardMode)==false){
 										aistate["actionState"]="gather";
 										}
-										else{
+										else if(units.length<15){
 										var spearCal=AiGamePlay.constructUnit("SpearCalvary", startCord[1],xcord+8)		
 										}	
-
+										
 								
 									}
 									}
 								}
 							}
 							else{
-								if(units.length>=4)
-								{
+								if(units.length>=4){
 									if(chooseUnit("ArcherCalvary",aistate)==false){
 										console.log("Building ArcherCal");
 										if(resourceCheck("ArcherCalvary",aistate,isHardMode)==false){
 										aistate["actionState"]="gather";
 										}
-										else{
+										else if(units.length<15){
 										console.log("ArcherCalvary");
 										AiGamePlay.constructUnit("ArcherCalvary", startCord[1], xcord+7 );}
 									}
-									else if(chooseUnit("SpearCalvary",aistate)==false){
+									else if(chooseUnit("SpearCalvary",aistate)==false ){
 										console.log("Building SpearCal");
 										if(resourceCheck("SpearCalvary",aistate, isHardMode)==false){
 										aistate["actionState"]="gather";		
 										}
-										else{
+										else if(units.length<15){
 										console.log("SpearCalvary");
 										AiGamePlay.constructUnit("SpearCalvary", startCord[1], xcord+8);}
 									}
@@ -469,13 +467,13 @@ const AiDec = {
 									if(resourceCheck("ArcherCalvary",aistate,isHardMode)==false){
 									aistate["actionState"]="gather";
 									}
-									else{
+									else if(units.length<15){
 									console.log("ArcherCalvary");
 									AiGamePlay.constructUnit("ArcherCalvary", startCord[1], xcord+7 );}
 									if(resourceCheck("SpearCalvary",aistate, isHardMode)==false){
 									aistate["actionState"]="gather";		
 									}
-									else{
+									else if(units.length<15){
 									console.log("SpearCalvary");
 									AiGamePlay.constructUnit("SpearCalvary", startCord[1], xcord+8);}
 									await delay(1500);
@@ -483,7 +481,7 @@ const AiDec = {
 									}
 							}
 								else{
-									if(resourceCheck("Swordsman",aistate,isHardMode)==false){
+									if(resourceCheck("Swordsman",aistate,isHardMode)==false ){
 										aistate["actionState"]="gather";
 										}
 										else{
@@ -504,7 +502,7 @@ const AiDec = {
 										if(resourceCheck("ArcherCalvary",aistate,isHardMode)==false){
 										aistate["actionState"]="gather";
 										}
-										else{
+										else if(units.length<15){
 										console.log("ArcherCalvary");
 										AiGamePlay.constructUnit("ArcherCalvary", startCord[1], xcord+7 );}
 									}
@@ -513,7 +511,7 @@ const AiDec = {
 										if(resourceCheck("SpearCalvary",aistate, isHardMode)==false){
 										aistate["actionState"]="gather";		
 										}
-										else{
+										else if(units.length<15){
 										console.log("SpearCalvary");
 										AiGamePlay.constructUnit("SpearCalvary", startCord[1], xcord+8);}
 									}
