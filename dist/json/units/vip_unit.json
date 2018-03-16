@@ -3,7 +3,7 @@
 	"hp":500,
 	"defense":40,
 	"attack":1,
-	"gathering": 20,
+	"gathering": 10,
 	"speed":170,
 	"vision":9,
 	"cost":0,
