@@ -234,10 +234,8 @@ const AiGamePlay = {
         // Make sure right-clicking scene building will lead to an attack.
         sceneBuilding.onMouseDown = (event) => {
             const selected = GamePlay.getSelected();
-            console.log('Clicked a sceneBuilding!');
             if (event.button === Mouse.right && selected ) {
                 if ( _.has(selected.data, 'speed' )) {
-                    console.log('ATTACKING BUILDING');
                     GamePlay.clearUnitActions(selected);
                     GamePlay.attack(selected, sceneBuilding);
                     return true;
@@ -328,7 +326,6 @@ const AiGamePlay = {
     // This function sends the unit with the given id to the
     // target and attacks the target WHILE following it.
     unitAttack: (attackId: number, targetId: number) => {
-        console.log(attackId + ' is attacking ' + targetId + '!');
 
         const state = wade.getSceneObject('global').state;
         const ai = state.getAi();
@@ -350,13 +347,9 @@ const AiGamePlay = {
 
         // Regardless of whether it is a building or unit, pursue
         // and attack it.
-        console.log('attacker');
         const attacker = attackData.rep;
-        console.log(attacker);
 
-        console.log('target');
         const target = targetData.rep;
-        console.log(target);
         //Clear previous movement actions
         attacker.getBehavior('IsoCharacter').clearDestinations();
         GamePlay.clearPursue(attacker);
@@ -487,10 +480,8 @@ const AiGamePlay = {
         // Make sure right-clicking scene unit will lead to an attack.
         sceneUnit.onMouseDown = (event) => {
             const selected = GamePlay.getSelected();
-            console.log('Clicked a sceneUnit!');
             if (event.button === Mouse.right && selected ) {
                 if ( _.has(selected.data, 'speed')) {
-                    console.log('ATTACKING UNIT');
                     GamePlay.clearUnitActions(selected);
                     GamePlay.attack(selected, sceneUnit);
                     return true;

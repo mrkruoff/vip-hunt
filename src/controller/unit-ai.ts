@@ -19,7 +19,6 @@ const UnitDec = {
         const aiUnits: Unit[] = global.state.getAi().getUnits();
         const worker = new Worker('../js/playerWatch.js');
         worker.onmessage = function(e) {
-            console.log(e.data);
             const attackInstructions = e.data;
             _.forEach(attackInstructions, (instruction) => {
                 AiGamePlay.playerUnitAttack(instruction.attacker, instruction.target);
@@ -73,7 +72,6 @@ const UnitDec = {
         const worker = new Worker('../js/aiWatch.js');
         let workerReady = true;
         worker.onmessage = function(e) {
-            console.log(e.data);
             const attackInstructions = e.data;
             _.forEach(attackInstructions, (instruction) => {
                 AiGamePlay.unitAttack(instruction.attacker, instruction.target);

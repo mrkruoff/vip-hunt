@@ -175,24 +175,20 @@ function createAiStartingUnits() {
         case 0:
             x = numTiles.x - offset;
             z = numTiles.z - offset;
-            console.log('TOP CORNER');
             break;
         case 1:
             x = numTiles.x - offset;
             z = offset;
-            console.log('RIGHT CORNER');
             break;
 
         case 2:
             x = offset;
             z = numTiles.z - offset;
-            console.log('LEFT CORNER');
             break;
 
         case 3:
             x = offset;
             z = offset;
-            console.log('BOTTOM CORNER');
             break;
 
         default:

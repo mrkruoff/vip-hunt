@@ -112,7 +112,6 @@ const Hud = {
                 };
                 wade.setTimeout(paint(spriteIndex), 20);
             } else {
-                console.log('WE ARE DONE');
                 const mapSprite = new Sprite('test.png', 20);
                 const minimap = new SceneObject(mapSprite);
                 wade.addSceneObject(minimap);
@@ -407,7 +406,6 @@ const Hud = {
                         });
 
                         wade.removeSceneObject(waitObject);
-                        console.log('OBJECT SAVED!');
 
                     }, 2000);
                 };

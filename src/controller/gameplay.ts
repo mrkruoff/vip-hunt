@@ -188,7 +188,6 @@ const GamePlay = {
 
                             selected.getBehavior('IsoCharacter').goToObject(resource);
                             if (GamePlay.distance(selected, resource) < 2 ) {
-                                console.log("I'M NOT GOING TO MOVE. JUST GATHER");
                                 GamePlay.gather(selected, resource, 'Player')(null);
                             } else  {
                                 GamePlay.move(selected, resource.iso.gridCoords);
@@ -338,8 +337,6 @@ const GamePlay = {
     },
     onSelectResource: (resource) => {
         return (event) => {
-            console.log(event);
-            console.log('Clicked a resource!');
             const selected = GamePlay.getSelected();
 
             if (event.button === Mouse.left) {
@@ -357,13 +354,10 @@ const GamePlay = {
 
                 return true;
             } else if (event.button === Mouse.right && selected ) {
-                console.log('SHOULD GATHER');
                 if ( _.has(selected.data, 'speed' )) {
-                    console.log('Gathering a Resource');
                     GamePlay.clearUnitActions(selected);
                     selected.getBehavior('IsoCharacter').goToObject(resource);
                     if (GamePlay.distance(selected, resource) < 2 ) {
-                        console.log("I'M NOT GOING TO MOVE. JUST GATHER");
                         GamePlay.gather(selected, resource, 'Player')(null);
                     } else  {
                         GamePlay.move(selected, resource.iso.gridCoords);
@@ -581,7 +575,6 @@ const GamePlay = {
             gatherer.shouldGather = true;
             gatherer.isGathering = false;
             while (gatherer.shouldGather) {
-                console.log('ITERATION 1');
                 // If the gatherer isn't currently in the middle
                 // of gathering, start gathering resources
                 if (! gatherer.isGathering) {
@@ -623,7 +616,6 @@ const GamePlay = {
                 }
 
             }
-            console.log('GATHERING IS OVER');
         };
     },
     applyGatherToPlayer: (gather: number, resource: string) => {
@@ -635,7 +627,7 @@ const GamePlay = {
         } else if (resource === 'Food') {
             player.food += gather;
         } else {
-            console.log('applyGatherToPlayer error!');
+            console.error('applyGatherToPlayer error!');
         }
 
     },
@@ -648,7 +640,7 @@ const GamePlay = {
         } else if (resource === 'Food') {
             ai.food += gather;
         } else {
-            console.log('applyGatherToAi error!');
+            console.error('applyGatherToAi error!');
         }
     },
     // This function removes the attacking status from
@@ -724,7 +716,7 @@ const GamePlay = {
             wade.iso.deleteObject(sceneObject);
         } catch (error) {
             //Do nothing if there's an error. It probably isn't fatal
-            console.log(error);
+            console.error(error);
         }
     },
     // This function takes a unit sceneObject and uses its location on the Visual
@@ -823,7 +815,6 @@ const GamePlay = {
             await delay(750);
         }
 
-        console.log('REFRESH AI VISIBILITY IS OVER');
     },
     refreshPlayerVision: async () => {
         const global = wade.getSceneObject('global');

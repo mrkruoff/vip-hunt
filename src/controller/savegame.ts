@@ -130,8 +130,6 @@ const SaveGame = {
         UnitDec.playerUnitsWatch();
         UnitDec.aiUnitsWatch();
 
-        console.log(global);
-        console.log(wade.iso.exportMap() ) ;
 
         AiDec.decisions(global.state, global.aiIsHard);
     },
@@ -292,12 +290,10 @@ function relinkDataAndIsometricObjects() {
 
     const newGlobalState = new GlobalGameState(map, resources, player, ai);
     global.state = newGlobalState;
-    console.log(newGlobalState);
 
     // Now step through all scene objects with the data property,
     // and use them to reconnect the isometric SceneObjects with their data
     const sceneObjects = wade.getSceneObjects('data');
-    console.log(sceneObjects);
 
     _.forEach(sceneObjects, (sceneObject) => {
         let data;
@@ -323,8 +319,6 @@ function relinkDataAndIsometricObjects() {
             }
         }
     });
-    console.log(sceneObjects);
-    console.log(global.state);
 }
 
 function reconstructAiGameState(ai): AiGameState {
@@ -435,7 +429,6 @@ function reconstructResources(resources): Resource[] {
         }
         newResources[i] = newResource;
     }
-    console.log(newResources);
 
     return newResources;
 }
@@ -447,7 +440,6 @@ function reconstructMap(map): Tile[][] {
     for (let i = 0; i < numTiles.x; i++) {
         newMap[i] = [];
         for (let j = 0; j < numTiles.z; j++) {
-            console.log(map[i][j]);
             newMap[i][j] = new Tile(map[i][j].unitId, map[i][j].buildingId,
                                    map[i][j].resourceId, map[i][j].walkable);
             newMap[i][j].y = map[i][j].y;
