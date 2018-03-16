@@ -192,6 +192,12 @@ function setUpPlayerSelectClickEvents() {
         sceneobject.onMouseDown = GamePlay.onSelectBuilding(sceneobject, displayFn);
         wade.addEventListener(sceneobject, 'onMouseDown');
     });
+
+    _.forEach(state.getResources(), (resource) => {
+        const sceneobject = resource.rep;
+        sceneobject.onMouseDown = GamePlay.onSelectResource(sceneobject);
+        wade.addEventListener(sceneobject, 'onMouseDown');
+    });
 }
 
 function setUpIsometricSpriteMinimapMarkers() {
