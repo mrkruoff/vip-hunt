@@ -170,7 +170,7 @@ function createAiStartingUnits() {
     const corner = Math.floor( Math.random() * 4 );
     let x;
     let z;
-    const offset = 7;
+    const offset = 15;
     switch (corner) {
         case 0:
             x = numTiles.x - offset;
