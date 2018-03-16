@@ -1,9 +1,9 @@
 {
 	"name":"gatherer",
-	"hp":25,
+	"hp":150,
 	"defense":25,
 	"attack":25,
-	"gathering": 75,
+	"gathering": 20,
 	"speed":130,
 	"vision":3,
 	"cost":25,

@@ -1,11 +1,11 @@
 {
 	"name":"swordsman",
-	"hp":50,
+	"hp":200,
 	"defense":45,
-	"attack":50,
-	"gathering": 25,
+	"attack":55,
+	"gathering": 10,
 	"speed":160,
-	"vision":3,
+	"vision":4,
 	"cost":25,
 	"range":1
 }

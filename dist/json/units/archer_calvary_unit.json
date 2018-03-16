@@ -1,11 +1,11 @@
 {
 	"name":"archerCalvary",
-	"hp":25,
-	"defense":50,
-	"attack":50,
-	"gathering": 0,
+	"hp":200,
+	"defense":40,
+	"attack":80,
+	"gathering": 1,
 	"speed":200,
 	"vision":7,
 	"cost":50,
-	"range": 5
+	"range": 7
 }
