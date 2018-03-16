@@ -5,7 +5,6 @@ importScripts( './lodash.js', './calculations.js');
 
 onmessage = function(e) {
 
-    console.log(e.data);
     let playerUnits = e.data.player;
     let aiUnits = e.data.ai;
 

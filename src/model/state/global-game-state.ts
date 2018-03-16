@@ -1,7 +1,6 @@
 import PlayerGameState from "./player-game-state";
 import AiGameState from "./ai-game-state";
 import Tile from "../map/tile";
-import TYPES from "../../types";
 import Resource from "../resources/resource";
 import { inject, injectable } from "inversify";
 

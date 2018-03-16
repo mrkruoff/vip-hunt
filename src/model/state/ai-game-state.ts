@@ -1,7 +1,6 @@
 import { Container, inject, injectable } from "inversify";
 import Unit from "../units/units";
 import Building from "../buildings/buildings";
-import TYPES from "../../types";
 
 //Stores player game state. Is updated by player events.
 @injectable()
