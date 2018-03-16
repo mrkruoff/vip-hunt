@@ -314,12 +314,6 @@ const AiDec = {
 			time=2000;
 		}
 		while(true){
-            if(isHardMode) {
-                console.log("IS HARD MODE"); 
-            }
-            else {
-                console.log("IS EASY MODE"); 
-            }
 			await delay(time);
 			if(aistate.getActionState()=="setup"){
 				console.log("Settingup step")
@@ -349,7 +343,9 @@ const AiDec = {
 					}
 					aistate["actionState"]="offense";
 					console.log(aistate);
-					console.log(globalState["ai_state"]);}
+					console.log(globalState["ai_state"]);
+					if(isHardMode==false){await delay(20000);}
+					}
 				};
 			if(aistate.getActionState()=="offense"){
 				console.log("Attacking");
@@ -369,7 +365,7 @@ const AiDec = {
 				else{
 					console.log("tower")
 				AiGamePlay.constructBuilding("Tower", startCord[1],xcord+9);
-				await delay(5000)
+				if(isHardMode==false){await delay(20000);}
 				}
 				}
 				else if(chooseBuilding("Barracks",aistate)==false){
