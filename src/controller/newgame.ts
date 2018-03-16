@@ -170,7 +170,7 @@ function createAiStartingUnits() {
     const corner = Math.floor( Math.random() * 4 );
     let x;
     let z;
-    const offset = 15;
+    const offset = 7;
     switch (corner) {
         case 0:
             x = numTiles.x - offset;
@@ -196,7 +196,7 @@ function createAiStartingUnits() {
     }
 
     const AiVip = AiGamePlay.constructUnit('VIP', x, z);
-    const AiTownHall = AiGamePlay.constructBuilding('TownHall', x + 3, z + 3 );
+    const AiTownHall = AiGamePlay.constructBuilding('TownHall', x + 2, z + 3 );
 }
 
 // This funcion takes a GlobalGameState and attempts to add every Unit, Building,
