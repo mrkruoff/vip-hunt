@@ -11,12 +11,15 @@ const JsonMap = {
     towers_1: '../js/../json/images/towers_1.json',
     town_halls_1: '../js/../json/images/town_halls_1.json',
     swordsman_1: '../js/../json/images/swordsman_1.json',
-    archer_1: ' ',
-    archer_calvary_1: ' ',
-    spear_calvary_1: ' ',
-    gatherer_1: ' ',
-    drummer_boy_1: ' ',
+    archer_1: '../js/../json/images/archer_1.json',
+    archer_calvary_1: '../js/../json/images/archer_calvary_1.json',
+    spear_calvary_1: '../js/../json/images/spear_calvary_1.json',
+    gatherer_1: '../js/../json/images/gatherer_1.json',
+    drummer_boy_1: '../js/../json/images/drummer_boy_1.json',
     vip_1: '../js/../json/images/vip_1.json',
+    stone: '../js/../json/images/stone.json',
+    wood: '../js/../json/images/wood.json',
+    food: '../js/../json/images/food.json',
 
     archer_calvary_data: '../js/../json/units/archer_calvary_unit.json',
     archer_data: '../js/../json/units/archer_unit.json',
@@ -41,6 +44,13 @@ const JsonMap = {
     townhall_cost: '../js/../json/costs/townhall_cost.json',
     tower_cost: '../js/../json/costs/tower_cost.json',
 
+    stone_data: '../js/../json/resources/stone.json',
+    wood_data: '../js/../json/resources/wood.json',
+    food_data: '../js/../json/resources/food.json',
+
+    enemy_marker: '../js/../json/images/red-circle.json',
+    selected_marker: '../js/../json/images/blue-circle.json',
+    bleed_marker: '../js/../json/images/damage.json',
 };
 
 export default JsonMap;

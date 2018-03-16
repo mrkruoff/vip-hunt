@@ -9,6 +9,7 @@
 const Names = {
     hudBackground: 'hudBackground',
     buildingIcon: 'buildingIcon',
+    menuIcon: 'menuIcon',
     barracksIcon: 'barracksIcon',
     stablesIcon: 'stablesIcon',
     towersIcon: 'towersIcon',
@@ -21,6 +22,11 @@ const Names = {
     stoneCount: 'stoneCount',
     foodCount: 'foodCount',
     woodCount: 'woodCount',
+
+    menu_background: 'menu_background',
+    menu_save: 'menu_save',
+    menu_resume: 'menu_resume',
+    menu_quit: 'menu_quit',
 
 };
 

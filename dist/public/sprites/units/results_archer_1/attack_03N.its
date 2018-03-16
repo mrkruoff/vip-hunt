@@ -1,0 +1,295 @@
+
+{
+    "tiles":
+    [
+        
+        {
+            "name":"heroes_isometric_01_attack_03_270_0210",
+            "type": "isometric object",
+            "texture": "attack_03N.png",
+            "imageArea":
+            {
+                "minX":0.0006485084306095979,
+                "minY":0.00032425421530479895,
+                "maxX":0.3326848249027237,
+                "maxY":0.16634241245136186
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_01_attack_03_270_0211",
+            "type": "isometric object",
+            "texture": "attack_03N.png",
+            "imageArea":
+            {
+                "minX":0.3339818417639429,
+                "minY":0.00032425421530479895,
+                "maxX":0.666018158236057,
+                "maxY":0.16634241245136186
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_01_attack_03_270_0212",
+            "type": "isometric object",
+            "texture": "attack_03N.png",
+            "imageArea":
+            {
+                "minX":0.6673151750972762,
+                "minY":0.00032425421530479895,
+                "maxX":0.9993514915693904,
+                "maxY":0.16634241245136186
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_01_attack_03_270_0213",
+            "type": "isometric object",
+            "texture": "attack_03N.png",
+            "imageArea":
+            {
+                "minX":0.0006485084306095979,
+                "minY":0.16699092088197146,
+                "maxX":0.3326848249027237,
+                "maxY":0.3330090791180285
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_01_attack_03_270_0214",
+            "type": "isometric object",
+            "texture": "attack_03N.png",
+            "imageArea":
+            {
+                "minX":0.3339818417639429,
+                "minY":0.16699092088197146,
+                "maxX":0.666018158236057,
+                "maxY":0.3330090791180285
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_01_attack_03_270_0215",
+            "type": "isometric object",
+            "texture": "attack_03N.png",
+            "imageArea":
+            {
+                "minX":0.6673151750972762,
+                "minY":0.16699092088197146,
+                "maxX":0.9993514915693904,
+                "maxY":0.3330090791180285
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_01_attack_03_270_0216",
+            "type": "isometric object",
+            "texture": "attack_03N.png",
+            "imageArea":
+            {
+                "minX":0.0006485084306095979,
+                "minY":0.3336575875486381,
+                "maxX":0.3326848249027237,
+                "maxY":0.4996757457846952
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_01_attack_03_270_0217",
+            "type": "isometric object",
+            "texture": "attack_03N.png",
+            "imageArea":
+            {
+                "minX":0.3339818417639429,
+                "minY":0.3336575875486381,
+                "maxX":0.666018158236057,
+                "maxY":0.4996757457846952
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_01_attack_03_270_0218",
+            "type": "isometric object",
+            "texture": "attack_03N.png",
+            "imageArea":
+            {
+                "minX":0.6673151750972762,
+                "minY":0.3336575875486381,
+                "maxX":0.9993514915693904,
+                "maxY":0.4996757457846952
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_01_attack_03_270_0219",
+            "type": "isometric object",
+            "texture": "attack_03N.png",
+            "imageArea":
+            {
+                "minX":0.0006485084306095979,
+                "minY":0.5003242542153048,
+                "maxX":0.3326848249027237,
+                "maxY":0.6663424124513618
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_01_attack_03_270_0220",
+            "type": "isometric object",
+            "texture": "attack_03N.png",
+            "imageArea":
+            {
+                "minX":0.3339818417639429,
+                "minY":0.5003242542153048,
+                "maxX":0.666018158236057,
+                "maxY":0.6663424124513618
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_01_attack_03_270_0221",
+            "type": "isometric object",
+            "texture": "attack_03N.png",
+            "imageArea":
+            {
+                "minX":0.6673151750972762,
+                "minY":0.5003242542153048,
+                "maxX":0.9993514915693904,
+                "maxY":0.6663424124513618
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_01_attack_03_270_0222",
+            "type": "isometric object",
+            "texture": "attack_03N.png",
+            "imageArea":
+            {
+                "minX":0.0006485084306095979,
+                "minY":0.6669909208819714,
+                "maxX":0.3326848249027237,
+                "maxY":0.8330090791180285
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_01_attack_03_270_0223",
+            "type": "isometric object",
+            "texture": "attack_03N.png",
+            "imageArea":
+            {
+                "minX":0.3339818417639429,
+                "minY":0.6669909208819714,
+                "maxX":0.666018158236057,
+                "maxY":0.8330090791180285
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_01_attack_03_270_0224",
+            "type": "isometric object",
+            "texture": "attack_03N.png",
+            "imageArea":
+            {
+                "minX":0.6673151750972762,
+                "minY":0.6669909208819714,
+                "maxX":0.9993514915693904,
+                "maxY":0.8330090791180285
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_01_attack_03_270_0225",
+            "type": "isometric object",
+            "texture": "attack_03N.png",
+            "imageArea":
+            {
+                "minX":0.0006485084306095979,
+                "minY":0.8336575875486382,
+                "maxX":0.3326848249027237,
+                "maxY":0.9996757457846952
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }
+        
+    ]
+}

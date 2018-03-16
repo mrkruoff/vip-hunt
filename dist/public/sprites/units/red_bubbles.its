@@ -1,0 +1,2707 @@
+
+{
+    "tiles":
+    [
+        
+        {
+            "name":"RedBubbles_00000",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.000980392156862745,
+                "minY":0.00065359477124183,
+                "maxX":0.09901960784313725,
+                "maxY":0.06601307189542484
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00001",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.10098039215686275,
+                "minY":0.00065359477124183,
+                "maxX":0.19901960784313727,
+                "maxY":0.06601307189542484
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00002",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.20098039215686275,
+                "minY":0.00065359477124183,
+                "maxX":0.29901960784313725,
+                "maxY":0.06601307189542484
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00003",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.30098039215686273,
+                "minY":0.00065359477124183,
+                "maxX":0.3990196078431372,
+                "maxY":0.06601307189542484
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00004",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.40098039215686276,
+                "minY":0.00065359477124183,
+                "maxX":0.49901960784313726,
+                "maxY":0.06601307189542484
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00005",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.5009803921568627,
+                "minY":0.00065359477124183,
+                "maxX":0.5990196078431372,
+                "maxY":0.06601307189542484
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00006",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.6009803921568627,
+                "minY":0.00065359477124183,
+                "maxX":0.6990196078431372,
+                "maxY":0.06601307189542484
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00007",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.7009803921568627,
+                "minY":0.00065359477124183,
+                "maxX":0.7990196078431372,
+                "maxY":0.06601307189542484
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00008",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.8009803921568628,
+                "minY":0.00065359477124183,
+                "maxX":0.8990196078431373,
+                "maxY":0.06601307189542484
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00009",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.9009803921568628,
+                "minY":0.00065359477124183,
+                "maxX":0.9990196078431373,
+                "maxY":0.06601307189542484
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00010",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.000980392156862745,
+                "minY":0.0673202614379085,
+                "maxX":0.09901960784313725,
+                "maxY":0.1326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00011",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.10098039215686275,
+                "minY":0.0673202614379085,
+                "maxX":0.19901960784313727,
+                "maxY":0.1326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00012",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.20098039215686275,
+                "minY":0.0673202614379085,
+                "maxX":0.29901960784313725,
+                "maxY":0.1326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00013",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.30098039215686273,
+                "minY":0.0673202614379085,
+                "maxX":0.3990196078431372,
+                "maxY":0.1326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00014",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.40098039215686276,
+                "minY":0.0673202614379085,
+                "maxX":0.49901960784313726,
+                "maxY":0.1326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00015",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.5009803921568627,
+                "minY":0.0673202614379085,
+                "maxX":0.5990196078431372,
+                "maxY":0.1326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00016",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.6009803921568627,
+                "minY":0.0673202614379085,
+                "maxX":0.6990196078431372,
+                "maxY":0.1326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00017",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.7009803921568627,
+                "minY":0.0673202614379085,
+                "maxX":0.7990196078431372,
+                "maxY":0.1326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00018",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.8009803921568628,
+                "minY":0.0673202614379085,
+                "maxX":0.8990196078431373,
+                "maxY":0.1326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00019",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.9009803921568628,
+                "minY":0.0673202614379085,
+                "maxX":0.9990196078431373,
+                "maxY":0.1326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00020",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.000980392156862745,
+                "minY":0.13398692810457516,
+                "maxX":0.09901960784313725,
+                "maxY":0.19934640522875818
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00021",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.10098039215686275,
+                "minY":0.13398692810457516,
+                "maxX":0.19901960784313727,
+                "maxY":0.19934640522875818
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00022",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.20098039215686275,
+                "minY":0.13398692810457516,
+                "maxX":0.29901960784313725,
+                "maxY":0.19934640522875818
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00023",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.30098039215686273,
+                "minY":0.13398692810457516,
+                "maxX":0.3990196078431372,
+                "maxY":0.19934640522875818
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00024",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.40098039215686276,
+                "minY":0.13398692810457516,
+                "maxX":0.49901960784313726,
+                "maxY":0.19934640522875818
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00025",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.5009803921568627,
+                "minY":0.13398692810457516,
+                "maxX":0.5990196078431372,
+                "maxY":0.19934640522875818
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00026",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.6009803921568627,
+                "minY":0.13398692810457516,
+                "maxX":0.6990196078431372,
+                "maxY":0.19934640522875818
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00027",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.7009803921568627,
+                "minY":0.13398692810457516,
+                "maxX":0.7990196078431372,
+                "maxY":0.19934640522875818
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00028",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.8009803921568628,
+                "minY":0.13398692810457516,
+                "maxX":0.8990196078431373,
+                "maxY":0.19934640522875818
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00029",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.9009803921568628,
+                "minY":0.13398692810457516,
+                "maxX":0.9990196078431373,
+                "maxY":0.19934640522875818
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00030",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.000980392156862745,
+                "minY":0.20065359477124184,
+                "maxX":0.09901960784313725,
+                "maxY":0.26601307189542484
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00031",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.10098039215686275,
+                "minY":0.20065359477124184,
+                "maxX":0.19901960784313727,
+                "maxY":0.26601307189542484
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00032",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.20098039215686275,
+                "minY":0.20065359477124184,
+                "maxX":0.29901960784313725,
+                "maxY":0.26601307189542484
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00033",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.30098039215686273,
+                "minY":0.20065359477124184,
+                "maxX":0.3990196078431372,
+                "maxY":0.26601307189542484
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00034",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.40098039215686276,
+                "minY":0.20065359477124184,
+                "maxX":0.49901960784313726,
+                "maxY":0.26601307189542484
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00035",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.5009803921568627,
+                "minY":0.20065359477124184,
+                "maxX":0.5990196078431372,
+                "maxY":0.26601307189542484
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00036",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.6009803921568627,
+                "minY":0.20065359477124184,
+                "maxX":0.6990196078431372,
+                "maxY":0.26601307189542484
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00037",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.7009803921568627,
+                "minY":0.20065359477124184,
+                "maxX":0.7990196078431372,
+                "maxY":0.26601307189542484
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00038",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.8009803921568628,
+                "minY":0.20065359477124184,
+                "maxX":0.8990196078431373,
+                "maxY":0.26601307189542484
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00039",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.9009803921568628,
+                "minY":0.20065359477124184,
+                "maxX":0.9990196078431373,
+                "maxY":0.26601307189542484
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00040",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.000980392156862745,
+                "minY":0.2673202614379085,
+                "maxX":0.09901960784313725,
+                "maxY":0.3326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00041",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.10098039215686275,
+                "minY":0.2673202614379085,
+                "maxX":0.19901960784313727,
+                "maxY":0.3326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00042",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.20098039215686275,
+                "minY":0.2673202614379085,
+                "maxX":0.29901960784313725,
+                "maxY":0.3326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00043",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.30098039215686273,
+                "minY":0.2673202614379085,
+                "maxX":0.3990196078431372,
+                "maxY":0.3326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00044",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.40098039215686276,
+                "minY":0.2673202614379085,
+                "maxX":0.49901960784313726,
+                "maxY":0.3326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00045",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.5009803921568627,
+                "minY":0.2673202614379085,
+                "maxX":0.5990196078431372,
+                "maxY":0.3326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00046",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.6009803921568627,
+                "minY":0.2673202614379085,
+                "maxX":0.6990196078431372,
+                "maxY":0.3326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00047",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.7009803921568627,
+                "minY":0.2673202614379085,
+                "maxX":0.7990196078431372,
+                "maxY":0.3326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00048",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.8009803921568628,
+                "minY":0.2673202614379085,
+                "maxX":0.8990196078431373,
+                "maxY":0.3326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00049",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.9009803921568628,
+                "minY":0.2673202614379085,
+                "maxX":0.9990196078431373,
+                "maxY":0.3326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00050",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.000980392156862745,
+                "minY":0.33398692810457514,
+                "maxX":0.09901960784313725,
+                "maxY":0.39934640522875814
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00051",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.10098039215686275,
+                "minY":0.33398692810457514,
+                "maxX":0.19901960784313727,
+                "maxY":0.39934640522875814
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00052",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.20098039215686275,
+                "minY":0.33398692810457514,
+                "maxX":0.29901960784313725,
+                "maxY":0.39934640522875814
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00053",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.30098039215686273,
+                "minY":0.33398692810457514,
+                "maxX":0.3990196078431372,
+                "maxY":0.39934640522875814
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00054",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.40098039215686276,
+                "minY":0.33398692810457514,
+                "maxX":0.49901960784313726,
+                "maxY":0.39934640522875814
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00055",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.5009803921568627,
+                "minY":0.33398692810457514,
+                "maxX":0.5990196078431372,
+                "maxY":0.39934640522875814
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00056",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.6009803921568627,
+                "minY":0.33398692810457514,
+                "maxX":0.6990196078431372,
+                "maxY":0.39934640522875814
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00057",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.7009803921568627,
+                "minY":0.33398692810457514,
+                "maxX":0.7990196078431372,
+                "maxY":0.39934640522875814
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00058",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.8009803921568628,
+                "minY":0.33398692810457514,
+                "maxX":0.8990196078431373,
+                "maxY":0.39934640522875814
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00059",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.9009803921568628,
+                "minY":0.33398692810457514,
+                "maxX":0.9990196078431373,
+                "maxY":0.39934640522875814
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00060",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.000980392156862745,
+                "minY":0.40065359477124185,
+                "maxX":0.09901960784313725,
+                "maxY":0.46601307189542485
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00061",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.10098039215686275,
+                "minY":0.40065359477124185,
+                "maxX":0.19901960784313727,
+                "maxY":0.46601307189542485
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00062",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.20098039215686275,
+                "minY":0.40065359477124185,
+                "maxX":0.29901960784313725,
+                "maxY":0.46601307189542485
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00063",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.30098039215686273,
+                "minY":0.40065359477124185,
+                "maxX":0.3990196078431372,
+                "maxY":0.46601307189542485
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00064",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.40098039215686276,
+                "minY":0.40065359477124185,
+                "maxX":0.49901960784313726,
+                "maxY":0.46601307189542485
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00065",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.5009803921568627,
+                "minY":0.40065359477124185,
+                "maxX":0.5990196078431372,
+                "maxY":0.46601307189542485
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00066",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.6009803921568627,
+                "minY":0.40065359477124185,
+                "maxX":0.6990196078431372,
+                "maxY":0.46601307189542485
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00067",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.7009803921568627,
+                "minY":0.40065359477124185,
+                "maxX":0.7990196078431372,
+                "maxY":0.46601307189542485
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00068",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.8009803921568628,
+                "minY":0.40065359477124185,
+                "maxX":0.8990196078431373,
+                "maxY":0.46601307189542485
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00069",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.9009803921568628,
+                "minY":0.40065359477124185,
+                "maxX":0.9990196078431373,
+                "maxY":0.46601307189542485
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00070",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.000980392156862745,
+                "minY":0.4673202614379085,
+                "maxX":0.09901960784313725,
+                "maxY":0.5326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00071",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.10098039215686275,
+                "minY":0.4673202614379085,
+                "maxX":0.19901960784313727,
+                "maxY":0.5326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00072",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.20098039215686275,
+                "minY":0.4673202614379085,
+                "maxX":0.29901960784313725,
+                "maxY":0.5326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00073",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.30098039215686273,
+                "minY":0.4673202614379085,
+                "maxX":0.3990196078431372,
+                "maxY":0.5326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00074",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.40098039215686276,
+                "minY":0.4673202614379085,
+                "maxX":0.49901960784313726,
+                "maxY":0.5326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00075",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.5009803921568627,
+                "minY":0.4673202614379085,
+                "maxX":0.5990196078431372,
+                "maxY":0.5326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00076",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.6009803921568627,
+                "minY":0.4673202614379085,
+                "maxX":0.6990196078431372,
+                "maxY":0.5326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00077",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.7009803921568627,
+                "minY":0.4673202614379085,
+                "maxX":0.7990196078431372,
+                "maxY":0.5326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00078",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.8009803921568628,
+                "minY":0.4673202614379085,
+                "maxX":0.8990196078431373,
+                "maxY":0.5326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00079",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.9009803921568628,
+                "minY":0.4673202614379085,
+                "maxX":0.9990196078431373,
+                "maxY":0.5326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00080",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.000980392156862745,
+                "minY":0.5339869281045752,
+                "maxX":0.09901960784313725,
+                "maxY":0.5993464052287582
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00081",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.10098039215686275,
+                "minY":0.5339869281045752,
+                "maxX":0.19901960784313727,
+                "maxY":0.5993464052287582
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00082",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.20098039215686275,
+                "minY":0.5339869281045752,
+                "maxX":0.29901960784313725,
+                "maxY":0.5993464052287582
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00083",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.30098039215686273,
+                "minY":0.5339869281045752,
+                "maxX":0.3990196078431372,
+                "maxY":0.5993464052287582
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00084",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.40098039215686276,
+                "minY":0.5339869281045752,
+                "maxX":0.49901960784313726,
+                "maxY":0.5993464052287582
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00085",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.5009803921568627,
+                "minY":0.5339869281045752,
+                "maxX":0.5990196078431372,
+                "maxY":0.5993464052287582
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00086",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.6009803921568627,
+                "minY":0.5339869281045752,
+                "maxX":0.6990196078431372,
+                "maxY":0.5993464052287582
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00087",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.7009803921568627,
+                "minY":0.5339869281045752,
+                "maxX":0.7990196078431372,
+                "maxY":0.5993464052287582
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00088",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.8009803921568628,
+                "minY":0.5339869281045752,
+                "maxX":0.8990196078431373,
+                "maxY":0.5993464052287582
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00089",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.9009803921568628,
+                "minY":0.5339869281045752,
+                "maxX":0.9990196078431373,
+                "maxY":0.5993464052287582
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00090",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.000980392156862745,
+                "minY":0.6006535947712418,
+                "maxX":0.09901960784313725,
+                "maxY":0.6660130718954248
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00091",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.10098039215686275,
+                "minY":0.6006535947712418,
+                "maxX":0.19901960784313727,
+                "maxY":0.6660130718954248
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00092",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.20098039215686275,
+                "minY":0.6006535947712418,
+                "maxX":0.29901960784313725,
+                "maxY":0.6660130718954248
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00093",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.30098039215686273,
+                "minY":0.6006535947712418,
+                "maxX":0.3990196078431372,
+                "maxY":0.6660130718954248
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00094",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.40098039215686276,
+                "minY":0.6006535947712418,
+                "maxX":0.49901960784313726,
+                "maxY":0.6660130718954248
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00095",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.5009803921568627,
+                "minY":0.6006535947712418,
+                "maxX":0.5990196078431372,
+                "maxY":0.6660130718954248
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00096",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.6009803921568627,
+                "minY":0.6006535947712418,
+                "maxX":0.6990196078431372,
+                "maxY":0.6660130718954248
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00097",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.7009803921568627,
+                "minY":0.6006535947712418,
+                "maxX":0.7990196078431372,
+                "maxY":0.6660130718954248
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00098",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.8009803921568628,
+                "minY":0.6006535947712418,
+                "maxX":0.8990196078431373,
+                "maxY":0.6660130718954248
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00099",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.9009803921568628,
+                "minY":0.6006535947712418,
+                "maxX":0.9990196078431373,
+                "maxY":0.6660130718954248
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00100",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.000980392156862745,
+                "minY":0.6673202614379085,
+                "maxX":0.09901960784313725,
+                "maxY":0.7326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00101",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.10098039215686275,
+                "minY":0.6673202614379085,
+                "maxX":0.19901960784313727,
+                "maxY":0.7326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00102",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.20098039215686275,
+                "minY":0.6673202614379085,
+                "maxX":0.29901960784313725,
+                "maxY":0.7326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00103",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.30098039215686273,
+                "minY":0.6673202614379085,
+                "maxX":0.3990196078431372,
+                "maxY":0.7326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00104",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.40098039215686276,
+                "minY":0.6673202614379085,
+                "maxX":0.49901960784313726,
+                "maxY":0.7326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00105",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.5009803921568627,
+                "minY":0.6673202614379085,
+                "maxX":0.5990196078431372,
+                "maxY":0.7326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00106",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.6009803921568627,
+                "minY":0.6673202614379085,
+                "maxX":0.6990196078431372,
+                "maxY":0.7326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00107",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.7009803921568627,
+                "minY":0.6673202614379085,
+                "maxX":0.7990196078431372,
+                "maxY":0.7326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00108",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.8009803921568628,
+                "minY":0.6673202614379085,
+                "maxX":0.8990196078431373,
+                "maxY":0.7326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00109",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.9009803921568628,
+                "minY":0.6673202614379085,
+                "maxX":0.9990196078431373,
+                "maxY":0.7326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00110",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.000980392156862745,
+                "minY":0.7339869281045751,
+                "maxX":0.09901960784313725,
+                "maxY":0.7993464052287581
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00111",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.10098039215686275,
+                "minY":0.7339869281045751,
+                "maxX":0.19901960784313727,
+                "maxY":0.7993464052287581
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00112",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.20098039215686275,
+                "minY":0.7339869281045751,
+                "maxX":0.29901960784313725,
+                "maxY":0.7993464052287581
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00113",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.30098039215686273,
+                "minY":0.7339869281045751,
+                "maxX":0.3990196078431372,
+                "maxY":0.7993464052287581
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00114",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.40098039215686276,
+                "minY":0.7339869281045751,
+                "maxX":0.49901960784313726,
+                "maxY":0.7993464052287581
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00115",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.5009803921568627,
+                "minY":0.7339869281045751,
+                "maxX":0.5990196078431372,
+                "maxY":0.7993464052287581
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00116",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.6009803921568627,
+                "minY":0.7339869281045751,
+                "maxX":0.6990196078431372,
+                "maxY":0.7993464052287581
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00117",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.7009803921568627,
+                "minY":0.7339869281045751,
+                "maxX":0.7990196078431372,
+                "maxY":0.7993464052287581
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00118",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.8009803921568628,
+                "minY":0.7339869281045751,
+                "maxX":0.8990196078431373,
+                "maxY":0.7993464052287581
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00119",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.9009803921568628,
+                "minY":0.7339869281045751,
+                "maxX":0.9990196078431373,
+                "maxY":0.7993464052287581
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00120",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.000980392156862745,
+                "minY":0.8006535947712419,
+                "maxX":0.09901960784313725,
+                "maxY":0.8660130718954249
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00121",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.10098039215686275,
+                "minY":0.8006535947712419,
+                "maxX":0.19901960784313727,
+                "maxY":0.8660130718954249
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00122",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.20098039215686275,
+                "minY":0.8006535947712419,
+                "maxX":0.29901960784313725,
+                "maxY":0.8660130718954249
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00123",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.30098039215686273,
+                "minY":0.8006535947712419,
+                "maxX":0.3990196078431372,
+                "maxY":0.8660130718954249
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00124",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.40098039215686276,
+                "minY":0.8006535947712419,
+                "maxX":0.49901960784313726,
+                "maxY":0.8660130718954249
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00125",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.5009803921568627,
+                "minY":0.8006535947712419,
+                "maxX":0.5990196078431372,
+                "maxY":0.8660130718954249
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00126",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.6009803921568627,
+                "minY":0.8006535947712419,
+                "maxX":0.6990196078431372,
+                "maxY":0.8660130718954249
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00127",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.7009803921568627,
+                "minY":0.8006535947712419,
+                "maxX":0.7990196078431372,
+                "maxY":0.8660130718954249
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00128",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.8009803921568628,
+                "minY":0.8006535947712419,
+                "maxX":0.8990196078431373,
+                "maxY":0.8660130718954249
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00129",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.9009803921568628,
+                "minY":0.8006535947712419,
+                "maxX":0.9990196078431373,
+                "maxY":0.8660130718954249
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00130",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.000980392156862745,
+                "minY":0.8673202614379085,
+                "maxX":0.09901960784313725,
+                "maxY":0.9326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00131",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.10098039215686275,
+                "minY":0.8673202614379085,
+                "maxX":0.19901960784313727,
+                "maxY":0.9326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00132",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.20098039215686275,
+                "minY":0.8673202614379085,
+                "maxX":0.29901960784313725,
+                "maxY":0.9326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00133",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.30098039215686273,
+                "minY":0.8673202614379085,
+                "maxX":0.3990196078431372,
+                "maxY":0.9326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00134",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.40098039215686276,
+                "minY":0.8673202614379085,
+                "maxX":0.49901960784313726,
+                "maxY":0.9326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00135",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.5009803921568627,
+                "minY":0.8673202614379085,
+                "maxX":0.5990196078431372,
+                "maxY":0.9326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00136",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.6009803921568627,
+                "minY":0.8673202614379085,
+                "maxX":0.6990196078431372,
+                "maxY":0.9326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00137",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.7009803921568627,
+                "minY":0.8673202614379085,
+                "maxX":0.7990196078431372,
+                "maxY":0.9326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00138",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.8009803921568628,
+                "minY":0.8673202614379085,
+                "maxX":0.8990196078431373,
+                "maxY":0.9326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00139",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.9009803921568628,
+                "minY":0.8673202614379085,
+                "maxX":0.9990196078431373,
+                "maxY":0.9326797385620915
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00140",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.000980392156862745,
+                "minY":0.9339869281045752,
+                "maxX":0.09901960784313725,
+                "maxY":0.9993464052287582
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00141",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.10098039215686275,
+                "minY":0.9339869281045752,
+                "maxX":0.19901960784313727,
+                "maxY":0.9993464052287582
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00142",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.20098039215686275,
+                "minY":0.9339869281045752,
+                "maxX":0.29901960784313725,
+                "maxY":0.9993464052287582
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00143",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.30098039215686273,
+                "minY":0.9339869281045752,
+                "maxX":0.3990196078431372,
+                "maxY":0.9993464052287582
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00144",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.40098039215686276,
+                "minY":0.9339869281045752,
+                "maxX":0.49901960784313726,
+                "maxY":0.9993464052287582
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00145",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.5009803921568627,
+                "minY":0.9339869281045752,
+                "maxX":0.5990196078431372,
+                "maxY":0.9993464052287582
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00146",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.6009803921568627,
+                "minY":0.9339869281045752,
+                "maxX":0.6990196078431372,
+                "maxY":0.9993464052287582
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00147",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.7009803921568627,
+                "minY":0.9339869281045752,
+                "maxX":0.7990196078431372,
+                "maxY":0.9993464052287582
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00148",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.8009803921568628,
+                "minY":0.9339869281045752,
+                "maxX":0.8990196078431373,
+                "maxY":0.9993464052287582
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }, 
+        
+        {
+            "name":"RedBubbles_00149",
+            "type": "isometric object",
+            "texture": "red_bubbles.png",
+            "imageArea":
+            {
+                "minX":0.9009803921568628,
+                "minY":0.9339869281045752,
+                "maxX":0.9990196078431373,
+                "maxY":0.9993464052287582
+            },
+            "size":
+            {
+                "x":102,
+                "y":102
+            }
+        }
+        
+    ]
+}

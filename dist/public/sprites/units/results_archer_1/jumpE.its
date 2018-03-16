@@ -1,0 +1,259 @@
+
+{
+    "tiles":
+    [
+        
+        {
+            "name":"heroes_isometric_01_jump_0_0270",
+            "type": "isometric object",
+            "texture": "jumpE.png",
+            "imageArea":
+            {
+                "minX":0.000149655791679138,
+                "minY":0.0019455252918287938,
+                "maxX":0.07677342113139779,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_01_jump_0_0271",
+            "type": "isometric object",
+            "texture": "jumpE.png",
+            "imageArea":
+            {
+                "minX":0.07707273271475606,
+                "minY":0.0019455252918287938,
+                "maxX":0.15369649805447472,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_01_jump_0_0272",
+            "type": "isometric object",
+            "texture": "jumpE.png",
+            "imageArea":
+            {
+                "minX":0.153995809637833,
+                "minY":0.0019455252918287938,
+                "maxX":0.23061957497755164,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_01_jump_0_0273",
+            "type": "isometric object",
+            "texture": "jumpE.png",
+            "imageArea":
+            {
+                "minX":0.23091888656090992,
+                "minY":0.0019455252918287938,
+                "maxX":0.30754265190062857,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_01_jump_0_0274",
+            "type": "isometric object",
+            "texture": "jumpE.png",
+            "imageArea":
+            {
+                "minX":0.30784196348398685,
+                "minY":0.0019455252918287938,
+                "maxX":0.3844657288237055,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_01_jump_0_0275",
+            "type": "isometric object",
+            "texture": "jumpE.png",
+            "imageArea":
+            {
+                "minX":0.3847650404070638,
+                "minY":0.0019455252918287938,
+                "maxX":0.4613888057467824,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_01_jump_0_0276",
+            "type": "isometric object",
+            "texture": "jumpE.png",
+            "imageArea":
+            {
+                "minX":0.4616881173301407,
+                "minY":0.0019455252918287938,
+                "maxX":0.5383118826698594,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_01_jump_0_0277",
+            "type": "isometric object",
+            "texture": "jumpE.png",
+            "imageArea":
+            {
+                "minX":0.5386111942532176,
+                "minY":0.0019455252918287938,
+                "maxX":0.6152349595929363,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_01_jump_0_0278",
+            "type": "isometric object",
+            "texture": "jumpE.png",
+            "imageArea":
+            {
+                "minX":0.6155342711762946,
+                "minY":0.0019455252918287938,
+                "maxX":0.6921580365160132,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_01_jump_0_0279",
+            "type": "isometric object",
+            "texture": "jumpE.png",
+            "imageArea":
+            {
+                "minX":0.6924573480993714,
+                "minY":0.0019455252918287938,
+                "maxX":0.76908111343909,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_01_jump_0_0280",
+            "type": "isometric object",
+            "texture": "jumpE.png",
+            "imageArea":
+            {
+                "minX":0.7693804250224484,
+                "minY":0.0019455252918287938,
+                "maxX":0.8460041903621671,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_01_jump_0_0281",
+            "type": "isometric object",
+            "texture": "jumpE.png",
+            "imageArea":
+            {
+                "minX":0.8463035019455253,
+                "minY":0.0019455252918287938,
+                "maxX":0.922927267285244,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_01_jump_0_0282",
+            "type": "isometric object",
+            "texture": "jumpE.png",
+            "imageArea":
+            {
+                "minX":0.9232265788686023,
+                "minY":0.0019455252918287938,
+                "maxX":0.9998503442083209,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_01_jump_0_0283",
+            "type": "isometric object",
+            "texture": "jumpE.png",
+            "imageArea":
+            {
+                "minX":0.000149655791679138,
+                "minY":0.0019455252918287938,
+                "maxX":0.07677342113139779,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }
+        
+    ]
+}

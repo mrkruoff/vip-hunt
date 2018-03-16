@@ -1,12 +1,12 @@
 {
 	"name":"drummerBoy",
-	"hp":25,
+	"hp":300,
 	"defense":25,
-	"attack":0,
-	"gathering": 35,
-	"speed":25,
-	"vision":25,
+	"attack":1,
+	"gathering": 10,
+	"speed":130,
+	"vision":4,
 	"cost":25,
 	"help":30,
-	"range":0
+	"range":1
 }

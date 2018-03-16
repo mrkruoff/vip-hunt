@@ -1,0 +1,874 @@
+{
+	"sceneObjects": [],
+	"paths": [],
+	"layers": [
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		null,
+		{
+			"scaleFactor": 1,
+			"translateFactor": 1,
+			"renderMode": "webgl",
+			"useQuadtree": true,
+			"resolutionFactor": 1,
+			"blur": 0,
+			"postProcessShader": "",
+			"postProcessShaderUniforms": null,
+			"properties": {}
+		},
+		null,
+		null,
+		null,
+		null,
+		{
+			"scaleFactor": 1,
+			"translateFactor": 1,
+			"renderMode": "webgl",
+			"useQuadtree": true,
+			"resolutionFactor": 1,
+			"blur": 0,
+			"postProcessShader": "",
+			"postProcessShaderUniforms": null,
+			"properties": {}
+		}
+	],
+	"minScreenSize": {
+		"x": 0,
+		"y": 0
+	},
+	"maxScreenSize": {
+		"x": 1920,
+		"y": 1080
+	},
+	"orientation": "none",
+	"windowMode": "full",
+	"defaultLayer": 1,
+	"modules": {
+		"iso": {
+			"version": "1.1",
+			"terrain": {
+				"numTilesX": 5,
+				"numTilesZ": 5,
+				"tileData": [
+					{
+						"texture": "_wade_isoDefault"
+					}
+				],
+				"tileDataIds": [
+					[
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					[
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					[
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					[
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					[
+						0,
+						0,
+						0,
+						0,
+						0
+					]
+				],
+				"transitionData": [],
+				"transitionDataIds": [
+					[
+						-1,
+						-1,
+						-1,
+						-1,
+						-1
+					],
+					[
+						-1,
+						-1,
+						-1,
+						-1,
+						-1
+					],
+					[
+						-1,
+						-1,
+						-1,
+						-1,
+						-1
+					],
+					[
+						-1,
+						-1,
+						-1,
+						-1,
+						-1
+					],
+					[
+						-1,
+						-1,
+						-1,
+						-1,
+						-1
+					]
+				],
+				"detailData": [],
+				"detailDataIds": [
+					[
+						-1,
+						-1,
+						-1,
+						-1,
+						-1
+					],
+					[
+						-1,
+						-1,
+						-1,
+						-1,
+						-1
+					],
+					[
+						-1,
+						-1,
+						-1,
+						-1,
+						-1
+					],
+					[
+						-1,
+						-1,
+						-1,
+						-1,
+						-1
+					],
+					[
+						-1,
+						-1,
+						-1,
+						-1,
+						-1
+					]
+				],
+				"tileHeight": [
+					[
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					[
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					[
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					[
+						0,
+						0,
+						0,
+						0,
+						0
+					],
+					[
+						0,
+						0,
+						0,
+						0,
+						0
+					]
+				]
+			},
+			"gameObjectData": [
+				{
+					"name": "sheep",
+					"type": "isometric object",
+					"scale": 1,
+					"rotation": 0,
+					"sprites": [
+						{
+							"visible": true,
+							"image": "tilesets/characters/sheep/whitesheep_Idle_iso_se.png",
+							"size": {
+								"x": 105,
+								"y": 104
+							},
+							"sortPoint": {
+								"x": 0,
+								"y": 0.385
+							},
+							"imageArea": {
+								"minX": 0,
+								"minY": 0,
+								"maxX": 1,
+								"maxY": 1
+							},
+							"offset": {
+								"x": 0,
+								"y": -24,
+								"originalX": 0,
+								"originalY": -12,
+								"angle": 0
+							},
+							"animations": {
+								"Idle_iso_sw": {
+									"name": "Idle_iso_sw",
+									"numCells": {
+										"x": 1,
+										"y": 1
+									},
+									"image": "tilesets/characters/sheep/whitesheep_Idle_iso_sw.png",
+									"speed": 20,
+									"autoResize": true,
+									"offset": {
+										"x": -10,
+										"y": 0
+									},
+									"active": false
+								},
+								"Idle_iso_ne": {
+									"name": "Idle_iso_ne",
+									"numCells": {
+										"x": 1,
+										"y": 1
+									},
+									"image": "tilesets/characters/sheep/whitesheep_Idle_iso_ne.png",
+									"speed": 20,
+									"autoResize": true,
+									"offset": {
+										"x": 10,
+										"y": -15
+									},
+									"active": false
+								},
+								"Idle_iso_nw": {
+									"name": "Idle_iso_nw",
+									"numCells": {
+										"x": 1,
+										"y": 1
+									},
+									"image": "tilesets/characters/sheep/whitesheep_Idle_iso_nw.png",
+									"speed": 20,
+									"autoResize": true,
+									"offset": {
+										"x": -15,
+										"y": -10
+									},
+									"active": false
+								},
+								"Walk_Iso_se": {
+									"name": "Walk_Iso_se",
+									"endFrame": 39,
+									"numCells": {
+										"x": 5,
+										"y": 8
+									},
+									"image": "tilesets/characters/sheep/whitesheep_Walk_iso_se.png",
+									"speed": 30,
+									"looping": true,
+									"autoResize": true,
+									"offset": {
+										"x": -3,
+										"y": 1
+									},
+									"active": false
+								},
+								"Walk_Iso_nw": {
+									"name": "Walk_Iso_nw",
+									"endFrame": 39,
+									"numCells": {
+										"x": 8,
+										"y": 5
+									},
+									"image": "tilesets/characters/sheep/whitesheep_Walk_iso_nw.png",
+									"speed": 30,
+									"looping": true,
+									"autoResize": true,
+									"offset": {
+										"x": -6,
+										"y": -8
+									},
+									"active": false
+								},
+								"Walk_Iso_ne": {
+									"name": "Walk_Iso_ne",
+									"endFrame": 39,
+									"numCells": {
+										"x": 8,
+										"y": 5
+									},
+									"image": "tilesets/characters/sheep/whitesheep_Walk_iso_ne.png",
+									"speed": 30,
+									"looping": true,
+									"autoResize": true,
+									"offset": {
+										"x": 3,
+										"y": -8
+									},
+									"active": false
+								},
+								"Graze_Iso_se": {
+									"name": "Graze_Iso_se",
+									"endFrame": 47,
+									"numCells": {
+										"x": 6,
+										"y": 8
+									},
+									"image": "tilesets/characters/sheep/whitesheep_Graze_iso_se.png",
+									"speed": 30,
+									"autoResize": true,
+									"offset": {
+										"x": 0,
+										"y": 0
+									},
+									"active": false
+								},
+								"Idle_iso_se": {
+									"name": "Idle_iso_se",
+									"numCells": {
+										"x": 1,
+										"y": 1
+									},
+									"image": "tilesets/characters/sheep/whitesheep_Idle_iso_se.png",
+									"speed": 20,
+									"autoResize": true,
+									"offset": {
+										"x": 0,
+										"y": 0
+									},
+									"active": true
+								},
+								"Walk_Iso_sw": {
+									"name": "Walk_Iso_sw",
+									"endFrame": 39,
+									"numCells": {
+										"x": 5,
+										"y": 8
+									},
+									"image": "tilesets/characters/sheep/whitesheep_Walk_iso_sw.png",
+									"speed": 30,
+									"looping": true,
+									"autoResize": true,
+									"offset": {
+										"x": -2.5,
+										"y": 2
+									},
+									"active": false
+								},
+								"Graze_Iso_sw": {
+									"name": "Graze_Iso_sw",
+									"endFrame": 47,
+									"numCells": {
+										"x": 6,
+										"y": 8
+									},
+									"image": "tilesets/characters/sheep/whitesheep_Graze_iso_sw.png",
+									"speed": 20,
+									"autoResize": true,
+									"offset": {
+										"x": -11,
+										"y": 1
+									},
+									"active": false
+								},
+								"Graze_Iso_ne": {
+									"name": "Graze_Iso_ne",
+									"endFrame": 47,
+									"numCells": {
+										"x": 8,
+										"y": 6
+									},
+									"image": "tilesets/characters/sheep/whitesheep_Graze_iso_ne.png",
+									"speed": 20,
+									"autoResize": true,
+									"offset": {
+										"x": 12,
+										"y": -16
+									},
+									"active": false
+								},
+								"Graze_Iso_nw": {
+									"name": "Graze_Iso_nw",
+									"endFrame": 47,
+									"numCells": {
+										"x": 8,
+										"y": 6
+									},
+									"image": "tilesets/characters/sheep/whitesheep_Graze_iso_nw.png",
+									"speed": 20,
+									"autoResize": true,
+									"offset": {
+										"x": -20,
+										"y": -10
+									},
+									"active": false
+								},
+								"Death_Iso_ne": {
+									"name": "Death_Iso_ne",
+									"endFrame": 16,
+									"numCells": {
+										"x": 3,
+										"y": 6
+									},
+									"image": "tilesets/characters/sheep/whitesheep_Death_iso_ne.png",
+									"speed": 30,
+									"autoResize": true,
+									"offset": {
+										"x": -20,
+										"y": -20
+									},
+									"active": false
+								},
+								"Death_Iso_se": {
+									"name": "Death_Iso_se",
+									"endFrame": 16,
+									"numCells": {
+										"x": 3,
+										"y": 6
+									},
+									"image": "tilesets/characters/sheep/whitesheep_Death_iso_se.png",
+									"speed": 30,
+									"autoResize": true,
+									"offset": {
+										"x": 30,
+										"y": -10
+									},
+									"active": false
+								},
+								"Death_Iso_nw": {
+									"name": "Death_Iso_nw",
+									"endFrame": 16,
+									"numCells": {
+										"x": 3,
+										"y": 6
+									},
+									"image": "tilesets/characters/sheep/whitesheep_Death_iso_nw.png",
+									"speed": 30,
+									"autoResize": true,
+									"offset": {
+										"x": -30,
+										"y": -2
+									},
+									"active": false
+								},
+								"Death_Iso_sw": {
+									"name": "Death_Iso_sw",
+									"endFrame": 16,
+									"numCells": {
+										"x": 3,
+										"y": 6
+									},
+									"image": "tilesets/characters/sheep/whitesheep_Death_iso_sw.png",
+									"speed": 20,
+									"autoResize": true,
+									"offset": {
+										"x": 20,
+										"y": 10
+									},
+									"active": false
+								}
+							},
+							"layer": 25,
+							"currentAnimation": ""
+						}
+					],
+					"gridMap": [
+						{
+							"x": 0,
+							"z": 0
+						}
+					],
+					"imageArea": {
+						"minX": 0,
+						"minY": 0,
+						"maxX": 1,
+						"maxY": 1
+					},
+					"collision": false,
+					"behaviors": [
+						"IsoCharacter"
+					]
+				},
+				{
+					"name": "swordsman",
+					"type": "isometric object",
+					"scale": 1,
+					"rotation": 0,
+					"sprites": [
+						{
+							"visible": true,
+							"image": "tilesets/characters/swordsman/swordsman_1_Idle_iso_se.png",
+							"size": {
+								"x": 52,
+								"y": 140
+							},
+							"sortPoint": {
+								"x": 0,
+								"y": 0.315
+							},
+							"imageArea": {
+								"minX": 0,
+								"minY": 0,
+								"maxX": 1,
+								"maxY": 1
+							},
+							"offset": {
+								"x": 0,
+								"y": -52,
+								"originalX": 0,
+								"originalY": -26,
+								"angle": 0
+							},
+							"animations": {
+								"Idle_iso_nw": {
+									"name": "Idle_iso_nw",
+									"numCells": {
+										"x": 1,
+										"y": 1
+									},
+									"image": "tilesets/characters/swordsman/swordsman_1_Idle_iso_nw.png",
+									"speed": 20,
+									"autoResize": true,
+									"offset": {
+										"x": 0,
+										"y": 0
+									},
+									"active": false
+								},
+								"Idle_iso_ne": {
+									"name": "Idle_iso_ne",
+									"numCells": {
+										"x": 1,
+										"y": 1
+									},
+									"image": "tilesets/characters/swordsman/swordsman_1_Idle_iso_ne.png",
+									"speed": 20,
+									"autoResize": true,
+									"offset": {
+										"x": 20,
+										"y": 0
+									},
+									"active": false
+								},
+								"Walk_iso_sw": {
+									"name": "Walk_iso_sw",
+									"endFrame": 16,
+									"numCells": {
+										"x": 17,
+										"y": 1
+									},
+									"image": "tilesets/characters/swordsman/swordsman_1_Walk_iso_sw.png",
+									"speed": 30,
+									"looping": true,
+									"autoResize": true,
+									"offset": {
+										"x": -20,
+										"y": 2
+									},
+									"active": false
+								},
+								"Walk_iso_se": {
+									"name": "Walk_iso_se",
+									"endFrame": 16,
+									"numCells": {
+										"x": 17,
+										"y": 1
+									},
+									"image": "tilesets/characters/swordsman/swordsman_1_Walk_iso_se.png",
+									"speed": 30,
+									"looping": true,
+									"autoResize": true,
+									"offset": {
+										"x": 0,
+										"y": 0
+									},
+									"active": false
+								},
+								"Idle_iso_sw": {
+									"name": "Idle_iso_sw",
+									"numCells": {
+										"x": 1,
+										"y": 1
+									},
+									"image": "tilesets/characters/swordsman/swordsman_1_Idle_iso_sw.png",
+									"speed": 20,
+									"autoResize": true,
+									"offset": {
+										"x": -20,
+										"y": 2
+									},
+									"active": false
+								},
+								"Idle_iso_se": {
+									"name": "Idle_iso_se",
+									"numCells": {
+										"x": 1,
+										"y": 1
+									},
+									"image": "tilesets/characters/swordsman/swordsman_1_Idle_iso_se.png",
+									"speed": 20,
+									"autoResize": true,
+									"offset": {
+										"x": 0,
+										"y": 0
+									},
+									"active": true
+								},
+								"Walk_iso_ne": {
+									"name": "Walk_iso_ne",
+									"endFrame": 16,
+									"numCells": {
+										"x": 17,
+										"y": 1
+									},
+									"image": "tilesets/characters/swordsman/swordsman_1_Walk_iso_ne.png",
+									"speed": 30,
+									"looping": true,
+									"autoResize": true,
+									"offset": {
+										"x": 20,
+										"y": 0
+									},
+									"active": false
+								},
+								"Walk_iso_nw": {
+									"name": "Walk_iso_nw",
+									"endFrame": 16,
+									"numCells": {
+										"x": 17,
+										"y": 1
+									},
+									"image": "tilesets/characters/swordsman/swordsman_1_Walk_iso_nw.png",
+									"speed": 30,
+									"looping": true,
+									"autoResize": true,
+									"offset": {
+										"x": 0,
+										"y": 0
+									},
+									"active": false
+								},
+								"Attack_iso_ne": {
+									"name": "Attack_iso_ne",
+									"endFrame": 24,
+									"numCells": {
+										"x": 5,
+										"y": 5
+									},
+									"image": "tilesets/characters/swordsman/swordsman_1_Sword_Frontswing_iso_ne.png",
+									"speed": 30,
+									"autoResize": true,
+									"offset": {
+										"x": 22,
+										"y": -5
+									},
+									"active": false
+								},
+								"Attack_iso_nw": {
+									"name": "Attack_iso_nw",
+									"endFrame": 24,
+									"numCells": {
+										"x": 5,
+										"y": 5
+									},
+									"image": "tilesets/characters/swordsman/swordsman_1_Sword_Frontswing_iso_nw.png",
+									"speed": 30,
+									"autoResize": true,
+									"offset": {
+										"x": -22,
+										"y": -8
+									},
+									"active": false
+								},
+								"Attack_iso_se": {
+									"name": "Attack_iso_se",
+									"endFrame": 24,
+									"numCells": {
+										"x": 5,
+										"y": 5
+									},
+									"image": "tilesets/characters/swordsman/swordsman_1_Sword_Frontswing_iso_se.png",
+									"speed": 30,
+									"autoResize": true,
+									"offset": {
+										"x": 0,
+										"y": 0
+									},
+									"active": false
+								},
+								"Attack_iso_sw": {
+									"name": "Attack_iso_sw",
+									"endFrame": 24,
+									"numCells": {
+										"x": 5,
+										"y": 5
+									},
+									"image": "tilesets/characters/swordsman/swordsman_1_Sword_Frontswing_iso_sw.png",
+									"speed": 30,
+									"autoResize": true,
+									"offset": {
+										"x": -24,
+										"y": -5
+									},
+									"active": false
+								}
+							},
+							"layer": 25,
+							"currentAnimation": ""
+						}
+					],
+					"gridMap": [
+						{
+							"x": 0,
+							"z": 0
+						}
+					],
+					"imageArea": {
+						"minX": 0,
+						"minY": 0,
+						"maxX": 1,
+						"maxY": 1
+					},
+					"collision": false,
+					"behaviors": [
+						"IsoCharacter"
+					]
+				},
+				{
+					"name": "Bush 3",
+					"type": "isometric object",
+					"scale": 1,
+					"rotation": 0,
+					"sprites": [
+						{
+							"image": "tilesets/outdoor_objects.png",
+							"size": {
+								"x": 180,
+								"y": 128
+							},
+							"sortPoint": {
+								"x": 0,
+								"y": 0.441
+							},
+							"imageArea": {
+								"minX": 0.3896484375,
+								"minY": 0.55859375,
+								"maxX": 0.521484375,
+								"maxY": 0.65234375
+							},
+							"offset": {
+								"x": 14,
+								"y": -15,
+								"originalX": 7,
+								"originalY": -7.5,
+								"angle": 0
+							},
+							"animations": [],
+							"layer": 25
+						}
+					],
+					"collisionMap": [
+						{
+							"x": 0,
+							"z": 0
+						}
+					],
+					"gridMap": [
+						{
+							"x": 0,
+							"z": 0
+						}
+					],
+					"imageArea": {
+						"minX": 0,
+						"minY": 0,
+						"maxX": 1,
+						"maxY": 1
+					},
+					"collision": false,
+					"behaviors": []
+				}
+			],
+			"gameObjects": [
+				{
+					"templateId": 0,
+					"gridCoords": {
+						"x": 1,
+						"z": 2
+					},
+					"instanceData": {
+						"name": "sheep_0"
+					}
+				},
+				{
+					"templateId": 1,
+					"gridCoords": {
+						"x": 3,
+						"z": 2
+					},
+					"instanceData": {
+						"name": "swordsman_0"
+					}
+				},
+				{
+					"templateId": 2,
+					"gridCoords": {
+						"x": 3,
+						"z": 4
+					},
+					"instanceData": {
+						"name": "Bush 3_0"
+					}
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,259 @@
+
+{
+    "tiles":
+    [
+        
+        {
+            "name":"heroes_isometric_02_death_150_0252",
+            "type": "isometric object",
+            "texture": "deathSW.png",
+            "imageArea":
+            {
+                "minX":0.00013896609227348526,
+                "minY":0.0019455252918287938,
+                "maxX":0.07128960533629794,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_02_death_150_0253",
+            "type": "isometric object",
+            "texture": "deathSW.png",
+            "imageArea":
+            {
+                "minX":0.07156753752084491,
+                "minY":0.0019455252918287938,
+                "maxX":0.14271817676486936,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_02_death_150_0254",
+            "type": "isometric object",
+            "texture": "deathSW.png",
+            "imageArea":
+            {
+                "minX":0.14299610894941633,
+                "minY":0.0019455252918287938,
+                "maxX":0.2141467481934408,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_02_death_150_0255",
+            "type": "isometric object",
+            "texture": "deathSW.png",
+            "imageArea":
+            {
+                "minX":0.21442468037798776,
+                "minY":0.0019455252918287938,
+                "maxX":0.2855753196220122,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_02_death_150_0256",
+            "type": "isometric object",
+            "texture": "deathSW.png",
+            "imageArea":
+            {
+                "minX":0.2858532518065592,
+                "minY":0.0019455252918287938,
+                "maxX":0.3570038910505836,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_02_death_150_0257",
+            "type": "isometric object",
+            "texture": "deathSW.png",
+            "imageArea":
+            {
+                "minX":0.35728182323513064,
+                "minY":0.0019455252918287938,
+                "maxX":0.4284324624791551,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_02_death_150_0258",
+            "type": "isometric object",
+            "texture": "deathSW.png",
+            "imageArea":
+            {
+                "minX":0.42871039466370203,
+                "minY":0.0019455252918287938,
+                "maxX":0.4998610339077265,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_02_death_150_0259",
+            "type": "isometric object",
+            "texture": "deathSW.png",
+            "imageArea":
+            {
+                "minX":0.5001389660922735,
+                "minY":0.0019455252918287938,
+                "maxX":0.5712896053362979,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_02_death_150_0260",
+            "type": "isometric object",
+            "texture": "deathSW.png",
+            "imageArea":
+            {
+                "minX":0.5715675375208449,
+                "minY":0.0019455252918287938,
+                "maxX":0.6427181767648693,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_02_death_150_0261",
+            "type": "isometric object",
+            "texture": "deathSW.png",
+            "imageArea":
+            {
+                "minX":0.6429961089494164,
+                "minY":0.0019455252918287938,
+                "maxX":0.7141467481934408,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_02_death_150_0262",
+            "type": "isometric object",
+            "texture": "deathSW.png",
+            "imageArea":
+            {
+                "minX":0.7144246803779878,
+                "minY":0.0019455252918287938,
+                "maxX":0.7855753196220122,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_02_death_150_0263",
+            "type": "isometric object",
+            "texture": "deathSW.png",
+            "imageArea":
+            {
+                "minX":0.7858532518065592,
+                "minY":0.0019455252918287938,
+                "maxX":0.8570038910505836,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_02_death_150_0264",
+            "type": "isometric object",
+            "texture": "deathSW.png",
+            "imageArea":
+            {
+                "minX":0.8572818232351306,
+                "minY":0.0019455252918287938,
+                "maxX":0.928432462479155,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }, 
+        
+        {
+            "name":"heroes_isometric_02_death_150_0265",
+            "type": "isometric object",
+            "texture": "deathSW.png",
+            "imageArea":
+            {
+                "minX":0.9287103946637021,
+                "minY":0.0019455252918287938,
+                "maxX":0.9998610339077265,
+                "maxY":0.9980544747081712
+            },
+            "size":
+            {
+                "x":514,
+                "y":514
+            }
+        }
+        
+    ]
+}

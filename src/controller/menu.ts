@@ -1,6 +1,6 @@
 /* menu.ts
  *
- * This function contains the various functions needed to display the 
+ * This function contains the various functions needed to display the
  * game's starting menu.
  *
  */
@@ -8,9 +8,11 @@
 import * as _ from 'lodash';
 
 import AudioMap from './audio-map';
+import Camera from './camera';
 import Events from './events';
 import Hud from './hud';
 import NewGame from './newgame';
+import SaveGame from './savegame';
 
 declare var wade: any;
 declare var TextSprite: any;
@@ -22,13 +24,50 @@ declare var Path: any;
 declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
-const displayWelcome = function() {
-    // wade.playAudio(AudioMap.menu_music, true);
+// This function sets up an asynchronouse delay that allows for
+// delayed while loops
+//Based on https://www.typescriptlang.org/docs/handbook/release-notes/typescript-1-7.html which gives an example of the delay function.
+async function delay(milliseconds: number) {
+    return new Promise<void>((resolve) => {
+        wade.setTimeout(resolve, milliseconds);
+    });
+}
+
+let cameraSpeed = 500;
+let aiIsHard = false;
+
+let music_id = -1;
+let keepPlaying = true;
+const displayWelcome = async function() {
+    function playMenuMusic() {
+        if (keepPlaying) {
+            music_id = wade.playAudio(AudioMap.familiar_roads, false, async () => {
+                wade.setTimeout(() => {
+                    if (keepPlaying) {
+                        music_id = wade.playAudio(AudioMap.menu_music, false, async () => {
+                            wade.setTimeout(() => {
+                                if (keepPlaying) {
+                                    music_id = wade.playAudio(AudioMap.from_here, false, async () => {
+                                        wade.setTimeout(() => {
+                                            playMenuMusic();
+                                        }, 4000);
+                                    });
+                                }
+                            }, 4000);
+                        });
+                    }
+                }, 4000);
+            });
+        }
+    }
+    // playMenuMusic();
     const color = 'white';
     const alignment = 'center';
 
+    //////#### let global = wade.getSceneObject('global');
+
     //Create the welcome text
-    const welcomeText = new TextSprite('Welcome to Potayto-Potahto!', '32px Verdana', color, alignment);
+    const welcomeText = new TextSprite('King Hunt', '40px Verdana', color, alignment);
     this.welcomeObject = new SceneObject(welcomeText);
     wade.addSceneObject(this.welcomeObject);
     this.welcomeObject.setPosition(0, -100);
@@ -53,24 +92,150 @@ const displayWelcome = function() {
 
 };
 
-function setupSettings() {
+const setupSettings = function(music_id: number) {
     this.settingsObject.setPosition(0, 100);
+
     setMouseInOut(this.settingsObject);
 
-    // this.settingsObject.onClick = settings.call(this);
-    // wade.addEventListener(this.loadGameObject, 'onClick');
+    this.settingsObject.onClick = function() {
 
-}
+        //let global = wade.getSceneObject('global');
 
-function setupSaveGame() {
+        this.settingsSprite = new Sprite('../js/../public/sprites/menu/settingsBackground.png');
+        this.settingsObject = new SceneObject(this.settingsSprite);
+        wade.addSceneObject(this.settingsObject);
+        this.settingsObject.setVisible(true);
+
+        this.slowTextSprite = new TextSprite('Slow', '16px Arial', 'black', 'left', -5);
+        if (cameraSpeed === 200) {
+            this.slowTextSprite.setFont('24px Arial');
+        }
+        this.slowTextObject = new SceneObject(this.slowTextSprite);
+        this.slowTextObject.setPosition(-130, 0);
+        wade.addSceneObject(this.slowTextObject);
+        // this.slowTextObject.setVisible(true);
+
+        setMouseInOutSettings(this.slowTextObject);
+        const global1 = wade.getSceneObject('global');
+        this.slowTextObject.onClick = () => {
+            cameraSpeed = 200;
+            clearSettings.call(this);
+            return true;
+        };
+
+        wade.addEventListener(this.slowTextObject, 'onClick');
+
+        this.fastTextSprite = new TextSprite('Fast', '16px Arial', 'black', 'left', -5);
+        if (cameraSpeed === 950) {
+            this.fastTextSprite.setFont('24px Arial');
+        }
+        this.fastTextObject = new SceneObject(this.fastTextSprite);
+        this.fastTextObject.setPosition(-130, 50);
+        wade.addSceneObject(this.fastTextObject);
+
+        setMouseInOutSettings(this.fastTextObject);
+
+        this.fastTextObject.onClick = () => {
+            cameraSpeed = 950;
+            clearSettings.call(this);
+            return true;
+        };
+
+        wade.addEventListener(this.fastTextObject, 'onClick');
+
+        this.defaultTextSprite = new TextSprite('Default', '16px Arial', 'black', 'left', -5);
+        if (cameraSpeed === 500) {
+            this.defaultTextSprite.setFont('24px Arial');
+        }
+        this.defaultTextObject = new SceneObject(this.defaultTextSprite);
+        this.defaultTextObject.setPosition(-130, 100);
+        wade.addSceneObject(this.defaultTextObject);
+
+        setMouseInOutSettings(this.defaultTextObject);
+
+        this.defaultTextObject.onClick = () => {
+            cameraSpeed = 500;
+            clearSettings.call(this);
+            return true;
+        };
+
+        wade.addEventListener(this.defaultTextObject, 'onClick');
+
+        this.easyTextSprite = new TextSprite('Easy', '16px Arial', 'black', 'left', -5);
+        if (aiIsHard === false) {
+            this.easyTextSprite.setFont('24px Arial');
+        }
+        this.easyTextObject = new SceneObject(this.easyTextSprite);
+        this.easyTextObject.setPosition(100, 0);
+        wade.addSceneObject(this.easyTextObject);
+        setMouseInOutSettings(this.easyTextObject);
+        this.easyTextObject.onClick = () => {
+            aiIsHard = false;
+            clearSettings.call(this);
+        };
+        wade.addEventListener(this.easyTextObject, 'onClick');
+
+        this.hardTextSprite = new TextSprite('Hard', '16px Arial', 'black', 'left', -5);
+        if (aiIsHard === true) {
+            this.hardTextSprite.setFont('24px Arial');
+        }
+        this.hardTextObject = new SceneObject(this.hardTextSprite);
+        this.hardTextObject.setPosition(100, 50);
+        wade.addSceneObject(this.hardTextObject);
+        setMouseInOutSettings(this.hardTextObject);
+        this.hardTextObject.onClick = () => {
+            aiIsHard = true;
+            clearSettings.call(this);
+        };
+        wade.addEventListener(this.hardTextObject, 'onClick');
+
+        const settingsSprite = new Sprite('../js/../public/sprites/menu/settingsBackground.png', -1);
+        const settingsObject = new SceneObject(settingsSprite);
+        wade.addSceneObject(settingsObject);
+        setMouseInOutSettings(this.hardTextObject);
+
+        function clearSettings() {
+            wade.removeSceneObject(settingsObject);
+            this.settingsSprite.fadeOut(.5);
+            this.slowTextSprite.fadeOut(.5);
+            this.fastTextSprite.fadeOut(.5);
+            this.defaultTextSprite.fadeOut(.5);
+            this.easyTextSprite.fadeOut(0.5);
+            this.hardTextSprite.fadeOut(0.5);
+        }
+
+        //wade.clearScene();
+        // this.settingsObject.onClick = settings.call(this);
+        // wade.addEventListener(this.loadGameObject, 'onClick');
+
+        ///// loadGameObject.setVisible("true");
+        /////  setupNewGameObject.setVisible("true");
+
+    };
+    wade.addEventListener(this.settingsObject, 'onClick');
+};
+
+const setupSaveGame = function() {
     this.loadGameObject.setPosition(0, 50);
-
     setMouseInOut(this.loadGameObject);
 
-    // this.loadGameObject.onClick = loadGame.call(this);
-    // wade.addEventListener(this.loadGameObject, 'onClick');
+    this.loadGameObject.onClick = function() {
+        wade.stopAudio(music_id);
+        keepPlaying = false;
+        const savedGame = JSON.parse(wade.retrieveLocalObject('save_game'));
+        wade.setJson('savedGameScene.wsc', savedGame);
 
-}
+        //the line below was purely for testing purposes to make sure
+        //info was correct
+        //let testing = wade.getJson('savedGameScene.json');
+
+        wade.importScene(wade.getJson('savedGameScene.wsc'), true, () => {
+            SaveGame.initialize();
+        }, false, true);
+
+    };
+    wade.addEventListener(this.loadGameObject, 'onClick');
+};
 
 const setupNewGame = function() {
     this.newGameObject.setPosition(0, 0);
@@ -78,11 +243,20 @@ const setupNewGame = function() {
     setMouseInOut(this.newGameObject);
 
     this.newGameObject.onClick = function() {
+        wade.stopAudio(music_id);
+        keepPlaying = false;
         const clearscene = true;
         // load the map
-        wade.loadScene('../public/grass_map.wsc', null, function() {
-            NewGame.initialize();
+        /*
+           wade.loadScene('../public/scene1.wsc', null, function() {
+           NewGame.initialize();
+           }, clearscene);
+         */
+
+        wade.loadScene('../public/large_grass_map.wsc', null, function() {
+            NewGame.initialize(cameraSpeed, aiIsHard);
         }, clearscene);
+
     };
     wade.addEventListener(this.newGameObject, 'onClick');
 };
@@ -102,6 +276,14 @@ function setMouseInOut(textObject: any) {
     wade.addEventListener(textObject, 'onMouseIn');
 
     textObject.onMouseOut = changeColor(textObject, 'white');
+    wade.addEventListener(textObject, 'onMouseOut');
+}
+
+function setMouseInOutSettings(textObject: any) {
+    textObject.onMouseIn = changeColor(textObject, 'red');
+    wade.addEventListener(textObject, 'onMouseIn');
+
+    textObject.onMouseOut = changeColor(textObject, 'black');
     wade.addEventListener(textObject, 'onMouseOut');
 }
 

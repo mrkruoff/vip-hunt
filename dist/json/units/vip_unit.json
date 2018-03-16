@@ -1,11 +1,11 @@
 {
 	"name":"vip",
-	"hp":100,
-	"defense":100,
+	"hp":500,
+	"defense":40,
 	"attack":1,
-	"gathering": 50,
-	"speed":50,
-	"vision":100,
+	"gathering": 10,
+	"speed":170,
+	"vision":9,
 	"cost":0,
-	"range":0
+	"range":1
 }

@@ -24,11 +24,15 @@ class Tile {
 
         //Check to see that the tile is correctly occupied
         if(this.buildingId > 0) {
-            if(this.resourceId > 0 || this.buildingId > 0) {
+            
+            /* 
+            if(this.resourceId > 0 || this.unitId > 0) {
                 throw Error("Tile is occupied by building and something else")
             }
 
             this.walkable = false; //tile is not walkable if building is on it.
+            */
+            
         }
 
         //Enforce the idea of one unit per tile.
@@ -54,6 +58,12 @@ class Tile {
     }
     setResourceId(id: number) {
         this.resourceId = id;    
+    }
+
+    isEmpty() { 
+        return this.unitId === Tile.EMPTY &&
+            this.buildingId === Tile.EMPTY &&
+            this.resourceId === Tile.EMPTY;
     }
 
     static defaultTile() : Tile {

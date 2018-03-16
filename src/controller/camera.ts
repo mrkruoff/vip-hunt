@@ -5,6 +5,7 @@
  * to do something in the game as the user is playing.
  */
 
+import * as _ from 'lodash';
 import Keys from './keys';
 
 declare var wade: any;
@@ -18,10 +19,27 @@ declare var PhysicsObject: any;
 declare var TilemapCharacter: any;
 
 const Camera = {
-    // This function sets the bounds for the camera to ensure the 
+    focusVIP: () => {
+        // Get the player's vip sceneobject and use its position to set the
+        // camera's position.
+        const player = wade.getSceneObject('global').state.getPlayer();
+        const vip = _.find(player.getUnits(), (unitData) => {
+            return _.isEqual(unitData.getClassName(),  'VIP');
+        });
+        if (vip) {
+            const vipRep = vip.rep;
+            const position = vipRep.getPosition();
+            position.z = wade.getCameraPosition().z;
+            wade.setCameraPosition(position);
+        } else {
+            console.log('NO VIP FOUND');
+        }
+
+    },
+    // This function sets the bounds for the camera to ensure the
     // player can't move it to the 'infinte darkness' portion of the world.
     setBounds: () => {
-        wade.setCameraBounds(-1500, 1500, -1500, 1500, 3, 10);
+        wade.setCameraBounds(-15000, 15000, -15000, 1000, 3, 10);
     },
     // This function moves the camera as far to the top as it can go.
     // it sets the GLOBAL cameraIsMoving property to show that the camera is moving.
@@ -101,7 +119,6 @@ const Camera = {
         const destination = wade.getCameraPosition();
         destination.z -= 0.1;
         wade.moveCamera(destination, wade.getSceneObject('global').zoomSpeed);
-        wade.getSceneObject('global').cameraIsMoving = true;
     },
     // This function causes the camera to zoom OUT just a little.
     // It sets the GLOBAL cameraIsMoving property to show that the camera is moving.
@@ -109,7 +126,6 @@ const Camera = {
         const destination = wade.getCameraPosition();
         destination.z += 0.1;
         wade.moveCamera(destination, wade.getSceneObject('global').zoomSpeed);
-        wade.getSceneObject('global').cameraIsMoving = true;
     },
     // This function stops the camera from moving, if it was moving
     stop: () => {
@@ -123,20 +139,20 @@ const Camera = {
     isMoving: () => {
         return wade.getSceneObject('global').cameraIsMoving;
     },
-    // This function is a callback that sets up how the 
-    // camera should move in gameplay in response to 
-    // the mouse moving. Currently the camera moves only 
+    // This function is a callback that sets up how the
+    // camera should move in gameplay in response to
+    // the mouse moving. Currently the camera moves only
     // when the mouse moves to the edges of the screen.
     //
     // The camera stops moving when the mouse moves out
     // of the edges of the screen.
     //
     // parameters:
-    //  @ event: An event object that is created when the
-    //      mouse moves during the game.
-    mouseMove: (event) => {
-        const x = event.screenPosition.x;
-        const y = event.screenPosition.y;
+    //  @ screenPosition: the screenPosition the mouse was moving at;
+    //      Has x and y properties.
+    mouseMove: (screenPosition) => {
+        const x = screenPosition.x;
+        const y = screenPosition.y;
 
         const rightLimit = wade.getScreenWidth() / 2;
         const rightDiff = Math.abs(x - rightLimit);
@@ -153,69 +169,136 @@ const Camera = {
         const edgeTol = 20;
         const cornerTol = 40;
 
-        //There are bugs here. What if player uses keys to move camera
-        // at same time?
-        if (topDiff < cornerTol && leftDiff < cornerTol) {
-            Camera.moveToNW();
-        } else if (topDiff < cornerTol && rightDiff < cornerTol) {
-            Camera.moveToNE();
-        } else if (bottomDiff < cornerTol && rightDiff < cornerTol) {
-            Camera.moveToSE();
-        } else if (bottomDiff < cornerTol && leftDiff < cornerTol) {
-            Camera.moveToSW();
-        } else if (topDiff < edgeTol) {
-            Camera.moveToTop();
-        } else if (bottomDiff < edgeTol) {
-            Camera.moveToBottom();
-        } else if (leftDiff < edgeTol) {
-            Camera.moveToLeft();
-        } else if (rightDiff < edgeTol) {
-            Camera.moveToRight();
-        } else if (Camera.isMoving()) {
-            Camera.stop();
+        // Only allow the mouse to affect the camera if the keys aren't
+        // moving the camera.
+        if ( Camera.noKeysPressed() ) {
+            if (topDiff < cornerTol && leftDiff < cornerTol) {
+                Camera.moveToNW();
+            } else if (topDiff < cornerTol && rightDiff < cornerTol) {
+                Camera.moveToNE();
+            } else if (bottomDiff < cornerTol && rightDiff < cornerTol) {
+                Camera.moveToSE();
+            } else if (bottomDiff < cornerTol && leftDiff < cornerTol) {
+                Camera.moveToSW();
+            } else if (topDiff < edgeTol) {
+                Camera.moveToTop();
+            } else if (bottomDiff < edgeTol) {
+                Camera.moveToBottom();
+            } else if (leftDiff < edgeTol) {
+                Camera.moveToLeft();
+            } else if (rightDiff < edgeTol) {
+                Camera.moveToRight();
+            } else if (Camera.isMoving()) {
+                Camera.stop();
+            }
         }
 
     },
-    // This function is a callback that sets the events 
-    // for when keys are pressed. Currently this consists 
-    // only of key presses that move the camera. 
+    // This function is a callback that sets the events
+    // for when keys are pressed. Currently this consists
+    // only of key presses that move the camera.
     //
     // Perhaps this belongs in a KeyShortcuts module
     // in a separate file?
     //
     // parameters:
-    //  @ event: generated in the game when a key is pressed down.
-    keyDown: (event) => {
-        if (event.keyCode === Keys.up() ) {
-            Camera.moveToTop();
-        } else if (event.keyCode === Keys.down() ) {
-            Camera.moveToBottom();
-        } else if (event.keyCode === Keys.left() ) {
-            Camera.moveToLeft();
-        } else if (event.keyCode === Keys.right() ) {
-            Camera.moveToRight();
+    //  @ keyCode: the code of a key that the player pressed down
+    keyDown: (keyCode: number) => {
+        // Stop moving the camera if any opposing movement keys are pressed.
+        if (Camera.opposingKeysPressed() ) {
+            Camera.stop();
+            return;
+        }
+
+        // Attempt to take control away from the mouse camera movement. Will this work?
+        if (Camera.isMoving() ) {
+            Camera.stop();
+        }
+
+        // Move the camera according to the currently pressed keys
+        // Could consider replacing all this with checks to see if any two pairs of keys
+        // are currently down. Not sure if it would work though.
+        if (keyCode === Keys.up() ) {
+            if (wade.isKeyDown(Keys.left() ) ) {
+                Camera.moveToNW();
+            } else if ( wade.isKeyDown(Keys.right() ) ) {
+                Camera.moveToNE();
+            } else {
+                Camera.moveToTop();
+            }
+        } else if (keyCode === Keys.down() ) {
+            if (wade.isKeyDown(Keys.left() ) ) {
+                Camera.moveToSW();
+            } else if (wade.isKeyDown(Keys.right() ) ) {
+                Camera.moveToSE();
+            } else {
+                Camera.moveToBottom();
+            }
+        } else if (keyCode === Keys.left() ) {
+            if (wade.isKeyDown(Keys.up()) ) {
+                Camera.moveToNW();
+            } else if (wade.isKeyDown(Keys.down()) ) {
+                Camera.moveToSW();
+            } else {
+                Camera.moveToLeft();
+            }
+        } else if (keyCode === Keys.right() ) {
+            if (wade.isKeyDown(Keys.up()) ) {
+                Camera.moveToNE();
+            } else if (wade.isKeyDown(Keys.down()) ) {
+                Camera.moveToSE();
+            } else {
+                Camera.moveToRight();
+            }
         }
     },
-    // This function is a callback that sets the events for when keys 
-    // are released. Currently this consists only of key releases that 
+    // This function is a callback that sets the events for when keys
+    // are released. Currently this consists only of key releases that
     // stop the camera form moving.
     //
     // Perhaps this belongs in a KeyShortcuts module
     // in a separate file?
     //
-    // parameters:
-    //  @ event: generated in the game when a key is released.
-    keyUp: (event) => {
-        //Once player lets go, stop the camera from moving
-        if (event.keyCode === Keys.up() ) {
+    keyUp: () => {
+        // If no camera keys are pressed, stop all movement of camera.
+        if ( Camera.noKeysPressed() ) {
             Camera.stop();
-        } else if (event.keyCode === Keys.down() ) {
+            return;
+        }
+        if (Camera.opposingKeysPressed() ) {
             Camera.stop();
-        } else if (event.keyCode === Keys.left() ) {
-            Camera.stop();
-        } else if (event.keyCode === Keys.right() ) {
+            return;
+        }
+
+        // If there are still some Camera keys pressed, then we must continue
+        // moving in that specified direction
+        if ( wade.isKeyDown(Keys.up() ) ) {
+            Camera.moveToTop();
+        } else if (wade.isKeyDown(Keys.down() ) ) {
+            Camera.moveToBottom();
+        } else if (wade.isKeyDown(Keys.left() ) ) {
+            Camera.moveToLeft();
+        } else if (wade.isKeyDown(Keys.right() ) ) {
+            Camera.moveToRight();
+        } else {
+            // If none of the Camera keys are pressed, stop moving
             Camera.stop();
         }
+
+    },
+    opposingKeysPressed: (): boolean => {
+        if (wade.isKeyDown(Keys.left()) && wade.isKeyDown(Keys.right() ) ) {
+            return true;
+        }
+        if (wade.isKeyDown(Keys.up()) && wade.isKeyDown(Keys.down() ) ) {
+            return true;
+        }
+    },
+    noKeysPressed: (): boolean => {
+        return !wade.isKeyDown(Keys.up() ) &&
+                !wade.isKeyDown(Keys.down() ) &&
+                !wade.isKeyDown(Keys.left() ) &&
+                !wade.isKeyDown(Keys.right() );
     },
 };
 

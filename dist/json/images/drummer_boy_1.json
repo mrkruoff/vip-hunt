@@ -1,0 +1,12 @@
+
+{
+    "type": "sprite",
+    "name": "drummer_boy_1",
+    "visible": "true",
+    "image": "../js/../public/sprites/units/results_warrior_2/drummer_icon.png",
+    "pixelPerfectMouseEvents": 255,
+    "size": {"x": 300, "y": 300},
+    "sortPoint": {"x": 0, "y": 0},
+    "animations": { }
+
+}

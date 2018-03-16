@@ -1,11 +1,11 @@
 {
 	"name":"archer",
-	"hp":50,
+	"hp":150,
 	"defense":25,
-	"attack":50,
-	"gathering": 25,
-	"speed":50,
-	"vision":65,
+	"attack":60,
+	"gathering": 5,
+	"speed":160,
+	"vision":7,
 	"cost":25,
-	"range":20
+	"range":6
 }

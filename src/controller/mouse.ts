@@ -18,7 +18,7 @@ const Mouse = {
     left: 0,
     middle: 1,
     right: 2,
-    // This function causes the isoSceneObject to track the 
+    // This function causes the isoSceneObject to track the
     // mouse position while the mouse is over the isometric map.
     // The isoSceneObject will only be positioned at non-colliding positions,
     // however.
@@ -27,7 +27,7 @@ const Mouse = {
     //  @ isoSceneObject: the isometric SceneObject that will track the mouse
     trackIsoTerrainGridMove: (isoSceneObject: any) => {
         wade.app.onIsoTerrainMouseMove = (event) => {
-            wade.iso.moveObjectToTile(isoSceneObject,
+            const wasMoved = wade.iso.moveObjectToTile(isoSceneObject,
                 event.gridCoords.x, event.gridCoords.z);
         };
     },

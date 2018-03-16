@@ -1,11 +1,11 @@
 {
 	"name":"spearCalvary",
-	"hp":25,
-	"defense":75,
-	"attack":75,
-	"gathering": 0,
-	"speed":75,
-	"vision":50,
+	"hp":300,
+	"defense":45,
+	"attack":80,
+	"gathering": 1,
+	"speed":200,
+	"vision":7,
 	"cost":50,
-	"range":0
+	"range":1
 }

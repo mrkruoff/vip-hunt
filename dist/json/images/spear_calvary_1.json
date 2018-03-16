@@ -1,0 +1,11 @@
+
+{
+    "type": "sprite",
+    "name": "spear_calvary_1",
+    "visible": "true",
+    "image": "../js/../public/sprites/units/results_warrior_3/spear_calvary_icon.png",
+    "pixelPerfectMouseEvents": 255,
+    "sortPoint": {"x": 0, "y": 0},
+    "animations": { }
+
+}
